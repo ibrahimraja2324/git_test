@@ -1,12 +1,35 @@
-import json, unittest
+import io, json, unittest, zipfile
 from pathlib import Path
-from ingest_standardebooks import extract_chapter,ingest
+from ingest_standardebooks import extract_chapter,ingest,ordered_chapter_paths
 ROOT=Path(__file__).resolve().parents[1]
 class Tests(unittest.TestCase):
     def test_extract_xhtml(self):
         d=extract_chapter('<html><body><h2>One</h2><p>Alpha <i>Beta</i>.</p><p>Gamma.</p></body></html>')
         self.assertEqual(d['title'],'One')
         self.assertEqual(d['paragraphs'],['Alpha Beta.','Gamma.'])
+    def test_opf_spine_beats_lexical_filename_order(self):
+        base='demo-master/src/epub/'
+        opf='''<package xmlns="http://www.idpf.org/2007/opf"><manifest>
+          <item id="second" href="text/chapter-10.xhtml"/>
+          <item id="first" href="text/chapter-2.xhtml"/>
+          <item id="intro" href="text/titlepage.xhtml"/>
+          </manifest><spine><itemref idref="intro"/><itemref idref="first"/>
+          <itemref idref="second"/></spine></package>'''
+        buff=io.BytesIO()
+        with zipfile.ZipFile(buff,'w') as z:
+            z.writestr(base+'content.opf',opf)
+            for name in ('chapter-10.xhtml','chapter-2.xhtml','titlepage.xhtml'):
+                z.writestr(base+'text/'+name,'<p>Test</p>')
+        with zipfile.ZipFile(io.BytesIO(buff.getvalue())) as z:
+            result=ordered_chapter_paths(z)
+        self.assertEqual([v.rsplit('/',1)[-1] for v in result],['chapter-2.xhtml','chapter-10.xhtml'])
+    def test_opf_rejects_missing_spine_file(self):
+        base='demo-master/src/epub/'
+        opf='<package xmlns="http://www.idpf.org/2007/opf"><manifest><item id="a" href="text/chapter-1.xhtml"/></manifest><spine><itemref idref="a"/></spine></package>'
+        buff=io.BytesIO()
+        with zipfile.ZipFile(buff,'w') as z:z.writestr(base+'content.opf',opf)
+        with zipfile.ZipFile(io.BytesIO(buff.getvalue())) as z:
+            with self.assertRaisesRegex(ValueError,'unavailable'):ordered_chapter_paths(z)
     def test_gate_blocks_unreviewed(self):
         with self.assertRaises(ValueError):ingest({'id':'unreviewed','rights':{'decision':'pending'}})
     def test_catalog_status(self):
