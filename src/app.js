@@ -110,7 +110,7 @@ async function aiDesk(id){
       (hits.length?hits.map(hit=>`<article class="ai-hit"><div class="ai-hit-meta"><span>${escape(hit.label)}</span><a href="#read/${escape(selected.id)}/${hit.chapter}">Chapter ${hit.chapter}, ¶ ${hit.paragraph} ↗</a></div><p>${escape(hit.excerpt)}</p><small>Matched: ${hit.matchedTerms.map(escape).join(', ')}</small></article>`).join('')
       :`<p class="muted">No matching clues before chapter ${chapter}. ${chapter===0?'Read a chapter first to unlock your personal context.':'Try a different term, or read further.'}</p>`);
   };
-  $('#aiBook').onchange=e=>{window.location.hash=`#assistant/${e.target.value}`;aiDesk(e.target.value)};
+  $('#aiBook').onchange=e=>{window.location.hash=`#assistant/${e.target.value}`};
   $('#aiFind').onclick=update;
   $('#aiCopy').onclick=async()=>{
     try{await navigator.clipboard.writeText(contextPrompt(currentPacket()));toast('Spoiler-limited prompt copied. Paste it into your AI.')}

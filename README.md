@@ -39,7 +39,7 @@ Do not publish unknown modern works, translated editions or fan translations wit
 
 ## Architecture & product direction
 
-[Architecture](docs/architecture.md) · [Zero-cost intelligence policy](docs/zero-cost-intelligence.md) · [Rights & sourcing](docs/rights-policy.md) · [Milestone roadmap](docs/roadmap.md)
+[Contributor rules](AGENTS.md) · [Architecture](docs/architecture.md) · [Zero-cost intelligence policy](docs/zero-cost-intelligence.md) · [Rights & sourcing](docs/rights-policy.md) · [Milestone roadmap](docs/roadmap.md)
 
 ## Next development
 

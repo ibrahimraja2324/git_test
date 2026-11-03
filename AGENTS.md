@@ -1,0 +1,34 @@
+# Novalume autonomous implementation rules
+
+Read this at the beginning of every coding or scheduled run. It applies to Codex, ChatGPT and human contributors.
+
+## Product contract
+
+Build a real reader-first Webnovel alternative, not an AI demo. We are zero-paid-AI **by design**: core reading, publishing, static narrative indexing, search, recommendations, personal context and author workflows MUST work with no cloud model billing or user API keys. No Gemini-key harvesting, quota pooling, browser-exposed secret keys or hidden cloud inference. Optional personal model inference may run on a reader's local machine, or readers may copy/download their context into an AI provider they use independently. Never send a reader's content to third parties without an intentional, informed action.
+
+## Canonical state
+
+- Branch: `novalume-foundation` of `ibrahimraja2324/git_test` until a dedicated repo is explicitly available. Do not modify `main` or another project.
+- Master task list: `ops/backlog.json` and native Google Sheet `https://docs.google.com/spreadsheets/d/1i9kd1tPfm8-7rE8HQmLpTFND6q9EjZC86EvVdHWk7uo/edit`. Keep IDs and statuses in sync; use `python3 scripts/assign_next.py` for an unblocked next task. Do not spawn duplicate trackers.
+- Policies: `docs/zero-cost-intelligence.md`, `docs/rights-policy.md`, `docs/architecture.md`, `docs/roadmap.md`.
+
+## Each run
+
+1. Read the actual repo branch, task statuses, rights ledger and latest test results; do not claim work from old summaries that is no longer present.
+2. Fix failures or legal blockers first. Then select the highest-impact unblocked milestone; break it into a substantial, testable vertical slice. Avoid planning-only, micro-asset and infinite validation loops.
+3. Reuse safe, appropriately licensed open-source code and standard library functionality before writing new infrastructure. Do not scrape or copy Webnovel, Royal Road or fan translations. Public domain must be checked per edition and publishing territory. Unapproved catalogued books stay external links, not hosted files.
+4. Implement, run `npm test && npm run build`, add adversarial tests for spoiler / copyright / key / rights leakage. Run browser smoke tests when available, otherwise document clearly that browser QA is not verified.
+5. Commit actual source files and generated deterministic index to the canonical branch. Record commit SHA, validation evidence, and next actions in repository and the Sheet. Never say a deployed site exists without verified URL and HTTP/UI smoke test.
+6. Do not claim that lexical clues prove a character relationship, event, payoff or trope. Promote only human-verified facts with chapter/paragraph citations, time bounds and provenance. Use held-out gold datasets to measure progress.
+
+## Current hard limits and priorities (2026-11-04)
+
+- The initial static site is NOT publicly deployed. One chapter of one rights-reviewed classic is actually hosted, while 30 titles are candidate discovery listings.
+- Current platform AI API spending: $0. Any proposal requiring platform-paid AI must be redesigned, not simply deferred to the user's bill.
+- Personal AI Desk supports prompt/JSON export and optional 127.0.0.1 Ollama/LM Studio; hosted cloud BYOK is NOT implemented and requires a separate security review.
+- Major next milestones: NV-004 rights-cleared complete novel catalogue; NV-024 human-grounded static extraction evaluation; NV-025 author corrections; NV-026 scalable per-arc/per-chapter indexing.
+- ChatGPT recurring automation is not scheduled because the account's five-task limit is already reached. Do not promise unscheduled background execution.
+
+## Definition of done
+
+Working user journey + tests + source provenance / licence clearance + no paid AI dependencies + release-safe secrets + actual git commit + Sheet evidence. Partial milestones must be labeled partial. Never invent live users, legal clearances, browser test passes, or an automatic operation that was not scheduled.
