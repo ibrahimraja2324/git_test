@@ -17,11 +17,17 @@ jobs:
         with:
           python-version: '3.12'
       - name: Verify rights gate and import original source
-        run: python3 scripts/ingest_standardebooks.py '${{ inputs.book_id }}'
+        env:
+          NOVALUME_BOOK_ID: ${{ inputs.book_id }}
+        run: |
+          [[ "$NOVALUME_BOOK_ID" =~ ^[a-z0-9-]+$ ]] || { echo "Invalid book ID" >&2; exit 1; }
+          python3 scripts/ingest_standardebooks.py "$NOVALUME_BOOK_ID"
       - run: python3 scripts/build_catalog.py && python3 -m unittest discover -s scripts -p 'test_*.py'
       - name: Commit reviewed ingestion
+        env:
+          NOVALUME_BOOK_ID: ${{ inputs.book_id }}
         run: |
           git config user.name 'novalume-catalog-bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add public/data/books public/data/catalog.json
-          git diff --cached --quiet || (git commit -m "catalog: import rights-approved ${{ inputs.book_id }}" && git push)
+          git diff --cached --quiet || (git commit -m "catalog: import rights-approved ${NOVALUME_BOOK_ID}" && git push)
