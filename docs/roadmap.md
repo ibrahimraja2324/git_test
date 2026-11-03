@@ -1,6 +1,6 @@
 # Milestone roadmap — self-assignment contract
 
-**Principle:** Every run ships a coherent vertical slice before any prose-only planning. Rights safety and production security are non-negotiable gates.
+**Principle:** Every run ships a coherent vertical slice before any prose-only planning. All essential features must work without paid AI or user AI keys. Rights safety and production security are non-negotiable gates.
 
 | Phase | Milestone | Completion evidence |
 |---|---|---|
@@ -34,3 +34,7 @@
 ## Stop-the-line triggers
 
 Unlicensed copied text, exposed credentials, an auth bypass, unsafe payment handling, privacy violation, unverified import, or falsely presented AI metadata. Block release, correct issue, document cause.
+
+## Mandatory budget gate
+
+At task assignment, reject or redesign any item whose core path requires billable AI. Default to static indexes, user-approved author annotations, lexical/graph retrieval and CPU processing. Optional user-owned local AI and portable prompt exports may improve the experience, but cannot be required. Track benchmark quality and CPU/hosting cost separately. [Rules](zero-cost-intelligence.md).

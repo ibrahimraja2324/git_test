@@ -1,6 +1,6 @@
 # ✦ Novalume
 
-**An AI-ready fiction discovery and reading platform that understands stories beyond genre labels.**
+**An zero-paid-AI fiction discovery and reading platform that understands stories beyond genre labels.**
 
 > Status: functioning static reader MVP (2026-11-04). Not yet a public publishing or commercial service.
 
@@ -13,6 +13,8 @@
 - 30 public-domain **candidate** discovery listings and source links. Each title is pending an edition-specific legal approval except the launch example.
 - One actual first chapter of *Pride and Prejudice* available in the internal reader as a proof of the whole reading flow.
 - Rights-gated reproducible edition importer, CI tests, static site build and a GitHub Pages deployment workflow.
+- Zero-AI-cost lexical evidence index for hosted chapters (20 rule groups, evidence excerpts, source hashes and provenance), with clear unverified labels.
+- Reader AI Desk: offline evidence search, privacy-preserving prompt / context JSON export, optional localhost Ollama / LM Studio integration. No cloud key collection.
 
 ## Run
 
@@ -37,15 +39,11 @@ Do not publish unknown modern works, translated editions or fan translations wit
 
 ## Architecture & product direction
 
-[Architecture](docs/architecture.md) · [Rights & sourcing](docs/rights-policy.md) · [Milestone roadmap](docs/roadmap.md)
+[Architecture](docs/architecture.md) · [Zero-cost intelligence policy](docs/zero-cost-intelligence.md) · [Rights & sourcing](docs/rights-policy.md) · [Milestone roadmap](docs/roadmap.md)
 
 ## Next development
 
-The structured narrative event graph, live Gemini integration, durable auth, recommendations from chapter evidence, author publishing workflow, moderation and payments are not implemented yet. See [the canonical build and rights tracker](https://docs.google.com/spreadsheets/d/1i9kd1tPfm8-7rE8HQmLpTFND6q9EjZC86EvVdHWk7uo/edit), `ops/backlog.json` and `ops/next-task.md` for acceptance criteria and dependencies.
-
-## Project status and handoff
-
-Source currently lives only on an isolated `novalume-foundation` branch in an existing test repository, not a dedicated project repository. The website has not been publicly deployed, and the full-book import queue remains pending legal verification. Scheduled ChatGPT automation could not be installed because the user's account has reached its five-task limit; existing automations were not changed. `scripts/assign_next.py` deterministically selects the next unblocked milestone for manual or permitted scheduled runs.
+A free deterministic chapter-evidence layer and reader AI Desk now work: users can export spoiler-limited context to their own assistant or explicitly call a local Ollama/LM Studio model. Narrative semantic verification, durable auth, cloud BYOK integration, public author publishing, moderation and payments are not implemented. We will not require or handle cloud AI keys on the static site. See the issue tracker and Google Sheet for acceptance criteria and dependencies.
 
 ## License
 

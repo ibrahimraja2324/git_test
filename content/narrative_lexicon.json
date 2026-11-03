@@ -1,0 +1,26 @@
+{
+  "version": "2026-11-04-lexicon-1",
+  "description": "Surface-language clues only. A match is NOT proof that a plot event occurred or that a trope is narratively important.",
+  "signals": [
+    {"id":"identity-and-recognition","label":"Identity & recognition","group":"revelation","terms":["identity","real name","recognize","recognise","recognized","recognised","unknown to","disguised","revealed","secretly","impostor","disguise"],"negations":["not recognized","not recognised","never revealed"]},
+    {"id":"family-and-kinship","label":"Family & kinship","group":"relationship","terms":["mother","father","brother","sister","daughter","son","family","uncle","aunt","parents","cousin","inheritance"]},
+    {"id":"betrayal-and-deception","label":"Betrayal & deception","group":"conflict","terms":["betrayed","betrayal","deceived","deception","lied to","treacherous","traitor","cheated","false promise","fraud"]},
+    {"id":"vindication-and-regret","label":"Regret & vindication","group":"payoff","terms":["regretted","regret","forgive","forgiveness","apology","apologized","apologised","repented","ashamed","vindication","vindicated"]},
+    {"id":"public-reaction","label":"Public reactions","group":"social","terms":["crowd","audience","everyone","astonished","amazed","applause","cheered","gasped","cheering","spectators","bystanders","whispers"]},
+    {"id":"status-and-ranking","label":"Status & rankings","group":"progression","terms":["rank","ranking","level","grade","promotion","promoted","title","status","prestige","achievement","tournament","champion"]},
+    {"id":"practice-and-training","label":"Training & practice","group":"progression","terms":["trained","training","practiced","practised","practice","cultivation","breakthrough","mastered","disciple","technique","strengthened"]},
+    {"id":"discovery-and-revelation","label":"Discoveries & revelations","group":"revelation","terms":["discovered","realized","realised","found out","revealed","disclosed","learned","learnt","confessed","understood at last","clue"]},
+    {"id":"romance-and-affection","label":"Romance & affection","group":"relationship","terms":["love","beloved","romance","marry","married","marriage","kiss","affection","heart","courtship"]},
+    {"id":"power-and-authority","label":"Power & authority","group":"politics","terms":["king","queen","emperor","empress","prince","princess","court","minister","governor","ruler","throne","council"]},
+    {"id":"mystery-and-investigation","label":"Mystery & investigation","group":"mystery","terms":["mystery","clue","evidence","detective","investigate","investigation","suspect","crime","witness","case","secret passage"]},
+    {"id":"journey-and-exploration","label":"Journeys & exploration","group":"adventure","terms":["journey","voyage","ship","travelled","traveled","expedition","explore","explored","adventure","destination","island","wilderness"]},
+    {"id":"danger-and-conflict","label":"Danger & conflict","group":"conflict","terms":["battle","attack","fight","fought","sword","threat","danger","war","enemy","killed","escape","escaped"]},
+    {"id":"suspense-and-uncertainty","label":"Suspense & uncertainty","group":"mystery","terms":["perhaps","uncertain","suspicion","afraid","anxious","dread","terrified","mysterious","unknown","unexpected","fear"]},
+    {"id":"magic-and-supernatural","label":"Magic & supernatural","group":"fantasy","terms":["magic","magical","spell","witch","wizard","sorcery","supernatural","ghost","spirit","curse","enchantment"]},
+    {"id":"science-and-technology","label":"Science & technology","group":"science-fiction","terms":["machine","experiment","science","electricity","engine","robot","laboratory","future","time travel","technology","invention"]},
+    {"id":"reputation-and-humiliation","label":"Reputation & humiliation","group":"social","terms":["reputation","shame","ashamed","humiliation","humiliated","scandal","dishonor","dishonour","mocked","ridiculed","insult"]},
+    {"id":"promises-and-obligations","label":"Promises & obligations","group":"commitment","terms":["promise","promised","vow","vowed","oath","swore","pledge","duty","obligation","debt"]},
+    {"id":"wealth-and-poverty","label":"Wealth & poverty","group":"social","terms":["money","wealth","fortune","rich","poor","poverty","debt","property","estate","inheritance","income"]},
+    {"id":"world-and-faction","label":"World & factions","group":"worldbuilding","terms":["kingdom","empire","sect","guild","clan","faction","city","nation","continent","province","alliance","territory"]}
+  ]
+}

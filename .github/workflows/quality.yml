@@ -16,4 +16,4 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Check generated catalogue is committed
-        run: git diff --exit-code -- public/data/catalog.json
+        run: git diff --exit-code -- public/data/catalog.json public/data/story_index.json public/data/knowledge/

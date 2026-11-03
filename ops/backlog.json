@@ -1,22 +1,367 @@
 [
-{"id":"NV-001","phase":"P0","title":"Build responsive reader website with real navigation","priority":1,"status":"done","owner":"ChatGPT","dependencies":[],"acceptance":"Local site builds; landing, catalogue, book detail, reader, library and author draft workflows render and are navigable","evidence":"src/app.js, src/styles.css, index.html"},
-{"id":"NV-002","phase":"P0","title":"Implement legally gated catalogue","priority":1,"status":"done","owner":"ChatGPT","dependencies":[],"acceptance":"Manifest with 25+ entries; only reviewed and imported editions become hosted","evidence":"content/rights_manifest.json, scripts/build_catalog.py"},
-{"id":"NV-003","phase":"P0","title":"Automated quality checks","priority":1,"status":"done","owner":"ChatGPT","dependencies":[],"acceptance":"Node and Python tests passing; deploy bundle produced","evidence":"npm test && npm run build"},
-{"id":"NV-004","phase":"P1","title":"Complete a batch of 10 properly cleared full-text editions","priority":1,"status":"todo","owner":"ChatGPT","dependencies":["NV-002"],"acceptance":"10 full books with documented AU/US/source-edition rights reviews, parsed chapter QA, hashes, zero broken readers","evidence":"rights records, imported JSON and tests"},
-{"id":"NV-005","phase":"P1","title":"Fix import chapter ordering and structural QA against OPF spine","priority":1,"status":"todo","owner":"ChatGPT","dependencies":["NV-002"],"acceptance":"TOC/spine driven chapter order including multi-part novels, no missing/duplicated chapters, manual spot checks","evidence":"ingestion tests and fixtures"},
-{"id":"NV-006","phase":"P1","title":"Deploy live site to standalone project repository/domain","priority":1,"status":"todo","owner":"ChatGPT","dependencies":["NV-001"],"acceptance":"Dedicated repo and live tested HTTPS preview; homepage + reader smoke-tested on mobile","evidence":"deployment URL, CI run and screenshot"},
-{"id":"NV-007","phase":"P1","title":"Add actual author-to-server publishing and revision/version storage","priority":2,"status":"todo","owner":"Codex","dependencies":["NV-006"],"acceptance":"Secure authenticated manuscripts, rights grants, drafts, scheduling and publication, tests","evidence":"API + database migrations"},
-{"id":"NV-008","phase":"P1","title":"Build account auth and cross-device bookshelf","priority":2,"status":"todo","owner":"Codex","dependencies":["NV-006"],"acceptance":"Authenticated profiles, RLS privacy, progress sync, exports and deletion","evidence":"E2E auth and migration tests"},
-{"id":"NV-009","phase":"P1","title":"Create story-knowledge schema with provenance and temporal chapter cutoffs","priority":2,"status":"todo","owner":"ChatGPT","dependencies":["NV-005"],"acceptance":"Validated entities/events/reveals/payoffs, evidence citations, story time and knowledge time, correction support","evidence":"schemas and gold dataset"},
-{"id":"NV-010","phase":"P1","title":"Build rights complaint and moderation workflow","priority":2,"status":"todo","owner":"Codex","dependencies":["NV-007"],"acceptance":"Copyright report, audit trail, quarantine and appeal + publishing rules","evidence":"backoffice tests"},
-{"id":"NV-011","phase":"P1","title":"Recruit independent fantasy and progression-fiction authors","priority":2,"status":"todo","owner":"ChatGPT","dependencies":["NV-007"],"acceptance":"Consent-backed initial author outreach and at least 10 publication permissions, measured response rate","evidence":"tracked permissions and outreach"},
-{"id":"NV-012","phase":"P2","title":"Build evidence-linked scene and chapter AI extraction pipeline","priority":2,"status":"todo","owner":"Codex","dependencies":["NV-009"],"acceptance":"Costed extraction, model-versioning, grounded facts, retries, confidence and human correction","evidence":"batch eval, migrations and cost log"},
-{"id":"NV-013","phase":"P2","title":"Build hybrid event-driven recommendation search","priority":2,"status":"todo","owner":"Codex","dependencies":["NV-012"],"acceptance":"Hybrid lexical/vector/event ranking beats current baseline in offline judged tests","evidence":"evaluations and relevance metrics"},
-{"id":"NV-014","phase":"P2","title":"Implement spoiler-safe personal AI reader","priority":3,"status":"todo","owner":"Codex","dependencies":["NV-012","NV-008"],"acceptance":"Permitted-chapter retrieval enforced in backend; adversarial leakage tests and cited answers","evidence":"security + temporal tests"},
-{"id":"NV-015","phase":"P2","title":"Implement author continuity compiler","priority":3,"status":"todo","owner":"Codex","dependencies":["NV-012","NV-007"],"acceptance":"Factual contradiction and unresolved-thread warnings with dismiss/repair; measured false positives","evidence":"author QA"},
-{"id":"NV-016","phase":"P2","title":"Run real-user reader usability test","priority":3,"status":"todo","owner":"ChatGPT","dependencies":["NV-006","NV-004"],"acceptance":"20 readers, task-completion feedback, targeted bug fixes; consented metrics","evidence":"test findings and shipped changes"},
-{"id":"NV-017","phase":"P2","title":"Make accessible mobile reading and offline support","priority":3,"status":"todo","owner":"Codex","dependencies":["NV-006"],"acceptance":"WCAG AA spot checks, keyboard navigation, offline readable chapters, responsive tests","evidence":"a11y and offline QA"},
-{"id":"NV-018","phase":"P3","title":"Reader-paid access with transparent author accounting","priority":4,"status":"todo","owner":"Codex","dependencies":["NV-008","NV-010"],"acceptance":"Purchase + refunds, creator ledger, rights entitlements, financial/legal review","evidence":"audit-ready payment tests"},
-{"id":"NV-019","phase":"P3","title":"Author-licensed multilingual translation assistance","priority":4,"status":"todo","owner":"Codex","dependencies":["NV-012","NV-007"],"acceptance":"Per-language licensed rights, term glossary and terminology review workflow","evidence":"translation QA"},
-{"id":"NV-020","phase":"P3","title":"Explore event-based spoiler-controlled communities","priority":4,"status":"todo","owner":"ChatGPT","dependencies":["NV-008","NV-012","NV-010"],"acceptance":"Real human discussion, chapter-aware spoiler control, moderation and appeals","evidence":"verified community beta"}
+  {
+    "id": "NV-001",
+    "phase": "P0",
+    "title": "Build responsive reader website with real navigation",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [],
+    "acceptance": "Local site builds; landing, catalogue, book detail, reader, library and author draft workflows render and are navigable",
+    "evidence": "src/app.js, src/styles.css, index.html"
+  },
+  {
+    "id": "NV-002",
+    "phase": "P0",
+    "title": "Implement legally gated catalogue",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [],
+    "acceptance": "Manifest with 25+ entries; only reviewed and imported editions become hosted",
+    "evidence": "content/rights_manifest.json, scripts/build_catalog.py"
+  },
+  {
+    "id": "NV-003",
+    "phase": "P0",
+    "title": "Automated quality checks",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [],
+    "acceptance": "Node and Python tests passing; deploy bundle produced",
+    "evidence": "npm test && npm run build"
+  },
+  {
+    "id": "NV-004",
+    "phase": "P1",
+    "title": "Complete a batch of 10 properly cleared full-text editions",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-002"
+    ],
+    "acceptance": "10 full books with documented AU/US/source-edition rights reviews, parsed chapter QA, hashes, zero broken readers",
+    "evidence": "rights records, imported JSON and tests"
+  },
+  {
+    "id": "NV-005",
+    "phase": "P1",
+    "title": "Fix import chapter ordering and structural QA against OPF spine",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-002"
+    ],
+    "acceptance": "TOC/spine driven chapter order including multi-part novels, no missing/duplicated chapters, manual spot checks",
+    "evidence": "ingestion tests and fixtures"
+  },
+  {
+    "id": "NV-006",
+    "phase": "P1",
+    "title": "Deploy live site to standalone project repository/domain",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-001"
+    ],
+    "acceptance": "Dedicated repo and live tested HTTPS preview; homepage + reader smoke-tested on mobile",
+    "evidence": "deployment URL, CI run and screenshot"
+  },
+  {
+    "id": "NV-007",
+    "phase": "P1",
+    "title": "Add actual author-to-server publishing and revision/version storage",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-006"
+    ],
+    "acceptance": "Secure authenticated manuscripts, rights grants, drafts, scheduling and publication, tests",
+    "evidence": "API + database migrations"
+  },
+  {
+    "id": "NV-008",
+    "phase": "P1",
+    "title": "Build account auth and cross-device bookshelf",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-006"
+    ],
+    "acceptance": "Authenticated profiles, RLS privacy, progress sync, exports and deletion",
+    "evidence": "E2E auth and migration tests"
+  },
+  {
+    "id": "NV-009",
+    "phase": "P1",
+    "title": "Create story-knowledge schema with provenance and temporal chapter cutoffs",
+    "priority": 2,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-005"
+    ],
+    "acceptance": "Validated entities/events/reveals/payoffs, evidence citations, story time and knowledge time, correction support",
+    "evidence": "schemas and gold dataset"
+  },
+  {
+    "id": "NV-010",
+    "phase": "P1",
+    "title": "Build rights complaint and moderation workflow",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-007"
+    ],
+    "acceptance": "Copyright report, audit trail, quarantine and appeal + publishing rules",
+    "evidence": "backoffice tests"
+  },
+  {
+    "id": "NV-011",
+    "phase": "P1",
+    "title": "Recruit independent fantasy and progression-fiction authors",
+    "priority": 2,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-007"
+    ],
+    "acceptance": "Consent-backed initial author outreach and at least 10 publication permissions, measured response rate",
+    "evidence": "tracked permissions and outreach"
+  },
+  {
+    "id": "NV-012",
+    "phase": "P2",
+    "title": "Build evidence-linked narrative extraction without paid API dependencies",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-009"
+    ],
+    "acceptance": "High-precision deterministic and author-verified entity/event extraction with provenance and gold evaluations; no platform billable AI calls",
+    "evidence": "batch eval, migrations and cost log"
+  },
+  {
+    "id": "NV-013",
+    "phase": "P2",
+    "title": "Build rich offline event-driven retrieval and matching",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-012"
+    ],
+    "acceptance": "Lexical + structured-temporal retrieval measurably beats basic tags without paid inference; optional reader BYO local reranking",
+    "evidence": "evaluations and relevance metrics"
+  },
+  {
+    "id": "NV-014",
+    "phase": "P2",
+    "title": "Harden spoiler-safe personal context and optional BYO reader assistant",
+    "priority": 3,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-012",
+      "NV-008"
+    ],
+    "acceptance": "Rights/entitlements enforced before data access; local/portable assistant optional; no public site accepting cloud API keys; security regression tests",
+    "evidence": "security + temporal tests"
+  },
+  {
+    "id": "NV-015",
+    "phase": "P2",
+    "title": "Implement author continuity compiler",
+    "priority": 3,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-012",
+      "NV-007"
+    ],
+    "acceptance": "Factual contradiction and unresolved-thread warnings with dismiss/repair; measured false positives",
+    "evidence": "author QA"
+  },
+  {
+    "id": "NV-016",
+    "phase": "P2",
+    "title": "Run real-user reader usability test",
+    "priority": 3,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-006",
+      "NV-004"
+    ],
+    "acceptance": "20 readers, task-completion feedback, targeted bug fixes; consented metrics",
+    "evidence": "test findings and shipped changes"
+  },
+  {
+    "id": "NV-017",
+    "phase": "P2",
+    "title": "Make accessible mobile reading and offline support",
+    "priority": 3,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-006"
+    ],
+    "acceptance": "WCAG AA spot checks, keyboard navigation, offline readable chapters, responsive tests",
+    "evidence": "a11y and offline QA"
+  },
+  {
+    "id": "NV-018",
+    "phase": "P3",
+    "title": "Reader-paid access with transparent author accounting",
+    "priority": 4,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-008",
+      "NV-010"
+    ],
+    "acceptance": "Purchase + refunds, creator ledger, rights entitlements, financial/legal review",
+    "evidence": "audit-ready payment tests"
+  },
+  {
+    "id": "NV-019",
+    "phase": "P3",
+    "title": "Author-licensed optional local-model translation assistance",
+    "priority": 4,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-012",
+      "NV-007"
+    ],
+    "acceptance": "Rights clearance and consistent glossary, no paid translation platform API by default; author-approved output quality tests",
+    "evidence": "translation QA"
+  },
+  {
+    "id": "NV-020",
+    "phase": "P3",
+    "title": "Explore event-based spoiler-controlled communities",
+    "priority": 4,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-008",
+      "NV-012",
+      "NV-010"
+    ],
+    "acceptance": "Real human discussion, chapter-aware spoiler control, moderation and appeals",
+    "evidence": "verified community beta"
+  },
+  {
+    "id": "NV-021",
+    "phase": "P1",
+    "title": "Build zero-inference lexical story evidence indexing",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-002"
+    ],
+    "acceptance": "Versioned 20-signal lexical matcher, provenance, approved-only rights gate, source SHA, reproducible output and tests",
+    "evidence": "content/narrative_lexicon.json; scripts/build_story_index.py; scripts/test_story_index.py; public/data/story_index.json"
+  },
+  {
+    "id": "NV-022",
+    "phase": "P1",
+    "title": "Build spoiler-cutoff context export and reader AI Desk",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-021"
+    ],
+    "acceptance": "Hosted-only context packets, chapter cutoff, clip excerpts, copy prompt and JSON download, test for future leaks",
+    "evidence": "src/knowledge.js; src/knowledge.test.js; src/app.js AI Desk; UI links"
+  },
+  {
+    "id": "NV-023",
+    "phase": "P1",
+    "title": "Support optional reader-owned local inference endpoints",
+    "priority": 2,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-022"
+    ],
+    "acceptance": "Explicit opt-in only for localhost Ollama/LM Studio, fixed endpoints, no credentials, typed response and unit tests",
+    "evidence": "src/knowledge.js askLocalModel, test adapter"
+  },
+  {
+    "id": "NV-024",
+    "phase": "P1",
+    "title": "Benchmark static extraction on human-labeled narrative examples",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-021"
+    ],
+    "acceptance": "Build >=100 labeled paragraphs covering negation, dialogue, aliases, event timing; quantify precision/recall and improve rules based on error categories",
+    "evidence": "tests gold corpus, versioned benchmark and diff"
+  },
+  {
+    "id": "NV-025",
+    "phase": "P1",
+    "title": "Author-approved narrative event and relationship annotation schema",
+    "priority": 2,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-021"
+    ],
+    "acceptance": "Strong validated facts distinct from lexical cues; time-qualified entity IDs, evidence, revisions, author correction and reviewer approval",
+    "evidence": "schema, parser and adversarial tests"
+  },
+  {
+    "id": "NV-026",
+    "phase": "P1",
+    "title": "Scalable static index sharding and offline search",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-021"
+    ],
+    "acceptance": "Benchmark 3,000 chapters; lazy-load by chapter/arc and avoid large downloads; source hashes and index version correctness",
+    "evidence": "benchmarks in CI, deterministic generated shards"
+  },
+  {
+    "id": "NV-027",
+    "phase": "P1",
+    "title": "No-paid-AI CI gate and deterministic rights-gated distribution",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-002"
+    ],
+    "acceptance": "No cloud model endpoint in site/build, no keys, revoked chapters excluded from dist and quality guard tests",
+    "evidence": "scripts/check_no_paid_ai.py, scripts/assemble_site.py, docs/zero-cost-intelligence.md"
+  },
+  {
+    "id": "NV-028",
+    "phase": "P2",
+    "title": "Secure cloud BYOK design without collecting exposed browser API keys",
+    "priority": 3,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-022"
+    ],
+    "acceptance": "Provider-compliant OAuth/proxy or safely delegated token architecture, threat model, consent and independent security review; optional only",
+    "evidence": "threat model and tests before implementation"
+  }
 ]

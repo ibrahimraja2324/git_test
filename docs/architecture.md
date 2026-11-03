@@ -36,3 +36,7 @@ This is a functional **static reader MVP**, not a production social network. The
 ## Deployment
 
 Build generates `dist/`; deploy it to GitHub Pages or any static host. Enable Pages and choose GitHub Actions in repo settings. Existing `.github/workflows/pages.yml` targets `main`; update if working in an isolated branch. Production deployment verification must be done separately.
+
+## Zero-paid-AI foundation shipped 2026-11-04
+
+Deterministic chapter-level clues with source hashes and chapter/paragraph positions, no inference calls, by default. Reader AI Desk exports cutoff-scoped structured packets or optionally calls the reader’s loopback local model. This is *lexical evidence*, not validated story events. See [zero cost intelligence policy](zero-cost-intelligence.md). Cloud keys are never accepted on the public static site. All future milestones must preserve a useful AI-free route.

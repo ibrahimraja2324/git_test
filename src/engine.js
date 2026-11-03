@@ -24,6 +24,32 @@ export function parseIntent(query=''){
  for(const [tag,patterns] of Object.entries(tagAliases)) if(patterns.some(p=>q.includes(p)))wanted.add(tag);
  return {terms,wanted:[...wanted],query};
 }
+/** Lexical evidence is weak support, NEVER a claim that a narrative event happened. */
+const evidenceAlias={
+ 'identity-and-recognition':['identity','hidden identity','secret identity','disguise'],
+ 'family-and-kinship':['family','family conflict','mother','father','brother','sister'],
+ 'betrayal-and-deception':['betrayal','revenge','deceived'],
+ 'vindication-and-regret':['family regret','regret','forgiveness','vindication'],
+ 'public-reaction':['public reaction','everyone shocked','recognition','crowd'],
+ 'status-and-ranking':['earned progression','progression','rank','status'],
+ 'practice-and-training':['earned progression','training','cultivation'],
+ 'mystery-and-investigation':['mystery','investigation','detective'],
+ 'romance-and-affection':['romance','slow burn','marriage'],
+ 'journey-and-exploration':['adventure','journey','exploration'],
+ 'science-and-technology':['science fiction','future','technology'],
+ 'power-and-authority':['political intrigue','politics','kingdom'],
+ 'magic-and-supernatural':['fantasy','magic','ghost']
+};
+export function evidenceBoost(book,query='',preferred=[]){
+ const counts=book.evidenceCounts||{}, q=[query,...preferred].join(' ').toLowerCase();
+ if(!q.trim())return {bonus:0,reasons:[]};
+ let bonus=0;const reasons=[];
+ for(const [id,terms] of Object.entries(evidenceAlias)){
+   if(!counts[id])continue;
+   if(terms.some(term=>q.includes(term))){bonus+=Math.min(3,1+Math.log2(1+counts[id]));reasons.push(id.replaceAll('-',' '))}
+ }
+ return {bonus:Math.min(8,bonus),reasons:reasons.slice(0,2)};
+}
 export function scoreBook(book,query='',preferred=[]){
  const intent=parseIntent(query); const tags=(book.tags||[]).map(t=>t.toLowerCase());
  const text=[book.title,book.author,book.blurb,...tags,...(book.storySignals||[])].join(' ').toLowerCase();
@@ -33,9 +59,10 @@ export function scoreBook(book,query='',preferred=[]){
   else if(text.includes(tag)){score+=4;reasons.push(tag)}
  }
  for(const term of intent.terms){ if(tags.some(t=>t.includes(term))){score+=3}else if(text.includes(term)){score+=1} }
+ const extra=evidenceBoost(book,query,preferred);score+=extra.bonus;
  if(!query.trim()&&preferred.length===0) score=(book.featured||0)*4;
  if(book.status==='ready') score+=2;
- return {...book,matchScore:score,matchReasons:[...new Set(reasons)].slice(0,3)};
+ return {...book,matchScore:score,matchReasons:[...new Set(reasons)].slice(0,3),evidenceReasons:extra.reasons};
 }
 export function rankBooks(catalog,query='',preferred=[],filter='All'){
  return catalog.filter(b=>filter==='All'||b.genre===filter||b.tags.includes(filter.toLowerCase()))
