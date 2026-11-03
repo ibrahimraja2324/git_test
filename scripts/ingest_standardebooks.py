@@ -3,7 +3,7 @@
 Uses one GitHub archive download per edition rather than bulk hotlinking ebooks.
 Network required. This tool never changes the legal decision to approved.
 """
-import argparse, hashlib, io, json, re, urllib.request, zipfile
+import argparse, hashlib, io, json, posixpath, re, urllib.request, zipfile
 from pathlib import Path
 from html.parser import HTMLParser
 from xml.etree import ElementTree as ET
@@ -37,6 +37,39 @@ class ChapterParser(HTMLParser):
 def extract_chapter(source):
     parser=ChapterParser();parser.feed(source)
     return {'title':parser.title,'paragraphs':parser.parts}
+def ordered_chapter_paths(z):
+    """Respect EPUB reading order from the OPF spine; fail closed on invalid source.
+
+    Standard Ebooks source repositories contain src/epub/content.opf, whose spine
+    is the authoritative order. Filesystem/natural sorting silently scrambles some
+    multi-part works (chapter-1 from each part can collide), so no fallback.
+    """
+    names=set(z.namelist())
+    opfs=[n for n in names if n.endswith('/src/epub/content.opf')]
+    if len(opfs)!=1:raise ValueError('Expected exactly one source EPUB content.opf')
+    opf=opfs[0]
+    try:root=ET.fromstring(z.read(opf))
+    except ET.ParseError as exc:raise ValueError('Invalid EPUB content.opf') from exc
+    manifest={e.get('id'):e.get('href') for e in root.findall('.//{*}manifest/{*}item')}
+    spine=[e.get('idref') for e in root.findall('.//{*}spine/{*}itemref')]
+    if not manifest or not spine:raise ValueError('Missing OPF manifest or spine')
+    base=posixpath.dirname(opf);eligible=[];seen=set()
+    for item_id in spine:
+        href=manifest.get(item_id)
+        if not href:raise ValueError(f'OPF spine references missing manifest item {item_id!r}')
+        href=href.split('#',1)[0]
+        if not href.lower().endswith('.xhtml'):continue
+        name=posixpath.normpath(posixpath.join(base,href))
+        if not name.startswith(base+'/') or name not in names:
+            raise ValueError(f'Unsafe or unavailable OPF spine entry: {href}')
+        filename=posixpath.basename(name)
+        if not re.fullmatch(r'(?:chapter|part|book|story|prologue|epilogue)(?:[-_][a-z0-9_.-]+)?\.xhtml',filename,re.I):
+            continue
+        if name in seen:raise ValueError(f'Duplicate OPF spine entry: {name}')
+        seen.add(name);eligible.append(name)
+    if not eligible:raise ValueError('No chapter XHTML files identified in OPF spine; manual review required')
+    return eligible
+
 def ingest(item,force=False):
     rights=item['rights']
     if rights['decision']!='approved' or not rights.get('reviewer') or not rights.get('reviewedAt'):
@@ -53,13 +86,7 @@ def ingest(item,force=False):
     if len(archive)>MAX_ARCHIVE_BYTES:raise ValueError('Archive size limit exceeded')
     digest=hashlib.sha256(archive).hexdigest()
     with zipfile.ZipFile(io.BytesIO(archive)) as z:
-        names=[n for n in z.namelist() if '/src/epub/text/' in n and n.endswith('.xhtml')]
-        # Only chapter/part files are included; title pages, forewords, biographies,
-        # modern introductions and colophons are intentionally excluded.
-        eligible=[n for n in names if re.search(r'/(chapter|part|book|story|prologue|epilogue)[-_]?\d*[^/]*\.xhtml$',n,re.I)]
-        if not eligible:raise ValueError('No confidently identified chapter XHTML files. Manual spine review required.')
-        def natural(path):return [int(x) if x.isdigit() else x for x in re.split(r'(\d+)',path.lower())]
-        eligible.sort(key=natural)
+        eligible=ordered_chapter_paths(z)
         chapters=[]
         for name in eligible:
             parsed=extract_chapter(z.read(name).decode('utf-8'))
