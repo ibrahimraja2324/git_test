@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Novalume helps you find the stories you actually want to read. Search by plot, payoff, character arc, and the feeling you're chasing." />
+  <meta name="theme-color" content="#101015" />
+  <title>Novalume — Stories worth getting lost in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/styles.css" />
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="site-header">
+      <a class="logo" href="#home" aria-label="Novalume home"><span class="logo-symbol">✦</span> novalume<span class="logo-dot">.</span></a>
+      <nav aria-label="Primary navigation"><a href="#home" data-nav="home">Discover</a><a href="#library" data-nav="library">My library</a><a href="#studio" data-nav="studio">Write</a></nav>
+      <div class="header-actions"><button class="icon-btn" id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">☼</button><button class="profile-btn" id="profileBtn"><span class="avatar">R</span><span>Reader profile</span></button></div>
+    </header>
+    <main id="view" tabindex="-1"><div class="loading-state">Opening the library…</div></main>
+    <footer class="site-footer"><span class="logo mini"><span class="logo-symbol">✦</span> novalume<span class="logo-dot">.</span></span><span>Made for the stories that stay with you.</span><span><a href="#rights">Rights & sources</a> · <a href="#studio">Publish your work</a></span></footer>
+  </div>
+  <div id="toast" role="status" aria-live="polite" class="toast"></div>
+</body>
+</html>
