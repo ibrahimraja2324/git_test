@@ -41,7 +41,11 @@ Do not publish unknown modern works, translated editions or fan translations wit
 
 ## Next development
 
-The structured narrative event graph, live Gemini integration, durable auth, recommendations from chapter evidence, author publishing workflow, moderation and payments are not implemented yet. See the issue tracker and Google Sheet for acceptance criteria and dependencies.
+The structured narrative event graph, live Gemini integration, durable auth, recommendations from chapter evidence, author publishing workflow, moderation and payments are not implemented yet. See [the canonical build and rights tracker](https://docs.google.com/spreadsheets/d/1i9kd1tPfm8-7rE8HQmLpTFND6q9EjZC86EvVdHWk7uo/edit), `ops/backlog.json` and `ops/next-task.md` for acceptance criteria and dependencies.
+
+## Project status and handoff
+
+Source currently lives only on an isolated `novalume-foundation` branch in an existing test repository, not a dedicated project repository. The website has not been publicly deployed, and the full-book import queue remains pending legal verification. Scheduled ChatGPT automation could not be installed because the user's account has reached its five-task limit; existing automations were not changed. `scripts/assign_next.py` deterministically selects the next unblocked milestone for manual or permitted scheduled runs.
 
 ## License
 
