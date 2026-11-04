@@ -6,7 +6,7 @@ const TOOL={name:'search_novalume',description:'Discover authorised books matchi
 const jsonrpc=(id,result)=>({jsonrpc:'2.0',id,result});
 export default function handler(req,res){
   res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');
-  if(req.method==='GET')return res.status(200).json({description:'Novalume experimental MCP Streamable HTTP endpoint',endpoint:'/api/mcp',availableTool:TO.name});
+  if(req.method==='GET')return res.status(200).json({description:'Novalume experimental MCP Streamable HTTP endpoint',endpoint:'/api/mcp',availableTool:TOOL.name});
   if(req.method!=='POST')return res.status(405).json({error:'POST only'});
   let msg;try{msg=typeof req.body==='string'?JSON.parse(req.body):req.body;}catch{return res.status(400).json({error:'Invalid JSON payload'})}
   if(!msg||typeof msg.method!=='string')return res.status(400).json({error:'Invalid MCP request'});
