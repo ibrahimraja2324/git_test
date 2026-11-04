@@ -82,11 +82,11 @@
     "mark": "✝",
     "featured": 28,
     "sourceUrl": "https://standardebooks.org/ebooks/bram-stoker/dracula",
-    "status": "external",
-    "chapterCount": 0,
+    "status": "ready",
+    "chapterCount": 28,
     "license": {
       "type": "REVIEWED-PUBLIC-DOMAIN",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
+      "note": "Bram Stoker died 1912; original English novel first published 1897 during life; US pre-1931 publication and Australia duration expired; source edition editorial work released CC0. Review excludes adaptations/translated editions."
     }
   },
   {
@@ -112,11 +112,11 @@
     "mark": "⚡",
     "featured": 27,
     "sourceUrl": "https://standardebooks.org/ebooks/mary-shelley/frankenstein",
-    "status": "external",
-    "chapterCount": 0,
+    "status": "ready",
+    "chapterCount": 24,
     "license": {
       "type": "REVIEWED-PUBLIC-DOMAIN",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
+      "note": "Mary Shelley died 1851; original English work first published 1818 during life; public domain in Australia and United States; Standard Ebooks editorial work released CC0. Review excludes later adaptations and translations."
     }
   },
   {

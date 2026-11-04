@@ -10,6 +10,26 @@
       "coMentionPatterns": 26,
       "method": "unsupervised-orthographic-phrase-and-entity-mining-v2",
       "sourceSha256": "793016e2bbc791e2e5f51f9fc979541586c816b1a2d30a1c8e59d9b0ff465f54"
+    },
+    "dracula": {
+      "bookId": "dracula",
+      "indexedChapters": 28,
+      "textParagraphs": 337,
+      "observedDynamicPhrases": 260,
+      "candidateEntities": 100,
+      "coMentionPatterns": 100,
+      "method": "unsupervised-orthographic-phrase-and-entity-mining-v2",
+      "sourceSha256": "4b46dc561bf78f29a4efec5f4af23e288e8497a99174a814eaae5a13bf27ea90"
+    },
+    "frankenstein": {
+      "bookId": "frankenstein",
+      "indexedChapters": 24,
+      "textParagraphs": 606,
+      "observedDynamicPhrases": 260,
+      "candidateEntities": 100,
+      "coMentionPatterns": 100,
+      "method": "unsupervised-orthographic-phrase-and-entity-mining-v2",
+      "sourceSha256": "fb46cf57722ecc0b76ca15ee73380f5027231864dbcaf13ecc5780897eb2485f"
     }
   }
 }

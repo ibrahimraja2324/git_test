@@ -6,6 +6,16 @@
       "chapterCount": 1,
       "sourceSha256": "fbb602683dd55645006e8d3b716b967029a4e68548e34981868d69dd989be185",
       "observations": 10
+    },
+    "dracula": {
+      "chapterCount": 28,
+      "sourceSha256": "4e8c2523d26d3632904b1b314554ad03e148d6fccfc9c7a6bc11401221966820",
+      "observations": 839
+    },
+    "frankenstein": {
+      "chapterCount": 24,
+      "sourceSha256": "60768a4551ba6875ec55a31284f93e71baeba748ce43d144c43a430be5571e56",
+      "observations": 825
     }
   }
 }
