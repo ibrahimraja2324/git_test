@@ -5,11 +5,6 @@
     "pride-and-prejudice": {
       "chapterCount": 1,
       "sourceSha256": "fbb602683dd55645006e8d3b716b967029a4e68548e34981868d69dd989be185",
-      "signalCounts": {
-        "wealth-and-poverty": 5,
-        "romance-and-affection": 3,
-        "suspense-and-uncertainty": 2
-      },
       "observations": 10
     }
   }

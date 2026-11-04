@@ -363,5 +363,123 @@
     ],
     "acceptance": "Provider-compliant OAuth/proxy or safely delegated token architecture, threat model, consent and independent security review; optional only",
     "evidence": "threat model and tests before implementation"
+  },
+  {
+    "id": "NV-029",
+    "phase": "P1",
+    "title": "Develop open-vocabulary narrative candidate mining and private comprehensive text index",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-021"
+    ],
+    "acceptance": "Phrase/entity/co-mention candidates from text plus complete FTS5 paragraphs; no fixed trope ceiling; provenance and private artifacts",
+    "evidence": "scripts/dynamic_narrative.py; scripts/build_fts.py; tests; docs/open-vocabulary-research.md"
+  },
+  {
+    "id": "NV-030",
+    "phase": "P1",
+    "title": "Create spoiler-safe third-party AI search tool endpoint",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-029"
+    ],
+    "acceptance": "Read-only MCP and REST endpoint, private metadata server-only, external model receives public-safe candidate titles not hidden events, tests",
+    "evidence": "api/mcp.js; api/search.js; server/search_service.mjs; server/search_service.test.mjs"
+  },
+  {
+    "id": "NV-031",
+    "phase": "P1",
+    "title": "Simplify mobile discovery and make optional AI search unobtrusive",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-001"
+    ],
+    "acceptance": "Reader-first homepage, compact search and books, mobile dock, advanced assistant settings collapsed, browser smoke checks",
+    "evidence": "src/app.js; src/styles.css; scripts/smoke_browser.py"
+  },
+  {
+    "id": "NV-032",
+    "phase": "P1",
+    "title": "Grow validated real source benchmark beyond keyword-matching smoke tests",
+    "priority": 1,
+    "status": "in_progress",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-029"
+    ],
+    "acceptance": "100+ labelled paragraphs from rights-cleared source works; evaluate event factuality, aliases, negation, chronology and reader-style queries",
+    "evidence": "tests/fixtures/verified_public_domain_excerpts.json; docs/real-data-evaluation.json; next gold set"
+  },
+  {
+    "id": "NV-033",
+    "phase": "P1",
+    "title": "Import fully reviewed public-domain classics into hosted reader",
+    "priority": 1,
+    "status": "in_progress",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-002"
+    ],
+    "acceptance": "Verify successful upstream source import for Dracula and Frankenstein; QA complete chapter order, text and rights; no candidate inflation",
+    "evidence": "content/rights_manifest.json; .github/workflows/import-reviewed-launch.yml; workflow check"
+  },
+  {
+    "id": "NV-034",
+    "phase": "P1",
+    "title": "Deploy and verify live private-search/MCP endpoints",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-030",
+      "NV-031"
+    ],
+    "acceptance": "Vercel /api/search and /api/mcp reachable without login; no hidden metadata exposed; mobile screenshot and request tests",
+    "evidence": "Live URL, deployment logs, security smoke"
+  },
+  {
+    "id": "NV-035",
+    "phase": "P1",
+    "title": "Replace crude lexical overlap with verified narrative event mechanics",
+    "priority": 2,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-032"
+    ],
+    "acceptance": "Author/human-verified who-did-what-to-whom, intents vs reality, cause/effect and world progression with precise source and chapter provenance",
+    "evidence": "annotator UI + temporal event graph test corpus"
+  },
+  {
+    "id": "NV-036",
+    "phase": "P1",
+    "title": "Secure scalable story-aware search against adaptive spoilers and abuse",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-030"
+    ],
+    "acceptance": "Real rate limits, entitlements, user progress cutoff, moderation and enumeration leakage review",
+    "evidence": "Endpoint integration and threat-model tests"
+  },
+  {
+    "id": "NV-037",
+    "phase": "P2",
+    "title": "Learn new user preferences and phrase aliases with opt-in consent and human verification",
+    "priority": 3,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-032"
+    ],
+    "acceptance": "New search concepts can be proposed, clustered, author/curator confirmed without locking taxonomy",
+    "evidence": "Preference/feedback provenance and privacy tests"
   }
 ]

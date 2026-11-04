@@ -19,21 +19,37 @@ function bookCard(b){
 }
 function emptyBooks(message){return `<div class="empty-results"><div class="empty-icon">⌕</div><h3>Nothing matched — yet.</h3><p>${escape(message)}</p><button class="btn secondary" id="clearFilters">Clear filters</button></div>`}
 function renderHome(){
- const ranked=rankBooks(state.catalog,state.query,state.preferred,state.genre), spotlight=state.catalog.find(b=>b.id==='the-time-machine')||ranked[0];
- view.innerHTML=`<section class="hero"><div class="hero-deco glow-1"></div><div class="hero-deco glow-2"></div><div class="hero-inner"><div class="eyebrow"><span class="eyebrow-line"></span> THE NEXT CHAPTER STARTS HERE</div><h1>Find the story<br/>you've been <em>looking for.</em></h1><p class="hero-intro">Not just a genre. Not just a trope. The exact kind of story that stays with you long after you close the book.</p><form id="searchForm" class="hero-search"><span class="search-prefix">⌕</span><input id="searchInput" type="search" value="${escape(state.query)}" autocomplete="off" placeholder="Try: clever protagonist, hidden identity, satisfying reveals…" aria-label="Describe the kind of story you want"/><button type="submit">Find my story <span>→</span></button></form><div class="search-suggestions"><span>Try searching</span><button data-query="A clever protagonist solving impossible mysteries">Clever mysteries</button><button data-query="A journey full of adventure and strange worlds">Faraway worlds</button><button data-query="A slow burn romance with family conflict">Slow burn romance</button></div></div><div class="hero-orbit" aria-hidden="true"><div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div><div class="orbit-center">✦</div><div class="orbit-star star-one">✧</div><div class="orbit-star star-two">✧</div></div></section>
- <section class="content-wrap"><div class="stats-strip"><div><strong>${state.catalog.length}</strong><span>Curated titles in the launch index</span></div><i></i><div><strong>${state.catalog.filter(b=>b.status==='ready').length}</strong><span>Available to read here</span></div><i></i><div><strong>100%</strong><span>Free launch collection</span></div></div>
- <div class="section-heading intro-section"><div><div class="eyebrow small">BEYOND THE BOOKSHELF</div><h2>Stories, understood <em>differently.</em></h2><p>Browse by what happens inside a story, not just the labels on its cover. Our first release uses transparent metadata matching; deeper chapter-level analysis is in development.</p></div><div class="dna-card"><div class="dna-icon">✳</div><div><strong>Your story DNA</strong><span>Make discovery feel like it was made for you.</span></div><button class="mini-link" id="tasteBtn">Refine →</button></div></div>
- <div class="catalog-heading"><div><div class="eyebrow small">THE COLLECTION</div><h2>${state.query?'Results worth exploring':'A library to get lost in'}</h2><span class="results-note">${ranked.length} matching titles · ${state.catalog.filter(b=>b.status==='ready').length} hosted reader editions</span></div><div class="catalog-tools"><label class="filter-select"><span>Genre</span><select id="genreSelect">${['All','Fantasy','Adventure','Mystery','Romance','Science Fiction','Gothic','Literary'].map(g=>`<option ${state.genre===g?'selected':''}>${g}</option>`).join('')}</select></label></div></div>
- <div class="category-pills">${['All','Fantasy','Adventure','Mystery','Romance','Science Fiction','Gothic','Literary'].map(g=>`<button class="category-pill ${g===state.genre?'active':''}" data-genre="${g}">${g}</button>`).join('')}</div>
- ${ranked.length?`<div class="book-grid">${ranked.map(bookCard).join('')}</div>`:emptyBooks('Try a broader plot description or choose another genre. The launch catalogue is still growing.')}
- <div class="launch-note"><div class="launch-icon">✦</div><div><h3>An independent fiction platform, starting with the classics.</h3><p>All launch listings link to independently published editions. Full chapters are hosted only after the rights record and source edition pass review. Want modern progression fantasy here? Help us bring independent authors aboard.</p></div><a href="#studio" class="text-link">For authors →</a></div></section>`;
+ const ranked=rankBooks(state.catalog,state.query,state.preferred,state.genre);
+ const ready=ranked.filter(b=>b.status==='ready');
+ const elsewhere=ranked.filter(b=>b.status!=='ready');
+ const category=['All','Fantasy','Adventure','Mystery','Romance','Science Fiction','Gothic','Literary'];
+ view.innerHTML=`<section class="simple-hero"><div class="content-wrap compact-hero-inner"><div class="eyebrow small">FIND YOUR NEXT STORY</div><h1>What do you want to <em>read?</em></h1><p>Describe the plot, relationship, progression or exact feeling. Search the story text, not just tags.</p>
+ <form id="searchForm" class="simple-search"><label class="visually-hidden" for="searchInput">Describe a novel</label><input id="searchInput" type="search" placeholder="e.g. clever heroine and a difficult first impression" value="${escape(state.query)}" autocomplete="off"/><button type="submit">Search →</button></form>
+ <div class="hint-row"><span>Try</span><button data-query="family and marriage expectations">Family secrets</button><button data-query="strange travel and a mysterious visitor">Mysterious travel</button><button data-query="inventor experimenting with time">Time travel</button></div></div></section>
+ <section class="content-wrap simple-discovery">
+ <div class="quick-row"><div><h2>${state.query?'Stories matching your search':'Read a story'}</h2><p>${state.query?'These titles are editorial matches. Text evidence will load separately below.':'Free books, no account needed. More complete editions are being added.'}</p></div><button id="tasteBtn" class="small-link">Adjust my taste ⚙</button></div>
+ <div class="category-pills compact-pills">${category.map(g=>`<button class="category-pill ${g===state.genre?'active':''}" data-genre="${g}">${g}</button>`).join('')}</div>
+ ${ready.length?`<div class="book-grid compact-books">${ready.map(bookCard).join('')}</div>`:`<p class="muted browse-notice">No hosted titles match yet. Explore external candidates below or try another search.</p>`}
+ ${state.query?`<section class="private-search-results"><div class="small-heading"><h3>Search inside the actual text</h3><span>No paid AI · Spoiler-safe matches</span></div><div id="privateResults" aria-live="polite"><p class="muted">Run a search to check the private text-derived index.</p></div></section>`:''}
+ <section class="candidate-area"><div class="small-heading"><h3>More classics to explore</h3><span>External links only · Full editions not yet hosted here</span></div><div class="book-grid compact-books">${elsewhere.slice(0,state.query?16:8).map(bookCard).join('')}</div></section>
+ <div class="simple-bottom-note"><b>Why aren't all books readable yet?</b> We're confirming redistribution rights edition by edition before hosting text. <a href="#rights">See the policy →</a></div></section>`;
  bindCards();
- $('#searchForm').addEventListener('submit',e=>{e.preventDefault();state.query=$('#searchInput').value.trim();renderHome();const heading=$('.catalog-heading');heading?.scrollIntoView({behavior:'smooth',block:'start'})});
- $$('#genreSelect').forEach(el=>el.addEventListener('change',e=>{state.genre=e.target.value;renderHome()}));
- $$('[data-genre]').forEach(el=>el.addEventListener('click',()=>{state.genre=el.dataset.genre;renderHome()}));
- $$('[data-query]').forEach(el=>el.addEventListener('click',()=>{state.query=el.dataset.query;renderHome();$('.catalog-heading')?.scrollIntoView({behavior:'smooth'})}));
- $('#tasteBtn').addEventListener('click',showTasteModal);
- $('#clearFilters')?.addEventListener('click',()=>{state.query='';state.genre='All';renderHome()});
+ $('#searchForm').addEventListener('submit',async e=>{e.preventDefault();state.query=$('#searchInput').value.trim();renderHome();if(state.query)await searchSiteIndex(state.query);});
+ $$('[data-genre]').forEach(el=>el.onclick=()=>{state.genre=el.dataset.genre;renderHome();});
+ $$('[data-query]').forEach(el=>el.onclick=async()=>{state.query=el.dataset.query;renderHome();await searchSiteIndex(state.query);});
+ $('#tasteBtn').onclick=showTasteModal;
+ if(state.query)searchSiteIndex(state.query);
+}
+async function searchSiteIndex(query){
+ const area=$('#privateResults');if(!area)return;
+ area.innerHTML='<p class="muted">Checking the private narrative index…</p>';
+ try{
+  const resp=await fetch('/api/search?q='+encodeURIComponent(query),{headers:{Accept:'application/json'}});
+  if(!resp.ok)throw new Error('The connected search endpoint is unavailable');
+  const data=await resp.json();if(data.schema!=='novalume.safe-search.v1')throw new Error('This preview has no live text-search endpoint');
+  if(!data.results?.length){area.innerHTML='<p class="muted">No text-based match confirmed. This does not mean the trope is absent — indexing is still improving.</p>';return;}
+  area.innerHTML=data.results.map(r=>`<a class="semantic-result" href="#book/${escape(r.id)}"><strong>${escape(r.title)}</strong><span>${escape(r.matchStrength.replaceAll('-',' '))} · Novel event unverified</span><span>Open →</span></a>`).join('');
+ }catch(e){area.innerHTML=`<p class="muted">Full-text recommendations aren't available in this offline preview. The ordinary catalogue and reader still work.</p>`}
 }
 function bindCards(root=view){
  $$('[data-book]',root).forEach(el=>el.addEventListener('click',e=>{if(e.target.closest('[data-save]'))return;window.location.hash=`#book/${el.dataset.book}`}));
@@ -60,7 +76,7 @@ function studio(){view.innerHTML=`<section class="studio-hero"><div class="eyebr
  $('#draftForm').onsubmit=e=>{e.preventDefault();const title=$('#draftTitle').value.trim(),author=$('#draftAuthor').value.trim(),blurb=$('#draftBlurb').value.trim(),content=$('#draftChapter').value.trim();if(content.length<100){toast('Add at least 100 characters.');return};const b={id:'draft-'+Date.now(),title,author,blurb,genre:$('#draftGenre').value,tags:[$('#draftGenre').value.toLowerCase()],storySignals:['Author draft — metadata not yet analysed'],colors:['#59475e','#171a27'],mark:'✧',status:'ready',chapterCount:1,chapters:[{title:'Chapter 1',paragraphs:content.split(/\n\s*\n/).filter(Boolean)}],license:{type:'AUTHOR-OWNED',note:'Private draft on this device; not publicly published.'}};state.drafts.unshift(b);try{save('drafts',state.drafts)}catch{state.drafts.shift();toast('Browser storage is full. Save your chapter elsewhere.');return}toast('Private draft saved on this device');window.location.hash=`#book/${b.id}`};
 }
 function rights(){view.innerHTML=`<section class="page-intro"><div class="eyebrow small">TRANSPARENCY, ALWAYS</div><h1>Rights & sources<span class="accent-period">.</span></h1><p>We won't confuse "free on the internet" with "free to republish."</p></section><section class="content-wrap policy-page"><h2>How our catalogue works</h2><p>The initial discovery index includes links to editions published by Standard Ebooks. A title appearing in the index does not mean we are hosting it. Full chapter text is only included after an edition-specific review covering the original author, any translator or illustrator, and relevant jurisdictions.</p><p>Standard Ebooks dedicates its own editorial contributions to the public domain, but explicitly cautions that its underlying public-domain assessment applies to the United States. We independently evaluate Australian rights and flag other jurisdictions for review before distribution.</p><h2>Import safeguards</h2><p>Our ingestion pipeline fails closed. Pending titles do not become hosted titles. Every imported edition must have a rights record, source identity, reviewer approval, attribution, and an audit trail. AI never grants copyright permission.</p><h2>Corrections & takedowns</h2><p>Rightsholders should be able to report potentially infringing content and request review. A real production launch requires a working contact, response workflow and content removal procedure. Until those are installed, no self-service public publishing is enabled.</p><h2>Sources</h2><p><a href="https://standardebooks.org/about/standard-ebooks-and-the-public-domain" target="_blank" rel="noopener noreferrer">Standard Ebooks public-domain policy ↗</a></p><p><a href="https://www.ag.gov.au/rights-and-protections/copyright/copyright-basics" target="_blank" rel="noopener noreferrer">Australian Attorney-General copyright basics ↗</a></p></section>`}
-function showTasteModal(){const old=$('#tasteOverlay');old?.remove();const options=['Fantasy','Mystery','Adventure','Romance','Hidden identity','Earned progression','Public reaction','Family conflict','Revenge','Political intrigue','Clever protagonist','Slow burn','Science fiction','Horror'];const overlay=document.createElement('div');overlay.id='tasteOverlay';overlay.className='modal-scrim';overlay.innerHTML=`<div class="taste-modal" role="dialog" aria-modal="true" aria-labelledby="modalHeading"><div class="modal-top"><div><div class="eyebrow small">MAKE IT PERSONAL</div><h2 id="modalHeading">What do you love in a story?</h2></div><button id="closeTaste" class="modal-close" aria-label="Close">×</button></div><p>Choose what makes you keep turning the page. Your preferences stay in this browser.</p><div class="taste-options">${options.map(p=>`<button class="taste-option ${state.preferred.includes(p)?'selected':''}" data-preference="${escape(p)}">${state.preferred.includes(p)?'✓ ':''}${escape(p)}</button>`).join('')}</div><button class="btn primary" id="saveTaste">Find my stories →</button></div>`;document.body.appendChild(overlay);$('#closeTaste').onclick=()=>overlay.remove();overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove()});$$('[data-preference]',overlay).forEach(el=>el.onclick=()=>{let p=el.dataset.preference;state.preferred=state.preferred.includes(p)?state.preferred.filter(x=>x!==p):[...state.preferred,p];el.classList.toggle('selected');el.textContent=(state.preferred.includes(p)?'✓ ':'')+p});$('#saveTaste').onclick=()=>{save('preferred',state.preferred);overlay.remove();window.location.hash='#home';renderHome();toast('Your preferences are saved')};}
+function showTasteModal(){const old=$('#tasteOverlay');old?.remove();const options=['Fantasy','Mystery','Adventure','Romance','Hidden identity','Earned progression','Public reaction','Family conflict','Revenge','Political intrigue','Clever protagonist','Slow burn','Science fiction','Horror'];const overlay=document.createElement('div');overlay.id='tasteOverlay';overlay.className='modal-scrim';overlay.innerHTML=`<div class="taste-modal" role="dialog" aria-modal="true" aria-labelledby="modalHeading"><div class="modal-top"><div><div class="eyebrow small">MAKE IT PERSONAL</div><h2 id="modalHeading">What do you love in a story?</h2></div><button id="closeTaste" class="modal-close" aria-label="Close">×</button></div><p>Choose what makes you keep turning the page. Your preferences stay in this browser.</p><div class="taste-options">${options.map(p=>`<button class="taste-option ${state.preferred.includes(p)?'selected':''}" data-preference="${escape(p)}">${state.preferred.includes(p)?'✓ ':''}${escape(p)}</button>`).join('')}</div><label class="custom-taste-label" for="customTaste">Any other story features you love?</label><input id="customTaste" placeholder="e.g. slow-burn power reveal, sect politics, stubborn heroine"/><button class="btn primary" id="saveTaste">Find my stories →</button></div>`;document.body.appendChild(overlay);$('#closeTaste').onclick=()=>overlay.remove();overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove()});$$('[data-preference]',overlay).forEach(el=>el.onclick=()=>{let p=el.dataset.preference;state.preferred=state.preferred.includes(p)?state.preferred.filter(x=>x!==p):[...state.preferred,p];el.classList.toggle('selected');el.textContent=(state.preferred.includes(p)?'✓ ':'')+p});$('#saveTaste').onclick=()=>{const custom=$('#customTaste')?.value.trim();if(custom&&!state.preferred.includes(custom))state.preferred.push(custom.slice(0,120));save('preferred',state.preferred);overlay.remove();window.location.hash='#home';renderHome();toast('Your preferences are saved')};}
 function profile(){showTasteModal()}
 // The AI Desk works entirely offline except when a reader deliberately opts into their own LOCAL model.
 async function loadKnowledge(bookId){
@@ -80,53 +96,27 @@ function downloadJson(name,data){
   const a=document.createElement('a');a.href=url;a.download=name;a.click();
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
-async function aiDesk(id){
-  const ready=state.catalog.filter(b=>b.status==='ready'&&state.storyIndex?.books?.[b.id]);
-  const selected=ready.find(b=>b.id===id)||ready[0];
-  const chapter=selected?Math.max(0,Math.min(selected.chapterCount,Number(state.progress[selected.id]||0))):0;
-  view.innerHTML=`<section class="page-intro ai-page-header"><div class="eyebrow small">NARRATIVE INTELLIGENCE · ZERO PAID AI REQUIRED</div><h1>Your story <em>companion.</em></h1><p>Every clue links back to the text. No subscription. No secret API keys. Your reading history stays in this browser.</p></section>
-  <section class="content-wrap ai-desk-layout"><div class="ai-main"><div class="ai-panel"><div class="eyebrow small">YOUR READING CONTEXT</div>
-  <label for="aiBook">Choose a hosted story</label><select id="aiBook">${ready.map(b=>`<option value="${escape(b.id)}" ${b.id===selected?.id?'selected':''}>${escape(b.title)}</option>`).join('')}</select>
-  <div class="ai-cutoff">${selected?`You have reached chapter <strong>${chapter}</strong>. Only clues from those chapters can leave Novalume.`:'No approved indexed books yet.'}</div>
-  <label for="aiQuestion">Ask about characters, clues or events</label><textarea id="aiQuestion" rows="3" maxlength="700" placeholder="Example: What do we know about the family's expectations so far?"></textarea>
-  <button id="aiFind" class="btn primary" ${!selected?'disabled':''}>Find evidence · free →</button>
-  <div id="aiEvidence" class="ai-evidence" aria-live="polite"><p class="muted">Ask a question to search the indexed text. These are lexical matches, not AI-generated conclusions.</p></div></div></div>
-  <aside class="ai-aside"><div class="ai-panel"><div class="eyebrow small">CONNECT YOUR OWN AI</div><h3>Bring your assistant.</h3><p>Export a small, spoiler-limited knowledge packet to any AI chat. The website never sees your AI account or API key.</p>
-  <button id="aiCopy" class="btn secondary" ${!selected?'disabled':''}>Copy AI-ready prompt</button>
-  <button id="aiDownload" class="btn secondary" ${!selected?'disabled':''}>Download context JSON</button>
-  <div class="ai-outlinks"><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT ↗</a><a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer">Gemini ↗</a></div>
-  <p class="ai-small">Open your AI and paste the copied prompt. No credentials go to Novalume.</p></div>
-  <div class="ai-panel"><div class="eyebrow small">OPTIONAL · ON YOUR COMPUTER</div><h3>Use a local model</h3><p>Connect to a model already running on your own PC. No paid cloud inference.</p>
-  <label for="aiProvider">Local provider</label><select id="aiProvider"><option value="ollama">Ollama · localhost:11434</option><option value="lmstudio">LM Studio · localhost:1234</option></select>
-  <label for="aiModel">Installed model name</label><input id="aiModel" value="" placeholder="e.g. qwen3:4b" autocomplete="off"/>
-  <button id="aiLocal" class="btn secondary">Ask local model</button><div id="aiLocalReply" role="status" class="ai-local-reply"></div>
-  <p class="ai-small">Requires a locally running model and appropriate CORS configuration. Keep the local server bound to loopback; enabling browser access can have security risks. Nothing is sent until you click.</p></div></aside></section>`;
-  if(!selected)return;
-  const knowledge=await loadKnowledge(selected.id);
-  const currentPacket=()=>buildContextPacket(selected,knowledge,$('#aiQuestion').value,chapter,state.preferred);
-  const update=()=>{
-    const hits=evidenceForQuestion(knowledge,$('#aiQuestion').value,chapter,10);
-    $('#aiEvidence').innerHTML=`<div class="ai-results-heading"><strong>${hits.length} relevant text clue${hits.length===1?'':'s'}</strong><span>Lexical observations · Not validated story facts</span></div>`+
-      (hits.length?hits.map(hit=>`<article class="ai-hit"><div class="ai-hit-meta"><span>${escape(hit.label)}</span><a href="#read/${escape(selected.id)}/${hit.chapter}">Chapter ${hit.chapter}, ¶ ${hit.paragraph} ↗</a></div><p>${escape(hit.excerpt)}</p><small>Matched: ${hit.matchedTerms.map(escape).join(', ')}</small></article>`).join('')
-      :`<p class="muted">No matching clues before chapter ${chapter}. ${chapter===0?'Read a chapter first to unlock your personal context.':'Try a different term, or read further.'}</p>`);
-  };
-  $('#aiBook').onchange=e=>{window.location.hash=`#assistant/${e.target.value}`};
-  $('#aiFind').onclick=update;
-  $('#aiCopy').onclick=async()=>{
-    try{await navigator.clipboard.writeText(contextPrompt(currentPacket()));toast('Spoiler-limited prompt copied. Paste it into your AI.')}
-    catch{toast('Clipboard unavailable. Use Download context JSON instead.')}
-  };
-  $('#aiDownload').onclick=()=>{downloadJson(`novalume-${selected.id}-context.json`,currentPacket());toast('Context JSON downloaded')};
-  $('#aiLocal').onclick=async()=>{
-    const out=$('#aiLocalReply'),model=$('#aiModel').value.trim(),provider=$('#aiProvider').value;
-    if(!$('#aiQuestion').value.trim()){toast('Enter a question first.');return}
-    if(!model){toast('Enter the model name installed on your machine.');return}
-    out.textContent='Contacting the local model…';
-    $('#aiLocal').disabled=true;
-    try{out.textContent=await askLocalModel(currentPacket(),{provider,model})}
-    catch(e){out.textContent=`Local model unavailable: ${e.message}. You can still copy the prompt or download the context.`}
-    finally{$('#aiLocal').disabled=false}
-  };
+async function aiDesk(){
+ view.innerHTML=`<section class="content-wrap simple-ai"><div class="eyebrow small">ADVANCED STORY SEARCH</div><h1>Find a very specific <em>novel.</em></h1><p>Search what happens in a story, even when authors never added the right tags. The search engine privately indexes text evidence and returns only safe recommendations.</p>
+ <form id="aiSearchForm" class="ai-search-form"><label for="aiQuestion">Describe what you want</label><textarea id="aiQuestion" rows="4" placeholder="I want an intelligent protagonist whose family misunderstands them, with public reactions and earned progression. Avoid endless filler."></textarea><button class="btn primary" type="submit">Search novel text →</button></form>
+ <div id="aiRecommendations" class="ai-results" role="status"><p class="muted">Your request can be as detailed as you like. Novalume uses text-derived clues rather than only genre tags.</p></div>
+ <details class="assistant-connection"><summary>Connect your own AI assistant <span>▾</span></summary>
+ <p>If your AI application supports custom MCP servers, add this read-only search tool. It returns safe book recommendations without giving the model the hidden chapter metadata. You do not provide Novalume with an API key.</p>
+ <label for="aiMcpUrl">MCP endpoint</label><div class="copy-url"><input id="aiMcpUrl" readonly value="${escape(location.origin+'/api/mcp')}"/><button id="copyMcp">Copy</button></div>
+ <button class="btn secondary" id="copyToolInstructions">Copy connection instructions</button>
+ <p class="tiny-note">Early experimental MCP endpoint. Whether third-party assistants can connect depends on each application's supported tool connections. A precise match can itself imply a plot element you asked about; chapter spoilers and passages are never returned.</p>
+ </details><p class="tiny-note">No paid AI is used for Novalume's text extraction or matching. Candidate matches are not proof that an event happens.</p></section>`;
+ $('#aiSearchForm').onsubmit=async e=>{
+   e.preventDefault();const q=$('#aiQuestion').value.trim(),box=$('#aiRecommendations');if(!q){toast('Describe the story you want first');return}
+   box.innerHTML='<p class="muted">Searching the static narrative evidence…</p>';
+   try{const r=await fetch('/api/search?q='+encodeURIComponent(q));const x=await r.json();
+      if(!r.ok||x.schema!=='novalume.safe-search.v1')throw new Error('Unavailable');
+      box.innerHTML=x.results?.length?x.results.map(item=>`<a href="#book/${escape(item.id)}" class="semantic-result"><strong>${escape(item.title)}</strong><span>${escape(item.publicBlurb)}</span><small>${escape(item.matchStrength.replaceAll('-',' '))} · Interpretation unverified</small><span>Open novel →</span></a>`).join(''):'<p class="muted">No supported matches yet. The index only covers rights-approved hosted chapters.</p>';
+   }catch(e){box.innerHTML='<p class="muted">Text search is unavailable in this offline copy. Open the deployed Novalume site to use private indexing.</p>'}
+ };
+ $('#copyMcp').onclick=async()=>{try{await navigator.clipboard.writeText(location.origin+'/api/mcp');toast('MCP URL copied')}catch{toast('Use the URL field to copy manually')}};
+ $('#copyToolInstructions').onclick=async()=>{const prompt=`Novalume offers a read-only MCP search tool at ${location.origin}/api/mcp. If you support remote MCP tools, connect and call search_novalume with a detailed query. It returns spoiler-safe candidate titles only; the private metadata cannot be browsed or downloaded. No API key should be shared with Novalume. If you cannot connect a remote MCP server, explain that limitation.`;
+   try{await navigator.clipboard.writeText(prompt);toast('Instructions copied')}catch{toast('Clipboard access unavailable')}};
 }
 function updateNav(){const path=location.hash.slice(1).split('/')[0]||'home';$$('[data-nav]').forEach(a=>a.classList.toggle('active',a.dataset.nav===path))}
 async function route(){updateNav();const [path,arg,n]=(location.hash.slice(1)||'home').split('/');if(path==='home')renderHome();else if(path==='library')library();else if(path==='studio')studio();else if(path==='book')detail(arg);else if(path==='read')await reader(arg,n||'1');else if(path==='rights')rights();else if(path==='assistant')await aiDesk(arg);else renderHome();window.scrollTo({top:0,left:0,behavior:'instant'})}

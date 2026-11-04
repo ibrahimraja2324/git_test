@@ -6,3 +6,9 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Private analysis database: generated; never deploy in static assets
+server/private/*.sqlite
+server/private/legacy_lexical/
+server/private/indexes/
+public/data/knowledge/

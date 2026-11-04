@@ -14,7 +14,7 @@ ROOT=Path(__file__).resolve().parents[1]
 INPUT=ROOT/'content'/'rights_manifest.json'
 LEXICON=ROOT/'content'/'narrative_lexicon.json'
 BOOK_DIR=ROOT/'public'/'data'/'books'
-OUT_DIR=ROOT/'public'/'data'/'knowledge'
+OUT_DIR=ROOT/'server'/'private'/'legacy_lexical'
 INDEX=ROOT/'public'/'data'/'story_index.json'
 SCHEMA='novalume.narrative-evidence.v1'
 
@@ -99,7 +99,6 @@ def build():
         (OUT_DIR/f'{book_id}.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
         index['books'][book_id]={'chapterCount':result['chapterCount'],
                                 'sourceSha256':result['sourceSha256'],
-                                'signalCounts':result['signalCounts'],
                                 'observations':sum(len(c['observations']) for c in result['chapters'])}
     # Avoid serving stale story index files after rights are revoked.
     for file in OUT_DIR.glob('*.json'):

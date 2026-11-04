@@ -39,7 +39,7 @@ Do not publish unknown modern works, translated editions or fan translations wit
 
 ## Architecture & product direction
 
-[Contributor rules](AGENTS.md) · [Architecture](docs/architecture.md) · [Zero-cost intelligence policy](docs/zero-cost-intelligence.md) · [Rights & sourcing](docs/rights-policy.md) · [Milestone roadmap](docs/roadmap.md)
+[Architecture](docs/architecture.md) · [Zero-cost intelligence policy](docs/zero-cost-intelligence.md) · [Rights & sourcing](docs/rights-policy.md) · [Milestone roadmap](docs/roadmap.md)
 
 ## Next development
 
@@ -48,3 +48,13 @@ A free deterministic chapter-evidence layer and reader AI Desk now work: users c
 ## License
 
 Site application code: MIT. Third-party or public-domain book content is governed by each work's rights record; the site software licence does **not** confer redistribution rights to book content.
+
+## 2026-11-04: Real source trials and evolving story index
+
+A research fixture of 24 authenticated paragraphs from six chapters of three public-domain English novels is committed in `tests/fixtures/verified_public_domain_excerpts.json` (source URLs included). `python3 scripts/evaluate_dynamic.py` generates the transparent limited 6-query baseline in `docs/real-data-evaluation.json`. This baseline is tiny and deliberately lexical; it does **not** establish that novel events have been understood.
+
+`python3 scripts/dynamic_narrative.py` builds an open-vocabulary private candidate index. `python3 scripts/build_fts.py` stores **every eligible paragraph** in a private SQLite FTS5 index; search is never limited to the manually authored tag dictionary. Public assets include safe book counts but **not** the private future-chapter metadata. See `docs/open-vocabulary-research.md`.
+
+On a Vercel deployment, `GET /api/search?q=...` provides simple spoiler-safe recommendations; `POST /api/mcp` supports an experimental read-only MCP `search_novalume` tool for reader-owned AI clients that accept custom remote MCP. No user cloud AI keys are collected. This must be deployed and tested separately; it does **not** mean all AI clients support MCP or that exact semantic matching is solved.
+
+The mobile homepage is now reader-first, with a compact search field, immediate book cards, and visible mobile navigation. Two additional public-domain original English editions (*Dracula* and *Frankenstein*) have passed recorded AU/US/source-edition review, but are not **hosted** until `.github/workflows/import-reviewed-launch.yml` successfully imports complete text and validates it. `npm test` includes extraction/search/privacy regression tests.

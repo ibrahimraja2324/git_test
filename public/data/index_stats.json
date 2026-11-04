@@ -1,0 +1,15 @@
+{
+  "schema": "novalume.public-index-stats.v1",
+  "books": {
+    "pride-and-prejudice": {
+      "bookId": "pride-and-prejudice",
+      "indexedChapters": 1,
+      "textParagraphs": 28,
+      "observedDynamicPhrases": 260,
+      "candidateEntities": 18,
+      "coMentionPatterns": 26,
+      "method": "unsupervised-orthographic-phrase-and-entity-mining-v2",
+      "sourceSha256": "793016e2bbc791e2e5f51f9fc979541586c816b1a2d30a1c8e59d9b0ff465f54"
+    }
+  }
+}

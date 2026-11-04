@@ -81,11 +81,11 @@
     ],
     "mark": "✝",
     "featured": 28,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Dracula",
+    "sourceUrl": "https://standardebooks.org/ebooks/bram-stoker/dracula",
     "status": "external",
     "chapterCount": 0,
     "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
+      "type": "REVIEWED-PUBLIC-DOMAIN",
       "note": "External listing only. Text not hosted until an edition-specific review is approved."
     }
   },
@@ -111,11 +111,11 @@
     ],
     "mark": "⚡",
     "featured": 27,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Frankenstein",
+    "sourceUrl": "https://standardebooks.org/ebooks/mary-shelley/frankenstein",
     "status": "external",
     "chapterCount": 0,
     "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
+      "type": "REVIEWED-PUBLIC-DOMAIN",
       "note": "External listing only. Text not hosted until an edition-specific review is approved."
     }
   },

@@ -40,3 +40,9 @@ Build generates `dist/`; deploy it to GitHub Pages or any static host. Enable Pa
 ## Zero-paid-AI foundation shipped 2026-11-04
 
 Deterministic chapter-level clues with source hashes and chapter/paragraph positions, no inference calls, by default. Reader AI Desk exports cutoff-scoped structured packets or optionally calls the reader’s loopback local model. This is *lexical evidence*, not validated story events. See [zero cost intelligence policy](zero-cost-intelligence.md). Cloud keys are never accepted on the public static site. All future milestones must preserve a useful AI-free route.
+
+## 2026-11-04 evolution of search/privacy architecture
+
+The legacy 20-signal static lexicon remains useful as a weak backward-compatible baseline. The new *open-vocabulary* engine, however, dynamically mines candidate 1–5-word phrases, orthographic names and co-mentions from the source text and FTS5-indexes every paragraph without a fixed trope vocabulary. Indexes are derived artifacts and generated inside `server/private` — **never stored in public GitHub history or static `dist`**. Only public counts and reviewed book bibliographic details are shipped to browsers.
+
+A standalone server endpoint controls queries for model clients and responds with **safe bibliographic matches only**; exposing private events to an external model is inconsistent with the promise not to spoil readers. The system does not prove plot events yet. More detailed, authenticated chapter-limited context access is future work.

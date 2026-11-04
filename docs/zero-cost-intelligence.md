@@ -45,3 +45,7 @@ Do not mistake complexity for quality. Build an annotation schema for author-app
 | External ChatGPT/Gemini workflow | $0 to Novalume | Reader independently controls service, terms and available credits |
 
 The site itself may still incur hosting, domain, storage, support and compliance costs at scale; *zero AI inference cost* is not the same as *zero operating cost*.
+
+## 2026-11-04 supplement
+
+Reader preference and story phrase extraction are open vocabulary, not bounded by a fixed tag list. Full paragraph index is private SQLite FTS5, while top-ranked observed phrases are only a fast candidate layer. The old `public/data/knowledge` detailed lexical exports are no longer included in the static distribution. `GET /api/search` and a read-only experimental `/api/mcp` tool let compatible reader-owned AI clients search the private index **without downloading private plot metadata**. AI search returns tentative public title recommendations, not spoiler facts; inference entirely belongs to users, if any.

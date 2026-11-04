@@ -19,7 +19,6 @@ def build():
     shutil.copy2(ROOT/'index.html',OUT/'index.html')
     shutil.copytree(ROOT/'src',OUT/'src',ignore=shutil.ignore_patterns('*.test.js'))
     (OUT/'data'/'books').mkdir(parents=True)
-    (OUT/'data'/'knowledge').mkdir(parents=True)
     for name in ('catalog.json','story_index.json'):
         shutil.copy2(PUBLIC/name, OUT/'data'/name)
     catalog=json.loads((PUBLIC/'catalog.json').read_text(encoding='utf-8'))
@@ -30,7 +29,7 @@ def build():
         name=f"{book['id']}.json"
         if book['id'] not in indexed:
             raise ValueError(f'Approved book lacks deterministic index: {name}')
-        for folder in ('books','knowledge'):
+        for folder in ('books',):
             file=PUBLIC/folder/name
             if not file.is_file():
                 raise FileNotFoundError(file)

@@ -86,7 +86,7 @@
     "translation": false,
     "genre": "Gothic",
     "standardEbooksRepo": "bram-stoker_dracula",
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Dracula",
+    "sourceUrl": "https://standardebooks.org/ebooks/bram-stoker/dracula",
     "blurb": "Letters and diaries piece together a terrifying struggle against an ancient and patient predator.",
     "tags": [
       "horror",
@@ -105,12 +105,21 @@
     "mark": "✝",
     "featured": 28,
     "rights": {
-      "decision": "pending",
-      "reviewer": "",
-      "reviewedAt": "",
-      "jurisdictions": [],
-      "edition": "",
-      "notes": "Awaiting individual edition, translation, and jurisdiction review."
+      "decision": "approved",
+      "reviewer": "Novalume 2026-11-04 original English edition review",
+      "reviewedAt": "2026-11-04",
+      "jurisdictions": [
+        "AU",
+        "US"
+      ],
+      "edition": "Standard Ebooks public-domain editorial contribution (CC0); original English-language text",
+      "sourceCommit": "e9968b274918e5a79b8e34cc93e50492363d1612",
+      "notes": "Bram Stoker died 1912; original English novel first published 1897 during life; US pre-1931 publication and Australia duration expired; source edition editorial work released CC0. Review excludes adaptations/translated editions.",
+      "reviewSources": [
+        "https://www.ag.gov.au/rights-and-protections/copyright/copyright-basics",
+        "https://standardebooks.org/",
+        "https://github.com/standardebooks/bram-stoker_dracula"
+      ]
     }
   },
   {
@@ -123,7 +132,7 @@
     "translation": false,
     "genre": "Gothic",
     "standardEbooksRepo": "mary-shelley_frankenstein",
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Frankenstein",
+    "sourceUrl": "https://standardebooks.org/ebooks/mary-shelley/frankenstein",
     "blurb": "A scientist creates life and discovers that the consequences of ambition cannot be abandoned.",
     "tags": [
       "science fiction",
@@ -142,12 +151,21 @@
     "mark": "⚡",
     "featured": 27,
     "rights": {
-      "decision": "pending",
-      "reviewer": "",
-      "reviewedAt": "",
-      "jurisdictions": [],
-      "edition": "",
-      "notes": "Awaiting individual edition, translation, and jurisdiction review."
+      "decision": "approved",
+      "reviewer": "Novalume 2026-11-04 original English edition review",
+      "reviewedAt": "2026-11-04",
+      "jurisdictions": [
+        "AU",
+        "US"
+      ],
+      "edition": "Standard Ebooks public-domain editorial contribution (CC0); original English-language text",
+      "sourceCommit": "3909a2b9d956377e797e235562cd237d3667fa9b",
+      "notes": "Mary Shelley died 1851; original English work first published 1818 during life; public domain in Australia and United States; Standard Ebooks editorial work released CC0. Review excludes later adaptations and translations.",
+      "reviewSources": [
+        "https://www.ag.gov.au/rights-and-protections/copyright/copyright-basics",
+        "https://standardebooks.org/",
+        "https://github.com/standardebooks/mary-shelley_frankenstein"
+      ]
     }
   },
   {

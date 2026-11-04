@@ -78,7 +78,9 @@ def ingest(item,force=False):
         raise ValueError(f"{item['id']} has uncleared translation rights")
     repo=item.get('standardEbooksRepo')
     if not repo or not re.fullmatch(r'[a-z0-9_.-]+',repo):raise ValueError('Invalid upstream repository')
-    url=f'https://codeload.github.com/standardebooks/{repo}/zip/refs/heads/master'
+    source_commit=rights.get('sourceCommit')
+    if source_commit and not re.fullmatch(r'[0-9a-f]{40}',source_commit):raise ValueError('Invalid pinned upstream commit')
+    url=(f'https://codeload.github.com/standardebooks/{repo}/zip/{source_commit}' if source_commit else f'https://codeload.github.com/standardebooks/{repo}/zip/refs/heads/master')
     print('Fetching',url)
     req=urllib.request.Request(url,headers={'User-Agent':'NovalumeRightsReviewImporter/0.1'})
     with urllib.request.urlopen(req,timeout=50) as resp:
@@ -97,7 +99,7 @@ def ingest(item,force=False):
     target=ROOT/'public'/'data'/'books'/f"{item['id']}.json"
     if target.exists() and not force:raise FileExistsError('Edition already imported; use --force after reviewing changes')
     target.parent.mkdir(parents=True,exist_ok=True)
-    payload={'id':item['id'],'sourceRepo':f'standardebooks/{repo}','sourceArchiveSha256':digest,
+    payload={'id':item['id'],'sourceRepo':f'standardebooks/{repo}','sourceArchiveSha256':digest,'sourceCommit':source_commit or 'unpinned',
              'rightsReview':{'reviewer':rights['reviewer'],'reviewedAt':rights['reviewedAt']},
              'chapters':chapters}
     target.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

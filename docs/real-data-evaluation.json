@@ -1,0 +1,169 @@
+{
+  "scope": "24 hand-sampled paragraphs across six chapters of three actual public-domain English novels; not whole books",
+  "queryCount": 6,
+  "top1Count": 6,
+  "top1Accuracy": 1.0,
+  "counts": {
+    "pride-and-prejudice": {
+      "dynamicPhrases": 241,
+      "candidateEntities": 10,
+      "pairs": 10
+    },
+    "dracula": {
+      "dynamicPhrases": 224,
+      "candidateEntities": 13,
+      "pairs": 19
+    },
+    "the-time-machine": {
+      "dynamicPhrases": 206,
+      "candidateEntities": 10,
+      "pairs": 13
+    }
+  },
+  "results": [
+    {
+      "query": "Mr Bennet Elizabeth marriage and the ball",
+      "expected": "pride-and-prejudice",
+      "predicted": "pride-and-prejudice",
+      "correct": true,
+      "topScores": [
+        {
+          "book": "pride-and-prejudice",
+          "score": 25.683,
+          "matchedPhrases": 18
+        },
+        {
+          "book": "dracula",
+          "score": 0.0,
+          "matchedPhrases": 0
+        },
+        {
+          "book": "the-time-machine",
+          "score": 0.0,
+          "matchedPhrases": 0
+        }
+      ]
+    },
+    {
+      "query": "Travel to the Carpathians and Transylvania",
+      "expected": "dracula",
+      "predicted": "dracula",
+      "correct": true,
+      "topScores": [
+        {
+          "book": "dracula",
+          "score": 8.697,
+          "matchedPhrases": 6
+        },
+        {
+          "book": "pride-and-prejudice",
+          "score": 0.0,
+          "matchedPhrases": 0
+        },
+        {
+          "book": "the-time-machine",
+          "score": 0.0,
+          "matchedPhrases": 0
+        }
+      ]
+    },
+    {
+      "query": "a strange castle and the count",
+      "expected": "dracula",
+      "predicted": "dracula",
+      "correct": true,
+      "topScores": [
+        {
+          "book": "dracula",
+          "score": 9.82,
+          "matchedPhrases": 8
+        },
+        {
+          "book": "pride-and-prejudice",
+          "score": 0.0,
+          "matchedPhrases": 0
+        },
+        {
+          "book": "the-time-machine",
+          "score": 0.0,
+          "matchedPhrases": 0
+        }
+      ]
+    },
+    {
+      "query": "time machine geometry and a laboratory",
+      "expected": "the-time-machine",
+      "predicted": "the-time-machine",
+      "correct": true,
+      "topScores": [
+        {
+          "book": "the-time-machine",
+          "score": 28.702,
+          "matchedPhrases": 25
+        },
+        {
+          "book": "pride-and-prejudice",
+          "score": 2.581,
+          "matchedPhrases": 3
+        },
+        {
+          "book": "dracula",
+          "score": 0.0,
+          "matchedPhrases": 0
+        }
+      ]
+    },
+    {
+      "query": "time traveller missing at dinner",
+      "expected": "the-time-machine",
+      "predicted": "the-time-machine",
+      "correct": true,
+      "topScores": [
+        {
+          "book": "the-time-machine",
+          "score": 26.534,
+          "matchedPhrases": 18
+        },
+        {
+          "book": "pride-and-prejudice",
+          "score": 2.581,
+          "matchedPhrases": 3
+        },
+        {
+          "book": "dracula",
+          "score": 0.0,
+          "matchedPhrases": 0
+        }
+      ]
+    },
+    {
+      "query": "royal cultivation sect battles",
+      "expected": null,
+      "predicted": null,
+      "correct": true,
+      "topScores": [
+        {
+          "book": "dracula",
+          "score": 0.0,
+          "matchedPhrases": 0
+        },
+        {
+          "book": "pride-and-prejudice",
+          "score": 0.0,
+          "matchedPhrases": 0
+        },
+        {
+          "book": "the-time-machine",
+          "score": 0.0,
+          "matchedPhrases": 0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Data are real excerpts, not full novels; no evaluated plot-event understanding",
+    "Queries are handcrafted and not an unbiased reader sample",
+    "Lexical overlap has no synonym guarantee",
+    "Private metadata must not ship in public static bundle"
+  ]
+}
