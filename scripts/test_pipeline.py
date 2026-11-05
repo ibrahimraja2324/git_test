@@ -37,6 +37,28 @@ class Tests(unittest.TestCase):
         for b in books:
             if b['status']=='ready':
                 self.assertTrue((ROOT/'public/data/books'/f"{b['id']}.json").exists())
+    def test_public_catalog_has_only_really_hosted_books(self):
+        manifest=json.loads((ROOT/'content/rights_manifest.json').read_text())
+        catalog=json.loads((ROOT/'public/data/catalog.json').read_text())
+        expected={b['id'] for b in manifest if b['rights']['decision']=='approved'
+                  and (ROOT/'public/data/books'/f"{b['id']}.json").exists()}
+        self.assertEqual({b['id'] for b in catalog},expected)
+        for b in catalog:
+            content=json.loads((ROOT/'public/data/books'/f"{b['id']}.json").read_text())
+            self.assertEqual(b['status'],'ready')
+            self.assertEqual(b['chapterCount'],len(content['chapters']))
+            self.assertEqual(b['chapterTitles'],[str(c.get('title') or f'Section {i}')
+                for i,c in enumerate(content['chapters'],1)])
+            words=[sum(len(str(p).split()) for p in c['paragraphs']) for c in content['chapters']]
+            self.assertEqual(b['chapterWordCounts'],words)
+            self.assertEqual(b['wordCount'],sum(words))
+            self.assertNotIn('storySignals',b)
+            self.assertNotIn('featured',b)
+    def test_partial_edition_is_explicit(self):
+        catalog=json.loads((ROOT/'public/data/catalog.json').read_text())
+        pride=next(b for b in catalog if b['id']=='pride-and-prejudice')
+        self.assertEqual(pride['hostedScope'],'sample')
+        self.assertEqual(pride['chapterCount'],1)
     def test_rights_manifest_shape(self):
         manifest=json.loads((ROOT/'content/rights_manifest.json').read_text())
         self.assertTrue(len(manifest)>=25)

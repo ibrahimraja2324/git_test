@@ -5,58 +5,33 @@
     "author": "Jane Austen",
     "genre": "Romance",
     "blurb": "An incisive story of love, pride, prejudice and the social expectations shaping a family of five daughters.",
-    "tags": [
-      "romance",
-      "social commentary",
-      "family conflict",
-      "clever protagonist"
-    ],
-    "storySignals": [
-      "Social status clashes with personal judgment",
-      "Humour reveals characters through conversation"
-    ],
     "colors": [
       "#865b6b",
       "#281c30"
     ],
     "mark": "❦",
-    "featured": 30,
     "sourceUrl": "https://standardebooks.org/ebooks?query=Pride%20and%20Prejudice",
     "status": "ready",
+    "publicationYear": 1813,
+    "language": "en",
     "chapterCount": 1,
+    "chapterTitles": [
+      "I — A New Arrival"
+    ],
+    "chapterWordCounts": [
+      853
+    ],
+    "wordCount": 853,
+    "readingMinutes": 4,
+    "hostedScope": "sample",
     "license": {
       "type": "REVIEWED-PUBLIC-DOMAIN",
+      "edition": "Jane Austen original 1813 English text; Standard Ebooks CC0 editorial contribution",
+      "jurisdictions": [
+        "AU",
+        "US"
+      ],
       "note": "Original English work first published 1813; author died 1817; source-edition contribution is CC0. Full first chapter only in initial release."
-    }
-  },
-  {
-    "id": "the-time-machine",
-    "title": "The Time Machine",
-    "author": "H. G. Wells",
-    "genre": "Science Fiction",
-    "blurb": "A traveller journeys into a distant future where humanity has split into two unsettling societies.",
-    "tags": [
-      "science fiction",
-      "adventure",
-      "social commentary",
-      "mystery"
-    ],
-    "storySignals": [
-      "Far-future exploration",
-      "Discovery changes the traveller’s understanding of civilisation"
-    ],
-    "colors": [
-      "#446978",
-      "#142633"
-    ],
-    "mark": "⌛",
-    "featured": 29,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Time%20Machine",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
     }
   },
   {
@@ -65,27 +40,86 @@
     "author": "Bram Stoker",
     "genre": "Gothic",
     "blurb": "Letters and diaries piece together a terrifying struggle against an ancient and patient predator.",
-    "tags": [
-      "horror",
-      "gothic",
-      "mystery",
-      "supernatural"
-    ],
-    "storySignals": [
-      "Clues accumulate across multiple narrators",
-      "Escalating threat and coordinated resistance"
-    ],
     "colors": [
       "#7d3947",
       "#1a1622"
     ],
     "mark": "✝",
-    "featured": 28,
     "sourceUrl": "https://standardebooks.org/ebooks/bram-stoker/dracula",
     "status": "ready",
+    "publicationYear": 1897,
+    "language": "en",
     "chapterCount": 28,
+    "chapterTitles": [
+      "I",
+      "II",
+      "III",
+      "IV",
+      "V",
+      "VI",
+      "VII",
+      "VIII",
+      "IX",
+      "X",
+      "XI",
+      "XII",
+      "XIII",
+      "XIV",
+      "XV",
+      "XVI",
+      "XVII",
+      "XVIII",
+      "XIX",
+      "XX",
+      "XXI",
+      "XXII",
+      "XXIII",
+      "XXIV",
+      "XXV",
+      "XXVI",
+      "XXVII",
+      "Note"
+    ],
+    "chapterWordCounts": [
+      5690,
+      5475,
+      5702,
+      5831,
+      3545,
+      5651,
+      5567,
+      6263,
+      5915,
+      5932,
+      5131,
+      7273,
+      6569,
+      6417,
+      5802,
+      4555,
+      5552,
+      6907,
+      5667,
+      5892,
+      6174,
+      5448,
+      5659,
+      6271,
+      6208,
+      7092,
+      7578,
+      346
+    ],
+    "wordCount": 160112,
+    "readingMinutes": 697,
+    "hostedScope": "reviewed-edition",
     "license": {
       "type": "REVIEWED-PUBLIC-DOMAIN",
+      "edition": "Standard Ebooks public-domain editorial contribution (CC0); original English-language text",
+      "jurisdictions": [
+        "AU",
+        "US"
+      ],
       "note": "Bram Stoker died 1912; original English novel first published 1897 during life; US pre-1931 publication and Australia duration expired; source edition editorial work released CC0. Review excludes adaptations/translated editions."
     }
   },
@@ -95,774 +129,79 @@
     "author": "Mary Shelley",
     "genre": "Gothic",
     "blurb": "A scientist creates life and discovers that the consequences of ambition cannot be abandoned.",
-    "tags": [
-      "science fiction",
-      "gothic",
-      "horror",
-      "social commentary"
-    ],
-    "storySignals": [
-      "Creator and creation in conflict",
-      "Isolation shapes choices and consequences"
-    ],
     "colors": [
       "#587061",
       "#1a2929"
     ],
     "mark": "⚡",
-    "featured": 27,
     "sourceUrl": "https://standardebooks.org/ebooks/mary-shelley/frankenstein",
     "status": "ready",
+    "publicationYear": 1818,
+    "language": "en",
     "chapterCount": 24,
+    "chapterTitles": [
+      "Chapter I",
+      "Chapter II",
+      "Chapter III",
+      "Chapter IV",
+      "Chapter V",
+      "Chapter VI",
+      "Chapter VII",
+      "Chapter VIII",
+      "Chapter IX",
+      "Chapter X",
+      "Chapter XI",
+      "Chapter XII",
+      "Chapter XIII",
+      "Chapter XIV",
+      "Chapter XV",
+      "Chapter XVI",
+      "Chapter XVII",
+      "Chapter XVIII",
+      "Chapter XIX",
+      "Chapter XX",
+      "Chapter XXI",
+      "Chapter XXII",
+      "Chapter XXIII",
+      "Chapter XXIV"
+    ],
+    "chapterWordCounts": [
+      1764,
+      2201,
+      2671,
+      2532,
+      2348,
+      2711,
+      3561,
+      3082,
+      2206,
+      2353,
+      2901,
+      2068,
+      2029,
+      1853,
+      3017,
+      3195,
+      1913,
+      2835,
+      2604,
+      3513,
+      3731,
+      3412,
+      2589,
+      8216
+    ],
+    "wordCount": 69305,
+    "readingMinutes": 302,
+    "hostedScope": "reviewed-edition",
     "license": {
       "type": "REVIEWED-PUBLIC-DOMAIN",
+      "edition": "Standard Ebooks public-domain editorial contribution (CC0); original English-language text",
+      "jurisdictions": [
+        "AU",
+        "US"
+      ],
       "note": "Mary Shelley died 1851; original English work first published 1818 during life; public domain in Australia and United States; Standard Ebooks editorial work released CC0. Review excludes later adaptations and translations."
-    }
-  },
-  {
-    "id": "the-war-of-the-worlds",
-    "title": "The War of the Worlds",
-    "author": "H. G. Wells",
-    "genre": "Science Fiction",
-    "blurb": "Martian machines arrive in England, shattering assumptions about humanity’s place in the world.",
-    "tags": [
-      "science fiction",
-      "adventure",
-      "horror"
-    ],
-    "storySignals": [
-      "Invasion upends ordinary life",
-      "Escalating danger and survival"
-    ],
-    "colors": [
-      "#8d6042",
-      "#2a2628"
-    ],
-    "mark": "✺",
-    "featured": 26,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20War%20of%20the%20Worlds",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-invisible-man",
-    "title": "The Invisible Man",
-    "author": "H. G. Wells",
-    "genre": "Science Fiction",
-    "blurb": "An experimental scientist becomes invisible, and the freedom it promises turns violent.",
-    "tags": [
-      "science fiction",
-      "mystery",
-      "horror"
-    ],
-    "storySignals": [
-      "Experiment changes social power",
-      "Concealment and exposure escalate the conflict"
-    ],
-    "colors": [
-      "#657b8c",
-      "#202b35"
-    ],
-    "mark": "◌",
-    "featured": 25,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Invisible%20Man",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-island-of-doctor-moreau",
-    "title": "The Island of Doctor Moreau",
-    "author": "H. G. Wells",
-    "genre": "Science Fiction",
-    "blurb": "Shipwreck leads to an isolated island where horrifying experiments challenge the boundary between human and beast.",
-    "tags": [
-      "science fiction",
-      "horror",
-      "mystery"
-    ],
-    "storySignals": [
-      "Island secrets emerge gradually",
-      "Authority and identity under pressure"
-    ],
-    "colors": [
-      "#567967",
-      "#172b28"
-    ],
-    "mark": "♧",
-    "featured": 24,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Island%20of%20Doctor%20Moreau",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "treasure-island",
-    "title": "Treasure Island",
-    "author": "Robert Louis Stevenson",
-    "genre": "Adventure",
-    "blurb": "A map, a schooner, and a dangerous crew send a young boy searching for buried treasure.",
-    "tags": [
-      "adventure",
-      "mystery",
-      "betrayal"
-    ],
-    "storySignals": [
-      "Treasure hunt with shifting alliances",
-      "Trust and survival are continually tested"
-    ],
-    "colors": [
-      "#ad8355",
-      "#243b36"
-    ],
-    "mark": "⚓",
-    "featured": 23,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Treasure%20Island",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "kidnapped",
-    "title": "Kidnapped",
-    "author": "Robert Louis Stevenson",
-    "genre": "Adventure",
-    "blurb": "A young heir is drawn into betrayal, flight and the perilous politics of eighteenth-century Scotland.",
-    "tags": [
-      "adventure",
-      "political intrigue",
-      "betrayal"
-    ],
-    "storySignals": [
-      "Survival against stronger opponents",
-      "Clever escapes and an uneasy alliance"
-    ],
-    "colors": [
-      "#6d6b8d",
-      "#232b42"
-    ],
-    "mark": "♜",
-    "featured": 22,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Kidnapped",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-picture-of-dorian-gray",
-    "title": "The Picture of Dorian Gray",
-    "author": "Oscar Wilde",
-    "genre": "Gothic",
-    "blurb": "A young man remains outwardly beautiful while a portrait bears the marks of his decisions.",
-    "tags": [
-      "gothic",
-      "horror",
-      "social commentary"
-    ],
-    "storySignals": [
-      "Secret deterioration behind a flawless public image",
-      "Consequences build beneath appearances"
-    ],
-    "colors": [
-      "#8b6b73",
-      "#242132"
-    ],
-    "mark": "◈",
-    "featured": 21,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Picture%20of%20Dorian%20Gray",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-hound-of-the-baskervilles",
-    "title": "The Hound of the Baskervilles",
-    "author": "Arthur Conan Doyle",
-    "genre": "Mystery",
-    "blurb": "Sherlock Holmes investigates a legendary curse and a death on the moors.",
-    "tags": [
-      "mystery",
-      "clever protagonist",
-      "gothic"
-    ],
-    "storySignals": [
-      "Deduction against superstition",
-      "Clues accumulate toward a reveal"
-    ],
-    "colors": [
-      "#637c78",
-      "#1b2b30"
-    ],
-    "mark": "⌕",
-    "featured": 20,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Hound%20of%20the%20Baskervilles",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "a-study-in-scarlet",
-    "title": "A Study in Scarlet",
-    "author": "Arthur Conan Doyle",
-    "genre": "Mystery",
-    "blurb": "Dr Watson meets Sherlock Holmes as they investigate a puzzling London murder.",
-    "tags": [
-      "mystery",
-      "clever protagonist"
-    ],
-    "storySignals": [
-      "Reasoning uncovers hidden motives",
-      "An unlikely partnership begins"
-    ],
-    "colors": [
-      "#68768b",
-      "#28233d"
-    ],
-    "mark": "♙",
-    "featured": 19,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=A%20Study%20in%20Scarlet",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-sign-of-the-four",
-    "title": "The Sign of the Four",
-    "author": "Arthur Conan Doyle",
-    "genre": "Mystery",
-    "blurb": "A missing man, a mysterious pact and a treasure lead Holmes and Watson into a dangerous investigation.",
-    "tags": [
-      "mystery",
-      "adventure",
-      "clever protagonist"
-    ],
-    "storySignals": [
-      "Linked clues and distant consequences",
-      "A mystery rooted in the past"
-    ],
-    "colors": [
-      "#7b7366",
-      "#292a31"
-    ],
-    "mark": "✶",
-    "featured": 18,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Sign%20of%20the%20Four",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-adventures-of-sherlock-holmes",
-    "title": "The Adventures of Sherlock Holmes",
-    "author": "Arthur Conan Doyle",
-    "genre": "Mystery",
-    "blurb": "Twelve classic cases showcase Holmes’s power of observation and deduction.",
-    "tags": [
-      "mystery",
-      "clever protagonist"
-    ],
-    "storySignals": [
-      "Self-contained investigations",
-      "Unexpected solutions built from small details"
-    ],
-    "colors": [
-      "#826358",
-      "#272635"
-    ],
-    "mark": "⌕",
-    "featured": 17,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Adventures%20of%20Sherlock%20Holmes",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "alices-adventures-in-wonderland",
-    "title": "Alice’s Adventures in Wonderland",
-    "author": "Lewis Carroll",
-    "genre": "Fantasy",
-    "blurb": "A curious girl follows a rabbit into a world of impossible rules and unforgettable encounters.",
-    "tags": [
-      "fantasy",
-      "adventure"
-    ],
-    "storySignals": [
-      "Wonder through unpredictable encounters",
-      "A world with its own strange rules"
-    ],
-    "colors": [
-      "#796c9b",
-      "#2b2648"
-    ],
-    "mark": "♠",
-    "featured": 16,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Alice’s%20Adventures%20in%20Wonderland",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "through-the-looking-glass",
-    "title": "Through the Looking-Glass",
-    "author": "Lewis Carroll",
-    "genre": "Fantasy",
-    "blurb": "Alice crosses into a mirror-world structured like a chessboard.",
-    "tags": [
-      "fantasy",
-      "adventure"
-    ],
-    "storySignals": [
-      "Rules unfold through the journey",
-      "Surreal encounters and movement across a world"
-    ],
-    "colors": [
-      "#8a749a",
-      "#302138"
-    ],
-    "mark": "♟",
-    "featured": 15,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Through%20the%20Looking-Glass",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-wonderful-wizard-of-oz",
-    "title": "The Wonderful Wizard of Oz",
-    "author": "L. Frank Baum",
-    "genre": "Fantasy",
-    "blurb": "Dorothy and her companions follow a yellow road toward a mysterious wizard and the hope of home.",
-    "tags": [
-      "fantasy",
-      "adventure"
-    ],
-    "storySignals": [
-      "Companions pursue personal goals",
-      "Obstacles reveal hidden strengths"
-    ],
-    "colors": [
-      "#a28b56",
-      "#203b3e"
-    ],
-    "mark": "★",
-    "featured": 14,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Wonderful%20Wizard%20of%20Oz",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "a-princess-of-mars",
-    "title": "A Princess of Mars",
-    "author": "Edgar Rice Burroughs",
-    "genre": "Adventure",
-    "blurb": "A former soldier is transported to Mars, where strange nations and heroic conflicts await.",
-    "tags": [
-      "adventure",
-      "science fiction",
-      "romance",
-      "earned progression"
-    ],
-    "storySignals": [
-      "New abilities in a foreign environment",
-      "Inter-faction conflict and heroic adventure"
-    ],
-    "colors": [
-      "#a85650",
-      "#361d31"
-    ],
-    "mark": "♂",
-    "featured": 13,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=A%20Princess%20of%20Mars",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "tarzan-of-the-apes",
-    "title": "Tarzan of the Apes",
-    "author": "Edgar Rice Burroughs",
-    "genre": "Adventure",
-    "blurb": "An orphan raised in the African jungle grows into a figure caught between different worlds.",
-    "tags": [
-      "adventure",
-      "earned progression",
-      "hidden identity"
-    ],
-    "storySignals": [
-      "Identity unfolds alongside survival",
-      "Changing social worlds"
-    ],
-    "colors": [
-      "#5e7951",
-      "#1b332d"
-    ],
-    "mark": "♣",
-    "featured": 12,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Tarzan%20of%20the%20Apes",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-call-of-the-wild",
-    "title": "The Call of the Wild",
-    "author": "Jack London",
-    "genre": "Adventure",
-    "blurb": "A domesticated dog is thrust into the brutal Yukon and learns to survive a very different life.",
-    "tags": [
-      "adventure",
-      "earned progression"
-    ],
-    "storySignals": [
-      "Adaptation through escalating challenges",
-      "A changing relationship to civilisation"
-    ],
-    "colors": [
-      "#687e94",
-      "#26333d"
-    ],
-    "mark": "❄",
-    "featured": 11,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Call%20of%20the%20Wild",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "white-fang",
-    "title": "White Fang",
-    "author": "Jack London",
-    "genre": "Adventure",
-    "blurb": "From wild beginnings to human company, a wolfdog struggles through cruelty, trust and survival.",
-    "tags": [
-      "adventure",
-      "earned progression"
-    ],
-    "storySignals": [
-      "Survival and adaptation",
-      "Trust changes with experience"
-    ],
-    "colors": [
-      "#8b8a91",
-      "#2c3542"
-    ],
-    "mark": "❆",
-    "featured": 10,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=White%20Fang",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-sea-wolf",
-    "title": "The Sea-Wolf",
-    "author": "Jack London",
-    "genre": "Adventure",
-    "blurb": "A literary critic is trapped aboard a brutal sealing ship led by an extraordinary captain.",
-    "tags": [
-      "adventure",
-      "political intrigue"
-    ],
-    "storySignals": [
-      "Power struggles at sea",
-      "A vulnerable newcomer learns to resist"
-    ],
-    "colors": [
-      "#607f8f",
-      "#20313a"
-    ],
-    "mark": "⚓",
-    "featured": 9,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Sea-Wolf",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "little-women",
-    "title": "Little Women",
-    "author": "Louisa May Alcott",
-    "genre": "Literary",
-    "blurb": "Four sisters navigate ambition, disappointment, love and responsibility while growing up.",
-    "tags": [
-      "romance",
-      "family conflict",
-      "social commentary"
-    ],
-    "storySignals": [
-      "Family relationships evolve over time",
-      "Distinct ambitions and choices"
-    ],
-    "colors": [
-      "#8c6b75",
-      "#392b3c"
-    ],
-    "mark": "✿",
-    "featured": 8,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Little%20Women",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "north-and-south",
-    "title": "North and South",
-    "author": "Elizabeth Gaskell",
-    "genre": "Romance",
-    "blurb": "A woman from southern England encounters the industrial north and its sharp social divisions.",
-    "tags": [
-      "romance",
-      "social commentary",
-      "political intrigue"
-    ],
-    "storySignals": [
-      "Clashing values and gradual understanding",
-      "Class conflict shapes personal relationships"
-    ],
-    "colors": [
-      "#816e67",
-      "#283b42"
-    ],
-    "mark": "❦",
-    "featured": 7,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=North%20and%20South",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "wuthering-heights",
-    "title": "Wuthering Heights",
-    "author": "Emily Brontë",
-    "genre": "Gothic",
-    "blurb": "An intense, destructive attachment reverberates across generations on the Yorkshire moors.",
-    "tags": [
-      "romance",
-      "gothic",
-      "family conflict"
-    ],
-    "storySignals": [
-      "Consequences reach across generations",
-      "Revenge and damaged relationships"
-    ],
-    "colors": [
-      "#6b7486",
-      "#222332"
-    ],
-    "mark": "☁",
-    "featured": 6,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Wuthering%20Heights",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "jane-eyre",
-    "title": "Jane Eyre",
-    "author": "Charlotte Brontë",
-    "genre": "Romance",
-    "blurb": "An independent young woman confronts hardship, love, secrets and difficult moral decisions.",
-    "tags": [
-      "romance",
-      "gothic",
-      "hidden identity"
-    ],
-    "storySignals": [
-      "A self-directed heroine faces changing circumstances",
-      "Secrets reshape relationships"
-    ],
-    "colors": [
-      "#785a61",
-      "#2c2b3a"
-    ],
-    "mark": "❦",
-    "featured": 5,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Jane%20Eyre",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-secret-garden",
-    "title": "The Secret Garden",
-    "author": "Frances Hodgson Burnett",
-    "genre": "Literary",
-    "blurb": "A lonely child discovers a neglected garden that becomes a place of transformation.",
-    "tags": [
-      "family conflict",
-      "mystery",
-      "earned progression"
-    ],
-    "storySignals": [
-      "Gradual change through care and effort",
-      "A hidden place reshapes relationships"
-    ],
-    "colors": [
-      "#65866d",
-      "#233b32"
-    ],
-    "mark": "✿",
-    "featured": 4,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Secret%20Garden",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "anne-of-green-gables",
-    "title": "Anne of Green Gables",
-    "author": "L. M. Montgomery",
-    "genre": "Literary",
-    "blurb": "An imaginative orphan finds a home and changes the people around her.",
-    "tags": [
-      "family conflict",
-      "social commentary"
-    ],
-    "storySignals": [
-      "Belonging develops through everyday triumphs and mistakes",
-      "Relationships deepen over time"
-    ],
-    "colors": [
-      "#7b925e",
-      "#313b2a"
-    ],
-    "mark": "❧",
-    "featured": 3,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Anne%20of%20Green%20Gables",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "moby-dick",
-    "title": "Moby-Dick",
-    "author": "Herman Melville",
-    "genre": "Adventure",
-    "blurb": "A whale hunt becomes a consuming pursuit under the command of a driven captain.",
-    "tags": [
-      "adventure",
-      "revenge"
-    ],
-    "storySignals": [
-      "An obsessive mission drives escalating choices",
-      "Danger at sea"
-    ],
-    "colors": [
-      "#70818c",
-      "#172f3a"
-    ],
-    "mark": "⚓",
-    "featured": 2,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=Moby-Dick",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
-    }
-  },
-  {
-    "id": "the-scarlet-pimpernel",
-    "title": "The Scarlet Pimpernel",
-    "author": "Baroness Orczy",
-    "genre": "Adventure",
-    "blurb": "During the French Revolution, a mysterious rescuer frustrates his enemies while hiding in plain sight.",
-    "tags": [
-      "adventure",
-      "hidden identity",
-      "political intrigue",
-      "romance"
-    ],
-    "storySignals": [
-      "Secret identity and political danger",
-      "Public persona conceals daring activity"
-    ],
-    "colors": [
-      "#a57758",
-      "#382532"
-    ],
-    "mark": "⚜",
-    "featured": 1,
-    "sourceUrl": "https://standardebooks.org/ebooks?query=The%20Scarlet%20Pimpernel",
-    "status": "external",
-    "chapterCount": 0,
-    "license": {
-      "type": "PUBLIC-DOMAIN-CANDIDATE",
-      "note": "External listing only. Text not hosted until an edition-specific review is approved."
     }
   }
 ]
