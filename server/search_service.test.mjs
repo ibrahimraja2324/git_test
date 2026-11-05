@@ -24,3 +24,35 @@ test('negative natural-language clause removed from positive search intent',()=>
  assert(x.avoid.some(y=>y.includes('romance filler')));
  assert(!x.positiveQuery.includes('romance filler'));
 });
+
+// These adversarial tests distinguish book-wide word overlap from true co-location.
+const positionAware={...idx,passageTerms:[
+ {chapter:1,paragraph:1,terms:['secret','silver','compass']},
+ {chapter:1,paragraph:2,terms:['courtyard']}
+]};
+test('strict concept rejects disjoint tokens even when both words occur in a book',()=>{
+ const split={...positionAware,passageTerms:[{chapter:1,paragraph:1,terms:['secret','compass']},{chapter:2,paragraph:1,terms:['silver','courtyard']}]};
+ assert.equal(searchBooks({query:'compass',requiredConcepts:['secret silver']},catalog,{x:split}).length,0);
+});
+test('independent requirements and explicit same-passage searches differ',()=>{
+ const args={query:'secret silver compass',requiredConcepts:['secret silver','courtyard']};
+ assert.equal(searchBooks(args,catalog,{x:positionAware}).length,1);
+ assert.equal(searchBooks({...args,samePassage:true},catalog,{x:positionAware}).length,0);
+ const together={...positionAware,passageTerms:[{chapter:1,paragraph:1,terms:['secret','silver','compass','courtyard']}]};
+ assert.equal(searchBooks({...args,samePassage:true},catalog,{x:together}).length,1);
+});
+test('invalid strict stopword-only clauses are never treated as matches',()=>{
+ assert.equal(searchBooks({query:'secret',requiredConcepts:['the and a']},catalog,{x:positionAware}).length,0);
+});
+test('optional exact same-passage request is parsed and never revealed as evidence',()=>{
+ assert.equal(safeQuery({q:'secret silver',samePassage:'true'}).samePassage,true);
+ assert.equal(safeQuery({q:'secret silver',samePassage:'false'}).samePassage,false);
+ const output=searchBooks({query:'compass',requiredConcepts:['secret silver'],samePassage:true},catalog,{x:positionAware});
+ assert.equal(output.length,1);
+ assert(!JSON.stringify(output).includes('passageTerms'));
+ assert(!JSON.stringify(output).includes('compass'));
+});
+test('two-letter trope abbreviations can be lexical signals',()=>{
+ const ai={...positionAware,dynamicPhrases:[{phrase:'ai companion',paragraphFrequency:2}],passageTerms:[{terms:['ai','companion']}]};
+ assert.equal(searchBooks({query:'ai companion',requiredConcepts:['ai companion']},catalog,{x:ai}).length,1);
+});

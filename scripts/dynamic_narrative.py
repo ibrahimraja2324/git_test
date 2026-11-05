@@ -61,7 +61,7 @@ def mine_book(book_id,chapters,max_phrases=260,max_entity_pairs=100,max_passages
     claims without verification. Re-run on revisions (input SHA captured).
     """
     term_count=Counter();occurrences=defaultdict(list);name_count=Counter();name_locations=defaultdict(list)
-    pairs=Counter();pair_examples=defaultdict(list);paragraph_count=0;total_terms=0
+    pairs=Counter();pair_examples=defaultdict(list);paragraph_count=0;total_terms=0;passage_terms=[]
     source_digest=hashlib.sha256()
     for ci,ch in enumerate(chapters,1):
         for pi,raw in enumerate(ch.get('paragraphs',[]),1):
@@ -71,6 +71,8 @@ def mine_book(book_id,chapters,max_phrases=260,max_entity_pairs=100,max_passages
             if len(p)<35:continue
             paragraph_count+=1
             ts=tokens(p);total_terms+=len(ts)
+            # Private, exhaustive paragraph co-occurrence evidence. No text or terms ship to public assets.
+            passage_terms.append({'chapter':ci,'paragraph':pi,'terms':sorted({t for t in ts if t not in STOP})})
             evidence={'chapter':ci,'paragraph':pi,'sourceHash':fingerprint(book_id,ci,pi,p),
                       'excerpt':p[:240]+('…' if len(p)>240 else '')}
             hits=set(get_candidate_phrases(ts))
@@ -106,7 +108,8 @@ def mine_book(book_id,chapters,max_phrases=260,max_entity_pairs=100,max_passages
             'sourceSha256':source_digest.hexdigest(),'paragraphCount':paragraph_count,
             'tokenCount':total_terms,'method':'unsupervised-orthographic-phrase-and-entity-mining-v2',
             'note':'All entries are observed strings/candidate names/co-mentions, never verified plot events.',
-            'dynamicPhrases':dynamic,'candidateEntities':name_ranked,'coMentions':edge_ranked}
+            'dynamicPhrases':dynamic,'candidateEntities':name_ranked,'coMentions':edge_ranked,
+            'passageTerms':passage_terms}
 
 
 def corpus_idf(indexes):

@@ -37,3 +37,9 @@ The prototype has no authentication, global rate limits, abuse detection, contra
 ## Zero-cost AI assurance
 
 No paid AI inference calls are made by the platform. The user can optionally use their own model; no provider receives hidden plot text through `search_novalume`. Standard CPU and hosting costs remain.
+
+## 2026-11-06: Position-aware private lexical constraints
+
+The private index now includes a compact `passageTerms` record (chapter, paragraph, distinct tokens) for every eligible paragraph; it is created from approved hosted content and excluded from the public build. Unlike the previous book-wide bag-of-words strict check, each `requiredConcepts` clause now requires all meaningful terms to co-occur inside **one indexed paragraph**. The optional `samePassage=true` flag requires all clauses to occur in the same paragraph. Exclusions are only soft score penalties when the entire avoided phrase's terms co-occur in an observed paragraph. Legacy indexes fall back conservatively to same-phrase evidence rather than accepting unrelated terms from different locations.
+
+**Limitations:** Paragraph co-location is not a scene, chronology, verified event, relationship, successful resolution, character identity, negation, or semantic equivalence. The index does not provide guarantees that a trope is absent; a negative filter is a preference, not a rights/security enforcement. Paragraph tokens and source locations remain private. These are structural regression tests, not human-validated accuracy results. More representative real-prose annotation remains required for NV-032 and event verification remains required for NV-035.

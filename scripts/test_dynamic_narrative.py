@@ -19,6 +19,13 @@ class DynamicTests(unittest.TestCase):
     p=json.dumps(safe_summary(r))
     self.assertNotIn('hidden prince',p)
     self.assertNotIn('crystal fortress',p)
+  def test_private_passage_terms_have_exact_paragraph_boundaries(self):
+    r=mine_book('fiction',[{'paragraphs':['The secret silver compass was found hidden beneath the southern staircase.','A northern courtyard was guarded by soldiers with enormous shields.']}])
+    self.assertEqual(len(r['passageTerms']),2)
+    self.assertIn('compass',r['passageTerms'][0]['terms'])
+    self.assertNotIn('courtyard',r['passageTerms'][0]['terms'])
+    self.assertIn('courtyard',r['passageTerms'][1]['terms'])
+    self.assertNotIn('secret silver',json.dumps(safe_summary(r)))
   def test_character_co_mentions_not_asserted_as_relationships(self):
     r=mine_book('fiction',[{'paragraphs':['Elizabeth Bennet and Fitzwilliam Darcy stood together at the entrance.']}])
     self.assertTrue(all(x['verification']=='co-mentioned-not-necessarily-related' for x in r['coMentions']))
