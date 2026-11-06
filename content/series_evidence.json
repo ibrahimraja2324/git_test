@@ -236,6 +236,32 @@
         "title": "The Beginning After the End",
         "originalLanguage": "English"
       }
+    },
+    {
+      "seriesId": "lord-of-the-mysteries",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/lord-of-the-mysteries/",
+      "observedAt": "2026-11-06",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "author": "Cuttlefish That Loves Diving",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "the-beginning-after-the-end",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/3909/the-beginning-after-the-end",
+      "observedAt": "2026-11-06",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Beginning After the End",
+        "author": "TurtleMe",
+        "originalLanguage": "English"
+      }
     }
   ]
 }
