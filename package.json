@@ -6,7 +6,7 @@
   "description": "Narrative-intelligent fiction discovery and reader platform — rights-gated launch foundation",
   "scripts": {
     "dev": "npm run build && npm run serve",
-    "build": "python3 scripts/build_catalog.py && python3 scripts/build_story_index.py && python3 scripts/dynamic_narrative.py && python3 scripts/build_fts.py && python3 scripts/build_narrative_events.py && python3 scripts/assemble_site.py",
+    "build": "python3 scripts/build_catalog.py && python3 scripts/build_story_index.py && python3 scripts/dynamic_narrative.py && python3 scripts/build_fts.py && python3 scripts/build_narrative_events.py && python3 scripts/static_story_observations.py && python3 scripts/assemble_site.py",
     "test": "node --check src/app.js && node --test src/*.test.js server/*.test.mjs && python3 -m unittest discover -s scripts -p 'test_*.py' && python3 scripts/check_no_paid_ai.py",
     "serve": "python3 -m http.server 4173 --directory dist",
     "ingest": "python3 scripts/ingest_standardebooks.py"
