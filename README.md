@@ -55,3 +55,7 @@ We are testing the part generic genre/list sites do not provide: event-level nar
 - Read [the narrative intelligence system](docs/narrative-intelligence.md) for source consent, text access, evidence validation, independent reviewer criteria, temporal entity graphs and measurement.
 
 We cannot legitimately crawl and process all chapters on Webnovel/Wuxiaworld/Royal Road without the relevant permissions; see their platform terms. Copyright does not disappear merely because we extract event metadata from the text.
+
+## Full-source deterministic narrative memory (new)
+
+The static evidence builder has now processed all **53 available sections** of the three authorised classics into **8,835 unverified textual observations** from **10,847 sentence segments**. Every candidate preserves its chapter, paragraph, source fingerprint, action/entity hints, and markers for hypotheticals, negation and speech. The private index can be searched on `/#assistant` with book-only default results and an explicit maximum-chapter spoiler reveal. This is an evidence retrieval memory, NOT 8,835 confirmed narrative events. No third-party novel chapters were downloaded or analysed; the larger linked webnovel directory remains at **43 real records**, though pagination is tested for thousands. See [the extraction design and limitations](docs/static-narrative-evidence.md).

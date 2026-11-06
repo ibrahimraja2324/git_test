@@ -633,5 +633,44 @@
     ],
     "acceptance": "Authentication, rights ownership attestation with translator/coauthor checks, revocable granular analysis/discovery licence, secure upload, moderation, deletion, no content reuse beyond scope",
     "evidence": "Permissions and real upload infrastructure not implemented"
+  },
+  {
+    "id": "NV-049",
+    "phase": "P1",
+    "title": "Index full permitted chapters into open-vocabulary static evidence and spoiler-gated search",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-045"
+    ],
+    "acceptance": "Parse every authorised chapter into deterministic sentence observations; source hash, chapter/paragraph, entities, predicate words, open-topic clues, modality/negation; safe aggregate counts and explicit spoiler-limited retrieval; 1000+ catalogue pagination ready; GitHub tests pass",
+    "evidence": "scripts/static_story_observations.py; server/static_observation_service.mjs; api/observations.js; src/app.js; CI run 42235913826 passed; 53 chapters, 10,847 segments, 8,835 textual observations. Evidence not confirmed plot events."
+  },
+  {
+    "id": "NV-050",
+    "phase": "P1",
+    "title": "Launch 1000+ real, legally sourced linked webnovel records with provenance",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-041"
+    ],
+    "acceptance": "1000+ unique actual webnovel works with validated author, original language, official or legitimate link, duplicate-safe source history, rights scope and timestamp; no mass extraction of restricted rival compilations or copied chapters; fast paginated discovery",
+    "evidence": "Site currently still has 43 indexed external titles. Pagination tested for 3,200 synthetic records, but these are NOT public entries. Need CC0, permissioned publisher author feeds and quality-checked imports."
+  },
+  {
+    "id": "NV-051",
+    "phase": "P1",
+    "title": "Measure and improve static evidence search and dynamic schema for real webnovel semantics",
+    "priority": 1,
+    "status": "in_progress",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-049"
+    ],
+    "acceptance": "Independent sample of 100+ approved text queries, false-positive/negative controls, entity disambiguation, chapter chronology, event vs hypothetical, witnessed vs reported, public-reputation shifts, numerical progression; improve candidate precision and recall; never auto-publish as verified facts",
+    "evidence": "8,835 deterministic clues and 21 editorial anchors exist; 0 independently validated gold claims; no local AI inference run yet."
   }
 ]

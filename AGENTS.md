@@ -45,3 +45,10 @@ The public homepage at `#home` is a real, cited webnovel directory (43 real inde
 - No publisher/author grants for copyrighted external books are currently present. Future non-public-domain analysis must have a revocable licence specifying processing, publication scope, model use and translation rights; strengthen authenticated access before indexing.
 - Public API `/api/narrative` may only return safe title matches by default and chapter-limited compact editorial details after explicit opt-in. No unlicensed text, whole-corpus dump, or private candidate index to the client.
 - Next priorities NV-046 permissions + author-authenticated ingestion and NV-047 independent quantitative narrative fact benchmark; do not substitute generic lexical tags for meaning.
+
+## Static extraction and scale accuracy (2026-11-07)
+
+- Three authorised hosted classics: 53 sections, 10,847 analysed sentence segments, 8,835 unverified static textual observations (GitHub CI build log 42235208056). The 43 external webnovel directory records are still metadata-only. No external chapters were downloaded, model-analysed or scraped.
+- New deterministic layer: `scripts/static_story_observations.py`, `server/static_observation_service.mjs`, `api/observations.js`, and `src/app.js` search UI. Private snippets remain private and are limited by explicit reader-selected book and chapter in API outputs. Do not auto-promote deterministic labels to verified plot facts. Separate 21 editorial samples are NOT independently human reviewed.
+- Directory pagination supports thousands but is synthetic-test coverage only. Never inflate public work count from benchmarks; still 43 actual records.
+- Novel link metadata can be stored when lawfully sourced; public availability does NOT license programmatic text extraction for static, local-ML or remote-AI analysis. Respect provider terms and author/translator/publisher rights and revocation.

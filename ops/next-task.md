@@ -1,31 +1,21 @@
-# Novalume — active next tasks (6 November 2026)
+# Novalume — next high-impact implementation
 
-## NV-046: permission-first full-text narrative intelligence
+Production corpus position (7 Nov 2026):
+- 43 real externally linked webnovels; 8 multi-source corroborated, 21 single-source reviewed, 14 pending independent recheck
+- 3 rights-approved hosted classics, 53 sections, 10,847 sentence segments, 8,835 unverified static text observations
+- 21 source-anchored editorial event examples, not independently verified human gold-standard facts
+- Directory pagination tested against 3,200 synthetic entries; this does NOT mean 3,200 real novels
 
-Current substantive implementation: a rights-gated analysis pipeline and 21 anchored
-editorial event samples across three approved classics, plus a private source-event
-search API and explicit chapter-cutoff UI. GitHub tests pass.
+## NV-050: thousands of real linked titles
 
-Next completion requirements:
-1. Obtain scoped, revocable permission to process original webnovel manuscripts directly
-   from authors/publishers, including translated-edition rights where relevant.
-2. Run scripts/local_story_intelligence.py in local Ollama mode against an approved corpus
-   end to end, producing quarantined proposals. The adapter is coded but NOT executed
-   on the user's local hardware in this release.
-3. Add temporal linking, character identity disambiguation, power progression units
-   and audience reactions; conduct independent evidence confirmation before publication.
-4. Establish source revocation and secure deletion procedures for copyrighted manuscripts.
+Build scalable lawful factual-metadata ingestion from CC0 datasets, permissioned publishers, and author-contributed legitimate source URLs. Verify work identity, native aliases, author, language, current source, status and provenance; exclude adaptations and duplicates. Do not bulk copy third-party proprietary catalogues and do not host external copyrighted novel chapters.
 
-## NV-047: independent gold evaluation
+## NV-051: evidence-to-meaning accuracy
 
-Build 100+ evidence-backed real-text scenarios across rights-approved novels. Measure
-false positives, claim entailment, chronology, subject/witness correctness and spoiler
-leakage. The 21 editorial samples are not such a benchmark.
+Use the 8,835 high-recall observations as retrieval candidates, not truth. Build a gold question bank, test witnesses/public reactions, identity reveals, misunderstandings, character knowledge, progression measures, chronology, negation and motivations. Keep source evidence and review status with each claim; add chapter-conditional query semantics.
 
-## NV-041: external webnovel directory growth
+## NV-046: authorised model processing
 
-Still at 43 metadata-only indexed entries, with 14 awaiting independent recheck.
-Continue 100+ source-legal coverage, but do not scrape third-party chapters or claim
-that metadata equals full-text semantic verification.
+Seek author/publisher permission to submit full manuscripts and analyse them. Local Ollama adapter exists but no live inference has been executed on connected hardware in this run. Do not misrepresent author permissions or use external platform crawling as an alternative.
 
-Reference docs/narrative-intelligence.md and docs/source-integration.md.
+Reference docs/static-narrative-evidence.md and docs/narrative-intelligence.md.
