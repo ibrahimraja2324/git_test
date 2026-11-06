@@ -481,5 +481,102 @@
     ],
     "acceptance": "New search concepts can be proposed, clustered, author/curator confirmed without locking taxonomy",
     "evidence": "Preference/feedback provenance and privacy tests"
+  },
+  {
+    "id": "NV-038",
+    "phase": "P1",
+    "title": "Launch verified external webnovel database as discovery homepage",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-031"
+    ],
+    "acceptance": "17 real source-checked Chinese/Korean/English webnovels, safe source links, verified provenance, language and reversible theme filters, no copyrighted external chapters or invented ratings",
+    "evidence": "content/series_registry.json; src/directory.js; scripts/test_series_registry.py; GitHub commits a82ee6b, 88491b0; CI passed"
+  },
+  {
+    "id": "NV-039",
+    "phase": "P1",
+    "title": "Build reader-owned local series tracking and portability",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-038"
+    ],
+    "acceptance": "Five reading statuses; manual chapter progress and private notes; robust JSON list export/import; invalid IDs refused, mobile interface",
+    "evidence": "src/directory.js; src/directory.test.js; commits a874fe0 and 88491b0; GitHub CI passed"
+  },
+  {
+    "id": "NV-040",
+    "phase": "P2",
+    "title": "Introduce shareable privacy-safe public recommendation lists",
+    "priority": 2,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-039"
+    ],
+    "acceptance": "Public share URLs carry only actual directory series IDs, not private notes, progress or reading statuses; invalid IDs ignored; link round-trip tests",
+    "evidence": "src/directory.js; src/directory.test.js; commit 215f1a2; GitHub CI passed"
+  },
+  {
+    "id": "NV-041",
+    "phase": "P1",
+    "title": "Scale to 100+ independently source-verified Asian and progression webnovel records",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-038"
+    ],
+    "acceptance": "Reproducible metadata-only intake and review; 100+ distinct live source links; aliases and source timestamps; duplicate merging, stale status flags, coverage analysis; no unlicensed text or invented stats",
+    "evidence": "Next: source registration workflow, provenance QA and registry expansion"
+  },
+  {
+    "id": "NV-042",
+    "phase": "P2",
+    "title": "Enable actual user profiles, social reviews and public reading lists",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-008",
+      "NV-010",
+      "NV-038"
+    ],
+    "acceptance": "Authenticated social lists, reader-generated reviews/ratings, spoiler controls, anti-spam moderation, reporting, deletion, no fabricated activity",
+    "evidence": "Requires secure DB, auth, moderation and live-user QA"
+  },
+  {
+    "id": "NV-043",
+    "phase": "P2",
+    "title": "Allow independent authors to publish and appear in directory",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-007",
+      "NV-010",
+      "NV-038"
+    ],
+    "acceptance": "Auth, rights attestations, author-controlled novel/chapter hosting and revisions, reporting and moderation, discoverable author-created profiles, no fake publication",
+    "evidence": "Needs real publish API and rights workflow"
+  },
+  {
+    "id": "NV-044",
+    "phase": "P2",
+    "title": "Grow open-vocabulary source-backed narrative metadata for opted-in novels",
+    "priority": 2,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-041",
+      "NV-043",
+      "NV-032"
+    ],
+    "acceptance": "Evidence-linked changing event/relationship candidates for consented hosted works; verified facts separated from hypotheses; temporal and spoiler-aware search gold tests",
+    "evidence": "Improve schema/retrieval only where manuscript rights allow"
   }
 ]
