@@ -1,6 +1,6 @@
 {
   "schema": "novalume.external-series.v1",
-  "editorialNote": "Directory-only metadata. We do not host, copy, translate or republish the linked books; source pages determine reading availability. Genres are editorial labels sourced from public profiles, not automatically verified plot facts.",
+  "editorialNote": "Directory-only factual metadata with individually composed one-sentence synopses and links. Third-party book text, publisher descriptions, cover images, full-site tag exports and ratings are NOT imported. Publication status can differ from translation status and source-site chapter availability; do not infer completion from a STUB listing.",
   "checkedAt": "2026-11-06",
   "series": [
     {
@@ -24,7 +24,10 @@
       "summary": "A Victorian-inspired fantasy of occult mysteries, potion-based advancement, and secret organisations.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 1
+      "rank": 1,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "reverend-insanity",
@@ -47,7 +50,10 @@
       "summary": "A ruthless cultivator uses memories of a previous life to navigate dangerous power struggles.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 2
+      "rank": 2,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "i-shall-seal-the-heavens",
@@ -69,7 +75,10 @@
       "summary": "Meng Hao's journey through cultivation, sect politics, and a vast interconnected immortal world.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 3
+      "rank": 3,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "coiling-dragon",
@@ -91,7 +100,10 @@
       "summary": "A young noble pursues martial and magical strength across a world much larger than his homeland.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 4
+      "rank": 4,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "release-that-witch",
@@ -113,7 +125,10 @@
       "summary": "A modern-minded prince allies with witches and transforms a struggling territory with technology.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 5
+      "rank": 5,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "the-legendary-mechanic",
@@ -135,7 +150,10 @@
       "summary": "A former player arrives in a game universe before its launch and prepares for future players.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 6
+      "rank": 6,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "omniscient-readers-viewpoint",
@@ -157,7 +175,10 @@
       "summary": "A dedicated reader finds a long-running novel's scenarios becoming reality.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 7
+      "rank": 7,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "the-novels-extra",
@@ -179,7 +200,10 @@
       "summary": "A writer enters his own unfinished story as a minor character and confronts unexpected differences.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 8
+      "rank": 8,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "trash-of-the-counts-family",
@@ -202,7 +226,10 @@
       "summary": "A reader wakes inside a fantasy story as a notorious noble and tries to avoid his expected fate.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 9
+      "rank": 9,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "the-second-coming-of-gluttony",
@@ -224,7 +251,10 @@
       "summary": "A troubled protagonist receives a glimpse of a tragic future and seeks to change his path.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 10
+      "rank": 10,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "sss-class-suicide-hunter",
@@ -246,7 +276,10 @@
       "summary": "A tower climber gains a deadly ability linked to turning back time and approaches trials differently.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 11
+      "rank": 11,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "mother-of-learning",
@@ -268,7 +301,10 @@
       "summary": "A young mage repeats a month of his life while investigating the forces behind the loop.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 12
+      "rank": 12,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "the-perfect-run",
@@ -288,7 +324,10 @@
       "summary": "A man capable of restoring save points navigates branching futures in a superpowered city.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 13
+      "rank": 13,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "source-page-observed",
+      "availabilityStatus": "Original complete"
     },
     {
       "id": "beware-of-chicken",
@@ -308,7 +347,10 @@
       "summary": "A cultivator abandons dangerous sect ambitions to build a peaceful life on a farm.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 14
+      "rank": 14,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "super-supportive",
@@ -328,7 +370,10 @@
       "summary": "A teenager hopes to become a support hero within a world run by an extraterrestrial System.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 15
+      "rank": 15,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Check source"
     },
     {
       "id": "the-primal-hunter",
@@ -348,7 +393,10 @@
       "summary": "An office worker thrives in a dangerous system tutorial after humanity enters a multiverse.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 16
+      "rank": 16,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Partial listing"
     },
     {
       "id": "defiance-of-the-fall",
@@ -368,7 +416,639 @@
       "summary": "A survivor must grow stronger after Earth is thrown into a hostile multiverse.",
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
-      "rank": 17
+      "rank": 17,
+      "sourcePolicy": "legacy-human-curated-source-link",
+      "sourceAudit": "needs-independent-recheck",
+      "availabilityStatus": "Partial listing"
+    },
+    {
+      "id": "he-who-fights-with-monsters",
+      "title": "He Who Fights with Monsters",
+      "author": "Shirtaloon (Travis Deverell)",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/26294/he-who-fights",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Progression",
+        "Isekai",
+        "Comedy"
+      ],
+      "aliases": [
+        "HWFWM"
+      ],
+      "summary": "An Australian man awakens in a magical world and has to adapt to an unfamiliar system of powers.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 18,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "azarinth-healer",
+      "title": "Azarinth Healer",
+      "author": "Rhaegar",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/16946/azarinth-healer",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Female Lead",
+        "Action",
+        "Progression"
+      ],
+      "aliases": [],
+      "summary": "A woman explores a monster-filled world where classes, healing abilities, and combat training shape her path.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 19,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "the-runesmith",
+      "title": "The Runesmith",
+      "author": "Kuropon",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/33844/the-runesmith",
+      "workStatus": "Ongoing",
+      "genres": [
+        "LitRPG",
+        "Crafting",
+        "Isekai",
+        "Kingdom Building"
+      ],
+      "aliases": [],
+      "summary": "A transported man explores how technical knowledge can help him develop magical rune-based equipment.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 20,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "chrysalis",
+      "title": "Chrysalis",
+      "author": "RinoZ",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/22518/chrysalis",
+      "workStatus": "Unknown",
+      "genres": [
+        "Reincarnation",
+        "Non-Human Lead",
+        "LitRPG",
+        "Comedy"
+      ],
+      "aliases": [],
+      "summary": "A reincarnated protagonist finds himself living in a fantastical world as an ant.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 21,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "the-beginning-after-the-end",
+      "title": "The Beginning After the End",
+      "author": "TurtleMe",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/3909/the-beginning-after-the-end",
+      "workStatus": "Unknown",
+      "genres": [
+        "Reincarnation",
+        "Magic",
+        "Martial Arts",
+        "Fantasy"
+      ],
+      "aliases": [
+        "TBATE"
+      ],
+      "summary": "A powerful king begins a second life in a different world, growing up again amid magic and conflict.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 22,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "beneath-the-dragoneye-moons",
+      "title": "Beneath the Dragoneye Moons",
+      "author": "Selkie",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/36299/beneath-the-dragoneye-moons",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Female Lead",
+        "Isekai",
+        "Progression"
+      ],
+      "aliases": [
+        "BTDM"
+      ],
+      "summary": "A young woman becomes a healer in a dangerous world governed by classes, skills and magic.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 23,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "the-calamitous-bob",
+      "title": "The Calamitous Bob",
+      "author": "Mecanimus",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/44132/the-calamitous-bob",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Isekai",
+        "Kingdom Building",
+        "Female Lead"
+      ],
+      "aliases": [],
+      "summary": "A new arrival to a strange fantasy world must survive the attention of monsters and dangerous gods.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 24,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "the-path-of-ascension",
+      "title": "The Path of Ascension",
+      "author": "C_Mantis",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/40920/the-path-of-ascension",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Cultivation",
+        "Progression",
+        "Magic"
+      ],
+      "aliases": [
+        "PoA"
+      ],
+      "summary": "A talented young man pursues personal advancement through a structured interstellar path.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 25,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "a-journey-of-black-and-red",
+      "title": "A Journey of Black and Red",
+      "author": "Mecanimus",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/26675/a-journey-of-black-and-red",
+      "workStatus": "Completed",
+      "genres": [
+        "Vampires",
+        "Female Lead",
+        "Historical Fantasy",
+        "Antihero"
+      ],
+      "aliases": [],
+      "summary": "A young woman navigates dangerous supernatural factions after becoming a vampire in the nineteenth-century American South.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 26,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "dungeon-life",
+      "title": "Dungeon Life",
+      "author": "Khenal",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/54476/dungeon-life",
+      "workStatus": "Unknown",
+      "genres": [
+        "Dungeon Core",
+        "Isekai",
+        "LitRPG",
+        "Comedy"
+      ],
+      "aliases": [],
+      "summary": "A reincarnated protagonist takes control of a dungeon and slowly develops its inhabitants and environment.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 27,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "the-daily-grind",
+      "title": "The Daily Grind",
+      "author": "argusthecat",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/15925/the-daily-grind",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Urban Fantasy",
+        "Progression",
+        "Dungeon"
+      ],
+      "aliases": [],
+      "summary": "An IT worker discovers a strange sub-dimension in his office building and investigates its rewards.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 28,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "vainqueur-the-dragon",
+      "title": "Vainqueur the Dragon",
+      "author": "Maxime J. Durand (Void Herald)",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/26534/vainqueur-the-dragon",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Non-Human Lead",
+        "Comedy",
+        "Antihero"
+      ],
+      "aliases": [],
+      "summary": "A treasure-loving dragon discovers character levels and quests and decides they might be profitable.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 29,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "book-of-the-dead",
+      "title": "Book of the Dead",
+      "author": "RinoZ",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/47038/book-of-the-dead",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Necromancy",
+        "Progression",
+        "Horror"
+      ],
+      "aliases": [],
+      "summary": "A young man develops dangerous necromantic powers in a hostile fantasy society.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 30,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "reborn-as-a-demonic-tree",
+      "title": "Reborn as a Demonic Tree",
+      "author": "XKARNATION",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/62881/reborn-as-a-demonic-tree",
+      "workStatus": "Unknown",
+      "genres": [
+        "Cultivation",
+        "Reincarnation",
+        "Non-Human Lead",
+        "Kingdom Building"
+      ],
+      "aliases": [],
+      "summary": "A man reincarnates as a sentient demonic tree in the courtyard of a cultivation sect.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 31,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "millennial-mage",
+      "title": "Millennial Mage",
+      "author": "JLMullins",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/47826/millennial-mage",
+      "workStatus": "Unknown",
+      "genres": [
+        "Progression",
+        "Female Lead",
+        "Slice of Life",
+        "Magic"
+      ],
+      "aliases": [],
+      "summary": "A recently trained mage learns how to survive beyond the safety of human cities.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 32,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "all-the-skills",
+      "title": "All the Skills",
+      "author": "HonourRae",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/55687/all",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Deck Building",
+        "Progression",
+        "Fantasy"
+      ],
+      "aliases": [],
+      "summary": "A young man acquires an unusually powerful skill card in a society where magic depends on card decks.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 33,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "jackal-among-snakes",
+      "title": "Jackal Among Snakes",
+      "author": "Nemorosus",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/48969/jackal-among-snakes-stubbing-nov-15th",
+      "workStatus": "Unknown",
+      "genres": [
+        "Isekai",
+        "Progression",
+        "Strategy",
+        "Magic"
+      ],
+      "aliases": [],
+      "summary": "A fantasy game expert wakes inside a dangerous world resembling the game he knows.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 34,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "industrial-strength-magic",
+      "title": "Industrial Strength Magic",
+      "author": "Macronomicon",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/57011/industrial-strength-magic",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Superheroes",
+        "Comedy",
+        "Crafting"
+      ],
+      "aliases": [],
+      "summary": "A young man in a world of superpowers tries to combine technological ingenuity with magical systems.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 35,
+      "availabilityStatus": "Partial listing",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "a-will-eternal",
+      "title": "A Will Eternal",
+      "author": "Er Gen",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/a-will-eternal",
+      "workStatus": "Completed",
+      "genres": [
+        "Xianxia",
+        "Cultivation",
+        "Comedy",
+        "Progression"
+      ],
+      "aliases": [
+        "Yi Nian Yong Heng",
+        "一念永恒"
+      ],
+      "summary": "Bai Xiaochun seeks immortality while getting into trouble in a world of sects and cultivation.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 36,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "renegade-immortal",
+      "title": "Renegade Immortal",
+      "author": "Er Gen",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/renegade-immortal",
+      "workStatus": "Completed",
+      "genres": [
+        "Xianxia",
+        "Cultivation",
+        "Tragedy",
+        "Progression"
+      ],
+      "aliases": [
+        "Xian Ni",
+        "仙逆"
+      ],
+      "summary": "Wang Lin pursues cultivation despite beginning with weak talent and an ordinary background.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 37,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "martial-world",
+      "title": "Martial World",
+      "author": "Cocooned Cow",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/martial-world",
+      "workStatus": "Completed",
+      "genres": [
+        "Xuanhuan",
+        "Cultivation",
+        "Martial Arts",
+        "Progression"
+      ],
+      "aliases": [
+        "Wuji Tianxia",
+        "武极天下"
+      ],
+      "summary": "A young spear fighter discovers an object tied to a struggle among powerful figures of the Divine Realm.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 38,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "true-martial-world",
+      "title": "True Martial World",
+      "author": "Cocooned Cow",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/true-martial-world/",
+      "workStatus": "Completed",
+      "genres": [
+        "Xuanhuan",
+        "Cultivation",
+        "Progression",
+        "Adventure"
+      ],
+      "aliases": [
+        "TMW",
+        "真武世界"
+      ],
+      "summary": "A man from Earth arrives in a world of martial cultivation where a mysterious purple card may change his fate.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 39,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "overgeared",
+      "title": "Overgeared",
+      "author": "Park Saenal",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/overgeared",
+      "workStatus": "Completed",
+      "genres": [
+        "LitRPG",
+        "Virtual Reality",
+        "Crafting",
+        "Progression"
+      ],
+      "aliases": [
+        "Temppal",
+        "템빨"
+      ],
+      "summary": "A struggling player gains access to a legendary crafting class within the virtual-reality game Satisfy.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 40,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "everyone-else-is-a-returnee",
+      "title": "Everyone Else is a Returnee",
+      "author": "Toika",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/everyone-else-is-a-returnee/",
+      "workStatus": "Completed",
+      "genres": [
+        "Apocalypse",
+        "Fantasy",
+        "Comedy",
+        "Returnee"
+      ],
+      "aliases": [
+        "EER",
+        "나 빼고 다 귀환자"
+      ],
+      "summary": "A man left behind when others disappear from Earth must prepare for humanity's return.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 41,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "the-return-of-the-disaster-class-hero",
+      "title": "The Return of the Disaster-Class Hero",
+      "author": "SAN.G",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/the-return-of-the-disaster-class-hero/",
+      "workStatus": "Completed",
+      "genres": [
+        "Revenge",
+        "Returnee",
+        "Action",
+        "Fantasy"
+      ],
+      "aliases": [
+        "Return of the Catastrophic Hero",
+        "재앙급 영웅님이 귀환하셨다"
+      ],
+      "summary": "A presumed-dead hero reappears and confronts the people who profited from his disappearance.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 42,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "the-regressed-demon-lord-is-kind",
+      "title": "The Regressed Demon Lord is Kind",
+      "author": "Hungry Panda",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/the-regressed-demon-lord-is-kind",
+      "workStatus": "Completed",
+      "genres": [
+        "Regression",
+        "Demon Lord",
+        "Fantasy",
+        "Action"
+      ],
+      "aliases": [
+        "회귀한 마왕은 착하게 산다"
+      ],
+      "summary": "A ruthless former demon lord returns to his past and tries an unfamiliar approach to living kindly.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 43,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
     }
   ]
 }

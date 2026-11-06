@@ -6,14 +6,14 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / 'content' / 'series_registry.json'
-ALLOWED = {'www.novelupdates.com', 'www.royalroad.com'}
+ALLOWED = {'www.novelupdates.com', 'www.royalroad.com', 'www.wuxiaworld.com'}
 ALLOWED_STATUS = {'Completed', 'Ongoing', 'Discontinued', 'Unknown'}
 
 
 def validate_registry(data):
     assert data['schema'] == 'novalume.external-series.v1'
     ids, urls = set(), set()
-    assert len(data['series']) >= 12
+    assert len(data['series']) >= 40
     for item in data['series']:
         assert item['id'].replace('-', '').isalnum() and item['id'] not in ids
         ids.add(item['id'])
@@ -22,6 +22,7 @@ def validate_registry(data):
         assert item['sourceUrl'] not in urls
         urls.add(item['sourceUrl'])
         assert item['kind'] == 'external-index' and item['workStatus'] in ALLOWED_STATUS
+        assert item.get('sourcePolicy') in ('legacy-human-curated-source-link','manual-facts-and-editorial-summary')
         assert item['originalLanguage'] in ('Chinese', 'Korean', 'English')
         for key in ('title', 'author', 'summary', 'verifiedAt', 'sourcePlatform'):
             assert isinstance(item[key], str) and item[key].strip()

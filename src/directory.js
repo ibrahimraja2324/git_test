@@ -5,7 +5,7 @@ export const LIST_STATUSES = ['Plan to read','Reading','Completed','On hold','Dr
 export const LANGUAGES = ['All','Chinese','Korean','English'];
 const STORAGE = 'novalume:seriesShelfV1';
 const escape = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const sourceHosts = new Set(['www.novelupdates.com','www.royalroad.com']);
+const sourceHosts = new Set(['www.novelupdates.com','www.royalroad.com','www.wuxiaworld.com']);
 const cleanWords = v => String(v ?? '').toLocaleLowerCase().trim().replace(/\s+/g,' ');
 const clampChapter = n => Number.isSafeInteger(Number(n)) && Number(n) >= 0 && Number(n) <= 1000000 ? Number(n) : 0;
 const viewState = {q:'',language:'All',status:'All',include:new Set(),exclude:new Set()};
