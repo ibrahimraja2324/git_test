@@ -1,20 +1,21 @@
 # Novalume — next actionable work
 
-## NV-041: Expand the real webnovel database
+## NV-041 (in progress): Scale rights-safe discovery to 100+ webnovels
 
-Bring the 17-title proof of concept to **100+ source-verified** Chinese, Korean and progression/serial fiction entries with a defensible provenance, aliases, status checks, duplicate handling and date-stamped coverage.
+Current status: 43 indexed works (10 Chinese, 9 Korean, 24 English); 8 independently corroborated across providers, 21 single-source reviewed, 14 legacy source checks pending. This is not 43 fully verified profiles.
 
-Do not import copyrighted prose, scrape protected chapters, reuse unlicensed cover images, or invent reviews/ratings. Prefer official or legitimately public metadata listings and transparent original source links. Track source availability and work-vs-translation status separately.
+Upcoming substantial implementation:
+1. Independently review the remaining 14 older source links and completion status. Do not equate original-work status with translation or source-site stub availability.
+2. Add at least 57 more separately sourced novels using Wikidata CC0 facts, Open Library bulk dump bibliographic records, and manually reviewed or permissioned publisher/author references, not prohibited automated scraping.
+3. Expand per-field evidence, source disagreement, entity aliases, adaptations vs original work identity, and stale checks without blindly merging title collisions.
+4. Implement a metadata correction/removal process, public licences and permissioned author submissions before user-generated crowdsourcing.
 
-The reader-first publishing platform remains under `#read-here` and `#studio`; building social features requires the real auth/moderation milestones NV-008, NV-010 and NV-042.
+Already delivered:
+- Source registry: content/series_registry.json (43 works).
+- Independent evidence ledger: content/series_evidence.json (37 factual source references).
+- Deterministic cross-platform reconciler: scripts/fuse_series_metadata.py.
+- Offline CC0 Wikidata quarantine adapter: scripts/propose_wikidata.py.
+- Per-work provenance and availability shown on source pages.
+- GitHub CI passed and Vercel production marked READY. Live browser smoke still needs verification.
 
-## Evidence from current run
-- External directory catalogue: 17 real curated entries, built into source with rights-safe validation
-- Basic search, include/exclude themes, language/status filters, per-series pages
-- Device-local five-status reading lists and notes, JSON import/export
-- URL-shareable title-only curated lists; no private notes or reading history leaked
-- GitHub test run for `215f1a250858146ffb670a407fd2a04f0d3afed2`: PASS
-- Vercel preview READY; production deployment initiated for same exact commit
-- Live interactive/mobile browser QA **not yet verified**
-
-Never mark social profiles, public publishing or semantic plot understanding as done.
+Research, provider restrictions, and build policies: docs/source-integration.md.

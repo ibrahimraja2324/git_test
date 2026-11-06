@@ -526,13 +526,13 @@
     "phase": "P1",
     "title": "Scale to 100+ independently source-verified Asian and progression webnovel records",
     "priority": 1,
-    "status": "todo",
+    "status": "in_progress",
     "owner": "ChatGPT",
     "dependencies": [
       "NV-038"
     ],
     "acceptance": "Reproducible metadata-only intake and review; 100+ distinct live source links; aliases and source timestamps; duplicate merging, stale status flags, coverage analysis; no unlicensed text or invented stats",
-    "evidence": "Next: source registration workflow, provenance QA and registry expansion"
+    "evidence": "43 indexed series: 8 multi-source corroborated, 21 one reviewed source, 14 legacy pending review. Deterministic source-fusion, CC0 Wikidata proposal tool and CI passed. Goal 100+ not yet complete."
   },
   {
     "id": "NV-042",

@@ -10,7 +10,7 @@ Build a real reader-first Webnovel alternative, not an AI demo. We are zero-paid
 
 - Branch: `novalume-foundation` of `ibrahimraja2324/git_test` until a dedicated repo is explicitly available. Do not modify `main` or another project.
 - Master task list: `ops/backlog.json` and native Google Sheet `https://docs.google.com/spreadsheets/d/1i9kd1tPfm8-7rE8HQmLpTFND6q9EjZC86EvVdHWk7uo/edit`. Keep IDs and statuses in sync; use `python3 scripts/assign_next.py` for an unblocked next task. Do not spawn duplicate trackers.
-- Policies: `docs/zero-cost-intelligence.md`, `docs/rights-policy.md`, `docs/architecture.md`, `docs/roadmap.md`.
+- Policies: `docs/zero-cost-intelligence.md`, `docs/rights-policy.md`, `docs/architecture.md`, `docs/roadmap.md`, `docs/source-integration.md`.
 
 ## Each run
 
@@ -23,10 +23,10 @@ Build a real reader-first Webnovel alternative, not an AI demo. We are zero-paid
 
 ## Current hard limits and priorities (updated 2026-11-06)
 
-- The initial static site is NOT publicly deployed. One chapter of one rights-reviewed classic is actually hosted, while 30 titles are candidate discovery listings.
+- The real production site is deployed at https://novalume-story-search.vercel.app; it shows 43 source-only webnovel entries (8 cross-provider checked, 21 single-provider reviewed, 14 legacy review pending) and keeps the 3 rights-reviewed classical texts in a separate reader. Live mobile/browser QA remains unverified.
 - Current platform AI API spending: $0. Any proposal requiring platform-paid AI must be redesigned, not simply deferred to the user's bill.
 - Personal AI Desk supports prompt/JSON export and optional 127.0.0.1 Ollama/LM Studio; hosted cloud BYOK is NOT implemented and requires a separate security review.
-- Major next milestones: NV-004 rights-cleared complete novel catalogue; NV-024 human-grounded static extraction evaluation; NV-025 author corrections; NV-026 scalable per-arc/per-chapter indexing.
+- Major next milestones: NV-041 100+ lawful webnovel metadata profiles; NV-042 genuine social accounts and ratings; NV-043 author-owned publishing; NV-035 validated narrative extraction.
 - ChatGPT recurring automation is not scheduled because the account's five-task limit is already reached. Do not promise unscheduled background execution.
 
 ## Definition of done
@@ -35,4 +35,4 @@ Working user journey + tests + source provenance / licence clearance + no paid A
 
 ## 2026-11-06 product decision: database-first webnovel audience
 
-The public homepage at `#home` is a real, cited webnovel directory (17 initial source-checked entries in `content/series_registry.json`), not the old classics catalogue. `#read-here` is separate and only has rights-reviewed hosted texts. `#tracking` is a reader-owned, local-only reading list. Do not claim third-party chapters or cover art are hosted, and never fabricate ratings, member counts, latest releases, author permission or editorial trope verification. `#studio` remains private browser drafts until actual rights attestation, authentication, user storage and moderation are implemented.
+The public homepage at `#home` is a real, cited webnovel directory (43 real indexed entries in `content/series_registry.json`, with 14 legacy records still needing independent source reviews), not the old classics catalogue. `#read-here` is separate and only has rights-reviewed hosted texts. `#tracking` is a reader-owned, local-only reading list. Do not claim third-party chapters or cover art are hosted, and never fabricate ratings, member counts, latest releases, author permission or editorial trope verification. `#studio` remains private browser drafts until actual rights attestation, authentication, user storage and moderation are implemented.
