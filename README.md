@@ -1,60 +1,34 @@
-# ✦ Novalume
+# Novalume — webnovel discovery, tracking and original reading
 
-**An zero-paid-AI fiction discovery and reading platform that understands stories beyond genre labels.**
+**Production:** https://novalume-story-search.vercel.app
 
-> Status: functioning static reader MVP (2026-11-04). Not yet a public publishing or commercial service.
+## Direction (6 November 2026)
+Novalume leads with a database of real serial fiction, then introduces readers to authorised reading and original author publishing. The old classics-only landing page is retained at `#read-here`, not the primary homepage.
 
-## What works today
+The `#home` directory has **17 source-checked series** drawn from live Novel Updates and Royal Road series pages. Each entry includes a title, author, language, source profile URL, verified-at date, editorial summary, broad source-linked themes, and (where grounded) original-work publication status. No copied external chapters, borrowed cover art, fake reviews or made-up user statistics are present.
 
-- Responsive premium-looking reader website, no external JavaScript dependencies.
-- Natural-language intent matching and explainable tag/signal matches (a deterministic baseline, not an actual AI model).
-- Search by plot dynamics, genre filters, book pages, reading-progress preservation, bookshelves, reader font scaling, theme switcher.
-- Private local author draft creation with browser-only persistence (not a public upload service).
-- 30 public-domain **candidate** discovery listings and source links. Each title is pending an edition-specific legal approval except the launch example.
-- One actual first chapter of *Pride and Prejudice* available in the internal reader as a proof of the whole reading flow.
-- Rights-gated reproducible edition importer, CI tests, static site build and a GitHub Pages deployment workflow.
-- Zero-AI-cost lexical evidence index for hosted chapters (20 rule groups, evidence excerpts, source hashes and provenance), with clear unverified labels.
-- Reader AI Desk: offline evidence search, privacy-preserving prompt / context JSON export, optional localhost Ollama / LM Studio integration. No cloud key collection.
+- Advanced catalogue search: words from title, author, aliases, theme and editorial short summary
+- Language and work-status filters; reversible include/exclude themes
+- Dedicated series pages with external source links, provenance, and list tracking
+- Reader-owned local lists: plan, reading, completed, on hold, dropped; manual last-chapter and notes
+- JSON export and import for personal lists; no cloud sync or pretend accounts
+- `#read-here`: separate rights-reviewed public-domain reader (Dracula, Frankenstein, Pride and Prejudice first-chapter sample)
+- `#assistant`: experimental private text search of **hosted** chapters only, not the wider webnovel directory
+- `#studio`: browser-only drafts, not online publishing
 
-## Run
+The data source is `content/series_registry.json`; tests ensure external URLs are allowlisted and no book contents or arbitrary ratings are distributed. Build copies validated metadata to `dist/data/series_registry.json`.
 
-Python 3.10+ and Node 20+ (only for the JS test runner; no npm packages required).
+## Next build milestones
+1. Authenticated profiles and cloud-synced lists and notes (with privacy/deletion tools); then user lists, ratings and reviews with actual member provenance.
+2. A scalable import and moderation pipeline to grow beyond the initial 17 independently sourced series, with duplicate handling, source attribution, status-change timestamps and safe external link checks.
+3. Independent author self-publishing with drafts, rights attestation, scheduling, chapter hosting, feedback and moderation. Do not enable it before secure auth, storage and copyright reporting.
+4. Improved recommendations and event semantics from rights-allowed content and consented reader feedback. Current external-series search is metadata-based only, NOT full-text understanding.
 
+## Test and build
 ```sh
 npm test
 npm run build
 npm run serve
-# http://localhost:4173
 ```
 
-## Import a legitimately cleared Standard Ebooks edition
-
-1. Check original-work, edition and translation rights for the intended jurisdictions; inspect the exact upstream GitHub source repository.
-2. Record a review and set `rights.decision=approved` for the specific entry in `content/rights_manifest.json`.
-3. Run `python3 scripts/ingest_standardebooks.py <book-id>` (requires network); this checks review metadata and downloads an **upstream archive**, not a hotlink from the provider's reading pages.
-4. Inspect generated `public/data/books/<book-id>.json`, chapter order, text quality and source checksum. Do not trust automated parsing blindly.
-5. Run `npm test && npm run build`, then commit the reviewed results.
-
-Do not publish unknown modern works, translated editions or fan translations without appropriate redistribution permissions. A candidate is never automatically approved merely because the author died long ago. Read [rights-policy](docs/rights-policy.md).
-
-## Architecture & product direction
-
-[Architecture](docs/architecture.md) · [Zero-cost intelligence policy](docs/zero-cost-intelligence.md) · [Rights & sourcing](docs/rights-policy.md) · [Milestone roadmap](docs/roadmap.md)
-
-## Next development
-
-A free deterministic chapter-evidence layer and reader AI Desk now work: users can export spoiler-limited context to their own assistant or explicitly call a local Ollama/LM Studio model. Narrative semantic verification, durable auth, cloud BYOK integration, public author publishing, moderation and payments are not implemented. We will not require or handle cloud AI keys on the static site. See the issue tracker and Google Sheet for acceptance criteria and dependencies.
-
-## License
-
-Site application code: MIT. Third-party or public-domain book content is governed by each work's rights record; the site software licence does **not** confer redistribution rights to book content.
-
-## 2026-11-04: Real source trials and evolving story index
-
-A research fixture of 24 authenticated paragraphs from six chapters of three public-domain English novels is committed in `tests/fixtures/verified_public_domain_excerpts.json` (source URLs included). `python3 scripts/evaluate_dynamic.py` generates the transparent limited 6-query baseline in `docs/real-data-evaluation.json`. This baseline is tiny and deliberately lexical; it does **not** establish that novel events have been understood.
-
-`python3 scripts/dynamic_narrative.py` builds an open-vocabulary private candidate index. `python3 scripts/build_fts.py` stores **every eligible paragraph** in a private SQLite FTS5 index; search is never limited to the manually authored tag dictionary. Public assets include safe book counts but **not** the private future-chapter metadata. See `docs/open-vocabulary-research.md`.
-
-On a Vercel deployment, `GET /api/search?q=...` provides simple spoiler-safe recommendations; `POST /api/mcp` supports an experimental read-only MCP `search_novalume` tool for reader-owned AI clients that accept custom remote MCP. No user cloud AI keys are collected. This must be deployed and tested separately; it does **not** mean all AI clients support MCP or that exact semantic matching is solved.
-
-The mobile homepage is now reader-first, with a compact search field, immediate book cards, and visible mobile navigation. Two additional public-domain original English editions (*Dracula* and *Frankenstein*) have passed recorded AU/US/source-edition review, but are not **hosted** until `.github/workflows/import-reviewed-launch.yml` successfully imports complete text and validates it. `npm test` includes extraction/search/privacy regression tests.
+See [AGENTS.md](AGENTS.md), [rights policy](docs/rights-policy.md), and [roadmap](docs/roadmap.md).

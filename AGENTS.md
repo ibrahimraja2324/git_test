@@ -21,7 +21,7 @@ Build a real reader-first Webnovel alternative, not an AI demo. We are zero-paid
 5. Commit actual source files and generated deterministic index to the canonical branch. Record commit SHA, validation evidence, and next actions in repository and the Sheet. Never say a deployed site exists without verified URL and HTTP/UI smoke test.
 6. Do not claim that lexical clues prove a character relationship, event, payoff or trope. Promote only human-verified facts with chapter/paragraph citations, time bounds and provenance. Use held-out gold datasets to measure progress.
 
-## Current hard limits and priorities (2026-11-04)
+## Current hard limits and priorities (updated 2026-11-06)
 
 - The initial static site is NOT publicly deployed. One chapter of one rights-reviewed classic is actually hosted, while 30 titles are candidate discovery listings.
 - Current platform AI API spending: $0. Any proposal requiring platform-paid AI must be redesigned, not simply deferred to the user's bill.
@@ -32,3 +32,7 @@ Build a real reader-first Webnovel alternative, not an AI demo. We are zero-paid
 ## Definition of done
 
 Working user journey + tests + source provenance / licence clearance + no paid AI dependencies + release-safe secrets + actual git commit + Sheet evidence. Partial milestones must be labeled partial. Never invent live users, legal clearances, browser test passes, or an automatic operation that was not scheduled.
+
+## 2026-11-06 product decision: database-first webnovel audience
+
+The public homepage at `#home` is a real, cited webnovel directory (17 initial source-checked entries in `content/series_registry.json`), not the old classics catalogue. `#read-here` is separate and only has rights-reviewed hosted texts. `#tracking` is a reader-owned, local-only reading list. Do not claim third-party chapters or cover art are hosted, and never fabricate ratings, member counts, latest releases, author permission or editorial trope verification. `#studio` remains private browser drafts until actual rights attestation, authentication, user storage and moderation are implemented.
