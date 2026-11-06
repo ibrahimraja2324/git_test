@@ -9,7 +9,7 @@ class SourceFusionTests(unittest.TestCase):
     def test_live_seed_reconciles_source_claims(self):
         index=build_registry()
         self.assertGreaterEqual(index['coverage']['total'],43)
-        self.assertEqual(index['coverage']['multiSource'],6)
+        self.assertEqual(index['coverage']['multiSource'],8)
         self.assertEqual(index['coverage']['conflicts'],0)
         self.assertGreaterEqual(index['coverage']['needsReview'],1)
         overgeared=next(x for x in index['series'] if x['id']=='overgeared')

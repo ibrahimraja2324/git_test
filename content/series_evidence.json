@@ -212,6 +212,30 @@
         "originalLanguage": "English",
         "workStatus": "Completed"
       }
+    },
+    {
+      "seriesId": "lord-of-the-mysteries",
+      "provider": "Wikidata",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q109342457",
+      "observedAt": "2026-11-06",
+      "sourceKind": "cc0-source",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "author": "Cuttlefish That Loves Diving",
+        "originalLanguage": "Chinese"
+      }
+    },
+    {
+      "seriesId": "the-beginning-after-the-end",
+      "provider": "Wikidata",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q130471996",
+      "observedAt": "2026-11-06",
+      "sourceKind": "cc0-source",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Beginning After the End",
+        "originalLanguage": "English"
+      }
     }
   ]
 }

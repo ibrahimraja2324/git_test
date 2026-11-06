@@ -200,3 +200,5 @@
 @media(max-width:380px){.db-card-art{flex-basis:92px}.db-card-actions{flex-wrap:wrap}}
 
 .db-share-fallback input{display:block;max-width:280px;padding:7px;margin-top:7px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-size:11px;border-radius:7px}
+
+.db-source-provenance{display:grid;gap:9px;border-top:1px solid var(--line);margin-top:17px;padding-top:15px}.db-source-provenance h4{font-size:12px;margin:0 0 4px}.db-source-provenance a{font-size:12px;font-weight:700;color:var(--pink)}.db-source-conflict{border-left:3px solid #eca6a3;padding:10px;background:var(--surface-raised);color:#f5c0bc!important}.db-source-pending{font-style:italic}

@@ -151,9 +151,12 @@ export function mountSeries(root,series,id){
  '<div class="db-form-actions"><button class="btn primary" type="submit">Save to my list</button><button class="btn secondary" type="button" id="dbRemove">Remove from my list</button></div>'+
  '<p class="db-form-feedback" id="dbTrackMessage" role="status"></p></form></section>'+
  '<aside class="db-source-info"><h3>Record provenance</h3><dl><dt>Source</dt><dd>'+escape(item.sourcePlatform)+'</dd><dt>Original language</dt><dd>'+escape(item.originalLanguage)+'</dd>'+
- '<dt>Work status</dt><dd>'+escape(item.workStatus)+'</dd><dt>Metadata checked</dt><dd>'+escape(item.verifiedAt)+'</dd></dl>'+
+ '<dt>Original work status</dt><dd>'+escape(item.workStatus)+'</dd><dt>Record updated</dt><dd>'+escape(item.verifiedAt)+'</dd><dt>Source confidence</dt><dd>'+escape(item.sourceConfidence||'Review pending')+'</dd><dt>Cross-checked sources</dt><dd>'+escape(item.sourceCount??0)+'</dd><dt>Chapter availability</dt><dd>'+escape(item.availabilityStatus||'Check source')+'</dd></dl>'+
  '<a href="'+escape(item.sourceUrl)+'" target="_blank" rel="noopener noreferrer">View cited record ↗</a>'+
- '<p>Statuses reflect the original-work record at the check date, not a live English-translation feed.</p></aside></div></div>';
+ '<p>Original completion, translation progress and chapters available here are different questions. This is not a live feed.</p>'+
+ (item.sourceReferences?.length?'<div class="db-source-provenance"><h4>Reviewed source pages</h4>'+item.sourceReferences.map(ref=>'<a href="'+escape(ref.url)+'" rel="noopener noreferrer" target="_blank">'+escape(ref.name)+' ↗</a>').join('')+'</div>':'<p class="db-source-pending">Independent checking is still pending.</p>')+
+ (item.sourceDisagreements?.length?'<p class="db-source-conflict">Sources disagree about: '+escape(item.sourceDisagreements.join(', '))+'. Treat those facts as uncertain.</p>':'')+
+ '</aside></div></div>';
  elem(root,'#dbTrackForm').onsubmit=e=>{
   e.preventDefault();
   const raw=Number(elem(root,'#dbTrackChapter').value);
