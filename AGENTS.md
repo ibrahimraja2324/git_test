@@ -36,3 +36,12 @@ Working user journey + tests + source provenance / licence clearance + no paid A
 ## 2026-11-06 product decision: database-first webnovel audience
 
 The public homepage at `#home` is a real, cited webnovel directory (43 real indexed entries in `content/series_registry.json`, with 14 legacy records still needing independent source reviews), not the old classics catalogue. `#read-here` is separate and only has rights-reviewed hosted texts. `#tracking` is a reader-owned, local-only reading list. Do not claim third-party chapters or cover art are hosted, and never fabricate ratings, member counts, latest releases, author permission or editorial trope verification. `#studio` remains private browser drafts until actual rights attestation, authentication, user storage and moderation are implemented.
+
+## Chapter analysis scope and permission-first policy (2026-11-06)
+
+- The chapter-analysis pipeline MUST NOT scrape Webnovel, Wuxiaworld, Royal Road or any other source of third-party copyrighted novels. Basic factual directory records and linked chapter text are separate permission categories.
+- Current chapter-event source is 3 approved original-English public-domain books only, with 21 source-anchored **editorial samples** (not human-verified facts). Do not claim complete chapter-by-chapter analysis or live AI inference.
+- `scripts/local_story_intelligence.py` runs either dry-run packet generation or optional local loopback Ollama inference; output is a private quarantine, not a published fact or model-training corpus. Manual acceptance must confirm textual entailment, causal relations and before/after claims.
+- No publisher/author grants for copyrighted external books are currently present. Future non-public-domain analysis must have a revocable licence specifying processing, publication scope, model use and translation rights; strengthen authenticated access before indexing.
+- Public API `/api/narrative` may only return safe title matches by default and chapter-limited compact editorial details after explicit opt-in. No unlicensed text, whole-corpus dump, or private candidate index to the client.
+- Next priorities NV-046 permissions + author-authenticated ingestion and NV-047 independent quantitative narrative fact benchmark; do not substitute generic lexical tags for meaning.

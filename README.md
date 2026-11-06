@@ -44,3 +44,14 @@ The reading tracker can generate a shareable `#list/id1,id2,...` link with up to
 Wikidata's CC0 structured statements provide potential work identities and aliases. Open Library's CC0 data dumps are appropriate for edition-level metadata. Source-specific facts from publisher and community listings require individual review or permission. The CC0 import helper always proposes a quarantined review candidate, never an automatic public listing.
 
 Production deployed on Vercel, automated checks passed. Live browser/mobile QA remains unverified.
+
+## Chapter-grounded story intelligence (new pilot)
+
+We are testing the part generic genre/list sites do not provide: event-level narrative search against **actual authorised text**, including action, relationship, witnesses, public response, progression and cause/effect chronology. This pilot currently covers only **21 source-anchored editorial samples** across the three rights-reviewed classic editions; it is not exhaustive or independently human verified. These source samples never appear in the 43 copyrighted external novels, which remain metadata-only.
+
+- The `#assistant` page has a new chapter-event search. Book matches stay spoiler-concealed unless a reader explicitly selects a book and a maximum chapter. The legacy lexical search remains separately labelled as weaker evidence.
+- `scripts/build_narrative_events.py` fails closed if approval is removed, a source anchor disappears, or an annotation is an unreviewed model proposal. Event source paragraphs stay out of the public deployment.
+- `scripts/local_story_intelligence.py` can packetise entire authorised classics and optionally call a **locally installed** Ollama model without any paid remote AI. It quarantines candidate facts instead of publishing them. No local inference has been executed on a connected user machine during this release.
+- Read [the narrative intelligence system](docs/narrative-intelligence.md) for source consent, text access, evidence validation, independent reviewer criteria, temporal entity graphs and measurement.
+
+We cannot legitimately crawl and process all chapters on Webnovel/Wuxiaworld/Royal Road without the relevant permissions; see their platform terms. Copyright does not disappear merely because we extract event metadata from the text.

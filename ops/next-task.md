@@ -1,21 +1,31 @@
-# Novalume — next actionable work
+# Novalume — active next tasks (6 November 2026)
 
-## NV-041 (in progress): Scale rights-safe discovery to 100+ webnovels
+## NV-046: permission-first full-text narrative intelligence
 
-Current status: 43 indexed works (10 Chinese, 9 Korean, 24 English); 8 independently corroborated across providers, 21 single-source reviewed, 14 legacy source checks pending. This is not 43 fully verified profiles.
+Current substantive implementation: a rights-gated analysis pipeline and 21 anchored
+editorial event samples across three approved classics, plus a private source-event
+search API and explicit chapter-cutoff UI. GitHub tests pass.
 
-Upcoming substantial implementation:
-1. Independently review the remaining 14 older source links and completion status. Do not equate original-work status with translation or source-site stub availability.
-2. Add at least 57 more separately sourced novels using Wikidata CC0 facts, Open Library bulk dump bibliographic records, and manually reviewed or permissioned publisher/author references, not prohibited automated scraping.
-3. Expand per-field evidence, source disagreement, entity aliases, adaptations vs original work identity, and stale checks without blindly merging title collisions.
-4. Implement a metadata correction/removal process, public licences and permissioned author submissions before user-generated crowdsourcing.
+Next completion requirements:
+1. Obtain scoped, revocable permission to process original webnovel manuscripts directly
+   from authors/publishers, including translated-edition rights where relevant.
+2. Run scripts/local_story_intelligence.py in local Ollama mode against an approved corpus
+   end to end, producing quarantined proposals. The adapter is coded but NOT executed
+   on the user's local hardware in this release.
+3. Add temporal linking, character identity disambiguation, power progression units
+   and audience reactions; conduct independent evidence confirmation before publication.
+4. Establish source revocation and secure deletion procedures for copyrighted manuscripts.
 
-Already delivered:
-- Source registry: content/series_registry.json (43 works).
-- Independent evidence ledger: content/series_evidence.json (37 factual source references).
-- Deterministic cross-platform reconciler: scripts/fuse_series_metadata.py.
-- Offline CC0 Wikidata quarantine adapter: scripts/propose_wikidata.py.
-- Per-work provenance and availability shown on source pages.
-- GitHub CI passed and Vercel production marked READY. Live browser smoke still needs verification.
+## NV-047: independent gold evaluation
 
-Research, provider restrictions, and build policies: docs/source-integration.md.
+Build 100+ evidence-backed real-text scenarios across rights-approved novels. Measure
+false positives, claim entailment, chronology, subject/witness correctness and spoiler
+leakage. The 21 editorial samples are not such a benchmark.
+
+## NV-041: external webnovel directory growth
+
+Still at 43 metadata-only indexed entries, with 14 awaiting independent recheck.
+Continue 100+ source-legal coverage, but do not scrape third-party chapters or claim
+that metadata equals full-text semantic verification.
+
+Reference docs/narrative-intelligence.md and docs/source-integration.md.

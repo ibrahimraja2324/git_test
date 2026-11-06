@@ -578,5 +578,60 @@
     ],
     "acceptance": "Evidence-linked changing event/relationship candidates for consented hosted works; verified facts separated from hypotheses; temporal and spoiler-aware search gold tests",
     "evidence": "Improve schema/retrieval only where manuscript rights allow"
+  },
+  {
+    "id": "NV-045",
+    "phase": "P1",
+    "title": "Build chapter-grounded narrative intelligence pilot with citation anchors and spoiler-gated search",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-033",
+      "NV-035"
+    ],
+    "acceptance": "Rights-cleared editions only; source-anchor-checked editorial event model, 21 actual events, no private excerpt dump, chapter cutoff search UI, adversarial tests and CI",
+    "evidence": "content/reviewed_story_events.json; scripts/build_narrative_events.py; api/narrative.js; server/narrative_service.mjs; src/app.js; CI run 42203096390 (passed). Editorial samples, not independent human event review or exhaustive AI processing."
+  },
+  {
+    "id": "NV-046",
+    "phase": "P1",
+    "title": "Secure consented-author full-text analysis and sustained local-model inference",
+    "priority": 1,
+    "status": "in_progress",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-045"
+    ],
+    "acceptance": "Obtain explicit source-specific text-processing permissions or original author-submitted manuscripts, run local/on-prem event extraction, quarantine candidates, segment all chapters, verify rights revocation and temporal links; no external-platform crawling",
+    "evidence": "scripts/local_story_intelligence.py implemented with local Ollama adapter and private output, but no live model run or author grants yet. Source rights limit current processing to approved classics."
+  },
+  {
+    "id": "NV-047",
+    "phase": "P1",
+    "title": "Independently evaluate event correctness, temporal causality and spoilers on 100+ real-text questions",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-045"
+    ],
+    "acceptance": "Gold annotations on approved texts; exact evidence entailment, subject/object, chronology, witness detection, causal inference, false-positive and negative controls, spoiler leakage, false zero-results; report precision and recall",
+    "evidence": "13-to-21 editorial sample is not benchmark coverage; independent evaluator needed"
+  },
+  {
+    "id": "NV-048",
+    "phase": "P2",
+    "title": "Author and publisher permission onboarding for story intelligence and discoverability",
+    "priority": 2,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-042",
+      "NV-043",
+      "NV-046"
+    ],
+    "acceptance": "Authentication, rights ownership attestation with translator/coauthor checks, revocable granular analysis/discovery licence, secure upload, moderation, deletion, no content reuse beyond scope",
+    "evidence": "Permissions and real upload infrastructure not implemented"
   }
 ]
