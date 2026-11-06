@@ -184,6 +184,28 @@ function downloadJson(name,data){
 async function aiDesk(){
  const verifiedBookOptions=state.catalog.filter(b=>b.status==='ready').map(b=>'<option value="'+escape(b.id)+'">'+escape(b.title)+'</option>').join('');
  view.innerHTML=`<section class="content-wrap simple-ai"><div class="eyebrow small">ADVANCED STORY SEARCH</div><h1>Search what <em>actually happens.</em></h1><p>Search story actions, reactions, relationships and revelations. This is a small source-anchored editorial prototype on authorised classic novels. The external webnovel directory remains metadata-only until authors or publishers grant chapter-analysis rights.</p>
+<section class="static-evidence-area">
+ <div class="eyebrow small">COMPLETE-CHAPTER STATIC EVIDENCE · NO PAID AI</div>
+ <h2>Search all analysed passages</h2>
+ <p id="staticEvidenceStats" class="muted">An evidence index is built over every available section of three rights-cleared classics. These are unverified textual clues, not confirmed plot facts.</p>
+ <form id="staticEvidenceForm" class="narrative-search-form">
+  <label for="staticEvidenceQuestion">Words, actions, changes or reactions you're searching for</label>
+  <input type="search" id="staticEvidenceQuestion" required maxlength="250" placeholder="The crowd witnesses a secret power" />
+  <div class="narrative-query-examples">
+   <button type="button" data-static-example="the crowd was frightened">People reacting</button>
+   <button type="button" data-static-example="secret identity disguised">Hidden identity</button>
+   <button type="button" data-static-example="the creature was rejected">Family or relationship rejection</button>
+  </div>
+  <div class="narrative-options">
+   <label>Choose hosted book for chapter-level evidence<select id="staticBookChoice"><option value="">All permitted books · titles only</option>${verifiedBookOptions}</select></label>
+   <label>Maximum chapter<input type="number" id="staticChapterCutoff" min="1" max="3000" step="1" value="1"></label>
+  </div>
+  <label class="narrative-check"><input type="checkbox" id="staticReveal"/> Show short textual clues, limited to the chosen chapter (may reveal spoilers)</label>
+  <button type="submit" class="btn primary">Search chapter evidence →</button>
+ </form>
+ <div id="staticEvidenceMatches" class="ai-results" role="status"><p class="muted">Book-level results hide the actual text unless you deliberately request chapter-limited clues.</p></div>
+ <p class="tiny-note">Text search can find related wording, not verify who did something, why they did it, or whether a hypothetical ever happened.</p>
+ </section>
 <section class="narrative-search-area"><div class="eyebrow small">CHAPTER-GROUNDED INTELLIGENCE · EARLY EDITORIAL DEMO</div><h2>Find a particular story moment</h2><p class="muted">21 sample events have specific chapter and paragraph anchors. Their meaning is editorially interpreted, not independently verified or exhaustive.</p>
  <form id="narrativeForm" class="narrative-search-form">
  <label for="narrativeQuestion">Describe the event you want to find</label><input id="narrativeQuestion" type="search" maxlength="250" required placeholder="An inventor creates life but rejects his own creation"/>
@@ -203,6 +225,47 @@ async function aiDesk(){
  <button class="btn secondary" id="copyToolInstructions">Copy connection instructions</button>
  <p class="tiny-note">Early experimental MCP endpoint. Whether third-party assistants can connect depends on each application's supported tool connections. A precise match can itself imply a plot element you asked about; chapter spoilers and passages are never returned.</p>
  </details><p class="tiny-note">No paid AI is used for Novalume's text extraction or matching. Candidate matches are not proof that an event happens.</p></section>`;
+ const staticBook=$('#staticBookChoice'),staticLimit=$('#staticChapterCutoff');
+ staticBook.onchange=()=>{
+  const book=state.catalog.find(b=>b.id===staticBook.value);
+  staticLimit.max=book?.chapterCount||3000;
+  staticLimit.value=book?Math.max(1,Math.min(Number(state.progress[book.id]||1),book.chapterCount)):1;
+ };
+ fetch('./data/static_observation_stats.json').then(r=>r.ok?r.json():null).then(data=>{
+  const el=$('#staticEvidenceStats');if(!el||!data?.aggregate)return;
+  const s=data.aggregate;
+  el.textContent=s.candidateObservations.toLocaleString('en-AU')+' mechanically extracted observations from '+s.observedSentences.toLocaleString('en-AU')+
+   ' sentence segments across '+s.analysedChapters+' sections. These are not verified plot events.';
+ }).catch(()=>{});
+ $$('[data-static-example]').forEach(el=>el.onclick=()=>{
+  $('#staticEvidenceQuestion').value=el.dataset.staticExample;$('#staticEvidenceQuestion').focus();
+ });
+ $('#staticEvidenceForm').onsubmit=async e=>{
+  e.preventDefault();
+  const q=$('#staticEvidenceQuestion').value.trim(),reveal=$('#staticReveal').checked,book=staticBook.value;
+  const maxChapter=Number(staticLimit.value),out=$('#staticEvidenceMatches');
+  if(q.length<3){toast('Enter a few words describing your search.');return}
+  if(reveal&&!book){toast('Choose one book to reveal chapter evidence.');return}
+  const params=new URLSearchParams({q});
+  if(book)params.set('bookId',book);
+  if(reveal){params.set('reveal','1');params.set('chapterLimit',String(maxChapter))}
+  out.innerHTML='<p class="muted">Searching the full authorised chapter evidence index…</p>';
+  try{
+   const r=await fetch('/api/observations?'+params.toString());
+   const result=await r.json();
+   if(!r.ok||result.schema!=='novalume.static-evidence-search.v1')throw Error(result.error||'Search unavailable');
+   out.innerHTML=result.results.length?result.results.map(item=>{
+    const id=escape(item.bookId);
+    const header='<article class="narrative-result"><a href="#book/'+id+'"><strong>'+escape(item.title)+'</strong><span>Open book →</span></a>';
+    if(!reveal)return header+'<p>Possible wording overlap; details hidden. No meaning has been verified.</p></article>';
+    const evidence=(item.observations||[]).map(ev=>
+     '<div class="narrative-event"><small>Section '+ev.chapter+', paragraph '+ev.paragraph+' · unverified textual clue</small>'+
+     '<p>'+escape(ev.evidencePreview)+'</p><a href="#read/'+id+'/'+ev.chapter+'">Read source section →</a></div>').join('');
+    return header+(evidence||'<p>No evidence candidate within your chapter cutoff; later material remains hidden.</p>')+'</article>';
+   }).join(''):'<p class="muted">No candidate matches in the permitted corpus. An absent match does not prove a story lacks the pattern.</p>';
+  }catch{out.innerHTML='<p class="muted">Static passage search is unavailable. The books remain readable in the library.</p>'}
+ };
+
  const bookChoice=$('#narrativeBook'),chapterChoice=$('#narrativeCutoff');
  bookChoice.onchange=()=>{
   const selected=state.catalog.find(b=>b.id===bookChoice.value);

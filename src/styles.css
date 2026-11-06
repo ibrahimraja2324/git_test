@@ -222,3 +222,12 @@
 .narrative-text-fallback{border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:26px}
 .narrative-text-fallback summary{cursor:pointer;font-size:13px;font-weight:700}
 @media(max-width:550px){.narrative-search-area{padding:16px}.narrative-options{grid-template-columns:1fr}}
+
+
+.static-evidence-area{background:var(--surface);border:1px solid #6c8d9b;border-radius:13px;padding:24px;margin:24px 0 28px}
+.static-evidence-area h2{font:500 clamp(27px,3.2vw,38px) Newsreader,Georgia,serif;margin:13px 0 8px}
+.static-evidence-area .eyebrow{color:#89bcc9}
+.static-evidence-area #staticEvidenceStats{font-size:12px;line-height:1.7}
+.static-evidence-area .narrative-search-form{margin-top:18px}
+.static-evidence-area .narrative-event{border-left-color:#89bcc9}
+@media(max-width:550px){.static-evidence-area{padding:16px}}

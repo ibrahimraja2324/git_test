@@ -160,6 +160,7 @@ def build():
         if not path.exists():continue
         book=json.loads(path.read_text(encoding='utf-8'))
         private,public=mine_book(book_id,book,record)
+        private['title']=record['title']
         (PRIVATE/(book_id+'.json')).write_text(json.dumps(private,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
         approved.add(book_id);stats[book_id]=public
     for path in PRIVATE.glob('*.json'):
