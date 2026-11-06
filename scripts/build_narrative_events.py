@@ -44,7 +44,9 @@ def build_index(manifest, hosted, annotations):
     books = {}
     for book_id, asset in hosted.items():
         record = rights.get(book_id)
-        if not record or record['rights']['decision'] != 'approved':
+        if not record or record['rights']['decision'] != 'approved' or \
+                record['rights'].get('analysisPermissions',{}).get('allowed') is not True or \
+                record['rights'].get('analysisPermissions',{}).get('basis') != 'original-public-domain-and-cc0-edition':
             continue
         # The approved public-domain source edition is eligible for text analysis.
         # Any later non-public-domain work must have an explicit independent grant,

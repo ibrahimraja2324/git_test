@@ -28,6 +28,12 @@ class NarrativeReviewTests(unittest.TestCase):
             if r['id']=='frankenstein':r['rights']['decision']='pending'
         with self.assertRaises(ValueError):
             build_index(rights,books(),annotation)
+    def test_hosting_rights_do_not_automatically_include_analysis_rights(self):
+        rights=deepcopy(RIGHTS)
+        for row in rights:
+            if row['id']=='dracula':row['rights']['analysisPermissions']['allowed']=False
+        with self.assertRaises(ValueError):build_index(rights,books(),REVIEWED)
+
     def test_removed_text_invalidates_stale_event(self):
         hosted=books()
         event=REVIEWED['events'][0]

@@ -5,6 +5,8 @@ class LocalStoryTests(unittest.TestCase):
   self.assertTrue(allowed_book('dracula')['chapters'])
   for id_ in ('lord-of-the-mysteries','../../secret','never-real'):
    with self.assertRaises(ValueError):allowed_book(id_)
+ def test_analysis_scope_is_explicit_for_reviewed_classics(self):
+  self.assertTrue(allowed_book('frankenstein')['chapters'])
  def test_windowing_preserves_original_passage(self):
   s='The protagonist discovers power then reveals it to the audience. '*230
   spans=chunks(s,3300,180)

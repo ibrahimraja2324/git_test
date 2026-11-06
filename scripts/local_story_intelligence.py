@@ -47,7 +47,9 @@ def allowed_book(book_id):
         raise ValueError('Invalid book ID')
     manifest=json.loads(RIGHTS.read_text(encoding='utf-8'))
     found=next((x for x in manifest if x['id']==book_id),None)
-    if not found or found['rights']['decision']!='approved':
+    if not found or found['rights']['decision']!='approved' or \
+            found['rights'].get('analysisPermissions',{}).get('allowed') is not True or \
+            found['rights'].get('analysisPermissions',{}).get('basis')!='original-public-domain-and-cc0-edition':
         raise ValueError('No analysis rights for requested book')
     # This runner processes only the reviewed, original-English public-domain
     # classics. Future original authors require a separate signed analysis grant.
