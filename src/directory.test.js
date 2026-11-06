@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {filterDirectory,validateDirectory,sanitizeShelf,LIST_STATUSES} from './directory.js';
+import {filterDirectory,validateDirectory,sanitizeShelf,shareIds,parseSharedIds,LIST_STATUSES} from './directory.js';
 const series=[
  {id:'a',title:'A Cultivation Tale',author:'Alpha',originalLanguage:'Chinese',sourceUrl:'https://www.novelupdates.com/series/alpha/',kind:'external-index',genres:['Cultivation','Progression'],aliases:['Old Name'],summary:'An immortal academy',workStatus:'Completed'},
  {id:'b',title:'Loop Academy',author:'Beta',originalLanguage:'English',sourceUrl:'https://www.royalroad.com/fiction/123/example',kind:'external-index',genres:['Time Loop','Academy'],aliases:[],summary:'A magical academy loop',workStatus:'Ongoing'}
@@ -34,4 +34,14 @@ test('invalid chapter progress is safely clamped',()=>{
  assert.equal(clean.a.chapter,0);
  assert.equal(clean.a.note.length,500);
  assert.equal(LIST_STATUSES.length,5);
+});
+
+test('shareable lists expose only real series IDs, not private notes or progress',()=>{
+ const shelf={a:{status:'Reading',chapter:123,note:'private'},b:{status:'Completed',chapter:9,note:'spoiler'}};
+ const link=shareIds(shelf,series).join(',');
+ assert.equal(link,'a,b');
+ assert.ok(!link.includes('spoiler'));assert.ok(!link.includes('123'));
+ assert.deepEqual(parseSharedIds(link,series),['a','b']);
+ assert.deepEqual(parseSharedIds('a,unknown,a,__proto__',series),['a']);
+ assert.deepEqual(parseSharedIds('x'.repeat(1001),series),[]);
 });

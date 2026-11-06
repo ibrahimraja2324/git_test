@@ -198,3 +198,5 @@
  .mobile-dock a span{font-size:20px}
 }
 @media(max-width:380px){.db-card-art{flex-basis:92px}.db-card-actions{flex-wrap:wrap}}
+
+.db-share-fallback input{display:block;max-width:280px;padding:7px;margin-top:7px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-size:11px;border-radius:7px}

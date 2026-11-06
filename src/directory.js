@@ -167,6 +167,33 @@ export function mountSeries(root,series,id){
   else elem(root,'#dbTrackMessage').textContent='Could not update browser storage.';
  };
 }
+/** Shared lists contain ONLY source-verified IDs, never private notes or chapter history. */
+export function shareIds(snapshot,series){
+ const valid=new Set(series.map(s=>s.id));
+ return Object.keys(snapshot||{}).filter(id=>valid.has(id)).sort().slice(0,24);
+}
+export function parseSharedIds(segment,series){
+ const valid=new Set(series.map(s=>s.id));
+ if(typeof segment!=='string'||segment.length>1000)return [];
+ return [...new Set(segment.split(',').map(s=>s.trim()).filter(id=>/^[-a-z0-9]+$/.test(id)&&valid.has(id)))].slice(0,24);
+}
+export function mountSharedList(root,series,segment){
+ const ids=parseSharedIds(segment,series);
+ const items=ids.map(id=>series.find(s=>s.id===id)).filter(Boolean);
+ root.innerHTML='<section class="db-hero db-small-hero"><div class="content-wrap"><div class="eyebrow small">A SHAREABLE NOVEL LIST</div>'+
+ '<h1>Stories worth <em>sharing.</em></h1><p>A reader has collected these series. This is a portable selection of public titles, not a public account or an endorsement.</p></div></section>'+
+ '<section class="content-wrap db-discovery"><div class="db-section-heading"><div><h2>'+items.length+' selected '+(items.length===1?'story':'stories')+'</h2><p>No private notes or chapter progress are shared in this link.</p></div><a class="db-shelf-link" href="#home">Explore the directory →</a></div>'+
+ (items.length?'<div class="db-results-grid">'+items.map(item=>card(item,{})).join('')+'</div>':
+ '<div class="db-no-results"><h3>This shared list is empty or invalid</h3><a href="#home">Find a story →</a></div>')+
+ '</section>';
+ root.querySelectorAll('[data-db-quick]').forEach(el=>el.onclick=()=>{
+  const id=el.dataset.dbQuick,shelf=loadShelf(series);
+  if(shelf[id]){location.hash='#series/'+encodeURIComponent(id);return}
+  shelf[id]={status:'Plan to read',chapter:0,note:''};
+  if(persistShelf(shelf))mountSharedList(root,series,segment);
+ });
+}
+
 export function mountTracking(root,series){
  const shelf=loadShelf(series),entries=series.filter(s=>shelf[s.id]);
  const totals=LIST_STATUSES.map(status=>[status,entries.filter(e=>shelf[e.id].status===status).length]);
@@ -174,7 +201,7 @@ export function mountTracking(root,series){
  '<h1>Keep every world <em>in reach.</em></h1><p>Track your Chinese, Korean and English webnovels across their original platforms. Your list is private on this device.</p></div></section>'+
  '<section class="content-wrap db-discovery"><div class="db-section-heading"><div><h2>Reading tracker</h2><p>'+entries.length+' saved series · Manual chapter progress</p></div><a href="#home" class="db-shelf-link">Find more novels →</a></div>'+
  '<div class="db-tracker-chips">'+totals.map(([status,count])=>'<span>'+escape(status)+' <strong>'+count+'</strong></span>').join('')+'</div>'+
- '<div class="db-list-toolbar"><button id="dbExport" type="button">Export my lists (.json)</button><label class="db-import-label">Import saved lists<input id="dbImport" type="file" accept="application/json,.json"></label><span id="dbImportMessage" role="status"></span></div>'+
+ '<div class="db-list-toolbar"><button id="dbShare" type="button">Share a public list link</button><button id="dbExport" type="button">Export private lists (.json)</button><label class="db-import-label">Import saved lists<input id="dbImport" type="file" accept="application/json,.json"></label><span id="dbImportMessage" role="status"></span></div>'+
  (entries.length?'<div class="db-tracked-grid">'+entries.map(entry=>{
  const d=shelf[entry.id];
  return '<article class="db-tracked-card"><a href="#series/'+escape(entry.id)+'" class="db-tracked-head"><strong>'+escape(entry.title)+'</strong><span>→</span></a>'+
@@ -183,6 +210,14 @@ export function mountTracking(root,series){
  '<div class="db-tracked-actions"><a href="#series/'+escape(entry.id)+'">Edit progress</a><a href="'+escape(entry.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Source ↗</a></div></article>';
  }).join('')+'</div>':'<div class="db-no-results"><h3>No series saved yet</h3><p>Open any real webnovel in the directory and select a reading status. No account needed.</p><a class="btn primary" href="#home">Browse webnovels →</a></div>')+
  '<div class="db-launch-panel"><div><h3>Read on Novalume too</h3><p>Our separate reader hosts only editions cleared for publication, with their actual chapters and bookmarks.</p></div><a class="db-panel-link" href="#read-here">Open in-site reader →</a></div></section>';
+ elem(root,'#dbShare').onclick=async()=>{
+  const ids=shareIds(shelf,series);
+  const message=elem(root,'#dbImportMessage');
+  if(!ids.length){message.textContent='Add a series before sharing a list.';return}
+  const url=location.origin+location.pathname+'#list/'+ids.join(',');
+  try{await navigator.clipboard.writeText(url);message.textContent='Public title-only list URL copied.'}
+  catch{message.innerHTML='<label class="db-share-fallback">Copy this link: <input readonly aria-label="Shareable public list URL"></label>';const input=message.querySelector('input');input.value=url;input.select()}
+ };
  elem(root,'#dbExport').onclick=()=>{
   const data=JSON.stringify({schema:'novalume.personal-reading-list.v1',createdAt:new Date().toISOString(),entries:shelf},null,2);
   const blob=new Blob([data],{type:'application/json'});

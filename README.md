@@ -32,3 +32,7 @@ npm run serve
 ```
 
 See [AGENTS.md](AGENTS.md), [rights policy](docs/rights-policy.md), and [roadmap](docs/roadmap.md).
+
+## Reader-to-reader sharing (no backend)
+
+The reading tracker can generate a shareable `#list/id1,id2,...` link with up to 24 directory entries. It intentionally contains ONLY the publicly indexed series IDs. Reading status, progress and personal notes stay on the user's device and are **not** embedded in the URL. The shared page displays titles linked to their cited source profiles. This is a lightweight community discovery loop before real authenticated public lists and moderation exist.
