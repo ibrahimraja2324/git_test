@@ -1,0 +1,374 @@
+{
+  "schema": "novalume.external-series.v1",
+  "editorialNote": "Directory-only metadata. We do not host, copy, translate or republish the linked books; source pages determine reading availability. Genres are editorial labels sourced from public profiles, not automatically verified plot facts.",
+  "checkedAt": "2026-11-06",
+  "series": [
+    {
+      "id": "lord-of-the-mysteries",
+      "title": "Lord of the Mysteries",
+      "author": "Cuttlefish That Loves Diving",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/lord-of-the-mysteries/",
+      "workStatus": "Completed",
+      "genres": [
+        "Mystery",
+        "Xuanhuan",
+        "Supernatural",
+        "Progression"
+      ],
+      "aliases": [
+        "LOTM",
+        "Lord of Mysteries"
+      ],
+      "summary": "A Victorian-inspired fantasy of occult mysteries, potion-based advancement, and secret organisations.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 1
+    },
+    {
+      "id": "reverend-insanity",
+      "title": "Reverend Insanity",
+      "author": "Gu Zhen Ren",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/reverend-insanity/",
+      "workStatus": "Discontinued",
+      "genres": [
+        "Cultivation",
+        "Xuanhuan",
+        "Regression",
+        "Antihero"
+      ],
+      "aliases": [
+        "Daoist Gu",
+        "RI"
+      ],
+      "summary": "A ruthless cultivator uses memories of a previous life to navigate dangerous power struggles.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 2
+    },
+    {
+      "id": "i-shall-seal-the-heavens",
+      "title": "I Shall Seal the Heavens",
+      "author": "Er Gen",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/i-shall-seal-the-heavens/",
+      "workStatus": "Completed",
+      "genres": [
+        "Cultivation",
+        "Xianxia",
+        "Weak to Strong",
+        "Adventure"
+      ],
+      "aliases": [
+        "ISSTH"
+      ],
+      "summary": "Meng Hao's journey through cultivation, sect politics, and a vast interconnected immortal world.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 3
+    },
+    {
+      "id": "coiling-dragon",
+      "title": "Coiling Dragon",
+      "author": "I Eat Tomatoes",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/coiling-dragon/",
+      "workStatus": "Completed",
+      "genres": [
+        "Xuanhuan",
+        "Progression",
+        "Adventure",
+        "Fantasy"
+      ],
+      "aliases": [
+        "Panlong"
+      ],
+      "summary": "A young noble pursues martial and magical strength across a world much larger than his homeland.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 4
+    },
+    {
+      "id": "release-that-witch",
+      "title": "Release That Witch",
+      "author": "Er Mu",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/release-that-witch/",
+      "workStatus": "Completed",
+      "genres": [
+        "Kingdom Building",
+        "Technology",
+        "Fantasy",
+        "Isekai"
+      ],
+      "aliases": [
+        "RTW"
+      ],
+      "summary": "A modern-minded prince allies with witches and transforms a struggling territory with technology.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 5
+    },
+    {
+      "id": "the-legendary-mechanic",
+      "title": "The Legendary Mechanic",
+      "author": "Qi Peijia",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/the-legendary-mechanic/",
+      "workStatus": "Completed",
+      "genres": [
+        "Game World",
+        "Sci-fi",
+        "Progression",
+        "Adventure"
+      ],
+      "aliases": [
+        "TLM"
+      ],
+      "summary": "A former player arrives in a game universe before its launch and prepares for future players.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 6
+    },
+    {
+      "id": "omniscient-readers-viewpoint",
+      "title": "Omniscient Reader's Viewpoint",
+      "author": "Sing n Song",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/omniscient-readers-viewpoint/",
+      "workStatus": "Ongoing",
+      "genres": [
+        "Apocalypse",
+        "Survival",
+        "Fantasy",
+        "Meta Fiction"
+      ],
+      "aliases": [
+        "ORV"
+      ],
+      "summary": "A dedicated reader finds a long-running novel's scenarios becoming reality.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 7
+    },
+    {
+      "id": "the-novels-extra",
+      "title": "The Novel's Extra",
+      "author": "Jee Gab Song",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/the-novels-extra/",
+      "workStatus": "Completed",
+      "genres": [
+        "Transmigration",
+        "Academy",
+        "Fantasy",
+        "Action"
+      ],
+      "aliases": [
+        "TNE"
+      ],
+      "summary": "A writer enters his own unfinished story as a minor character and confronts unexpected differences.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 8
+    },
+    {
+      "id": "trash-of-the-counts-family",
+      "title": "Trash of the Count's Family",
+      "author": "Yu Ryeo Han",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/trash-of-the-counts-family/",
+      "workStatus": "Ongoing",
+      "genres": [
+        "Transmigration",
+        "Fantasy",
+        "Found Family",
+        "Adventure"
+      ],
+      "aliases": [
+        "TCF",
+        "Lout of Count's Family"
+      ],
+      "summary": "A reader wakes inside a fantasy story as a notorious noble and tries to avoid his expected fate.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 9
+    },
+    {
+      "id": "the-second-coming-of-gluttony",
+      "title": "The Second Coming of Gluttony",
+      "author": "Ro Yu-jin",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/the-second-coming-of-gluttony/",
+      "workStatus": "Completed",
+      "genres": [
+        "Second Chance",
+        "Fantasy",
+        "Adventure",
+        "Drama"
+      ],
+      "aliases": [
+        "SCOG"
+      ],
+      "summary": "A troubled protagonist receives a glimpse of a tragic future and seeks to change his path.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 10
+    },
+    {
+      "id": "sss-class-suicide-hunter",
+      "title": "SSS-Class Suicide Hunter",
+      "author": "Sinnoa",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/sss-class-suicide-hunter/",
+      "workStatus": "Completed",
+      "genres": [
+        "Tower Climbing",
+        "Regression",
+        "Fantasy",
+        "Action"
+      ],
+      "aliases": [
+        "SSSCSH"
+      ],
+      "summary": "A tower climber gains a deadly ability linked to turning back time and approaches trials differently.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 11
+    },
+    {
+      "id": "mother-of-learning",
+      "title": "Mother of Learning",
+      "author": "nobody103",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/21220/mother-of-learning",
+      "workStatus": "Completed",
+      "genres": [
+        "Time Loop",
+        "Magic Academy",
+        "Progression",
+        "Mystery"
+      ],
+      "aliases": [
+        "MoL"
+      ],
+      "summary": "A young mage repeats a month of his life while investigating the forces behind the loop.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 12
+    },
+    {
+      "id": "the-perfect-run",
+      "title": "The Perfect Run",
+      "author": "Maxime J. Durand (Void Herald)",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/36735/the-perfect-run",
+      "workStatus": "Completed",
+      "genres": [
+        "Time Loop",
+        "Superheroes",
+        "Sci-fi",
+        "Adventure"
+      ],
+      "aliases": [],
+      "summary": "A man capable of restoring save points navigates branching futures in a superpowered city.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 13
+    },
+    {
+      "id": "beware-of-chicken",
+      "title": "Beware of Chicken",
+      "author": "Casualfarmer",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/39408/beware-of-chicken",
+      "workStatus": "Unknown",
+      "genres": [
+        "Cultivation",
+        "Slice of Life",
+        "Comedy",
+        "Isekai"
+      ],
+      "aliases": [],
+      "summary": "A cultivator abandons dangerous sect ambitions to build a peaceful life on a farm.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 14
+    },
+    {
+      "id": "super-supportive",
+      "title": "Super Supportive",
+      "author": "Sleyca",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/63759/super-supportive",
+      "workStatus": "Ongoing",
+      "genres": [
+        "Superheroes",
+        "Progression",
+        "Slice of Life",
+        "Sci-fi"
+      ],
+      "aliases": [],
+      "summary": "A teenager hopes to become a support hero within a world run by an extraterrestrial System.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 15
+    },
+    {
+      "id": "the-primal-hunter",
+      "title": "The Primal Hunter",
+      "author": "Zogarth",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/36049/the-primal-hunter",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Progression",
+        "System Apocalypse",
+        "Fantasy"
+      ],
+      "aliases": [],
+      "summary": "An office worker thrives in a dangerous system tutorial after humanity enters a multiverse.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 16
+    },
+    {
+      "id": "defiance-of-the-fall",
+      "title": "Defiance of the Fall",
+      "author": "TheFirstDefier",
+      "originalLanguage": "English",
+      "sourcePlatform": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/24709/defiance",
+      "workStatus": "Unknown",
+      "genres": [
+        "LitRPG",
+        "Cultivation",
+        "System Apocalypse",
+        "Adventure"
+      ],
+      "aliases": [],
+      "summary": "A survivor must grow stronger after Earth is thrown into a hostile multiverse.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-06",
+      "rank": 17
+    }
+  ]
+}

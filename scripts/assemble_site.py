@@ -19,6 +19,10 @@ def build():
     shutil.copy2(ROOT/'index.html',OUT/'index.html')
     shutil.copytree(ROOT/'src',OUT/'src',ignore=shutil.ignore_patterns('*.test.js'))
     (OUT/'data'/'books').mkdir(parents=True)
+    from test_series_registry import validate_registry
+    directory=json.loads((ROOT/'content/series_registry.json').read_text(encoding='utf-8'))
+    validate_registry(directory)
+    shutil.copy2(ROOT/'content/series_registry.json', OUT/'data'/'series_registry.json')
     for name in ('catalog.json','story_index.json'):
         shutil.copy2(PUBLIC/name, OUT/'data'/name)
     catalog=json.loads((PUBLIC/'catalog.json').read_text(encoding='utf-8'))
