@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {filterDirectory,validateDirectory,sanitizeShelf,shareIds,parseSharedIds,LIST_STATUSES} from './directory.js';
+import {filterDirectory,validateDirectory,sanitizeShelf,shareIds,parseSharedIds,paginateDirectory,LIST_STATUSES} from './directory.js';
 const series=[
  {id:'a',title:'A Cultivation Tale',author:'Alpha',originalLanguage:'Chinese',sourceUrl:'https://www.novelupdates.com/series/alpha/',kind:'external-index',genres:['Cultivation','Progression'],aliases:['Old Name'],summary:'An immortal academy',workStatus:'Completed'},
  {id:'b',title:'Loop Academy',author:'Beta',originalLanguage:'English',sourceUrl:'https://www.royalroad.com/fiction/123/example',kind:'external-index',genres:['Time Loop','Academy'],aliases:[],summary:'A magical academy loop',workStatus:'Ongoing'}
@@ -44,4 +44,17 @@ test('shareable lists expose only real series IDs, not private notes or progress
  assert.deepEqual(parseSharedIds(link,series),['a','b']);
  assert.deepEqual(parseSharedIds('a,unknown,a,__proto__',series),['a']);
  assert.deepEqual(parseSharedIds('x'.repeat(1001),series),[]);
+});
+
+test('directory pagination handles thousands without rendering every card',()=>{
+ const books=Array.from({length:3200},(_,i)=>({id:'book-'+i,title:'Book '+i}));
+ const p1=paginateDirectory(books,1),p2=paginateDirectory(books,2),last=paginateDirectory(books,1000000);
+ assert.equal(p1.total,3200);
+ assert.equal(p1.items.length,24);
+ assert.equal(p1.to,24);
+ assert.equal(p2.from,25);
+ assert.equal(p2.items.length,24);
+ assert.equal(last.page,last.pages);
+ assert.equal(last.items.at(-1).id,'book-3199');
+ assert.equal(paginateDirectory([],1).items.length,0);
 });

@@ -231,3 +231,5 @@
 .static-evidence-area .narrative-search-form{margin-top:18px}
 .static-evidence-area .narrative-event{border-left-color:#89bcc9}
 @media(max-width:550px){.static-evidence-area{padding:16px}}
+
+.db-pages{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:24px 0 10px}.db-pages button{border:1px solid var(--line);border-radius:9px;padding:10px 14px;background:var(--surface);color:var(--text);font-size:12px}.db-pages button:disabled{opacity:.4;cursor:not-allowed}.db-pages span{font-size:12px;color:var(--muted);text-align:center}.db-pages button:not(:disabled):hover{border-color:var(--pink)}

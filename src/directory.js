@@ -8,7 +8,7 @@ const escape = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'
 const sourceHosts = new Set(['www.novelupdates.com','www.royalroad.com','www.wuxiaworld.com']);
 const cleanWords = v => String(v ?? '').toLocaleLowerCase().trim().replace(/\s+/g,' ');
 const clampChapter = n => Number.isSafeInteger(Number(n)) && Number(n) >= 0 && Number(n) <= 1000000 ? Number(n) : 0;
-const viewState = {q:'',language:'All',status:'All',include:new Set(),exclude:new Set()};
+const viewState = {q:'',language:'All',status:'All',include:new Set(),exclude:new Set(),page:1};
 function elem(root, selector){return root.querySelector(selector)}
 function sourceValid(url){
  try {const u=new URL(url);return u.protocol==='https:'&&sourceHosts.has(u.hostname)&&!u.username&&!u.password;}
@@ -42,6 +42,14 @@ export function filterDirectory(series,options={}){
   const searchable=cleanWords([item.title,item.author,item.summary,item.originalLanguage,...item.genres,...item.aliases].join(' '));
   return terms.every(term=>searchable.includes(term));
  }).sort((a,b)=>a.title.localeCompare(b.title));
+}
+export function paginateDirectory(series,page=1,size=24){
+ const safeSize=Math.min(50,Math.max(5,Number.isInteger(size)?size:24));
+ const pages=Math.max(1,Math.ceil(series.length/safeSize));
+ const current=Math.min(pages,Math.max(1,Number.isInteger(page)?page:1));
+ return {items:series.slice((current-1)*safeSize,current*safeSize),page:current,
+   pages,total:series.length,from:series.length?((current-1)*safeSize+1):0,
+   to:Math.min(series.length,current*safeSize)};
 }
 export function sanitizeShelf(snapshot,series){
  const allow=new Set(series.map(s=>s.id));
@@ -85,6 +93,7 @@ function filterTags(series){
 }
 export function mountDirectory(root,series){
  const shelf=loadShelf(series),matches=filterDirectory(series,viewState);
+ const pagination=paginateDirectory(matches,viewState.page);viewState.page=pagination.page;
  const popularTags=filterTags(series);
  const totals={Chinese:series.filter(s=>s.originalLanguage==='Chinese').length,Korean:series.filter(s=>s.originalLanguage==='Korean').length,English:series.filter(s=>s.originalLanguage==='English').length};
  root.innerHTML='<section class="db-hero"><div class="content-wrap"><div class="eyebrow small">NOVALUME · WEBNOVEL DATABASE</div>'+
@@ -105,17 +114,21 @@ export function mountDirectory(root,series){
  const mode=viewState.include.has(label)?'include':viewState.exclude.has(label)?'exclude':'neutral';
  return '<button type="button" data-db-theme="'+escape(label)+'" class="db-theme '+mode+'" aria-label="'+escape(label)+' filter: '+mode+'" title="Tap: require, exclude, clear">'+escape(label)+(mode==='include'?' ✓':mode==='exclude'?' −':'')+'</button>';
  }).join('')+'</div><p class="db-filter-note">Themes are source-listed or editorial labels, not verified narrative-event claims.</p></aside>'+
- '<div class="db-main"><div class="db-results-bar"><span>'+matches.length+' matching '+(matches.length===1?'series':'series')+'</span><span>Sorted by title · No paid rankings</span></div>'+
- (matches.length?'<div class="db-results-grid">'+matches.map(item=>card(item,shelf)).join('')+'</div>':
+ '<div class="db-main"><div class="db-results-bar"><span>'+matches.length+' matching series · showing '+pagination.from+'–'+pagination.to+'</span><span>Sorted by title · No paid rankings</span></div>'+
+ (matches.length?'<div class="db-results-grid">'+pagination.items.map(item=>card(item,shelf)).join('')+'</div>':
  '<div class="db-no-results"><h3>No matching series yet</h3><p>Remove a filter or try a broader theme. The directory is being expanded from independently checked sources.</p><button id="dbResetEmpty" type="button">Clear filters</button></div>')+
- '</div></div><div class="db-launch-panel"><div><h3>Want to read or publish here?</h3><p>Novalume also hosts rights-cleared reading editions. Original-author publishing is being developed; private drafts are available now.</p></div>'+
+ '<div class="db-pages" aria-label="Series results pagination">'+
+ '<button type="button" id="dbPrev" '+(pagination.page===1?'disabled':'')+'>← Previous</button>'+
+ '<span>Page '+pagination.page+' / '+pagination.pages+'</span>'+
+ '<button type="button" id="dbNext" '+(pagination.page===pagination.pages?'disabled':'')+'>Next →</button>'+
+ '</div></div></div><div class="db-launch-panel"><div><h3>Want to read or publish here?</h3><p>Novalume also hosts rights-cleared reading editions. Original-author publishing is being developed; private drafts are available now.</p></div>'+
  '<div><a href="#read-here" class="db-panel-link">Read on Novalume →</a><a href="#studio" class="db-panel-link">Write a private draft →</a></div></div>'+
  '<p class="db-rights-note">Linked series remain on their original platforms. We do not mirror copyrighted chapters, track live release updates, or imply a licensing relationship with their publishers.</p></section>';
  const refresh=()=>mountDirectory(root,series);
- elem(root,'#dbSearchForm').onsubmit=e=>{e.preventDefault();viewState.q=elem(root,'#dbQuery').value.trim().slice(0,150);refresh()};
- elem(root,'#dbLanguage').onchange=e=>{viewState.language=e.target.value;refresh()};
- elem(root,'#dbStatus').onchange=e=>{viewState.status=e.target.value;refresh()};
- const clear=()=>{viewState.q='';viewState.language='All';viewState.status='All';viewState.include.clear();viewState.exclude.clear();refresh()};
+ elem(root,'#dbSearchForm').onsubmit=e=>{e.preventDefault();viewState.q=elem(root,'#dbQuery').value.trim().slice(0,150);viewState.page=1;refresh()};
+ elem(root,'#dbLanguage').onchange=e=>{viewState.language=e.target.value;viewState.page=1;refresh()};
+ elem(root,'#dbStatus').onchange=e=>{viewState.status=e.target.value;viewState.page=1;refresh()};
+ const clear=()=>{viewState.q='';viewState.language='All';viewState.status='All';viewState.include.clear();viewState.exclude.clear();viewState.page=1;refresh()};
  elem(root,'#dbReset').onclick=clear;
  if(elem(root,'#dbResetEmpty'))elem(root,'#dbResetEmpty').onclick=clear;
  root.querySelectorAll('[data-db-theme]').forEach(el=>el.onclick=()=>{
@@ -123,8 +136,10 @@ export function mountDirectory(root,series){
   if(viewState.include.has(value)){viewState.include.delete(value);viewState.exclude.add(value)}
   else if(viewState.exclude.has(value))viewState.exclude.delete(value);
   else viewState.include.add(value);
-  refresh();
+  viewState.page=1;refresh();
  });
+ elem(root,'#dbPrev').onclick=()=>{viewState.page=Math.max(1,viewState.page-1);refresh()};
+ elem(root,'#dbNext').onclick=()=>{viewState.page=Math.min(pagination.pages,viewState.page+1);refresh()};
  root.querySelectorAll('[data-db-quick]').forEach(el=>el.onclick=()=>{
   const id=el.dataset.dbQuick;
   if(shelf[id]){location.hash='#series/'+encodeURIComponent(id);return}
