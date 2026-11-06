@@ -16,7 +16,7 @@ def books():
 class NarrativeReviewTests(unittest.TestCase):
     def test_real_source_anchors_and_coverage(self):
         idx,coverage=build_index(RIGHTS,books(),REVIEWED)
-        self.assertEqual(len(idx['events']),13)
+        self.assertEqual(len(idx['events']),21)
         self.assertEqual(set(idx['books']),{'pride-and-prejudice','frankenstein','dracula'})
         self.assertTrue(all(len(e['paragraphSha256'])==64 for e in idx['events']))
         self.assertTrue(all('sourceAnchor' not in e and 'paragraphs' not in e for e in idx['events']))

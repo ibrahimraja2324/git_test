@@ -35,7 +35,7 @@ to public search APIs.
 - Reviewed-rights public-domain novel text assets are the only inputs to the current
   processing pipeline. The 43 external webnovel directory records are NEVER used
   as chapter sources; their novels remain copyrighted.
-- 13 initial editorial sample events across *Dracula*, *Frankenstein*, and
+- 21 initial editorial sample events across *Dracula*, *Frankenstein*, and
   *Pride and Prejudice*, each with a real paragraph anchor. This tiny sample is
   explicitly NOT exhaustive AI analysis or human verification.
 - Build-time gate checks the original edition's rights decision, exact chapter
@@ -82,7 +82,7 @@ Do not assume an author can license third-party translations or signed exclusive
 
 Track precision and recall on reviewed event questions, subject/object alignment,
 false witness attribution, chronology errors, spoiler leaks and negative queries.
-A pilot with 13 events and three classics is a **working architecture test**,
+A pilot with 21 events and three classics is a **working architecture test**,
 not proof of a comprehensive "every-novel" semantic engine.
 
 References:

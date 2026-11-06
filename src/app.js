@@ -184,7 +184,7 @@ function downloadJson(name,data){
 async function aiDesk(){
  const verifiedBookOptions=state.catalog.filter(b=>b.status==='ready').map(b=>'<option value="'+escape(b.id)+'">'+escape(b.title)+'</option>').join('');
  view.innerHTML=`<section class="content-wrap simple-ai"><div class="eyebrow small">ADVANCED STORY SEARCH</div><h1>Search what <em>actually happens.</em></h1><p>Search story actions, reactions, relationships and revelations. This is a small source-anchored editorial prototype on authorised classic novels. The external webnovel directory remains metadata-only until authors or publishers grant chapter-analysis rights.</p>
-<section class="narrative-search-area"><div class="eyebrow small">CHAPTER-GROUNDED INTELLIGENCE · EARLY EDITORIAL DEMO</div><h2>Find a particular story moment</h2><p class="muted">13 sample events have specific chapter and paragraph anchors. Their meaning is editorially interpreted, not independently verified or exhaustive.</p>
+<section class="narrative-search-area"><div class="eyebrow small">CHAPTER-GROUNDED INTELLIGENCE · EARLY EDITORIAL DEMO</div><h2>Find a particular story moment</h2><p class="muted">21 sample events have specific chapter and paragraph anchors. Their meaning is editorially interpreted, not independently verified or exhaustive.</p>
  <form id="narrativeForm" class="narrative-search-form">
  <label for="narrativeQuestion">Describe the event you want to find</label><input id="narrativeQuestion" type="search" maxlength="250" required placeholder="An inventor creates life but rejects his own creation"/>
  <div class="narrative-query-examples"><button type="button" data-narrative-example="identity disguise">Identity deception</button><button type="button" data-narrative-example="public fear reaction">Public reactions</button><button type="button" data-narrative-example="creation rejection">Creation and rejection</button></div>
@@ -224,7 +224,7 @@ async function aiDesk(){
    const res=await fetch('/api/narrative?'+args.toString());
    const out=await res.json();
    if(!res.ok||out.schema!=='novalume.narrative-search.v1')throw Error(out.error||'Search unavailable');
-   if(!out.results.length){box.innerHTML='<p class="muted">No annotated events match yet. Thirteen examples cover only a small part of these books; a missing result does not prove absence.</p>';return}
+   if(!out.results.length){box.innerHTML='<p class="muted">No annotated events match yet. Twenty-one examples cover only a small part of these books; a missing result does not prove absence.</p>';return}
    box.innerHTML=out.results.map(item=>{
     const id=escape(item.bookId);
     const head='<article class="narrative-result"><a href="#book/'+id+'"><strong>'+escape(item.title)+'</strong><span>Read book →</span></a>';

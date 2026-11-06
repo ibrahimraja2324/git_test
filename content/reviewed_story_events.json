@@ -313,6 +313,198 @@
       "status": "editorial-sample",
       "reviewer": "novalume-assistant-initial-review",
       "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-learns-william-murdered",
+      "bookId": "frankenstein",
+      "chapter": 7,
+      "paragraph": 2,
+      "relation": {
+        "type": "family-loss",
+        "actor": "Victor Frankenstein",
+        "predicate": "receives news",
+        "object": "William has been murdered"
+      },
+      "summary": "A family letter informs Victor that William has been murdered.",
+      "sourceAnchor": "Victor, he is murdered!",
+      "topics": [
+        "family loss",
+        "murder",
+        "grief",
+        "news"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "creature-asks-creator-for-justice",
+      "bookId": "frankenstein",
+      "chapter": 10,
+      "paragraph": 12,
+      "relation": {
+        "type": "relationship-appeal",
+        "actor": "the creature",
+        "predicate": "appeals to",
+        "object": "his creator for fairness and affection"
+      },
+      "summary": "The creature tells Frankenstein that he owes his creation justice and affection.",
+      "sourceAnchor": "I ought to be thy Adam",
+      "topics": [
+        "creator and creation",
+        "rejection",
+        "justice",
+        "relationships"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-refuses-companion",
+      "bookId": "frankenstein",
+      "chapter": 17,
+      "paragraph": 10,
+      "relation": {
+        "type": "relationship-conflict",
+        "actor": "Victor Frankenstein",
+        "predicate": "refuses",
+        "object": "to make a companion for the creature"
+      },
+      "summary": "Victor rejects the creature's proposed companion because he fears further destruction.",
+      "sourceAnchor": "I cannot consent.",
+      "topics": [
+        "denied companion",
+        "ethical choice",
+        "fear of consequences",
+        "rejection"
+      ],
+      "spoilerTier": "major",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-vows-stop-work",
+      "bookId": "frankenstein",
+      "chapter": 20,
+      "paragraph": 5,
+      "relation": {
+        "type": "decision-reversal",
+        "actor": "Victor Frankenstein",
+        "predicate": "vows",
+        "object": "not to resume his laboratory project"
+      },
+      "summary": "Victor vows in private never to resume his work.",
+      "sourceAnchor": "made a solemn vow in my own heart never to resume my labours",
+      "topics": [
+        "renunciation",
+        "changed decision",
+        "scientific work",
+        "moral dilemma"
+      ],
+      "spoilerTier": "major",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-discovers-wife-dead",
+      "bookId": "frankenstein",
+      "chapter": 23,
+      "paragraph": 10,
+      "relation": {
+        "type": "devastating-discovery",
+        "actor": "Victor Frankenstein",
+        "predicate": "sees",
+        "object": "the creature point at his wife's corpse"
+      },
+      "summary": "Victor sees the creature at the window pointing toward the corpse of his wife.",
+      "sourceAnchor": "he pointed towards the corpse of my wife",
+      "topics": [
+        "bereavement",
+        "marriage",
+        "revenge",
+        "confrontation"
+      ],
+      "spoilerTier": "major",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "van-helsing-reveals-vampires",
+      "bookId": "dracula",
+      "chapter": 18,
+      "paragraph": 2,
+      "relation": {
+        "type": "supernatural-disclosure",
+        "actor": "Professor Van Helsing",
+        "predicate": "informs",
+        "object": "the assembled investigators about vampires"
+      },
+      "summary": "Professor Van Helsing tells the assembled group that vampires exist.",
+      "sourceAnchor": "There are such beings as vampires",
+      "topics": [
+        "group revelation",
+        "supernatural knowledge",
+        "vampires",
+        "collective response"
+      ],
+      "spoilerTier": "major",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "investigator-seals-dracula-tomb",
+      "bookId": "dracula",
+      "chapter": 27,
+      "paragraph": 9,
+      "relation": {
+        "type": "supernatural-containment",
+        "actor": "the narrating investigator",
+        "predicate": "places",
+        "object": "a sacred wafer inside Dracula's tomb"
+      },
+      "summary": "A narrator records placing a sacred wafer in Dracula's tomb to keep him out.",
+      "sourceAnchor": "I laid in Dracula’s tomb some of the Wafer",
+      "topics": [
+        "ritual",
+        "containment",
+        "supernatural",
+        "strategy"
+      ],
+      "spoilerTier": "major",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "lucy-vampire-explanation",
+      "bookId": "dracula",
+      "chapter": 15,
+      "paragraph": 35,
+      "relation": {
+        "type": "mystery-explanation",
+        "actor": "Professor Van Helsing",
+        "predicate": "explains",
+        "object": "Lucy was bitten by a vampire"
+      },
+      "summary": "Van Helsing identifies a vampire bite as part of Lucy's supernatural transformation.",
+      "sourceAnchor": "She was bitten by the vampire",
+      "topics": [
+        "revelation",
+        "vampire bite",
+        "medical mystery",
+        "transformation"
+      ],
+      "spoilerTier": "major",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
     }
   ]
 }
