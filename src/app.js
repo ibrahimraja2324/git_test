@@ -182,15 +182,61 @@ function downloadJson(name,data){
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 async function aiDesk(){
- view.innerHTML=`<section class="content-wrap simple-ai"><div class="eyebrow small">ADVANCED STORY SEARCH</div><h1>Search our <em>hosted books.</em></h1><p>This experimental text engine currently searches only licensed chapters read directly on Novalume, not the external webnovel directory. External webnovels can be found on Discover by their source-listed themes.</p>
+ const verifiedBookOptions=state.catalog.filter(b=>b.status==='ready').map(b=>'<option value="'+escape(b.id)+'">'+escape(b.title)+'</option>').join('');
+ view.innerHTML=`<section class="content-wrap simple-ai"><div class="eyebrow small">ADVANCED STORY SEARCH</div><h1>Search what <em>actually happens.</em></h1><p>Search story actions, reactions, relationships and revelations. This is a small source-anchored editorial prototype on authorised classic novels. The external webnovel directory remains metadata-only until authors or publishers grant chapter-analysis rights.</p>
+<section class="narrative-search-area"><div class="eyebrow small">CHAPTER-GROUNDED INTELLIGENCE · EARLY EDITORIAL DEMO</div><h2>Find a particular story moment</h2><p class="muted">13 sample events have specific chapter and paragraph anchors. Their meaning is editorially interpreted, not independently verified or exhaustive.</p>
+ <form id="narrativeForm" class="narrative-search-form">
+ <label for="narrativeQuestion">Describe the event you want to find</label><input id="narrativeQuestion" type="search" maxlength="250" required placeholder="An inventor creates life but rejects his own creation"/>
+ <div class="narrative-query-examples"><button type="button" data-narrative-example="identity disguise">Identity deception</button><button type="button" data-narrative-example="public fear reaction">Public reactions</button><button type="button" data-narrative-example="creation rejection">Creation and rejection</button></div>
+ <div class="narrative-options"><label>Hosted book<select id="narrativeBook"><option value="">Any book (spoilers hidden)</option>${verifiedBookOptions}</select></label>
+ <label>Maximum chapter<input type="number" id="narrativeCutoff" min="1" max="3000" step="1" value="1"/></label></div>
+ <label class="narrative-check"><input id="narrativeReveal" type="checkbox"/> Explicitly reveal event details through the selected chapter (spoilers possible)</label>
+ <button class="btn primary" type="submit">Search source-anchored events →</button></form>
+ <div id="narrativeMatches" class="ai-results" role="status"><p class="muted">Search book-level matches without revealing future chapters by default.</p></div></section>
+ <details class="narrative-text-fallback"><summary>Experimental text-overlap search (less reliable)</summary>
+ <p class="muted">Matching words are not proof that the requested plot event occurs.</p>
  <form id="aiSearchForm" class="ai-search-form"><label for="aiQuestion">Describe what you want</label><textarea id="aiQuestion" rows="4" placeholder="I want an intelligent protagonist whose family misunderstands them, with public reactions and earned progression. Avoid endless filler."></textarea><button class="btn primary" type="submit">Search novel text →</button></form>
  <div id="aiRecommendations" class="ai-results" role="status"><p class="muted">Your request can be as detailed as you like. Novalume uses text-derived clues rather than only genre tags.</p></div>
- <details class="assistant-connection"><summary>Connect your own AI assistant <span>▾</span></summary>
+ </details><details class="assistant-connection"><summary>Connect your own AI assistant <span>▾</span></summary>
  <p>If your AI application supports custom MCP servers, add this read-only search tool. It returns safe book recommendations without giving the model the hidden chapter metadata. You do not provide Novalume with an API key.</p>
  <label for="aiMcpUrl">MCP endpoint</label><div class="copy-url"><input id="aiMcpUrl" readonly value="${escape(location.origin+'/api/mcp')}"/><button id="copyMcp">Copy</button></div>
  <button class="btn secondary" id="copyToolInstructions">Copy connection instructions</button>
  <p class="tiny-note">Early experimental MCP endpoint. Whether third-party assistants can connect depends on each application's supported tool connections. A precise match can itself imply a plot element you asked about; chapter spoilers and passages are never returned.</p>
  </details><p class="tiny-note">No paid AI is used for Novalume's text extraction or matching. Candidate matches are not proof that an event happens.</p></section>`;
+ const bookChoice=$('#narrativeBook'),chapterChoice=$('#narrativeCutoff');
+ bookChoice.onchange=()=>{
+  const selected=state.catalog.find(b=>b.id===bookChoice.value);
+  chapterChoice.max=selected?.chapterCount||3000;
+  chapterChoice.value=selected?Math.max(1,Math.min(Number(state.progress[selected.id]||1),selected.chapterCount)):1;
+ };
+ $$('[data-narrative-example]').forEach(el=>el.onclick=()=>{$('#narrativeQuestion').value=el.dataset.narrativeExample;$('#narrativeQuestion').focus()});
+ $('#narrativeForm').onsubmit=async e=>{
+  e.preventDefault();
+  const q=$('#narrativeQuestion').value.trim(),reveal=$('#narrativeReveal').checked,bookId=bookChoice.value;
+  const cutoff=Number(chapterChoice.value),box=$('#narrativeMatches');
+  if(q.length<3){toast('Describe the event you want.');return}
+  if(reveal&&!bookId){toast('Choose one book before revealing spoiler details.');return}
+  const args=new URLSearchParams({q});
+  if(bookId)args.set('bookId',bookId);
+  if(reveal){args.set('reveal','1');args.set('chapterLimit',String(cutoff))}
+  box.innerHTML='<p class="muted">Checking chapter-grounded event candidates…</p>';
+  try{
+   const res=await fetch('/api/narrative?'+args.toString());
+   const out=await res.json();
+   if(!res.ok||out.schema!=='novalume.narrative-search.v1')throw Error(out.error||'Search unavailable');
+   if(!out.results.length){box.innerHTML='<p class="muted">No annotated events match yet. Thirteen examples cover only a small part of these books; a missing result does not prove absence.</p>';return}
+   box.innerHTML=out.results.map(item=>{
+    const id=escape(item.bookId);
+    const head='<article class="narrative-result"><a href="#book/'+id+'"><strong>'+escape(item.title)+'</strong><span>Read book →</span></a>';
+    if(!reveal)return head+'<p>Matching source-anchored topic. Event details remain hidden.</p></article>';
+    const details=(item.events||[]).map(ev=>
+     '<div class="narrative-event"><small>Chapter '+ev.chapter+', paragraph '+ev.paragraph+' · '+escape(ev.verification.replaceAll('-',' '))+'</small>'+
+     '<p>'+escape(ev.summary)+'</p><a href="#read/'+id+'/'+ev.chapter+'">Open evidence chapter →</a></div>').join('');
+    return head+(details||'<p>No matching event within your selected chapter cutoff. Future details stay hidden.</p>')+'</article>';
+   }).join('');
+  }catch{box.innerHTML='<p class="muted">Chapter-grounded search is currently unavailable. The source books remain readable.</p>'}
+ };
+
  $('#aiSearchForm').onsubmit=async e=>{
    e.preventDefault();const q=$('#aiQuestion').value.trim(),box=$('#aiRecommendations');if(!q){toast('Describe the story you want first');return}
    box.innerHTML='<p class="muted">Searching the static narrative evidence…</p>';
