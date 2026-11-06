@@ -10,7 +10,7 @@
       "originalLanguage": "Chinese",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/lord-of-the-mysteries/",
-      "workStatus": "Completed",
+      "workStatus": "Unknown",
       "genres": [
         "Mystery",
         "Xuanhuan",
@@ -27,7 +27,8 @@
       "rank": 1,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "reverend-insanity",
@@ -36,7 +37,7 @@
       "originalLanguage": "Chinese",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/reverend-insanity/",
-      "workStatus": "Discontinued",
+      "workStatus": "Unknown",
       "genres": [
         "Cultivation",
         "Xuanhuan",
@@ -53,7 +54,8 @@
       "rank": 2,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "i-shall-seal-the-heavens",
@@ -62,7 +64,7 @@
       "originalLanguage": "Chinese",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/i-shall-seal-the-heavens/",
-      "workStatus": "Completed",
+      "workStatus": "Unknown",
       "genres": [
         "Cultivation",
         "Xianxia",
@@ -78,7 +80,8 @@
       "rank": 3,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "coiling-dragon",
@@ -87,7 +90,7 @@
       "originalLanguage": "Chinese",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/coiling-dragon/",
-      "workStatus": "Completed",
+      "workStatus": "Unknown",
       "genres": [
         "Xuanhuan",
         "Progression",
@@ -103,7 +106,8 @@
       "rank": 4,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "release-that-witch",
@@ -112,7 +116,7 @@
       "originalLanguage": "Chinese",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/release-that-witch/",
-      "workStatus": "Completed",
+      "workStatus": "Unknown",
       "genres": [
         "Kingdom Building",
         "Technology",
@@ -128,7 +132,8 @@
       "rank": 5,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "the-legendary-mechanic",
@@ -137,7 +142,7 @@
       "originalLanguage": "Chinese",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/the-legendary-mechanic/",
-      "workStatus": "Completed",
+      "workStatus": "Unknown",
       "genres": [
         "Game World",
         "Sci-fi",
@@ -153,7 +158,8 @@
       "rank": 6,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "omniscient-readers-viewpoint",
@@ -162,7 +168,7 @@
       "originalLanguage": "Korean",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/omniscient-readers-viewpoint/",
-      "workStatus": "Ongoing",
+      "workStatus": "Unknown",
       "genres": [
         "Apocalypse",
         "Survival",
@@ -178,7 +184,8 @@
       "rank": 7,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "the-novels-extra",
@@ -187,7 +194,7 @@
       "originalLanguage": "Korean",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/the-novels-extra/",
-      "workStatus": "Completed",
+      "workStatus": "Unknown",
       "genres": [
         "Transmigration",
         "Academy",
@@ -203,7 +210,8 @@
       "rank": 8,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "trash-of-the-counts-family",
@@ -212,7 +220,7 @@
       "originalLanguage": "Korean",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/trash-of-the-counts-family/",
-      "workStatus": "Ongoing",
+      "workStatus": "Unknown",
       "genres": [
         "Transmigration",
         "Fantasy",
@@ -229,15 +237,16 @@
       "rank": 9,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "the-second-coming-of-gluttony",
       "title": "The Second Coming of Gluttony",
       "author": "Ro Yu-jin",
       "originalLanguage": "Korean",
-      "sourcePlatform": "Novel Updates",
-      "sourceUrl": "https://www.novelupdates.com/series/the-second-coming-of-gluttony/",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/the-second-coming-of-gluttony/",
       "workStatus": "Completed",
       "genres": [
         "Second Chance",
@@ -253,8 +262,8 @@
       "verifiedAt": "2026-11-06",
       "rank": 10,
       "sourcePolicy": "legacy-human-curated-source-link",
-      "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "sourceAudit": "source-page-observed",
+      "availabilityStatus": "Licensed publisher"
     },
     {
       "id": "sss-class-suicide-hunter",
@@ -263,7 +272,7 @@
       "originalLanguage": "Korean",
       "sourcePlatform": "Novel Updates",
       "sourceUrl": "https://www.novelupdates.com/series/sss-class-suicide-hunter/",
-      "workStatus": "Completed",
+      "workStatus": "Unknown",
       "genres": [
         "Tower Climbing",
         "Regression",
@@ -279,7 +288,8 @@
       "rank": 11,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "mother-of-learning",
@@ -288,7 +298,7 @@
       "originalLanguage": "English",
       "sourcePlatform": "Royal Road",
       "sourceUrl": "https://www.royalroad.com/fiction/21220/mother-of-learning",
-      "workStatus": "Completed",
+      "workStatus": "Unknown",
       "genres": [
         "Time Loop",
         "Magic Academy",
@@ -304,7 +314,8 @@
       "rank": 12,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "the-perfect-run",
@@ -359,7 +370,7 @@
       "originalLanguage": "English",
       "sourcePlatform": "Royal Road",
       "sourceUrl": "https://www.royalroad.com/fiction/63759/super-supportive",
-      "workStatus": "Ongoing",
+      "workStatus": "Unknown",
       "genres": [
         "Superheroes",
         "Progression",
@@ -373,7 +384,8 @@
       "rank": 15,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "statusNote": "Original work status not independently rechecked"
     },
     {
       "id": "the-primal-hunter",

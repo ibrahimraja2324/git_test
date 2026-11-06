@@ -1,0 +1,217 @@
+{
+  "schema": "novalume.source-evidence.v1",
+  "reviewDate": "2026-11-06",
+  "policy": "Factual claims and outbound source URLs only. No transferred copyright, chapter text, description copying, cover art, rating aggregates or bulk third-party database harvesting.",
+  "claims": [
+    {
+      "seriesId": "a-will-eternal",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/a-will-eternal",
+      "observedAt": "2026-11-06",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "A Will Eternal",
+        "author": "Er Gen",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "a-will-eternal",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/a-will-eternal/",
+      "observedAt": "2026-11-06",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "A Will Eternal",
+        "author": "Er Gen",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "renegade-immortal",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/renegade-immortal",
+      "observedAt": "2026-11-06",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Renegade Immortal",
+        "author": "Er Gen",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "renegade-immortal",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/renegade-immortal/",
+      "observedAt": "2026-11-06",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Renegade Immortal",
+        "author": "Er Gen",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "martial-world",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/martial-world",
+      "observedAt": "2026-11-06",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Martial World",
+        "author": "Cocooned Cow",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "martial-world",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/martial-world/",
+      "observedAt": "2026-11-06",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Martial World",
+        "author": "Cocooned Cow",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "overgeared",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/overgeared",
+      "observedAt": "2026-11-06",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Overgeared",
+        "author": "Park Saenal",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "overgeared",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/Overgeared/",
+      "observedAt": "2026-11-06",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Overgeared",
+        "author": "Park Saenal",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "the-regressed-demon-lord-is-kind",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/the-regressed-demon-lord-is-kind",
+      "observedAt": "2026-11-06",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Regressed Demon Lord is Kind",
+        "author": "Hungry Panda",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "the-regressed-demon-lord-is-kind",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/the-regressed-demon-lord-is-kind/",
+      "observedAt": "2026-11-06",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Regressed Demon Lord is Kind",
+        "author": "Hungry Panda",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "the-second-coming-of-gluttony",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/the-second-coming-of-gluttony/",
+      "observedAt": "2026-11-06",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Second Coming of Gluttony",
+        "author": "Ro Yu-jin",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "the-second-coming-of-gluttony",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/the-second-coming-of-gluttony/",
+      "observedAt": "2026-11-06",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Second Coming of Gluttony",
+        "author": "Ro Yu-jin",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "the-runesmith",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/33844/the-runesmith",
+      "observedAt": "2026-11-06",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Runesmith",
+        "author": "Kuropon",
+        "originalLanguage": "English",
+        "workStatus": "Ongoing"
+      }
+    },
+    {
+      "seriesId": "a-journey-of-black-and-red",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/26675/a-journey-of-black-and-red",
+      "observedAt": "2026-11-06",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "A Journey of Black and Red",
+        "author": "Mecanimus",
+        "originalLanguage": "English",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "the-perfect-run",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/36735/the-perfect-run",
+      "observedAt": "2026-11-06",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Perfect Run",
+        "author": "Maxime J. Durand (Void Herald)",
+        "originalLanguage": "English",
+        "workStatus": "Completed"
+      }
+    }
+  ]
+}
