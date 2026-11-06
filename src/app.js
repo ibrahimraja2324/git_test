@@ -3,7 +3,7 @@ const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>[...root.querySelectorAll(s)];
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const local=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(`novalume:${key}`))??fallback}catch{return fallback}};
-const save=(key,val)=>localStorage.setItem(`novalume:${key}`,JSON.stringify(val));
+const save=(key,val)=>{try{localStorage.setItem(`novalume:${key}`,JSON.stringify(val));return true}catch{return false}};
 const state={catalog:[],favorites:local('favorites',[]),progress:local('progress',{}),preferred:local('preferred',[]),drafts:local('drafts',[]),query:'',genre:'All',theme:local('theme','dark'),readerScale:local('readerScale',19),showSpoilers:false,selectedBook:null,storyIndex:null,knowledgeCache:new Map(),bookCache:new Map()};
 const view=$('#view');
 function toast(s){const el=$('#toast');el.textContent=s;el.classList.add('visible');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('visible'),3000)}
@@ -20,7 +20,7 @@ function bookCard(b){
   <div class="card-info"><div class="card-meta"><span>${escape(b.genre)}</span><span class="meta-dot">·</span><span>${b.chapterCount} ${b.chapterCount===1?'section':'sections'}</span></div>
   <h3><a href="#book/${escape(b.id)}">${escape(b.title)}</a></h3><p class="byline">by ${escape(b.author)}</p>
   <p class="card-blurb">${escape(b.blurb)}</p>
-  <div class="real-book-meta">${(Number(b.wordCount)||0).toLocaleString('en-AU')} words · ${b.publicationYear||'Original'} edition</div>
+  <div class="real-book-meta">${(Number(b.wordCount)||0).toLocaleString('en-AU')} words · ${b.publicationYear?`first published ${b.publicationYear}`:'original text'}</div>
   <a class="card-read" href="#read/${escape(b.id)}/${resume}">${state.progress[b.id]?'Continue reading':'Start reading'} <span>→</span></a></div>
  </article>`;
 }
@@ -35,9 +35,9 @@ function renderHome(){
  view.innerHTML=`<section class="simple-hero real-hero"><div class="content-wrap compact-hero-inner">
   <div class="eyebrow small">NOVALUME READER LIBRARY</div>
   <h1>Find a story.<br/><em>Keep reading.</em></h1>
-  <p>Read published book text, not previews made from placeholder data. Search inside our licensed collection or open a chapter right away.</p>
+  <p>Read genuine chapter text from reviewed editions. Browse the collection, pick up where you left off, or search within available books.</p>
   <form id="searchForm" class="simple-search" role="search"><label class="visually-hidden" for="searchInput">Search hosted novel text</label><input id="searchInput" type="search" placeholder="Search real text: Transylvania, Elizabeth, laboratory…" value="${escape(state.query)}" autocomplete="off" maxlength="500"/><button type="submit">Search →</button></form>
-  <div class="hint-row"><span>Explore</span><button type="button" data-query="Transylvania">Transylvania</button><button type="button" data-query="Victor">Victor</button><button type="button" data-query="Elizabeth Bennet">Elizabeth Bennet</button></div>
+  <div class="hint-row"><span>Explore</span><button type="button" data-query="Transylvania">Transylvania</button><button type="button" data-query="Victor">Victor</button><button type="button" data-query="Mr. Bennet">Mr. Bennet</button></div>
   <div class="real-library-stats"><span>${all.length} readable ${all.length===1?'book':'books'}</span><span>${sections} available sections</span><span>Free to read · No account required</span></div>
  </div></section>
  <section class="content-wrap simple-discovery">
