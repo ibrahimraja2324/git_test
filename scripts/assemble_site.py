@@ -22,7 +22,8 @@ def build():
     from test_series_registry import validate_registry
     directory=json.loads((ROOT/'content/series_registry.json').read_text(encoding='utf-8'))
     validate_registry(directory)
-    shutil.copy2(ROOT/'content/series_registry.json', OUT/'data'/'series_registry.json')
+    from fuse_series_metadata import build_registry
+    (OUT/'data'/'series_registry.json').write_text(json.dumps(build_registry(),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     for name in ('catalog.json','story_index.json'):
         shutil.copy2(PUBLIC/name, OUT/'data'/name)
     catalog=json.loads((PUBLIC/'catalog.json').read_text(encoding='utf-8'))
