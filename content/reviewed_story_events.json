@@ -1,0 +1,318 @@
+{
+  "schema": "novalume.reviewed-narrative-events.v1",
+  "scope": "source-grounded editorial sample; content verified by exact chapter/paragraph anchor but semantic interpretation still requires independent review",
+  "events": [
+    {
+      "id": "bennet-netherfield-rumour",
+      "bookId": "pride-and-prejudice",
+      "chapter": 1,
+      "paragraph": 3,
+      "relation": {
+        "type": "family-information",
+        "actor": "Mrs. Bennet",
+        "predicate": "reports",
+        "object": "Netherfield Park has been let"
+      },
+      "summary": "Mrs. Bennet tells her husband that Netherfield Park has been let.",
+      "sourceAnchor": "Netherfield Park is let at last",
+      "topics": [
+        "family",
+        "social expectation",
+        "new arrival",
+        "wealth"
+      ],
+      "spoilerTier": "intro",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "bennet-marriage-intent",
+      "bookId": "pride-and-prejudice",
+      "chapter": 1,
+      "paragraph": 16,
+      "relation": {
+        "type": "family-ambition",
+        "actor": "Mrs. Bennet",
+        "predicate": "intends",
+        "object": "a daughter to marry the wealthy newcomer"
+      },
+      "summary": "Mrs. Bennet wants the wealthy newcomer to marry one of her daughters.",
+      "sourceAnchor": "I am thinking of his marrying one of them",
+      "topics": [
+        "marriage",
+        "family plans",
+        "wealth",
+        "social ambition"
+      ],
+      "spoilerTier": "intro",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "bennet-lizzy-preference",
+      "bookId": "pride-and-prejudice",
+      "chapter": 1,
+      "paragraph": 25,
+      "relation": {
+        "type": "family-preference",
+        "actor": "Mr. Bennet",
+        "predicate": "favours",
+        "object": "Lizzy in his message to Bingley"
+      },
+      "summary": "Mr. Bennet says he will put in a good word for Lizzy in a message to Mr. Bingley.",
+      "sourceAnchor": "throw in a good word for my little Lizzy",
+      "topics": [
+        "parental preference",
+        "favouritism",
+        "marriage",
+        "family"
+      ],
+      "spoilerTier": "intro",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-collects-bones",
+      "bookId": "frankenstein",
+      "chapter": 4,
+      "paragraph": 9,
+      "relation": {
+        "type": "secret-work",
+        "actor": "Victor Frankenstein",
+        "predicate": "collects",
+        "object": "bones from charnel houses"
+      },
+      "summary": "Victor obtains bones from charnel houses while conducting his secret experiment.",
+      "sourceAnchor": "I collected bones from charnel-houses",
+      "topics": [
+        "secret experiment",
+        "science",
+        "body construction",
+        "moral transgression"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-animates-creature",
+      "bookId": "frankenstein",
+      "chapter": 5,
+      "paragraph": 1,
+      "relation": {
+        "type": "creation",
+        "actor": "Victor Frankenstein",
+        "predicate": "animates",
+        "object": "the assembled creature"
+      },
+      "summary": "Victor sees the creature open its eye and begin to breathe.",
+      "sourceAnchor": "I saw the dull yellow eye of the creature open",
+      "topics": [
+        "creates life",
+        "science",
+        "breakthrough",
+        "new ability"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-neglects-health",
+      "bookId": "frankenstein",
+      "chapter": 5,
+      "paragraph": 3,
+      "relation": {
+        "type": "sacrifice",
+        "actor": "Victor Frankenstein",
+        "predicate": "sacrifices",
+        "object": "health and rest for his experiment"
+      },
+      "summary": "Victor describes depriving himself of rest and health while pursuing his experiment.",
+      "sourceAnchor": "I had deprived myself of rest and health",
+      "topics": [
+        "sacrifice",
+        "obsession",
+        "personal cost",
+        "training"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-recoils-from-creature",
+      "bookId": "frankenstein",
+      "chapter": 5,
+      "paragraph": 3,
+      "relation": {
+        "type": "relationship-rejection",
+        "actor": "Victor Frankenstein",
+        "predicate": "rejects",
+        "object": "the being he created"
+      },
+      "summary": "Victor feels horror and disgust after completing the creature and rushes out of the room.",
+      "sourceAnchor": "breathless horror and disgust filled my heart",
+      "topics": [
+        "rejection",
+        "creator and creation",
+        "betrayal",
+        "fear"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "victor-appearance-shock",
+      "bookId": "frankenstein",
+      "chapter": 5,
+      "paragraph": 4,
+      "relation": {
+        "type": "reaction",
+        "actor": "Victor Frankenstein",
+        "predicate": "reacts",
+        "object": "to the animated creature's appearance"
+      },
+      "summary": "Victor calls the newly animated being's appearance horrifying.",
+      "sourceAnchor": "Oh! no mortal could support the horror of that countenance",
+      "topics": [
+        "shock",
+        "reaction",
+        "creation",
+        "appearance"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "locals-fear-count",
+      "bookId": "dracula",
+      "chapter": 1,
+      "paragraph": 4,
+      "relation": {
+        "type": "public-reaction",
+        "actor": "local innkeepers",
+        "predicate": "react",
+        "object": "to the mention of Count Dracula"
+      },
+      "summary": "Both innkeepers cross themselves and refuse to discuss Count Dracula's castle.",
+      "sourceAnchor": "both he and his wife crossed themselves",
+      "topics": [
+        "fear",
+        "public reaction",
+        "reputation",
+        "superstition"
+      ],
+      "spoilerTier": "intro",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "count-greets-harker",
+      "bookId": "dracula",
+      "chapter": 2,
+      "paragraph": 2,
+      "relation": {
+        "type": "meeting",
+        "actor": "Count Dracula",
+        "predicate": "welcomes",
+        "object": "Jonathan Harker to his home"
+      },
+      "summary": "Count Dracula identifies himself and welcomes Mr. Harker to his home.",
+      "sourceAnchor": "I am Dracula; and I bid you welcome, Mr. Harker",
+      "topics": [
+        "meeting",
+        "identity",
+        "nobleman",
+        "hospitality"
+      ],
+      "spoilerTier": "intro",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "count-crawls-wall",
+      "bookId": "dracula",
+      "chapter": 3,
+      "paragraph": 4,
+      "relation": {
+        "type": "ability-reveal",
+        "actor": "Count Dracula",
+        "predicate": "moves",
+        "object": "down an exterior castle wall"
+      },
+      "summary": "Harker sees Count Dracula descend the castle wall sideways in a lizard-like manner.",
+      "sourceAnchor": "Once more have I seen the Count go out in his lizard fashion",
+      "topics": [
+        "hidden ability",
+        "supernatural",
+        "revelation",
+        "shock"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "harker-locked-doors",
+      "bookId": "dracula",
+      "chapter": 3,
+      "paragraph": 4,
+      "relation": {
+        "type": "restricted-freedom",
+        "actor": "Jonathan Harker",
+        "predicate": "encounters",
+        "object": "locked doors while exploring the castle"
+      },
+      "summary": "Harker tries the castle's doors and finds they are locked.",
+      "sourceAnchor": "They were all locked, as I had expected",
+      "topics": [
+        "captivity",
+        "discovery",
+        "escape",
+        "isolation"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    },
+    {
+      "id": "count-disguises-harker",
+      "bookId": "dracula",
+      "chapter": 4,
+      "paragraph": 10,
+      "relation": {
+        "type": "identity-deception",
+        "actor": "Count Dracula",
+        "predicate": "wears",
+        "object": "Jonathan Harker's clothes while leaving the castle"
+      },
+      "summary": "Harker observes the Count leaving the castle wearing his clothes.",
+      "sourceAnchor": "I saw him leave the castle by the same window, and in my clothes",
+      "topics": [
+        "disguise",
+        "identity",
+        "deception",
+        "hidden agenda"
+      ],
+      "spoilerTier": "development",
+      "status": "editorial-sample",
+      "reviewer": "novalume-assistant-initial-review",
+      "reviewedAt": "2026-11-06"
+    }
+  ]
+}
