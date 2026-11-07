@@ -1,0 +1,48 @@
+name: Novalume CC0 catalogue candidate audit
+
+on:
+  push:
+    branches:
+      - novalume-foundation
+    paths:
+      - .github/workflows/novalume-cc0-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download upstream metadata snapshot (never chapters)
+        run: |
+          curl --fail --location --retry 2 --connect-timeout 15 --max-time 90 \
+            -o /tmp/novalume-cc0-metadata.json.gz \
+            https://github.com/HeTaobaba123/arabic-chinese-novels-dataset/releases/download/v1.0.0/novels-metadata.ar-zh.json.gz
+          sha256sum /tmp/novalume-cc0-metadata.json.gz
+      - name: Convert only permitted bibliographic identity candidates
+        run: |
+          python3 scripts/import_cc0_webnovel_candidates.py \
+            --snapshot /tmp/novalume-cc0-metadata.json.gz \
+            --output /tmp/novalume-review-candidates.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/novalume-review-candidates.json',encoding='utf8'))
+          print('Total upstream records:', d['inputRows'])
+          print('Non-public quarantine candidates:', d['acceptedCandidates'])
+          print('Rejected records:', d['rejectedRows'])
+          assert d['schema']=='novalume.cc0-webnovel-candidates.v1'
+          assert d['acceptedCandidates']>=100
+          assert all(not row['publicationReady'] and not row['officialSourceUrl'] for row in d['candidates'])
+          assert all('description' not in row and 'chapterText' not in row and 'ratings' not in row for row in d['candidates'])
+          PY
+      - name: Store for manual identity and rights review (never publish automatically)
+        uses: actions/upload-artifact@v4
+        with:
+          name: novalume-cc0-review-only
+          path: /tmp/novalume-review-candidates.json
+          retention-days: 7
+          if-no-files-found: error
