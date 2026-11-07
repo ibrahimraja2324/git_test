@@ -9,6 +9,8 @@ class CC0CandidatesTests(unittest.TestCase):
   self.assertEqual(x['acceptedCandidates'],1)
   entry=x['candidates'][0]
   self.assertEqual(entry['title'],'邀月竟成了我师尊')
+  self.assertEqual(entry['author'],'一杆梅子酒')
+  self.assertTrue(entry['qualitySignals']['sourceAuthorFromTitleByline'])
   self.assertEqual(entry['categoryHint'],'Cultivation')
   self.assertIsNone(entry['officialSourceUrl'])
   self.assertFalse(entry['publicationReady'])
@@ -26,4 +28,13 @@ class CC0CandidatesTests(unittest.TestCase):
   self.assertIn('quarantine',x['candidates'][0]['state'])
  def test_missing_author_rejected(self):
   self.assertEqual(convert([{'id':9,'title':'Some Story','language':'zh'}])['acceptedCandidates'],0)
+
+ def test_placeholder_authors_and_non_novel_categories_get_lower_review_priority(self):
+  x=convert([{'id':10,'title':'Some Story','author':'مجهول','language':'zh','category':'诗歌散文'}])
+  self.assertEqual(x['acceptedCandidates'],1)
+  self.assertEqual(x['qualitySummary']['placeholderAuthor'],1)
+  self.assertEqual(x['qualitySummary']['possibleNonNovelCategory'],1)
+  self.assertEqual(x['candidates'][0]['reviewPriority'],'low')
+  self.assertFalse(x['candidates'][0]['publicationReady'])
+
 if __name__=='__main__':unittest.main()

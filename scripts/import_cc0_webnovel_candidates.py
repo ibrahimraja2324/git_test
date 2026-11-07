@@ -28,6 +28,11 @@ def safe_text(value,limit=180):
     text=re.sub(r'[\x00-\x1f\x7f]',' ',str(value or '')).strip()
     return re.sub(r'\s+',' ',text)[:limit].strip()
 
+UNKNOWN_AUTHORS={'مؤلف صيني','مجهول','غير محدد المؤلف','unknown','anonymous','unknown author'}
+NON_NOVEL_CATEGORIES={'诗歌散文','散文','诗歌','传记','自传'}
+CHINESE=re.compile(r'[\u4e00-\u9fff]')
+BYLINE=re.compile(r'\\s+by\\s+([\\u4e00-\\u9fff][^\\n]{1,75})$',re.I)
+
 def convert(records):
     """Return identity proposals, never public registry records."""
     if isinstance(records,dict):
@@ -43,9 +48,17 @@ def convert(records):
             rejected.append('missing-source-id');continue
         title=safe_text(r.get('title'))
         author=safe_text(r.get('author'),120)
-        # Upstream sometimes puts "by <author>" into title; avoid duplicates.
-        if author and title.endswith(' by '+author):
-            title=title[:-(len(author)+4)].rstrip()
+        # Chinese-language title occasionally embeds the *native byline*
+        # while the separate author field is transliterated into Arabic.
+        # Retain the inferred native name ONLY as an unverified candidate.
+        title_byline=False
+        byline=BYLINE.search(title)
+        if byline:
+            native=safe_text(byline.group(1),120)
+            if CHINESE.search(native):
+                title=title[:byline.start()].strip()
+                author=native
+                title_byline=True
         if not title or not author:
             rejected.append('missing-title-or-author');continue
         key=(normal(title),normal(author))
@@ -61,6 +74,14 @@ def convert(records):
         if en and normal(en)!=normal(title) and not re.search(r'[\u4e00-\u9fff]',en):
             aliases=[en]
         category=safe_text(r.get('category'),60)
+        author_placeholder=normal(author) in UNKNOWN_AUTHORS
+        native_author=bool(CHINESE.search(author))
+        non_novel=category in NON_NOVEL_CATEGORIES
+        concerns=[]
+        if author_placeholder:concerns.append('Unknown or placeholder author; source author must be researched')
+        elif not native_author:concerns.append('Only Arabic-transliterated author supplied; locate native identity')
+        if non_novel:concerns.append('Upstream category may be poetry/prose, not serialized fiction')
+        if title_byline:concerns.append('Chinese author inferred from title byline; independently verify')
         candidates.append({
           'candidateId':'pangudawn:'+str(rid),'title':title,'author':author,
           'aliases':aliases,'originalLanguage':'Chinese',
@@ -71,7 +92,13 @@ def convert(records):
           'officialSourceUrl':None,
           'publicationStatus':'Unknown',
           'state':'quarantine',
-          'reviewIssues':['Confirm original novel and Chinese author identity',
+          'qualitySignals':{'hasNativeChineseAuthor':native_author,
+             'authorPlaceholder':author_placeholder,
+             'sourceAuthorFromTitleByline':title_byline,
+             'potentialNonNovelCategory':non_novel,
+             'hasVerifiedPublisherLink':False},
+          'reviewPriority':'low' if author_placeholder or non_novel else 'standard',
+          'reviewIssues':concerns+['Confirm original novel and Chinese author identity',
                           'Find a legitimate original or publisher-hosted reading URL',
                           'Verify distributor controlled any claimed original descriptions',
                           'Independently check work/translation/adaptation identity'],
@@ -81,6 +108,14 @@ def convert(records):
       'notice':'Candidate metadata for identity review only. No chapters, copied descriptions, artwork, ratings or audience metrics.',
       'inputRows':len(records),'acceptedCandidates':len(candidates),
       'rejectedRows':len(rejected),'rejectionReasons':dict((k,rejected.count(k)) for k in set(rejected)),
+      'qualitySummary':{
+          'nativeChineseAuthor':sum(x['qualitySignals']['hasNativeChineseAuthor'] for x in candidates),
+          'placeholderAuthor':sum(x['qualitySignals']['authorPlaceholder'] for x in candidates),
+          'nativeAuthorInTitleByline':sum(x['qualitySignals']['sourceAuthorFromTitleByline'] for x in candidates),
+          'possibleNonNovelCategory':sum(x['qualitySignals']['potentialNonNovelCategory'] for x in candidates),
+          'publisherUrlsVerified':0,
+          'reviewLowPriority':sum(x['reviewPriority']=='low' for x in candidates),
+          'publishedNovalumeWorks':0},
       'candidates':candidates}
 
 def main():
