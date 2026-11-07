@@ -75,10 +75,24 @@ function persistShelf(shelf){
  catch{return false}
 }
 export function validCoverArt(a){
- return !!a && a.provider==='openlibrary' && a.mode==='remote-display'
-  && /^OL[0-9]{1,12}M$/.test(a.editionId||'')
-  && typeof a.editionUrl==='string'
-  && new RegExp('^https://openlibrary\\.org/books/'+a.editionId+'/[a-zA-Z0-9_%-]+
+ if(!a||a.provider!=='openlibrary'||a.mode!=='remote-display')return false;
+ if(typeof a.editionId!=='string'||!/^OL[0-9]{1,12}M$/.test(a.editionId))return false;
+ if(typeof a.sourceCheckedAt!=='string'||!/^20[0-9]{2}-[0-9]{2}-[0-9]{2}$/.test(a.sourceCheckedAt))return false;
+ try{
+  const u=new URL(a.editionUrl);
+  return u.protocol==='https:'&&u.hostname==='openlibrary.org'&&!u.username&&!u.password
+   &&u.pathname.startsWith('/books/'+a.editionId+'/')
+   &&u.pathname.split('/').length===4&&!u.search&&!u.hash;
+ }catch{return false}
+}
+function wireCoverFallback(root){
+ root.querySelectorAll('img[data-novalume-cover]').forEach(img=>{
+  const hide=()=>img.remove();
+  img.addEventListener('error',hide,{once:true});
+  if(img.complete&&img.naturalWidth===0)hide();
+ });
+}
+function tile(item,size=''){
  const glyph=item.originalLanguage==='Chinese'?'墨':item.originalLanguage==='Korean'?'빛':'✦';
  let hash=0;for(const c of item.id)hash=(hash*29+c.charCodeAt(0))>>>0;
  return '<div class="db-cover nov-cover nov-cover-'+(hash%8)+' '+size+'"><small>'+escape(item.originalLanguage)+'</small>'+
