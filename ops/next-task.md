@@ -27,3 +27,6 @@ Create and security-audit only isolated novalume_reader_experience table.
 Do real browser QA. Pilot with authentic opt-in readers to verify that the
 feedback provides value and improves recommendations vs genre-only.
 No engagement hacks or fake submissions. Cloud backup is opt-in only.
+
+## Reader-first discovery feedback experiment
+Premise lens allows self-selected reader wants to match exact Novalume-authored summary snippets, with explicit unknowns and genre-only comparison. Validate production deployment and real mobile usability. Real reader feedback count is 0; do not claim uplift until 20+ authentic discovery attempts with explicit outcomes. Next priority: a revocable, purpose-limited opt-in contribution path so experience labels can improve future reader matching without exposing private notes. See docs/premise-lens-v1.md.

@@ -1,0 +1,189 @@
+{
+  "schema": "novalume.editorial-premise-hints.v1",
+  "observedAt": "2026-11-08",
+  "scope": "Short excerpts of Novalume-authored bibliographic summaries, not chapter-observed outcomes, popularity or user reviews.",
+  "claims": [
+    {
+      "workId": "all-the-skills",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "magic depends on card decks",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "the-path-of-ascension",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "structured interstellar path",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "azarinth-healer",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "classes, healing abilities, and combat training",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "bog-standard-isekai",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "slowly earn the strength to level up",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "bog-standard-isekai",
+      "dimension": "earned_power",
+      "summaryPhrase": "slowly earn the strength to level up",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "elydes",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "improving step by step",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "elydes",
+      "dimension": "earned_power",
+      "summaryPhrase": "studying magic and improving step by step",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "renegade-immortal",
+      "dimension": "earned_power",
+      "summaryPhrase": "despite beginning with weak talent",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "a-record-of-a-mortals-journey-to-immortality",
+      "dimension": "earned_power",
+      "summaryPhrase": "through patient cultivation despite starting from an ordinary background",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "the-primal-hunter",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "dangerous system tutorial",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "beneath-the-dragoneye-moons",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "governed by classes, skills and magic",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "vainqueur-the-dragon",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "character levels and quests",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "the-legend-of-william-oh",
+      "dimension": "public_recognition",
+      "summaryPhrase": "growing collection of heroic stories about himself",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "release-that-witch",
+      "dimension": "world_consequence",
+      "summaryPhrase": "transforms a struggling territory with technology",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "my-followers-are-all-goofy-players",
+      "dimension": "world_consequence",
+      "summaryPhrase": "transform his growing territory",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "dungeon-life",
+      "dimension": "world_consequence",
+      "summaryPhrase": "develops its inhabitants and environment",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "tales-of-demons-and-gods",
+      "dimension": "world_consequence",
+      "summaryPhrase": "change the fortunes of his city",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "tales-of-demons-and-gods",
+      "dimension": "smart_protagonist",
+      "summaryPhrase": "draws on future knowledge",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "return-of-mount-hua-sect",
+      "dimension": "world_consequence",
+      "summaryPhrase": "restore a declining sect",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "reverend-insanity",
+      "dimension": "smart_protagonist",
+      "summaryPhrase": "uses memories of a previous life to navigate dangerous power struggles",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "the-runesmith",
+      "dimension": "smart_protagonist",
+      "summaryPhrase": "technical knowledge can help him develop magical rune-based equipment",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "industrial-strength-magic",
+      "dimension": "smart_protagonist",
+      "summaryPhrase": "combine technological ingenuity with magical systems",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "warlock-of-the-magus-world",
+      "dimension": "smart_protagonist",
+      "summaryPhrase": "methodical researcher navigates a dangerous world of magic",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "the-s-classes-that-i-raised",
+      "dimension": "relationship_tension",
+      "summaryPhrase": "complicated bonds with stronger people around him",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "the-return-of-the-disaster-class-hero",
+      "dimension": "social_reversal",
+      "summaryPhrase": "A presumed-dead hero reappears",
+      "class": "editorial-premise",
+      "field": "summary"
+    },
+    {
+      "workId": "super-supportive",
+      "dimension": "measurable_growth",
+      "summaryPhrase": "world run by an extraterrestrial System",
+      "class": "editorial-premise",
+      "field": "summary"
+    }
+  ]
+}

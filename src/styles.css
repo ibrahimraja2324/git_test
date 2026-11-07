@@ -636,3 +636,24 @@
 .nov-exp-records h3{width:100%;margin:0}
 .nov-exp-privacy{font-size:.82rem;opacity:.8;margin-top:.8rem}
 @media(max-width:680px){.nov-exp,.nov-exp-summary{margin:1.2rem .7rem;padding:.9rem}.nov-exp-questions{grid-template-columns:1fr}.nov-exp-item{padding:.75rem}.nov-exp-actions{align-items:stretch}.nov-exp-actions button{flex:1 1 auto}}
+
+/* Evidence-labelled story premise matching. This is NOT reader-experience evidence. */
+.nov-premise-lens{padding:1.3rem;border:1px solid #50655d;border-radius:13px;margin:1.5rem 0 2.4rem;line-height:1.55}
+.nov-premise-lens h2{font:500 clamp(1.7rem,3vw,2.4rem)/1.2 Newsreader,Georgia,serif;margin:.55rem 0}
+.nov-premise-lens>p{max-width:810px}
+.nov-premise-chips{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+.nov-premise-chips button{padding:.5rem .85rem;background:transparent;color:inherit;border:1px solid #627a71;border-radius:999px;min-height:40px;text-align:left;font-size:.85rem}
+.nov-premise-chips button.active{background:#276c58;color:#fff;border-color:#70b69b}
+.nov-premise-stats{font-size:.87rem;margin:.8rem 0;opacity:.85}
+.nov-premise-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(295px,1fr));gap:.85rem;margin:.8rem 0}
+.nov-premise-card{display:grid;grid-template-columns:87px minmax(0,1fr);gap:.85rem;padding:.9rem;border:1px solid #496057;border-radius:11px;min-width:0}
+.nov-premise-card h3{font-size:1.07rem;line-height:1.3;margin:0 0 .35rem}
+.nov-premise-card p{margin:.3rem 0}
+.nov-premise-sub,.nov-premise-disclaimer,.nov-premise-caveat{font-size:.79rem;opacity:.75}
+.nov-premise-evidence p{font-size:.86rem;padding:.35rem 0}
+.nov-premise-evidence strong{display:block}
+.nov-premise-cover{display:block;align-self:start;position:relative;overflow:hidden;aspect-ratio:2/3;border-radius:6px;background:linear-gradient(145deg,#34584e,#121e25)}
+.nov-premise-cover-fallback{position:absolute;inset:0;display:grid;place-items:center;font-size:3rem;color:#c7d9c9}
+.nov-premise-cover img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover}
+.nov-premise-empty{padding:1rem;border:1px dashed #698175;border-radius:8px}
+@media(max-width:720px){.nov-premise-lens{padding:.85rem}.nov-premise-results{grid-template-columns:1fr}.nov-premise-card{grid-template-columns:73px minmax(0,1fr);padding:.65rem}.nov-premise-chips{gap:.35rem}}

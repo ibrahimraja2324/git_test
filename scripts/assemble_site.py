@@ -24,6 +24,10 @@ def build():
     validate_registry(directory)
     from fuse_series_metadata import build_registry
     (OUT/'data'/'series_registry.json').write_text(json.dumps(build_registry(),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    from test_premise_claims import validate_hints
+    editorial=json.loads((ROOT/'content/premise_claims.json').read_text(encoding='utf8'))
+    validate_hints(editorial,directory)
+    (OUT/'data'/'premise_claims.json').write_text(json.dumps(editorial,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf8')
     research=PUBLIC/'candidate_index.json'
     if research.is_file():
         leads=json.loads(research.read_text(encoding="utf8"))

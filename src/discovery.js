@@ -5,6 +5,7 @@ import {filterDirectory,paginateDirectory,sanitizeShelf} from './directory.js';
 import {coverImg,bindCoverFallback} from './cover_art.js';
 import {renderExperienceSummary,bindExperienceSummary} from './reader_experience.js';
 import {communityClient} from './community.js';
+import {mountPremiseLens} from './premise_lens.js';
 const KEY='novalume:seriesShelfV1';
 const state={query:'',language:'All',status:'All',tag:'All',page:1};
 const escape=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
@@ -154,11 +155,12 @@ export function renderTaste(root,series){
  '<section class="nov-section"><div class="nov-kicker">POSITIVE SIGNALS</div><h2>What seems to click</h2>'+
  (profile.positive.length?'<div class="nov-tag-cloud">'+profile.positive.slice(0,10).map(([name])=>'<span>'+escape(name)+'</span>').join('')+'</div>':
  '<p>No positive taste signals yet. This will reflect your private ratings, not invented interests.</p>')+'</section>'+
- '<section class="nov-section"><div class="nov-kicker">BASED ON YOUR RATINGS</div><h2>Possible matches</h2>'+
+ '<section class="nov-premise-lens" id="novPremiseLens"><p>Opening source-grounded story matching…</p></section>'+'<section class="nov-section"><div class="nov-kicker">BASED ON YOUR RATINGS</div><h2>Genre-only baseline matches</h2>'+
  (profile.matches.length?'<div class="nov-result-grid">'+profile.matches.slice(0,18).map(x=>card(x.series,shelf)).join('')+'</div>':
  '<p>Rate a few titles you enjoyed to get matches from the real indexed catalogue.</p>')+'</section>'+
  renderExperienceSummary(series)+'<p class="nov-data-note">Your reading-experience evidence is private on this device unless you explicitly choose to back it up; it is not a verified plot-knowledge source.</p></div></div>';
  bindCoverFallback(root);
  bindExperienceSummary(root,series,communityClient);
+ mountPremiseLens(root,series,shelf);
  bindSaves(root,series,shelf,()=>renderTaste(root,series));
 }
