@@ -51,13 +51,17 @@ export function paginateDirectory(series,page=1,size=24){
    pages,total:series.length,from:series.length?((current-1)*safeSize+1):0,
    to:Math.min(series.length,current*safeSize)};
 }
+export function normalizeRating(value){
+ const n=Number(value);
+ return Number.isFinite(n)&&n>=0.5&&n<=5&&Math.round(n*2)===n*2?n:0;
+}
 export function sanitizeShelf(snapshot,series){
  const allow=new Set(series.map(s=>s.id));
  const safe=Object.create(null);
  if(!snapshot||typeof snapshot!=='object'||Array.isArray(snapshot))return safe;
  for(const [id,entry] of Object.entries(snapshot)){
   if(!allow.has(id)||!entry||typeof entry!=='object'||!LIST_STATUSES.includes(entry.status))continue;
-  safe[id]={status:entry.status,chapter:clampChapter(entry.chapter),note:String(entry.note||'').slice(0,500)};
+  safe[id]={status:entry.status,chapter:clampChapter(entry.chapter),note:String(entry.note||'').slice(0,500),rating:normalizeRating(entry.rating),review:String(entry.review||'').slice(0,1200),reviewSpoiler:entry.reviewSpoiler===true};
  }
  return safe;
 }
@@ -150,7 +154,7 @@ export function mountDirectory(root,series){
 export function mountSeries(root,series,id){
  const item=series.find(s=>s.id===id);
  if(!item){root.innerHTML='<section class="content-wrap db-discovery"><h2>Series not found</h2><a href="#home">Return to discovery →</a></section>';return}
- const shelf=loadShelf(series), current=shelf[id]||{status:'Plan to read',chapter:0,note:''};
+ const shelf=loadShelf(series), current=shelf[id]||{status:'Plan to read',chapter:0,note:'',rating:0,review:'',reviewSpoiler:false};
  root.innerHTML='<div class="content-wrap db-series-page"><a class="back-link" href="#home">← Back to directory</a>'+
  '<div class="db-series-hero"><div class="db-series-art">'+tile(item,'large')+'</div><div class="db-series-content">'+
  '<div class="eyebrow small">'+escape(item.originalLanguage)+' WEBNOVEL · '+escape(item.workStatus)+'</div>'+
@@ -162,7 +166,10 @@ export function mountSeries(root,series,id){
  '<div class="db-series-lower"><section><h2>Your reading progress</h2><p class="muted">Keep track manually across platforms. These private notes are stored only in this browser.</p>'+
  '<form id="dbTrackForm" class="db-track-form"><label>List status<select id="dbTrackStatus">'+LIST_STATUSES.map(st=>'<option '+(current.status===st?'selected':'')+'>'+st+'</option>').join('')+'</select></label>'+
  '<label>Last chapter read<input id="dbTrackChapter" inputmode="numeric" type="number" min="0" max="1000000" step="1" value="'+current.chapter+'"></label>'+
+ '<label>Your rating<select id="dbTrackRating"><option value="0">Not rated</option>'+Array.from({length:10},(_,i)=>(i+1)/2).map(n=>'<option value="'+n+'" '+(current.rating===n?'selected':'')+'>'+n.toFixed(1)+' ★</option>').join('')+'</select></label>'+ 
  '<label class="db-note-label">Private note<textarea id="dbTrackNote" rows="3" maxlength="500" placeholder="Your thoughts, next chapter, etc.">'+escape(current.note)+'</textarea></label>'+
+ '<label class="db-note-label">Your private review<textarea id="dbTrackReview" rows="4" maxlength="1200" placeholder="What makes this one memorable?">'+escape(current.review||'')+'</textarea></label>'+ 
+ '<label class="db-check-note"><input type="checkbox" id="dbReviewSpoiler" '+(current.reviewSpoiler?'checked':'')+'> Review contains spoilers (for future sharing)</label>'+ 
  '<div class="db-form-actions"><button class="btn primary" type="submit">Save to my list</button><button class="btn secondary" type="button" id="dbRemove">Remove from my list</button></div>'+
  '<p class="db-form-feedback" id="dbTrackMessage" role="status"></p></form></section>'+
  '<aside class="db-source-info"><h3>Record provenance</h3><dl><dt>Source</dt><dd>'+escape(item.sourcePlatform)+'</dd><dt>Original language</dt><dd>'+escape(item.originalLanguage)+'</dd>'+
@@ -176,7 +183,7 @@ export function mountSeries(root,series,id){
   e.preventDefault();
   const raw=Number(elem(root,'#dbTrackChapter').value);
   if(!Number.isSafeInteger(raw)||raw<0||raw>1000000){elem(root,'#dbTrackMessage').textContent='Enter a whole chapter number between 0 and 1,000,000.';return}
-  shelf[id]={status:elem(root,'#dbTrackStatus').value,chapter:raw,note:elem(root,'#dbTrackNote').value.slice(0,500)};
+  shelf[id]={status:elem(root,'#dbTrackStatus').value,chapter:raw,note:elem(root,'#dbTrackNote').value.slice(0,500),rating:normalizeRating(elem(root,'#dbTrackRating').value),review:elem(root,'#dbTrackReview').value.slice(0,1200),reviewSpoiler:elem(root,'#dbReviewSpoiler').checked};
   elem(root,'#dbTrackMessage').textContent=persistShelf(shelf)?'Saved on this device.':'Could not save: browser storage is unavailable.';
  };
  elem(root,'#dbRemove').onclick=()=>{
@@ -216,14 +223,16 @@ export function mountTracking(root,series){
  const shelf=loadShelf(series),entries=series.filter(s=>shelf[s.id]);
  const totals=LIST_STATUSES.map(status=>[status,entries.filter(e=>shelf[e.id].status===status).length]);
  root.innerHTML='<section class="db-hero db-small-hero"><div class="content-wrap"><div class="eyebrow small">YOUR PERSONAL NOVEL LISTS</div>'+
- '<h1>Keep every world <em>in reach.</em></h1><p>Track your Chinese, Korean and English webnovels across their original platforms. Your list is private on this device.</p></div></section>'+
+ '<h1>Your reading life, <em>beautifully logged.</em></h1><p>Track titles, chapters and personal reviews across platforms. Your data stays on this device.</p></div></section>'+
  '<section class="content-wrap db-discovery"><div class="db-section-heading"><div><h2>Reading tracker</h2><p>'+entries.length+' saved series · Manual chapter progress</p></div><a href="#home" class="db-shelf-link">Find more novels →</a></div>'+
+ '<div class="nov-profile-summary"><div><span class="nov-kicker">YOUR READING LIFE</span><h2>'+entries.length+' stories in your library</h2><p>No invented community reviews or statistics—only your personal entries.</p></div><a href="#taste">See taste matches ↗</a></div>'+ 
  '<div class="db-tracker-chips">'+totals.map(([status,count])=>'<span>'+escape(status)+' <strong>'+count+'</strong></span>').join('')+'</div>'+
  '<div class="db-list-toolbar"><button id="dbShare" type="button">Share a public list link</button><button id="dbExport" type="button">Export private lists (.json)</button><label class="db-import-label">Import saved lists<input id="dbImport" type="file" accept="application/json,.json"></label><span id="dbImportMessage" role="status"></span></div>'+
  (entries.length?'<div class="db-tracked-grid">'+entries.map(entry=>{
  const d=shelf[entry.id];
  return '<article class="db-tracked-card"><a href="#series/'+escape(entry.id)+'" class="db-tracked-head"><strong>'+escape(entry.title)+'</strong><span>→</span></a>'+
- '<p>'+escape(d.status)+' · Chapter '+d.chapter+'</p><small>'+escape(entry.originalLanguage)+' · '+escape(entry.sourcePlatform)+'</small>'+
+ '<p>'+escape(d.status)+' · Chapter '+d.chapter+(d.rating?' · ★ '+Number(d.rating).toFixed(1)+' your rating':'')+'</p><small>'+escape(entry.originalLanguage)+' · '+escape(entry.sourcePlatform)+'</small>'+ 
+ (d.review?'<p class="nov-private-review"><span>YOUR '+(d.reviewSpoiler?'SPOILER-MARKED ':'')+'REVIEW</span> '+escape(d.review)+'</p>':'')+
  (d.note?'<p class="db-tracked-note">'+escape(d.note)+'</p>':'')+
  '<div class="db-tracked-actions"><a href="#series/'+escape(entry.id)+'">Edit progress</a><a href="'+escape(entry.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Source ↗</a></div></article>';
  }).join('')+'</div>':'<div class="db-no-results"><h3>No series saved yet</h3><p>Open any real webnovel in the directory and select a reading status. No account needed.</p><a class="btn primary" href="#home">Browse webnovels →</a></div>')+

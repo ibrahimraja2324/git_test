@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {filterDirectory,validateDirectory,sanitizeShelf,shareIds,parseSharedIds,paginateDirectory,LIST_STATUSES} from './directory.js';
+import {filterDirectory,validateDirectory,sanitizeShelf,shareIds,parseSharedIds,paginateDirectory,normalizeRating,LIST_STATUSES} from './directory.js';
 const series=[
  {id:'a',title:'A Cultivation Tale',author:'Alpha',originalLanguage:'Chinese',sourceUrl:'https://www.novelupdates.com/series/alpha/',kind:'external-index',genres:['Cultivation','Progression'],aliases:['Old Name'],summary:'An immortal academy',workStatus:'Completed'},
  {id:'b',title:'Loop Academy',author:'Beta',originalLanguage:'English',sourceUrl:'https://www.royalroad.com/fiction/123/example',kind:'external-index',genres:['Time Loop','Academy'],aliases:[],summary:'A magical academy loop',workStatus:'Ongoing'}
@@ -26,7 +26,7 @@ test('shelf import cannot plant unknown or dangerous IDs',()=>{
  const raw=JSON.parse('{"a":{"status":"Reading","chapter":85,"note":"Good"},"unknown":{"status":"Reading","chapter":1},"__proto__":{"status":"Completed","chapter":9},"b":{"status":"invalid","chapter":4}}');
  const clean=sanitizeShelf(raw,series);
  assert.deepEqual(Object.keys(clean),['a']);
- assert.deepEqual(clean.a,{status:'Reading',chapter:85,note:'Good'});
+ assert.deepEqual(clean.a,{status:'Reading',chapter:85,note:'Good',rating:0,review:'',reviewSpoiler:false});
  assert.equal(Object.getPrototypeOf(clean),null);
 });
 test('invalid chapter progress is safely clamped',()=>{
@@ -57,4 +57,11 @@ test('directory pagination handles thousands without rendering every card',()=>{
  assert.equal(last.page,last.pages);
  assert.equal(last.items.at(-1).id,'book-3199');
  assert.equal(paginateDirectory([],1).items.length,0);
+});
+
+test('local half stars and private reviews are valid but public lists omit them',()=>{
+ const shelf=sanitizeShelf({a:{status:'Completed',chapter:250,rating:4.5,review:'Private twist',reviewSpoiler:true}},series);
+ assert.equal(shelf.a.rating,4.5);assert.equal(shelf.a.review,'Private twist');assert.equal(shelf.a.reviewSpoiler,true);
+ assert.equal(shareIds(shelf,series).join(','),'a');
+ assert.equal(normalizeRating(4.25),0);assert.equal(normalizeRating(3.5),3.5);assert.equal(normalizeRating(-1),0);
 });
