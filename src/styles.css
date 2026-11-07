@@ -566,3 +566,13 @@
 .nov-reader-chips a{display:grid;gap:5px;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 17px;font-weight:700;font-size:12px;min-width:140px}
 .nov-reader-chips a:hover{border-color:var(--pink)}
 .nov-reader-chips small{font-size:11px;color:var(--muted);font-weight:400}
+
+/* User-contributed bibliographic suggestions: private review queue */
+.nov-title-suggest{scroll-margin-top:94px}
+.nov-my-suggestions{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}
+.nov-my-suggestions h3{font:500 22px Newsreader,Georgia,serif;margin:0 0 12px}
+.nov-suggestion-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.nov-suggestion-row strong{display:block;font-size:12px;overflow-wrap:anywhere}
+.nov-suggestion-row small{display:inline-block;font-size:10px;color:var(--muted);text-transform:capitalize;margin-top:5px}
+.nov-suggestion-row button{background:transparent;border:1px solid var(--line);border-radius:7px;color:var(--muted);padding:8px;font-size:11px}
+.nov-suggestion-row button:hover{border-color:var(--pink);color:var(--text)}

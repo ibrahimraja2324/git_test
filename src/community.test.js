@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {cloudDiaryRows,reviewCard} from './community.js';
+import {cloudDiaryRows,reviewCard,prepareNovelSuggestion} from './community.js';
 const series=[
  {id:'lord-of-the-mysteries',title:'Lord of the Mysteries'},
  {id:'another-work',title:'Another Work'}
@@ -40,4 +40,39 @@ test('report action appears only when signed in and review is not your own',()=>
   body:'I love this story. It progresses well.',spoiler:false,rating:4,created_at:'2026-11-07'};
  assert.ok(reviewCard(item,'author','Novel','reader').includes('data-review-report'));
  assert.ok(!reviewCard(item,'author','Novel','author').includes('data-review-report'));
+});
+
+test('real publisher page can be submitted only as a private review candidate',()=>{
+ const s=prepareNovelSuggestion({title:'玄幻：开局一座天机阁',author:'三尺青锋',
+  original_language:'Chinese',source_url:'https://fanqienovel.com/page/6990230896360033293',
+  notes:'Source title and author confirmed'},[]);
+ assert.equal(s.source_url,'https://fanqienovel.com/page/6990230896360033293');
+ assert.equal(s.title,'玄幻：开局一座天机阁');
+ assert.ok(!('review_status' in s));
+ assert.ok(!('approved' in s));
+});
+test('never accept keyword pages, fake domains or URLs with credentials',()=>{
+ const base={title:'Real Original',author:'Writer',original_language:'Chinese'};
+ for(const source_url of [
+  'https://fanqienovel.com/keyword/7323056885827995686',
+  'https://fanqienovel.com/reader/6990230896360033293',
+  'https://fanqienovel.com.evil.com/page/6990230896360033293',
+  'https://example.com/series/x',
+  'https://user:pass@www.tadu.com/book/802975',
+  'javascript:alert(1)',
+  'https://www.tadu.com/book/802975?redirect=site',
+ ]){
+  assert.throws(()=>prepareNovelSuggestion({...base,source_url},[]));
+ }
+});
+test('do not solicit already indexed source URLs',()=>{
+ const s={title:'Other Work',author:'Writer',original_language:'Chinese',
+   source_url:'https://www.tadu.com/book/802975'};
+ assert.throws(()=>prepareNovelSuggestion(s,[{id:'existing',title:'Existing',author:'Someone',sourceUrl:s.source_url}]));
+});
+test('accept Korean/English submissions only with supported exact source URLs',()=>{
+ const s=prepareNovelSuggestion({title:'Damn Reincarnation',author:'Mokma',
+  original_language:'Korean',source_url:'https://www.wuxiaworld.com/novel/damn-reincarnation'},[]);
+ assert.equal(s.original_language,'Korean');
+ assert.throws(()=>prepareNovelSuggestion({...s,original_language:'Japanese'},[]));
 });
