@@ -94,7 +94,7 @@ export function renderDiscovery(root,series){
  '<div class="content-wrap nov-body"><div class="nov-shortcuts">'+
  '<a href="#tracking"><b>▤</b><span><strong>Your reading diary</strong><small>Log chapters, reviews and ratings</small></span></a>'+
  '<a href="#taste"><b>✦</b><span><strong>Discover your taste</strong><small>Find stories sharing themes you love</small></span></a>'+
- '<a href="#assistant"><b>⌕</b><span><strong>Story intelligence</strong><small>Explore the source-evidence prototype</small></span></a></div>'+
+ '<a href="#community"><b>✧</b><span><strong>Reader community</strong><small>Real reviews, real readers and profiles</small></span></a></div>'+
  (reading.length?collection('Currently in your world','The titles you marked as reading. Your private diary.',reading,''):'')+
  collection('Cultivation & impossible heights','Sects, realms, ambition and ever-expanding worlds.',chinese,'Cultivation')+
  collection('Second chances & bigger stakes','Korean webnovels and dramatic power struggles.',korean,'Regression')+

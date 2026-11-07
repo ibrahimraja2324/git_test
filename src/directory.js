@@ -163,7 +163,7 @@ export function mountSeries(root,series,id){
  '<p class="db-series-summary">'+escape(item.summary)+'</p><div class="db-tags">'+item.genres.map(tag).join('')+'</div>'+
  '<div class="nov-detail-tabs"><button type="button" data-db-scroll="dbTrackForm">My diary</button><button type="button" data-db-scroll="dbSourceRecord">Sources & provenance</button></div>'+ 
  '<div class="db-series-actions"><a class="btn primary" href="'+escape(item.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Open '+escape(item.sourcePlatform)+' ↗</a>'+
- '<a class="btn secondary" href="#tracking">My list →</a></div>'+
+ '<a class="btn secondary" href="#tracking">My list →</a><a class="btn secondary" href="#community/'+escape(item.id)+'">Community reviews →</a></div>'+
  '<p class="db-rights-note">External index only. The source page controls chapter access, translation availability and pricing. No novel text is hosted here.</p></div></div>'+
  '<div class="db-series-lower"><section><h2>Your reading progress</h2><p class="muted">Keep track manually across platforms. These private notes are stored only in this browser.</p>'+
  '<form id="dbTrackForm" class="db-track-form"><label>List status<select id="dbTrackStatus">'+LIST_STATUSES.map(st=>'<option '+(current.status===st?'selected':'')+'>'+st+'</option>').join('')+'</select></label>'+
@@ -230,6 +230,7 @@ export function mountTracking(root,series){
  '<section class="content-wrap db-discovery"><div class="db-section-heading"><div><h2>Reading tracker</h2><p>'+entries.length+' saved series · Manual chapter progress</p></div><a href="#home" class="db-shelf-link">Find more novels →</a></div>'+
  '<div class="nov-profile-summary"><div><span class="nov-kicker">YOUR READING LIFE</span><h2>'+entries.length+' stories in your library</h2><p>No invented community reviews or statistics—only your personal entries.</p></div><a href="#taste">See taste matches ↗</a></div>'+ 
  '<div class="db-tracker-chips">'+totals.map(([status,count])=>'<span>'+escape(status)+' <strong>'+count+'</strong></span>').join('')+'</div>'+
+ '<div class="nov-diary-cloud-link"><a href="#community">Sign in for cloud backup, real reviews and reader profiles →</a></div>'+ 
  '<div class="db-list-toolbar"><button id="dbShare" type="button">Share a public list link</button><button id="dbExport" type="button">Export private lists (.json)</button><label class="db-import-label">Import saved lists<input id="dbImport" type="file" accept="application/json,.json"></label><span id="dbImportMessage" role="status"></span></div>'+
  (entries.length?'<div class="db-tracked-grid">'+entries.map(entry=>{
  const d=shelf[entry.id];
