@@ -10,7 +10,7 @@ Verified database permissions: anonymous visitors cannot SELECT private diary ro
 
 Not yet verified end-to-end: actual signup/email confirmation/redirect, full browser/mobile UX, a successful first public post, two-user follows, active report moderation, abuse-rate limiting and full Auth account deletion. Code presence and production deployment do not establish those tests passed.
 
-Mandatory Supabase Dashboard step: Project nsjczdmkifzxhiihfcrr -> Authentication -> URL Configuration. Set Site URL to https://novalume-story-search.vercel.app and add the production URL to the Redirect URLs allowlist. The installed Supabase connector currently cannot change that setting. Check email verification and delivery quotas there too. Do not disable email confirmation as a shortcut.
+Mandatory Supabase Dashboard step: Project nsjczdmkifzxhiihfcrr -> Authentication -> URL Configuration. ADD https://novalume-story-search.vercel.app/** as an Additional Redirect URL. DO NOT overwrite the existing Site URL because this authentication project is shared with unrelated apps. The Novalume client explicitly requests the origin + pathname when signing up; inspect the confirmation email template's RedirectTo/ConfirmationURL behaviour if it still points to another app. The installed Supabase connector cannot edit this setting. Check email verification and delivery quotas. Do not disable confirmations to work around redirect mistakes.
 
 The backend shares a general Supabase project's authentication realm with other unrelated user projects, while Novalume tables and RLS are isolated. A dedicated Novalume project may be preferable for a larger launch but should not be created at an unapproved nonzero cost.
 
