@@ -1,0 +1,39 @@
+name: Novalume one-time cover metadata research
+on:
+  push:
+    branches: [novalume-foundation]
+    paths:
+      - scripts/research_cover_candidates.py
+      - scripts/test_cover_research.py
+      - .github/workflows/novalume-cover-research.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: novalume-cover-research
+  cancel-in-progress: false
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: novalume-foundation
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate cover-research matching
+        run: python3 -m unittest discover -s scripts -p 'test_cover_research.py' -v
+      - name: One-time metadata lookup, no cover download
+        run: python3 scripts/research_cover_candidates.py
+      - name: Save unreviewed candidates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ops/cover-research-candidates.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data(novalume): stage Open Library cover-matching proposals for review"
+            git push origin HEAD:novalume-foundation
+          fi

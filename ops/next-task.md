@@ -33,3 +33,12 @@ Premise lens allows self-selected reader wants to match exact Novalume-authored 
 
 ## Opt-in first-party learning acquisition
 Novalume now has an explicit share-with-consent / withdraw-all channel for judged reader experiences; fine-grained notes and exact chapters remain private. Validate SQL schema, per-user RLS, and production release. Actual participants and contributions remain ZERO unless verified otherwise. Next: allow genuinely consenting readers to complete end-to-end signup and contribution; measure if those signals improve held-out recommendations relative to genre-only baseline without exposing identifiable micro-cohorts.
+
+## Cover image visibility and quality
+Prior 7/66 mapping plus S-image upscaling/cropping harmed UX. Fixed M/L
+display and object-fit contain and added Dungeon Life edition to reach 8/66
+registered. One-time GitHub Actions cover research stores unverified matches
+under ops/cover-research-candidates.json. REVIEW candidate identities and
+actual image availability, then promote only verified covers. Explicitly
+measure registered/visibly-loaded cover rate separately. Do not label
+research proposals as usable images. Mobile screenshot QA still required.

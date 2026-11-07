@@ -34,3 +34,20 @@ in a live browser; follow up with visual QA and takedown responsiveness.
 
 ## Homepage-first art selection
 Because the original hero originally used four series with only one matched Open Library cover, the Discover hero now prioritises four titles with matched book edition records. This ensures the new remote-image functionality is actually exercised on first load (subject to real image availability). An additional matched All the Skills edition (OL52618166M) brings the small pilot to seven records. The series page now offers a direct 'Did it deliver?' navigation tab into voluntary private reader feedback. Live browser rendering and actual image endpoint responses remain a separate QA gate.
+
+## Actual cover failures and UI correction — 8 November
+Previous `src/discovery.js` scaled Open Library's tiny S thumbnails into large
+jacket rectangles; `object-fit: cover` cropped uneven aspect ratios. Both
+are now removed. Home/catalog cards use medium M, support hi-DPI L via
+srcset; hero and full-size detail request L. All use object-fit:contain with
+an intentionally dark letterbox, never squeezed/cropped. On 404 or an
+implausibly tiny image the client removes it to reveal CSS fallback.
+
+Open Library cover repository explicitly allows a browser-origin remote
+<img src> on public facing pages, requests courtesy attribution (provided
+on detailed records) and discourages crawling/bulk automated cover downloads.
+See https://openlibrary.org/dev/docs/api/covers
+A one-time, rate-limited book metadata search (not cover crawling) creates
+only *quarantined* coverage proposals, to be manually reviewed before
+incorporating. Cover art is not automatically licensed by the user having
+read the work; publisher platform image scraping remains disabled.

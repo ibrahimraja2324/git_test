@@ -2,6 +2,7 @@
  * External reading data remains on source platforms; personal lists stay on this device.
  */
 import {renderExperiencePanel,bindExperiencePanel} from './reader_experience.js';
+import {coverImg,bindCoverFallback,safeCoverArt} from './cover_art.js';
 export const LIST_STATUSES = ['Plan to read','Reading','Completed','On hold','Dropped'];
 export const LANGUAGES = ['All','Chinese','Korean','English'];
 const STORAGE = 'novalume:seriesShelfV1';
@@ -75,27 +76,14 @@ function persistShelf(shelf){
  try{localStorage.setItem(STORAGE,JSON.stringify(shelf));return true}
  catch{return false}
 }
-export function validCoverArt(a){
- if(!a||a.provider!=='openlibrary'||a.mode!=='remote-display')return false;
- if(typeof a.editionId!=='string'||!/^OL[0-9]{1,12}M$/.test(a.editionId))return false;
- if(typeof a.sourceCheckedAt!=='string'||!/^20[0-9]{2}-[0-9]{2}-[0-9]{2}$/.test(a.sourceCheckedAt))return false;
- try{const u=new URL(a.editionUrl);return u.protocol==='https:'&&u.hostname==='openlibrary.org'
- && !u.username&&!u.password && u.pathname.startsWith('/books/'+a.editionId+'/')
- && u.pathname.split('/').length===4 && !u.search && !u.hash}
- catch{return false}
-}
-function wireCoverFallback(root){
- root.querySelectorAll('img[data-novalume-cover]').forEach(img=>{
-  const hide=()=>img.remove();img.addEventListener('error',hide,{once:true});
-  if(img.complete&&img.naturalWidth===0)hide();
- });
-}
+export const validCoverArt=safeCoverArt;
+function wireCoverFallback(root){bindCoverFallback(root);}
 function tile(item,size=''){
  const glyph=item.originalLanguage==='Chinese'?'墨':item.originalLanguage==='Korean'?'빛':'✦';
  let hash=0;for(const c of item.id)hash=(hash*29+c.charCodeAt(0))>>>0;
  return '<div class="db-cover nov-cover nov-cover-'+(hash%8)+' '+size+'"><small>'+escape(item.originalLanguage)+'</small>'+
  '<span aria-hidden="true">'+glyph+'</span><div><strong>'+escape(item.title)+'</strong><em>'+escape(item.author)+'</em></div>'+
- (validCoverArt(item.coverArt)?'<img data-novalume-cover="1" class="nov-real-cover" loading="lazy" decoding="async" alt="Cover of '+escape(item.title)+' from Open Library" src="https://covers.openlibrary.org/b/olid/'+escape(item.coverArt.editionId)+'-M.jpg?default=false">':'')+'</div>';
+ coverImg(item,size==='large'?'L':'M',size==='large')+'</div>';
 }
 function tag(item){
  return '<span class="db-tag">'+escape(item)+'</span>';

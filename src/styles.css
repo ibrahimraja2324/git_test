@@ -664,3 +664,19 @@
 .nov-exp-contribute p{font-size:.9rem;max-width:780px;line-height:1.6}
 .nov-exp-contribute .nov-exp-actions button:first-child{background:transparent;color:inherit;border-color:#527e70}
 .nov-exp-contribute .nov-exp-actions button:last-child{background:transparent;color:inherit}
+
+/* Nov 8 cover resolution and aspect-ratio fix. Preserve entire physical artwork. */
+.nov-cover .nov-external-cover,
+.db-cover .nov-external-cover,
+.nov-premise-cover .nov-external-cover{
+ position:absolute;inset:0;z-index:5;width:100%;height:100%;
+ object-fit:contain;object-position:center center;
+ background:#19252a;border:0;border-radius:inherit;
+}
+.nov-premise-cover .nov-external-cover{z-index:2}
+.db-cover{min-width:0}
+.nov-cover,.nov-premise-cover{aspect-ratio:2/3}
+.nov-floating-wrap .nov-cover{aspect-ratio:auto}
+@media(prefers-reduced-data:reduce){
+ .nov-external-cover{image-rendering:auto}
+}

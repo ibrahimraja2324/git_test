@@ -106,3 +106,14 @@ src/premise_lens.js renders only claims validated from exact Novalume-authored s
 
 ## Opt-in reader-evidence channel (8 November 2026)
 Distinct public.novalume_consented_outcomes has strict owner-only RLS, client side never pushes private notes or precise chapter numbers, and explicit contribution plus withdrawal actions. Account ID is stored internally (pseudonymous, not fully anonymous). No silent backup reuse, public ratings, aggregate RPC or visitor surveillance. New SQL check constraints require taxonomy codes and judged wanted dimensions. Test actual security and user sign-in before claiming live end-to-end user contributions. The source-of-truth release is db/novalume_consented_outcomes_v1.sql.
+
+## 8 Nov: measured cover UX repair and acquisition
+Do not serve -S.jpg as a whole cover: medium M tile and large L hero/detail
+with srcset for retina, object-fit:contain (no art cropping), browser-direct
+Open Library, fallback if broken. The previous 7/66 baseline was inadequate.
+One more independently matched visible Open Library edition of Dungeon Life
+raises coverage to 8/66. Research_cover_candidates.py makes rate-limited
+Open Library metadata SEARCH ONLY to generate review proposals; never
+automatically publishes, scrapes publisher artwork or downloads OL cover
+files. Candidate count is not verified art count. Production CI and visual QA
+remain separate gates.
