@@ -82,3 +82,12 @@ Branch source now contains **66** real linked works (19 Chinese, 13 Korean, 34 E
 
 ## 8 November 2026 provisional title leads
 A separate #leads route is for source-dataset-derived UNVERIFIED basic title/author leads only, generated from pinned upstream data. Never include these records in the verified series count, the novalume_works database, full-text intelligence or the cover subsystem. All routes must visibly disclose uncertain source identities and absent official links. See docs/scale-research-index.md and the title-leads CI action. Check the workflow actually publishes before claiming live results.
+
+## Nov 8: cover-card regression repair
+The real Discover UI is `src/discovery.js` (not `src/directory.js`).
+Keep both views aligned. `src/cover_art.js` embeds Open Library *matched
+edition* S/M covers as a third-party display source, with HTML safety,
+404 fallback and no rehosting. Six approved edition identities exist;
+unknown/unavailable edition images retain CSS jackets. No blanket rights
+to hotlink arbitrary publisher cover images, and cover presence != verified
+native series art. Do not count cover records as narrative knowledge.

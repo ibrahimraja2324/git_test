@@ -415,7 +415,14 @@
       "rank": 16,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Partial listing"
+      "availabilityStatus": "Partial listing",
+      "coverArt": {
+        "provider": "openlibrary",
+        "editionId": "OL39480336M",
+        "editionUrl": "https://openlibrary.org/books/OL39480336M/The_Primal_Hunter_Book_One",
+        "mode": "remote-display",
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "defiance-of-the-fall",
@@ -438,7 +445,14 @@
       "rank": 17,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Partial listing"
+      "availabilityStatus": "Partial listing",
+      "coverArt": {
+        "provider": "openlibrary",
+        "editionId": "OL52205592M",
+        "editionUrl": "https://openlibrary.org/books/OL52205592M/Defiance_of_the_Fall_1",
+        "mode": "remote-display",
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "he-who-fights-with-monsters",
@@ -493,7 +507,14 @@
       "rank": 19,
       "availabilityStatus": "Partial listing",
       "sourcePolicy": "manual-facts-and-editorial-summary",
-      "sourceAudit": "source-page-observed"
+      "sourceAudit": "source-page-observed",
+      "coverArt": {
+        "provider": "openlibrary",
+        "editionId": "OL40506397M",
+        "editionUrl": "https://openlibrary.org/books/OL40506397M/Azarinth_Healer",
+        "mode": "remote-display",
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "the-runesmith",
@@ -564,7 +585,14 @@
       "rank": 22,
       "availabilityStatus": "Partial listing",
       "sourcePolicy": "manual-facts-and-editorial-summary",
-      "sourceAudit": "source-page-observed"
+      "sourceAudit": "source-page-observed",
+      "coverArt": {
+        "provider": "openlibrary",
+        "editionId": "OL40214821M",
+        "editionUrl": "https://openlibrary.org/books/OL40214821M/The_Beginning_After_The_End_Early_Years_Book_1",
+        "mode": "remote-display",
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "beneath-the-dragoneye-moons",

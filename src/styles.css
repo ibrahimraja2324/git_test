@@ -601,3 +601,11 @@
 .nov-lead-pager{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.5rem}
 .nov-lead-pager button:disabled{opacity:.35}
 @media(max-width:640px){.nov-leads{padding:1.3rem .8rem 5.5rem}.nov-leads form{flex-direction:column}.nov-lead-grid{grid-template-columns:1fr}}
+
+/* Real edition art across DISCOVER/collection/search/taste (not just #series).
+   Keep CSS jacket beneath as a graceful 404/slow-network fallback. */
+.nov-cover .nov-external-cover{
+ position:absolute;inset:0;display:block;z-index:4;
+ width:100%;height:100%;object-fit:cover;object-position:center;
+ border:0;border-radius:inherit;background:transparent;
+}

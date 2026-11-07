@@ -2,6 +2,7 @@
  * No fabricated reader activity, cover art, reviews, popularity or engagement.
  */
 import {filterDirectory,paginateDirectory,sanitizeShelf} from './directory.js';
+import {coverImg,bindCoverFallback} from './cover_art.js';
 const KEY='novalume:seriesShelfV1';
 const state={query:'',language:'All',status:'All',tag:'All',page:1};
 const escape=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
@@ -34,7 +35,8 @@ function palette(s){let n=0;for(const c of s.id)n=(n*29+c.charCodeAt(0))>>>0;ret
 export function cover(s,extra=''){
  const mark=s.originalLanguage==='Chinese'?'墨':s.originalLanguage==='Korean'?'빛':'✦';
  return '<div class="nov-cover nov-cover-'+palette(s)+' '+extra+'"><small>'+escape(s.originalLanguage)+'</small>'+
- '<span aria-hidden="true">'+mark+'</span><div><strong>'+escape(s.title)+'</strong><em>'+escape(s.author)+'</em></div></div>';
+ '<span aria-hidden="true">'+mark+'</span><div><strong>'+escape(s.title)+'</strong><em>'+escape(s.author)+'</em></div>'+
+ coverImg(s,extra==='hero'?'M':'S',extra==='hero')+'</div>';
 }
 function poster(s){
  return '<div class="nov-poster"><a href="#series/'+escape(s.id)+'">'+cover(s)+'</a><h3><a href="#series/'+escape(s.id)+'">'+escape(s.title)+'</a></h3>'+
@@ -61,7 +63,7 @@ function topGenres(series){const n=new Map();for(const s of series)for(const g o
 function genreShelf(series,lang,terms){return series.filter(s=>s.originalLanguage===lang&&s.genres.some(g=>terms.some(t=>g.toLowerCase().includes(t))));}
 function heroCovers(series){
  return ['lord-of-the-mysteries','omniscient-readers-viewpoint','mother-of-learning','reverend-insanity']
- .map(id=>series.find(x=>x.id===id)).filter(Boolean).map((s,i)=>'<a class="nov-floating nov-floating-'+i+'" href="#series/'+escape(s.id)+'">'+cover(s)+'</a>').join('');
+ .map(id=>series.find(x=>x.id===id)).filter(Boolean).map((s,i)=>'<a class="nov-floating nov-floating-'+i+'" href="#series/'+escape(s.id)+'">'+cover(s,'hero')+'</a>').join('');
 }
 function revealSection(root,id){el(root,id)?.scrollIntoView({block:'start',behavior:'smooth'});}
 function bindSaves(root,series,shelf,rerender){
@@ -121,6 +123,7 @@ export function renderDiscovery(root,series){
  '<span>Page '+pages.page+' of '+pages.pages+'</span>'+
  '<button type="button" id="nov-next" '+(pages.page===pages.pages?'disabled':'')+'>Next →</button></div></div></div>'+
  '</section><p class="nov-data-note">These are independently compiled basic facts, editorial descriptions and outbound links. No copyrighted chapters or third-party artwork are mirrored; community ratings and reviews will only appear after real-account launch.</p></div></div>';
+ bindCoverFallback(root);
  const update=()=>renderDiscovery(root,series);
  function find(q){state.query=q.trim().slice(0,150);state.page=1;update();revealSection(root,'#nov-catalog')}
  el(root,'#nov-search').onsubmit=e=>{e.preventDefault();find(el(root,'#nov-query').value)};
@@ -153,5 +156,6 @@ export function renderTaste(root,series){
  (profile.matches.length?'<div class="nov-result-grid">'+profile.matches.slice(0,18).map(x=>card(x.series,shelf)).join('')+'</div>':
  '<p>Rate a few titles you enjoyed to get matches from the real indexed catalogue.</p>')+'</section>'+
  '<p class="nov-data-note">All ratings and reviews are browser-local, not public community feedback. Your data stays on this device unless you export it.</p></div></div>';
+ bindCoverFallback(root);
  bindSaves(root,series,shelf,()=>renderTaste(root,series));
 }
