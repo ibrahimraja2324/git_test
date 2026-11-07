@@ -125,3 +125,7 @@ licence. Do not mirror it. An academic Qidian-Webnovel Corpus 110
 licenses some metadata CC BY 4.0 but restricts comments and reader
 responses under a separate data transfer agreement. Do not harvest
 user personal information or restricted comments.
+
+### Verified source-intake audit (GitHub Actions 42331814423)
+
+One-time workflow downloaded the actual 7,476-row upstream snapshot, validated it, and uploaded 7,041 quarantined identity proposals to https://github.com/ibrahimraja2324/git_test/actions/runs/42331814423/artifacts/13557761662 . Counts from the run: 435 structurally rejected rows, 2,810 placeholder authors, 97 possibly non-novel source categories, 64 inferred Chinese byline authors requiring independent verification, 0 official/publisher URLs verified, **0 published Novalume works added**. There are substantial data-quality risks. Review artifact expires after seven days; a conversation attachment copy is also available.

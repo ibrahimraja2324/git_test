@@ -751,6 +751,6 @@
       "NV-053"
     ],
     "acceptance": "Acquire actual release safely, check licence/data quality, quarantine names/aliases/authors, verify original-source links, approve distinct series after review",
-    "evidence": "GitHub release file 1.69 MB confirmed, but bytes not retrievable in session. Quarantine importer + tests passed; 0 source works imported."
+    "evidence": "GitHub Action 42331814423 fetched real 7,476-record CC0-claimed release and produced downloadable private review artifact ID 13557761662 with 7,041 quarantined candidates; 435 rejected, 2,810 placeholder authors, 97 possibly non-novel categories, 64 native-author byline hypotheses, 0 verified publisher URLs, 0 public promotions. scripts/import_cc0_webnovel_candidates.py, CI passed."
   }
 ]

@@ -11,3 +11,4 @@ NV-050 / NV-057: Obtain the actual CC0-claimed 7,476-title Chinese release, run 
 NV-054: build real collaborative taste (once real reviews arrive), review moderation, report administration and account deletion. Zero fake user activity.
 
 See docs/social-launch.md and docs/title-acquisition.md.
+DATA QUALITY: 2,810 placeholder author names, 97 possibly non-novel categories, 64 native-Chinese title byline author hypotheses, and zero legitimate publisher URLs in the 7,041 candidates. Focus next on source/author identification before any promotion. Original repo dataset licence is a CLAIM, not proof of third-party rights.
