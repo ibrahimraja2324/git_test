@@ -105,13 +105,13 @@ function communityBanner(target,series){
  '<p>Keep a reading diary, tell other readers what worked, find people with your taste, and link back to the original creators.</p>'+
  (s?'<div class="nov-selected-work">Discussing <a href="#series/'+esc(s.id)+'">'+esc(s.title)+' ↗</a></div>':'')+'</div></section>';
 }
-function feedSection(feed,target){
+function feedSection(feed,target,userId){
  return '<section class="nov-public-feed"><div class="nov-community-feed-heading"><div><span class="nov-community-eyebrow">REAL COMMUNITY ACTIVITY</span>'+
  '<h2>'+(target?'Reviews for this novel':'What readers are saying')+'</h2>'+
  '<p>'+feed.count+' actual public '+(feed.count===1?'review':'reviews')+(feed.count>24?' · showing latest 24':'')+
  ' · No synthetic accounts or ratings</p></div>'+
  (target?'<a href="#community">All reviews →</a>':'')+'</div>'+
- '<div class="nov-review-grid">'+reviewsHtml(feed,null)+'</div></section>';
+ '<div class="nov-review-grid">'+reviewsHtml(feed,userId)+'</div></section>';
 }
 function reportBind(root,db,user){
  root.querySelectorAll('[data-review-report]').forEach(btn=>btn.onclick=async()=>{
@@ -211,6 +211,7 @@ export async function renderCommunity(root,series,target=''){
   const auth=await db.auth.getUser(),user=auth.data?.user||null;
   const profile=user?(await db.from('novalume_profiles').select('user_id,handle,display_name,bio').eq('user_id',user.id).maybeSingle()).data:null;
   const reviews=await fetchReviews(db,series,target);
+  const members=await db.from('novalume_profiles').select('handle,display_name').order('created_at',{ascending:false}).limit(12);
   root.innerHTML=communityBanner(target,series)+'<div class="content-wrap nov-community-body">'+
    '<div class="nov-community-layout"><div class="nov-community-main">'+
     (profile?profileHeader(profile):'')+
@@ -221,7 +222,9 @@ export async function renderCommunity(root,series,target=''){
    '<strong>'+reviews.count+'</strong><small>actual published reviews</small>'+
    '<a href="#tracking">Your private reading diary →</a>'+
    '<a href="#taste">Discover your taste →</a>'+
-   '</aside></div>'+feedSection(reviews,target)+'</div>';
+   '</aside></div>'+feedSection(reviews,target,user?.id||null)+'<section class="nov-reader-directory"><div class="nov-community-eyebrow">MEET REAL READERS</div><h2>New reader profiles</h2>'+
+   (members.data?.length?'<div class="nov-reader-chips">'+members.data.map(m=>'<a href="#people/'+esc(m.handle)+'">'+esc(m.display_name)+' <small>@'+esc(m.handle)+'</small></a>').join('')+'</div>':
+    '<p>No public reader profiles yet. The first verified members will appear here.</p>')+'</section></div>';
   authBind(root,db,series,target);
   if(user){profileBind(root,db,user,series,target);composerBind(root,db,user,series,target);}
   if(profile){
@@ -262,7 +265,7 @@ export async function renderReaderProfile(root,series,handle){
    '<p>'+(follows.count||0)+' real followers · '+reviews.count+' published reviews</p>'+
    (user&&user.id!==profile.user_id?'<button type="button" id="novFollow">'+(isFollowing?'Following ✓':'Follow reader +')+'</button>':'')+
    '</div></section><div class="content-wrap nov-community-body">'+
-   '<a class="nov-reader-back" href="#community">← All reader reviews</a>'+feedSection(reviews,'')+'</div>';
+   '<a class="nov-reader-back" href="#community">← All reader reviews</a>'+feedSection(reviews,'',user?.id||null)+'</div>';
   const follow=root.querySelector('#novFollow');
   if(follow)follow.onclick=async()=>{
    const result=isFollowing
