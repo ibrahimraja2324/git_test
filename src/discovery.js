@@ -3,6 +3,8 @@
  */
 import {filterDirectory,paginateDirectory,sanitizeShelf} from './directory.js';
 import {coverImg,bindCoverFallback} from './cover_art.js';
+import {renderExperienceSummary,bindExperienceSummary} from './reader_experience.js';
+import {communityClient} from './community.js';
 const KEY='novalume:seriesShelfV1';
 const state={query:'',language:'All',status:'All',tag:'All',page:1};
 const escape=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
@@ -155,7 +157,8 @@ export function renderTaste(root,series){
  '<section class="nov-section"><div class="nov-kicker">BASED ON YOUR RATINGS</div><h2>Possible matches</h2>'+
  (profile.matches.length?'<div class="nov-result-grid">'+profile.matches.slice(0,18).map(x=>card(x.series,shelf)).join('')+'</div>':
  '<p>Rate a few titles you enjoyed to get matches from the real indexed catalogue.</p>')+'</section>'+
- '<p class="nov-data-note">All ratings and reviews are browser-local, not public community feedback. Your data stays on this device unless you export it.</p></div></div>';
+ renderExperienceSummary(series)+'<p class="nov-data-note">Your reading-experience evidence is private on this device unless you explicitly choose to back it up; it is not a verified plot-knowledge source.</p></div></div>';
  bindCoverFallback(root);
+ bindExperienceSummary(root,series,communityClient);
  bindSaves(root,series,shelf,()=>renderTaste(root,series));
 }

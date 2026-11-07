@@ -1,6 +1,7 @@
 /** Novel-directory layer: legitimate metadata cards, NOT hosted copies of linked books.
  * External reading data remains on source platforms; personal lists stay on this device.
  */
+import {renderExperiencePanel,bindExperiencePanel} from './reader_experience.js';
 export const LIST_STATUSES = ['Plan to read','Reading','Completed','On hold','Dropped'];
 export const LANGUAGES = ['All','Chinese','Korean','English'];
 const STORAGE = 'novalume:seriesShelfV1';
@@ -184,7 +185,7 @@ export function mountSeries(root,series,id){
  '<a class="btn secondary" href="#tracking">My list →</a><a class="btn secondary" href="#community/'+escape(item.id)+'">Community reviews →</a></div>'+
  '<p class="db-rights-note">External index only. The source page controls chapter access, translation availability and pricing. No novel text is hosted here.</p>'+
  (validCoverArt(item.coverArt)?'<p class="db-cover-credit">Matched book edition: <a href="'+escape(item.coverArt.editionUrl)+'" rel="noopener noreferrer" target="_blank">Open Library record ↗</a>. The image is served from its cover API; Novalume does not own the artwork.</p>':'')+'</div></div>'+
- '<div class="db-series-lower"><section><h2>Your reading progress</h2><p class="muted">Keep track manually across platforms. These private notes are stored only in this browser.</p>'+
+ renderExperiencePanel(series,id)+'<div class="db-series-lower"><section><h2>Your reading progress</h2><p class="muted">Keep track manually across platforms. These private notes are stored only in this browser.</p>'+
  '<form id="dbTrackForm" class="db-track-form"><label>List status<select id="dbTrackStatus">'+LIST_STATUSES.map(st=>'<option '+(current.status===st?'selected':'')+'>'+st+'</option>').join('')+'</select></label>'+
  '<label>Last chapter read<input id="dbTrackChapter" inputmode="numeric" type="number" min="0" max="1000000" step="1" value="'+current.chapter+'"></label>'+
  '<label>Your rating<select id="dbTrackRating"><option value="0">Not rated</option>'+Array.from({length:10},(_,i)=>(i+1)/2).map(n=>'<option value="'+n+'" '+(current.rating===n?'selected':'')+'>'+n.toFixed(1)+' ★</option>').join('')+'</select></label>'+ 
@@ -201,6 +202,7 @@ export function mountSeries(root,series,id){
  (item.sourceDisagreements?.length?'<p class="db-source-conflict">Sources disagree about: '+escape(item.sourceDisagreements.join(', '))+'. Treat those facts as uncertain.</p>':'')+
  '</aside></div></div>';
  wireCoverFallback(root);
+ bindExperiencePanel(root,series,id);
  root.querySelectorAll('[data-db-scroll]').forEach(button=>button.onclick=()=>elem(root,'#'+button.dataset.dbScroll)?.scrollIntoView({behavior:'smooth',block:'start'}));
  elem(root,'#dbTrackForm').onsubmit=e=>{
   e.preventDefault();

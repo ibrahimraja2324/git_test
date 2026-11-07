@@ -91,3 +91,12 @@ edition* S/M covers as a third-party display source, with HTML safety,
 unknown/unavailable edition images retain CSS jackets. No blanket rights
 to hotlink arbitrary publisher cover images, and cover presence != verified
 native series art. Do not count cover records as narrative knowledge.
+
+## 8 Nov first-party reader evidence supersession
+Product features/genre lists are not the differentiated asset. Real user-specific
+expectation -> experienced outcome evidence, with chapter context and verified
+work ID, can become valuable *if voluntarily contributed* and empirically shown
+to improve recommendations. New private local reader experience module and
+owner-only Supabase cloud backup. No silent collection/aggregate, no invented
+users, no objective plot labels from one person's testimony. Current actual
+profiles/reviews/diaries: zero. See docs/novalume-reader-evidence-moat.md.

@@ -20,3 +20,10 @@ Added ten manually checked Royal Road links (one explicitly completed; nine stat
 
 ## 8 Nov catalogue scale correction
 Implemented a separate optional #leads route with pinned external dataset converter and quality filter; distinct research leads are NOT verified works. Trigger and verify the GitHub Actions novalume-title-leads workflow, resulting public/data/candidate_index.json count, and Vercel deployment (previously blocked by team authorization). Work towards licensed author/publisher feeds for genuinely verified 1,000+ original webnovels and cover permission coverage.
+
+## Reader understanding / data moat
+Ship and validate the reader expectation/outcome UI on #series and #taste.
+Create and security-audit only isolated novalume_reader_experience table.
+Do real browser QA. Pilot with authentic opt-in readers to verify that the
+feedback provides value and improves recommendations vs genre-only.
+No engagement hacks or fake submissions. Cloud backup is opt-in only.
