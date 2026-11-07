@@ -1,14 +1,16 @@
-# Novalume — launch gates and acquisition work
+# Novalume — next highest-impact tasks (8 Nov 2026)
 
-Public real-work catalogue: 54 verified/link-record entries, not 7,476 or 24,639.
-Social backend: six RLS tables created in user-owned Supabase generic project, 54 seeded works, zero initial public reviews/profiles.
-Community frontend supports auth, public reader handles, reviews, follows, reporting and explicit diary cloud backups; actual signup/email QA unverified.
+REAL public books: 56. Chinese 19, Korean 13, English 24. 50 source claims.
+Source research: 7,041 quarantine identities, 2 publisher-linked (now included in public 56), 7,039 not verified.
+Community beta: seven isolated RLS Supabase tables; 56 real books; 0 fabricated reviews/users; new private title-suggestion form and withdrawal queue.
 
-NV-056: In Supabase Authentication > URL Configuration for shared project nsjczdmkifzxhiihfcrr, add https://novalume-story-search.vercel.app/** to Additional Redirect URLs WITHOUT changing its existing Site URL (other projects use the same Auth instance). Verify email confirmation template redirects, then real signup, public reviews, follows, cloud restore, moderation and account deletion. Installed plugin cannot change redirect settings.
+## NV-056 authentication release gate
+Set https://novalume-story-search.vercel.app/** under Additional Redirect URLs in shared Supabase Auth project nsjczdmkifzxhiihfcrr. DO NOT change existing Site URL. Verify email and real first-user signup, follow, review, private diary, moderation, mobile browser flow and account deletion. The connector cannot change the URL setting.
 
-NV-050 / NV-057: Obtain the actual CC0-claimed 7,476-title Chinese release, run scripts/import_cc0_webnovel_candidates.py to produce review-only identities. No public promotion until verified author, original work and legitimate source link. Avoid copying upstream descriptions/ratings and data with unclear rights.
+## NV-050 + NV-060 real catalogue
+Use the source-review approval CLI and decisions manifest to research 7,039 pending identities, prioritise genuine original publisher links, independently check title/author, approve in small batches and sync source registry+evidence and Supabase works. Avoid pretending the candidate snapshot is 7,039 usable novels. A public title suggestion is only a private review request, never auto-approved.
 
-NV-054: build real collaborative taste (once real reviews arrive), review moderation, report administration and account deletion. Zero fake user activity.
+## NV-051 narrative detail
+Permissioned manuscript text analysis and independently validated plot knowledge remain distinct from bibliographic metadata. No third-party chapters mirrored.
 
-See docs/social-launch.md and docs/title-acquisition.md.
-DATA QUALITY: 2,810 placeholder author names, 97 possibly non-novel categories, 64 native-Chinese title byline author hypotheses, and zero legitimate publisher URLs in the 7,041 candidates. Focus next on source/author identification before any promotion. Original repo dataset licence is a CLAIM, not proof of third-party rights.
+See docs/publisher-source-review.md, docs/title-acquisition.md, docs/social-launch.md and GitHub Action 42402778744.

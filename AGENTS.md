@@ -67,3 +67,11 @@ The public homepage at `#home` is a real, cited webnovel directory (54 real inde
 - src/community.js and src/community_config.js provide public/community browser routes using only an anon/public key. Actual email confirmation redirects need Supabase Authentication > URL Configuration to allow https://novalume-story-search.vercel.app; plugin cannot change it, and no browser-end-to-end signup was verified.
 - The review/report/follow and cloud backup UI is real code with tests, not evidence of a populated social audience or fully moderated platform. Full account deletion and anti-spam still outstanding.
 - scripts/import_cc0_webnovel_candidates.py validates a CC0-claimed Chinese candidate dataset (7,476 works advertised), and the real release was downloaded in GitHub Actions. 7,041 unverified candidate identities were staged (435 rejected); 2,810 placeholder author names and 97 possible non-novel categories require triage, while all original reading URLs remain unverified. 0 new public works from this data; directory count remains 54. Never claim 7,476, 24,639 or synthetic test records are live.
+
+## 8 Nov 2026 supersession — actual release state
+
+- Public Novalume directory: **56 verified linked works**, not 54. 19 Chinese, 13 Korean, 24 English. Evidence: 8 cross-source, 34 single-source, 14 legacy review pending. Claims: 50.
+- Two staged CC0-claimed identities have been independently matched to canonical Fanqie/Tadu pages and promoted; 7,039 remain quarantined, unverified. Do not claim thousands are live.
+- scripts/promote_reviewed_novels.py and content/source-review-decisions.json enforce explicit editor approval, original prose identity, exact matching author/title, source whitelist and no copied text. Real upstream data GitHub Action 42402778744 passed; no unverified approvals.
+- db/novalume_suggestions_v1.sql applied to connected Supabase project. It is the seventh Novalume table, strict RLS; authenticated readers can submit/withdraw missing-original-novel metadata on #community, but cannot approve anything. Initially no real user suggestions.
+- User login still needs Supabase Additional Redirect URL and end-to-end signup/mobile QA. Do not alter default Site URL in the shared project or create fake community activity.

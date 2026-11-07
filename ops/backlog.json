@@ -658,7 +658,7 @@
       "NV-041"
     ],
     "acceptance": "1000+ unique actual webnovel works with validated author, original language, official or legitimate link, duplicate-safe source history, rights scope and timestamp; no mass extraction of restricted rival compilations or copied chapters; fast paginated discovery",
-    "evidence": "54 genuine works, not thousands. Added tests and source-policy for streaming Open Library CC0 works dumps, Wikidata CC0 SPARQL export intake and consenting author CSV; all proposals quarantined pending identity/source review. scripts/metadata_intake.py, docs/title-acquisition.md. 1000+ remains unachieved."
+    "evidence": "56 actual linked works (19 Chinese, 13 Korean, 24 English) and 50 factual source claims; a 7,041-candidate quarantined snapshot has only two newly approved original work URLs (Fanqie, Tadu). Publisher-review CLI and GitHub audit protect from duplicated/unverified promotions. 1,000 remains unachieved."
   },
   {
     "id": "NV-051",
@@ -751,6 +751,48 @@
       "NV-053"
     ],
     "acceptance": "Acquire actual release safely, check licence/data quality, quarantine names/aliases/authors, verify original-source links, approve distinct series after review",
-    "evidence": "GitHub Action 42331814423 fetched real 7,476-record CC0-claimed release and produced downloadable private review artifact ID 13557761662 with 7,041 quarantined candidates; 435 rejected, 2,810 placeholder authors, 97 possibly non-novel categories, 64 native-author byline hypotheses, 0 verified publisher URLs, 0 public promotions. scripts/import_cc0_webnovel_candidates.py, CI passed."
+    "evidence": "7,476 upstream rows -> 7,041 quarantined candidate identities, 435 rejected. Two independently matched publisher work pages (pangudawn:15820 Fanqie, 15608 Tadu) approved and publicly added; 7,039 still pending. GitHub audit 42402778744 confirms decisions match real upstream snapshot; no mass scrape."
+  },
+  {
+    "id": "NV-058",
+    "phase": "P1",
+    "title": "Build authenticated missing-novel contribution and private editorial review queue",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-054",
+      "NV-057"
+    ],
+    "acceptance": "Auth users can submit real direct source URLs with original title/author; RLS hides pending data, client cannot approve, duplicate per-user links prevented, withdrawals supported",
+    "evidence": "db/novalume_suggestions_v1.sql migrated, 7 RLS Novalume tables; src/community.js, src/community.test.js, SQL grants verified anon cannot read/post and authenticated cannot insert approval field. No real end-to-end signup confirmed."
+  },
+  {
+    "id": "NV-059",
+    "phase": "P1",
+    "title": "Build source-backed original webnovel approval and candidate-replay CI guard",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-057"
+    ],
+    "acceptance": "Require canonical publisher novel page, exact title+author match, manual review, no duplication and no chapter reuse; real upstream 7,476 candidate feed proves approved entries match identities in CI",
+    "evidence": "scripts/promote_reviewed_novels.py + 9 adversarial tests; content/source-review-decisions.json; GitHub audit 42402778744 success with 2 already-present verified works, 0 unapproved added."
+  },
+  {
+    "id": "NV-060",
+    "phase": "P1",
+    "title": "Moderate real-user source suggestions, verify 100+ genuine Chinese/Korean originals and account launch",
+    "priority": 1,
+    "status": "todo",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-056",
+      "NV-058",
+      "NV-059"
+    ],
+    "acceptance": "Authoritative source links checked, errors/collisions resolved, staff reporting and merge workflow, auth email confirmation tested, 100+ real source-linked webnovels, zero fake feedback",
+    "evidence": "56 true works, 7,039 quarantined identity proposals unreviewed, user suggestion queue seeded 0. Auth redirect and live end-to-end still a blocker."
   }
 ]

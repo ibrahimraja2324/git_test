@@ -1,6 +1,6 @@
 # All-published-title coverage: the actual acquisition plan
 
-**As of 7 November 2026: 43 real series indexed.** The new UI can present
+**As of 8 November 2026: 56 real series indexed.** The new UI can present
 thousands, but it has no fabricated novel records, ratings or reviews.
 
 ## Licensing and provider matrix
@@ -126,3 +126,15 @@ user personal information or restricted comments.
 ### Verified source-intake audit (GitHub Actions 42331814423)
 
 One-time workflow downloaded the actual 7,476-row upstream snapshot, validated it, and uploaded 7,041 quarantined identity proposals to https://github.com/ibrahimraja2324/git_test/actions/runs/42331814423/artifacts/13557761662 . Counts from the run: 435 structurally rejected rows, 2,810 placeholder authors, 97 possibly non-novel source categories, 64 inferred Chinese byline authors requiring independent verification, 0 official/publisher URLs verified, **0 published Novalume works added**. There are substantial data-quality risks. Review artifact expires after seven days; a conversation attachment copy is also available.
+
+### First audited publisher matches (8 Nov 2026)
+
+Two upstream identities gained specific, legitimate source links after independent page checks:
+- pangudawn:15820 — 玄幻：开局一座天机阁, 三尺青锋, Fanqie https://fanqienovel.com/page/6990230896360033293
+- pangudawn:15608 — 我的眷族全是沙雕玩家, 滑稽大师兄, Tadu https://www.tadu.com/book/802975
+
+The actual checked records increased from 54 to 56. The other **7,039 quarantined identities have not been promoted** and lack source verification. The short synopses on Novalume are independently written; chapters and publisher blurbs were not mirrored.
+
+A review promotion script (scripts/promote_reviewed_novels.py) and corresponding unit and GitHub Actions tests now require exact source URLs, matching titles/authors, explicit manual verification, no duplicate IDs, valid source pages (not keyword/reader URLs), and no copied text. Approved outputs are staged for separate code review rather than deployed automatically.
+
+Readers can submit missing novels in the #community page to a private, owner-isolated Supabase novalume_title_suggestions queue. Submissions alone cannot change the public directory or declare approvals; only privileged data review can do that.
