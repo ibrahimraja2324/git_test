@@ -28,6 +28,7 @@ export function reviewCard(r,handle,title,currentUserId){
  '<p>'+reviewText+'</p>')+
  '<div class="nov-review-foot"><span>'+esc(String(r.created_at||'').slice(0,10))+'</span>'+
  (currentUserId&&currentUserId!==r.user_id?'<button type="button" data-review-report="'+esc(r.id)+'">Report</button>':'')+
+ (currentUserId&&currentUserId===r.user_id?'<button type="button" data-review-delete="'+esc(r.id)+'">Delete my review</button>':'')+
  '</div></article>';
 }
 export function cloudDiaryRows(snapshot,series,userId){
@@ -91,7 +92,8 @@ function backupPanel(){
  return '<section class="nov-cloud-panel"><h2>Your private cloud diary</h2>'+
  '<p>Your on-device entries remain private and separate from public reviews. You decide when to upload or restore a backup.</p>'+
  '<div><button id="novUploadDiary" type="button">Back up this device →</button>'+
- '<button id="novRestoreDiary" type="button">Restore cloud diary →</button></div>'+
+ '<button id="novRestoreDiary" type="button">Restore cloud diary →</button>'+ 
+ '<button id="novClearCloudDiary" type="button">Delete cloud backup</button></div>'+
  '<p class="nov-community-feedback" id="novBackupStatus" role="status"></p></section>';
 }
 function profileHeader(profile){
@@ -113,7 +115,7 @@ function feedSection(feed,target,userId){
  (target?'<a href="#community">All reviews →</a>':'')+'</div>'+
  '<div class="nov-review-grid">'+reviewsHtml(feed,userId)+'</div></section>';
 }
-function reportBind(root,db,user){
+function reviewActionsBind(root,db,user){
  root.querySelectorAll('[data-review-report]').forEach(btn=>btn.onclick=async()=>{
   if(!user){alert('Sign in to report a public review.');return}
   const reason=prompt('Report reason: spoiler-unmarked, spam, harassment, copyright, or other');
@@ -124,6 +126,12 @@ function reportBind(root,db,user){
    },{onConflict:'reporter_id,review_id'});
   if(error)alert('Could not submit report. Try again.');
   else{btn.textContent='Reported';btn.disabled=true;}
+ });
+ root.querySelectorAll('[data-review-delete]').forEach(btn=>btn.onclick=async()=>{
+  if(!user||!confirm('Permanently delete your public review?'))return;
+  const {error}=await db.from('novalume_reviews').delete().eq('id',btn.dataset.reviewDelete).eq('user_id',user.id);
+  if(error)alert('Could not delete review: '+error.message);
+  else location.reload();
  });
 }
 function authBind(root,db,series,target){
@@ -189,6 +197,12 @@ function backupBind(root,db,user,series){
   const {error}=await db.from('novalume_diary').upsert(rows,{onConflict:'user_id,work_id'});
   feedback.textContent=error?'Backup failed: '+error.message.slice(0,160):rows.length+' diary entries backed up privately.';
  };
+ const clear=root.querySelector('#novClearCloudDiary');
+ if(clear)clear.onclick=async()=>{
+  if(!confirm('Delete ALL Novalume cloud diary entries for this account? Your device-only notes are not affected.'))return;
+  const {error}=await db.from('novalume_diary').delete().eq('user_id',user.id);
+  feedback.textContent=error?'Could not delete cloud diary: '+error.message:'Cloud diary backup deleted. Device-only entries remain.';
+ };
  if(download)download.onclick=async()=>{
   const {data,error}=await db.from('novalume_diary')
    .select('work_id,status,chapter,rating,note,review,review_spoiler').eq('user_id',user.id).limit(2000);
@@ -235,7 +249,7 @@ export async function renderCommunity(root,series,target=''){
    };
    backupBind(root,db,user,series);
   }
-  reportBind(root,db,user);
+  reviewActionsBind(root,db,user);
  }catch(err){
   const region=root.querySelector('.nov-community-body');
   if(region)region.innerHTML='<section class="nov-social-empty"><h2>Community unavailable</h2><p>Unable to connect to the authentication or review database. Your on-device diary and all book links still work.</p><small>'+esc(String(err.message||'Connection failed').slice(0,200))+'</small></section>';
@@ -274,7 +288,7 @@ export async function renderReaderProfile(root,series,handle){
    if(result.error)alert('Could not follow: '+result.error.message);
    else await renderReaderProfile(root,series,handle);
   };
-  reportBind(root,db,user);
+  reviewActionsBind(root,db,user);
  }catch{
   root.innerHTML='<section class="content-wrap nov-social-empty"><h2>Reader profile unavailable</h2><a href="#community">Explore community →</a></section>';
  }
