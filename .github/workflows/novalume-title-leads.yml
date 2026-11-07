@@ -5,6 +5,7 @@ on:
     branches: [novalume-foundation]
     paths:
       - '.github/workflows/novalume-title-leads.yml'
+      - 'scripts/build_candidate_index.py'
 permissions:
   contents: write
 jobs:
