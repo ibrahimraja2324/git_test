@@ -59,6 +59,7 @@ test('never accept keyword pages, fake domains or URLs with credentials',()=>{
   'https://fanqienovel.com.evil.com/page/6990230896360033293',
   'https://example.com/series/x',
   'https://user:pass@www.tadu.com/book/802975',
+  'https://www.tadu.com:8443/book/802975',
   'javascript:alert(1)',
   'https://www.tadu.com/book/802975?redirect=site',
  ]){

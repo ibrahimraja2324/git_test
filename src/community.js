@@ -25,7 +25,7 @@ export function prepareNovelSuggestion(values,series=[]){
  if(!['Chinese','Korean','English'].includes(original_language))throw Error('Choose a supported language.');
  if(notes.length>500)throw Error('Source notes must be under 500 characters.');
  let url;try{url=new URL(String(values.source_url||''));}catch{throw Error('Provide a legitimate original work page URL.');}
- if(url.protocol!=='https:'||url.username||url.password||url.search||url.hash
+ if(url.protocol!=='https:'||url.username||url.password||url.port||url.search||url.hash
    ||!SUGGESTION_PAGES[url.hostname]?.test(url.pathname))
    throw Error('Link directly to an individual novel page on a supported publisher, not a search page.');
  const source_url=url.origin+url.pathname;
