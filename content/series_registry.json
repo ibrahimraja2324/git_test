@@ -1,7 +1,7 @@
 {
   "schema": "novalume.external-series.v1",
-  "editorialNote": "Directory-only factual metadata with individually composed one-sentence synopses and links. Third-party book text, publisher descriptions, cover images, full-site tag exports and ratings are NOT imported. Publication status can differ from translation status and source-site chapter availability; do not infer completion from a STUB listing.",
-  "checkedAt": "2026-11-06",
+  "editorialNote": "Rights-aware bibliographic directory with 54 real titles. Short summaries independently written, source pages individually checked. Source status may describe a translated edition rather than original publication: recheck when conflicting. No copied chapters, cover art, reviews or engagement metrics.",
+  "checkedAt": "2026-11-07",
   "series": [
     {
       "id": "lord-of-the-mysteries",
@@ -1058,6 +1058,285 @@
       "kind": "external-index",
       "verifiedAt": "2026-11-06",
       "rank": 43,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "damn-reincarnation",
+      "title": "Damn Reincarnation",
+      "author": "Mokma (목마)",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/damn-reincarnation",
+      "workStatus": "Completed",
+      "genres": [
+        "Reincarnation",
+        "Fantasy",
+        "Action",
+        "Progression"
+      ],
+      "aliases": [
+        "빌어먹을 환생"
+      ],
+      "summary": "An accomplished warrior receives another chance to pursue unfinished battles from a new life.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 44,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "second-life-ranker",
+      "title": "Second Life Ranker",
+      "author": "Sadoyeon (사도연)",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/second-life-ranker",
+      "workStatus": "Completed",
+      "genres": [
+        "Tower Climbing",
+        "Revenge",
+        "Fantasy",
+        "Progression"
+      ],
+      "aliases": [
+        "두 번 사는 랭커"
+      ],
+      "summary": "A missing brother's records lead Yeon-woo into a dangerous tower and a quest for answers.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 45,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "return-of-mount-hua-sect",
+      "title": "Return of Mount Hua Sect",
+      "author": "Biga (비가)",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/return-of-mount-hua-sect/",
+      "workStatus": "Ongoing",
+      "genres": [
+        "Reincarnation",
+        "Martial Arts",
+        "Wuxia",
+        "Sect Building"
+      ],
+      "aliases": [
+        "Return of the Blossoming Blade",
+        "화산귀환"
+      ],
+      "summary": "A martial-arts master wakes in a later era and tries to restore a declining sect.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 46,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "the-s-classes-that-i-raised",
+      "title": "The S-Classes That I Raised",
+      "author": "Geunseo (근서)",
+      "originalLanguage": "Korean",
+      "sourcePlatform": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/the-s-classes-that-i-raised/",
+      "workStatus": "Completed",
+      "genres": [
+        "Regression",
+        "Hunters",
+        "Fantasy",
+        "Family"
+      ],
+      "aliases": [
+        "내가 키운 S급들"
+      ],
+      "summary": "A lower-ranked hunter navigates dangerous abilities and complicated bonds with stronger people around him.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 47,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "nine-star-hegemon-body-art",
+      "title": "Nine Star Hegemon Body Art",
+      "author": "Ordinary Magician (平凡魔术师)",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/nine-star-hegemon",
+      "workStatus": "Ongoing",
+      "genres": [
+        "Xianxia",
+        "Cultivation",
+        "Alchemy",
+        "Progression"
+      ],
+      "aliases": [
+        "九星霸体诀"
+      ],
+      "summary": "Long Chen gains access to a cultivation technique and alchemical knowledge amid escalating rivalries.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 48,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "desolate-era",
+      "title": "Desolate Era",
+      "author": "I Eat Tomatoes (我吃西红柿)",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/desolate-era",
+      "workStatus": "Completed",
+      "genres": [
+        "Xianxia",
+        "Cultivation",
+        "Reincarnation",
+        "Progression"
+      ],
+      "aliases": [
+        "莽荒纪"
+      ],
+      "summary": "After a difficult first life, Ji Ning pursues strength in a vast world of immortals and ancient powers.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 49,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "against-the-gods",
+      "title": "Against the Gods",
+      "author": "Mars Gravity (火星引力)",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/against-the-gods",
+      "workStatus": "Ongoing",
+      "genres": [
+        "Xuanhuan",
+        "Reincarnation",
+        "Cultivation",
+        "Fantasy"
+      ],
+      "aliases": [
+        "逆天邪神"
+      ],
+      "summary": "Yun Che receives a second chance in a hostile clan setting and seeks greater cultivation strength.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 50,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "warlock-of-the-magus-world",
+      "title": "Warlock of the Magus World",
+      "author": "The Plagiarist (文抄公)",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/warlock-of-the-magus-world",
+      "workStatus": "Completed",
+      "genres": [
+        "Dark Fantasy",
+        "Magic",
+        "Reincarnation",
+        "Progression"
+      ],
+      "aliases": [
+        "巫界术士"
+      ],
+      "summary": "A methodical researcher navigates a dangerous world of magic while seeking ever deeper knowledge.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 51,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "tales-of-demons-and-gods",
+      "title": "Tales of Demons & Gods",
+      "author": "Mad Snail (发飙的蜗牛)",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/tales-of-demons-and-gods",
+      "workStatus": "Ongoing",
+      "genres": [
+        "Regression",
+        "Xuanhuan",
+        "Cultivation",
+        "Martial Arts"
+      ],
+      "aliases": [
+        "妖神记"
+      ],
+      "summary": "Returning to his younger self, Nie Li draws on future knowledge to change the fortunes of his city.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 52,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed",
+      "statusNote": "Publisher listing marks ongoing; its details also note hiatus."
+    },
+    {
+      "id": "a-record-of-a-mortals-journey-to-immortality",
+      "title": "A Record of a Mortal's Journey to Immortality",
+      "author": "Wang Yu (忘语)",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/rmji",
+      "workStatus": "Completed",
+      "genres": [
+        "Cultivation",
+        "Xianxia",
+        "Alchemy",
+        "Progression"
+      ],
+      "aliases": [
+        "凡人修仙传",
+        "RMJI"
+      ],
+      "summary": "Han Li pursues immortality through patient cultivation despite starting from an ordinary background.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 53,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "a-record-of-a-mortals-journey-to-immortality-immortal-realm",
+      "title": "A Record of a Mortal's Journey to Immortality: Immortal Realm",
+      "author": "Wang Yu (忘语)",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/rmjiir",
+      "workStatus": "Completed",
+      "genres": [
+        "Cultivation",
+        "Xianxia",
+        "Progression",
+        "Fantasy"
+      ],
+      "aliases": [
+        "凡人修仙之仙界篇",
+        "RMJI Immortal Realm"
+      ],
+      "summary": "The later journey of Han Li involves lost strength and memories as he confronts unfamiliar realms.",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-07",
+      "rank": 54,
       "availabilityStatus": "Check source",
       "sourcePolicy": "manual-facts-and-editorial-summary",
       "sourceAudit": "source-page-observed"

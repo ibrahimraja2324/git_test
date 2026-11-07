@@ -1,6 +1,6 @@
 {
   "schema": "novalume.source-evidence.v1",
-  "reviewDate": "2026-11-06",
+  "reviewDate": "2026-11-07",
   "policy": "Factual claims and outbound source URLs only. No transferred copyright, chapter text, description copying, cover art, rating aggregates or bulk third-party database harvesting.",
   "claims": [
     {
@@ -497,6 +497,160 @@
         "title": "The Return of the Disaster-Class Hero",
         "author": "SAN.G",
         "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "damn-reincarnation",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/damn-reincarnation",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Damn Reincarnation",
+        "author": "Mokma (목마)",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "second-life-ranker",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/second-life-ranker",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Second Life Ranker",
+        "author": "Sadoyeon (사도연)",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "return-of-mount-hua-sect",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/return-of-mount-hua-sect/",
+      "observedAt": "2026-11-07",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Return of Mount Hua Sect",
+        "author": "Biga (비가)",
+        "originalLanguage": "Korean",
+        "workStatus": "Ongoing"
+      }
+    },
+    {
+      "seriesId": "the-s-classes-that-i-raised",
+      "provider": "Novel Updates",
+      "sourceUrl": "https://www.novelupdates.com/series/the-s-classes-that-i-raised/",
+      "observedAt": "2026-11-07",
+      "sourceKind": "community-index",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The S-Classes That I Raised",
+        "author": "Geunseo (근서)",
+        "originalLanguage": "Korean",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "nine-star-hegemon-body-art",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/nine-star-hegemon",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Nine Star Hegemon Body Art",
+        "author": "Ordinary Magician (平凡魔术师)",
+        "originalLanguage": "Chinese",
+        "workStatus": "Ongoing"
+      }
+    },
+    {
+      "seriesId": "desolate-era",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/desolate-era",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Desolate Era",
+        "author": "I Eat Tomatoes (我吃西红柿)",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "against-the-gods",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/against-the-gods",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Against the Gods",
+        "author": "Mars Gravity (火星引力)",
+        "originalLanguage": "Chinese",
+        "workStatus": "Ongoing"
+      }
+    },
+    {
+      "seriesId": "warlock-of-the-magus-world",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/warlock-of-the-magus-world",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Warlock of the Magus World",
+        "author": "The Plagiarist (文抄公)",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "tales-of-demons-and-gods",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/tales-of-demons-and-gods",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Tales of Demons & Gods",
+        "author": "Mad Snail (发飙的蜗牛)",
+        "originalLanguage": "Chinese",
+        "workStatus": "Ongoing"
+      }
+    },
+    {
+      "seriesId": "a-record-of-a-mortals-journey-to-immortality",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/rmji",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "A Record of a Mortal's Journey to Immortality",
+        "author": "Wang Yu (忘语)",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "a-record-of-a-mortals-journey-to-immortality-immortal-realm",
+      "provider": "Wuxiaworld",
+      "sourceUrl": "https://www.wuxiaworld.com/novel/rmjiir",
+      "observedAt": "2026-11-07",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "A Record of a Mortal's Journey to Immortality: Immortal Realm",
+        "author": "Wang Yu (忘语)",
+        "originalLanguage": "Chinese",
         "workStatus": "Completed"
       }
     }
