@@ -37,3 +37,26 @@ test('cloud payload uses verified works only, limits note and contains no public
  assert.equal(decodeCloudRows([{work_id:'a',wanted:['public_recognition'],private_note:'hi'}],books).a.note,'hi');
  assert.equal(EXPECTATIONS.length,10);
 });
+
+import {contributionRows} from './reader_experience.js';
+test('opt-in payload is codes only, excludes private notes, exact chapters and unjudged entries',()=>{
+ const user='00000000-0000-4000-8000-000000000001';
+ const ledger={a:{wanted:['public_recognition','earned_power'],delivered:['earned_power'],
+  missing:['public_recognition'],note:'Highly personal diary note',chapter:165,outcome:'stopped'},
+ b:{wanted:['earned_power'],note:'I have not decided yet',chapter:20},
+ fake:{wanted:['earned_power'],delivered:['earned_power']}};
+ const rows=contributionRows(books,ledger,user,'2026-11-08T00:00:00Z');
+ assert.equal(rows.length,1);
+ assert.deepEqual(rows[0].wanted,['public_recognition','earned_power']);
+ assert.deepEqual(rows[0].missing,['public_recognition']);
+ assert.equal(rows[0].chapter_band,'100-499');
+ assert.equal(rows[0].consent_version,'novalume-research-v1-2026-11');
+ assert.ok(!('note' in rows[0])&&!('private_note' in rows[0])&&!('chapter' in rows[0]));
+ assert.ok(!JSON.stringify(rows).includes('Highly personal'));
+});
+test('unwanted outcomes are not donated, invalid identity receives no payload',()=>{
+ const user='00000000-0000-4000-8000-000000000001';
+ const l={a:{wanted:['earned_power'],delivered:['fast_pacing'],note:'secret'}};
+ assert.deepEqual(contributionRows(books,l,user),[]);
+ assert.deepEqual(contributionRows(books,l,'not-an-account'),[]);
+});

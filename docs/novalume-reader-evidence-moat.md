@@ -46,3 +46,26 @@ Prioritize organic value: users should be able to remember why a story
 worked and avoid disappointment, not fill out a survey for the operator.
 Never infer sensitive reader traits, copy full third-party chapters or
 pretend independent self-reports are authoritative plot events.
+
+## First-party contribution phase: consent and revocation (8 Nov 2026)
+The project now implements an explicit, separate research contribution channel.
+It is NOT populated by private backups or browsing telemetry. A signed-in
+reader must click the contribution button on #taste and confirm. Client sends
+only wanted/delivered/missing judgement labels on known canonical works,
+reading outcome, coarse chapter band and owner ID for deduplication and
+withdrawal. No written notes, reviews, precise chapter, email or public
+profile are included in the submitted payload. Supabase holds an internal
+user ID; these submissions are therefore **pseudonymous**, not anonymous.
+
+Table: public.novalume_consented_outcomes. Row-level security restricts each
+authenticated reader to their own rows. Anon has no privileges. SQL CHECKs
+reject unsupported taxonomy codes, unjudged feedback, invalid types and
+unsupported book IDs via foreign keys. Explicit withdrawal deletes all
+the reader's opt-in records and verifies remaining count.
+
+No public API for raw responses or aggregated counts. No pooled metrics,
+training or public recommendation from these entries yet. Any future
+aggregation needs a separate privacy review, small-cohort suppression,
+moderation, reliability tests and clear user disclosures. Merely collecting
+consent does not prove this dataset is predictive or commercially defensible.
+Zero real submissions remain the baseline until observed otherwise.

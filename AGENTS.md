@@ -103,3 +103,6 @@ profiles/reviews/diaries: zero. See docs/novalume-reader-evidence-moat.md.
 
 ## 8 November 2026: premise-lens factuality gate
 src/premise_lens.js renders only claims validated from exact Novalume-authored summary phrases in content/premise_claims.json. These are premise hints, NOT experienced payoffs; do not call them reader evidence or chapter-confirmed story facts. Unsupported traits must abstain and genre-only baseline remains separate. A local-only reader discovery brief may be seeded from their explicit private wanted facets. Unit tests and scripts/test_premise_claims.py enforce source matching. No metrics or users may be invented.
+
+## Opt-in reader-evidence channel (8 November 2026)
+Distinct public.novalume_consented_outcomes has strict owner-only RLS, client side never pushes private notes or precise chapter numbers, and explicit contribution plus withdrawal actions. Account ID is stored internally (pseudonymous, not fully anonymous). No silent backup reuse, public ratings, aggregate RPC or visitor surveillance. New SQL check constraints require taxonomy codes and judged wanted dimensions. Test actual security and user sign-in before claiming live end-to-end user contributions. The source-of-truth release is db/novalume_consented_outcomes_v1.sql.

@@ -120,7 +120,12 @@ export function renderExperienceSummary(series){
  '<span>Wanted '+d.wanted+' · Delivered '+d.delivered+' · Missing '+d.missing+'</span></article>').join('')+'</div>':
  '<p>Open a novel you know and record what you expected, what delivered and what fell short. Your fingerprint will appear here.</p>')+
  (x.records.length?'<div class="nov-exp-records"><h3>Your recorded stories</h3>'+x.records.map(r=>'<a href="#series/'+escape(r.id)+'">'+escape(r.title)+'</a>').join('')+'</div>':'')+
- '<div class="nov-exp-actions"><button id="novExpExport">Export my experience JSON</button><button id="novExpClearAll">Delete all local experience data</button><button id="novExpCloud">Back up to my account (opt-in)</button><button id="novExpCloudDelete">Delete cloud backup</button></div>'+
+ '<div class="nov-exp-actions"><button id="novExpExport">Export my experience JSON</button><button id="novExpClearAll">Delete all local experience data</button><button id="novExpCloud">Back up privately (opt-in)</button><button id="novExpCloudDelete">Delete private backup</button></div>'+
+ '<div class="nov-exp-contribute"><h3>Help improve discovery for other readers</h3>'+
+ '<p>Contribute only the traits you wanted and judged, whether they delivered, your reading outcome and a broad chapter range. Your account ID is retained privately to prevent duplicates and allow withdrawal. <strong>Your written notes, exact chapter and public profile are never included.</strong> Nothing is shared without pressing the contribution button.</p>'+
+ '<div class="nov-exp-actions"><button type="button" id="novExpContribute">Contribute judged outcomes (opt-in)</button>'+
+ '<button type="button" id="novExpWithdraw">Withdraw my contributions</button></div>'+
+ '<p id="novExpContributionMessage" role="status" aria-live="polite"></p></div>'+
  '<p id="novExpSummaryMessage" role="status" aria-live="polite"></p>'+
  '<p class="nov-exp-privacy">Only the explicit backup button sends this information to your authenticated account. Cloud backups remain private to you, not visible to other readers and not added to public reviews. No aggregated analytics are enabled.</p></section>';
 }
@@ -132,6 +137,28 @@ export function experienceCloudRows(series,ledger,userId){
   chapter:r.chapter,private_note:r.note
  }));
 }
+
+/** Deliberate donation of *codes only*, never private notes, exact chapters or identifiers in URLs. */
+const CONSENT_VERSION='novalume-research-v1-2026-11';
+export function contributionRows(series,ledger,userId,now=''){
+ if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(userId||'')))return [];
+ const iso=typeof now==='string'&&/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z$/.test(now)?now:new Date().toISOString();
+ const safe=cleanLedger(ledger,series);
+ const band=n=>n<=0?'unknown':n<20?'1-19':n<100?'20-99':n<500?'100-499':'500+';
+ const rows=[];
+ for(const item of series){
+  const r=safe[item.id];
+  if(!r)continue;
+  const delivered=r.delivered.filter(t=>r.wanted.includes(t)),missing=r.missing.filter(t=>r.wanted.includes(t));
+  if(!r.wanted.length||!delivered.length&&!missing.length)continue;
+  rows.push({user_id:userId,work_id:item.id,wanted:r.wanted,delivered,missing,
+   reading_outcome:r.outcome,chapter_band:band(r.chapter),
+   consent_version:CONSENT_VERSION,consented_at:iso});
+  if(rows.length>=2000)break;
+ }
+ return rows;
+}
+
 export function decodeCloudRows(rows,series){
  const allowed=new Set(series.map(x=>x.id)),out=Object.create(null);
  for(const r of (Array.isArray(rows)?rows:[]).slice(0,2000)){
@@ -173,6 +200,38 @@ export function bindExperienceSummary(root,series,connect){
    if(error)throw error;
    status('Saved '+rows.length+' private experience record(s) to your account.');
   }catch(e){status('Backup unavailable: '+String(e.message||e).slice(0,150))}
+ });
+ const contributeStatus=message=>{
+  const el=find('#novExpContributionMessage');if(el)el.textContent=message;
+ };
+ find('#novExpContribute')?.addEventListener('click',async()=>{
+  try{
+   const {db,user}=await authenticated();
+   const rows=contributionRows(series,readLedger(series),user.id);
+   if(!rows.length){
+    contributeStatus('Nothing eligible to contribute yet. Record a wanted quality and whether it delivered or disappointed on a novel page.');
+    return;
+   }
+   if(!confirm('Opt in to contributing '+rows.length+' story-experience record(s)? We retain your account ID internally for deduplication and withdrawal. We store wanted/delivered/missing labels, reading outcome and broad chapter range. No notes, precise chapters, profile or emails are sent in this contribution. Data may inform future aggregate recommendation research. You can withdraw your contributions at any time.'))return;
+   let saved=0;
+   for(let i=0;i<rows.length;i+=50){
+    const {error}=await db.from('novalume_consented_outcomes').upsert(rows.slice(i,i+50),{onConflict:'user_id,work_id'});
+    if(error)throw Error('Only '+saved+' of '+rows.length+' records saved. '+error.message);
+    saved+=Math.min(50,rows.length-i);
+   }
+   contributeStatus('Contributed '+saved+' opt-in record(s) privately for future research. Nothing is publicly displayed. Previous contributions not included in this action remain until you withdraw them.');
+  }catch(e){contributeStatus('Contribution unavailable: '+String(e.message||e).slice(0,180))}
+ });
+ find('#novExpWithdraw')?.addEventListener('click',async()=>{
+  try{
+   const {db,user}=await authenticated();
+   if(!confirm('Withdraw ALL of your opted-in Novalume story-experience contributions? Your private reading diary and personal backups will remain untouched.'))return;
+   const {error}=await db.from('novalume_consented_outcomes').delete().eq('user_id',user.id);
+   if(error)throw error;
+   const verify=await db.from('novalume_consented_outcomes').select('work_id',{count:'exact',head:true}).eq('user_id',user.id);
+   if(verify.error)throw verify.error;
+   contributeStatus(verify.count===0?'All your opted-in research contributions were withdrawn.':'Withdrawal could not be fully confirmed; please retry.');
+  }catch(e){contributeStatus('Withdrawal unavailable: '+String(e.message||e).slice(0,180))}
  });
  find('#novExpCloudDelete')?.addEventListener('click',async()=>{
   try{

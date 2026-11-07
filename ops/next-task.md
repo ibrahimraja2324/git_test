@@ -30,3 +30,6 @@ No engagement hacks or fake submissions. Cloud backup is opt-in only.
 
 ## Reader-first discovery feedback experiment
 Premise lens allows self-selected reader wants to match exact Novalume-authored summary snippets, with explicit unknowns and genre-only comparison. Validate production deployment and real mobile usability. Real reader feedback count is 0; do not claim uplift until 20+ authentic discovery attempts with explicit outcomes. Next priority: a revocable, purpose-limited opt-in contribution path so experience labels can improve future reader matching without exposing private notes. See docs/premise-lens-v1.md.
+
+## Opt-in first-party learning acquisition
+Novalume now has an explicit share-with-consent / withdraw-all channel for judged reader experiences; fine-grained notes and exact chapters remain private. Validate SQL schema, per-user RLS, and production release. Actual participants and contributions remain ZERO unless verified otherwise. Next: allow genuinely consenting readers to complete end-to-end signup and contribution; measure if those signals improve held-out recommendations relative to genre-only baseline without exposing identifiable micro-cohorts.

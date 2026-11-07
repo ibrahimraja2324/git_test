@@ -657,3 +657,10 @@
 .nov-premise-cover img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover}
 .nov-premise-empty{padding:1rem;border:1px dashed #698175;border-radius:8px}
 @media(max-width:720px){.nov-premise-lens{padding:.85rem}.nov-premise-results{grid-template-columns:1fr}.nov-premise-card{grid-template-columns:73px minmax(0,1fr);padding:.65rem}.nov-premise-chips{gap:.35rem}}
+
+/* Separate, revocable contribution consent. Do not blur it with private backups. */
+.nov-exp-contribute{border-top:1px solid #516f64;margin-top:1.2rem;padding-top:1rem}
+.nov-exp-contribute h3{font:500 1.4rem Newsreader,Georgia,serif;margin:.3rem 0}
+.nov-exp-contribute p{font-size:.9rem;max-width:780px;line-height:1.6}
+.nov-exp-contribute .nov-exp-actions button:first-child{background:transparent;color:inherit;border-color:#527e70}
+.nov-exp-contribute .nov-exp-actions button:last-child{background:transparent;color:inherit}
