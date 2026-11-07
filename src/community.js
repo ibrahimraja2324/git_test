@@ -7,6 +7,32 @@ import {sanitizeShelf} from './directory.js';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const validHandle=h=>/^[a-z][a-z0-9_]{2,23}$/.test(String(h||''));
 const stars=()=>Array.from({length:10},(_,i)=>(i+1)/2).map(x=>'<option value="'+x+'">'+x.toFixed(1)+' ★</option>').join('');
+const SUGGESTION_PAGES={
+ "fanqienovel.com":/^\/page\/\d{15,20}$/,
+ "www.tadu.com":/^\/book\/\d{3,12}$/,
+ "www.wuxiaworld.com":/^\/novel\/[a-z0-9-]+$/,
+ "www.royalroad.com":/^\/fiction\/\d{1,15}\/[a-z0-9-]+$/,
+ "www.novelupdates.com":/^\/series\/[a-z0-9-]+\/$/,
+ "www.webnovel.com":/^\/book\/\d+$/,
+ "www.scribblehub.com":/^\/series\/\d+\/[a-z0-9-]+\/?$/
+};
+export function prepareNovelSuggestion(values,series=[]){
+ const title=String(values.title||'').trim(),author=String(values.author||'').trim();
+ const original_language=String(values.original_language||'').trim();
+ const notes=String(values.notes||'').trim();
+ if(title.length<2||title.length>180||author.length<2||author.length>120)
+  throw Error('Enter a title (2–180 characters) and an author (2–120 characters).');
+ if(!['Chinese','Korean','English'].includes(original_language))throw Error('Choose a supported language.');
+ if(notes.length>500)throw Error('Source notes must be under 500 characters.');
+ let url;try{url=new URL(String(values.source_url||''));}catch{throw Error('Provide a legitimate original work page URL.');}
+ if(url.protocol!=='https:'||url.username||url.password||url.search||url.hash
+   ||!SUGGESTION_PAGES[url.hostname]?.test(url.pathname))
+   throw Error('Link directly to an individual novel page on a supported publisher, not a search page.');
+ const source_url=url.origin+url.pathname;
+ if(series.some(x=>x.sourceUrl===source_url||x.title===title&&x.author===author))
+   throw Error('This novel already exists in the public directory.');
+ return {title,author,original_language,source_url,notes};
+}
 let clientPromise;
 export async function communityClient(){
  if(!clientPromise)clientPromise=import(/* @vite-ignore */ communityConfig.sdk).then(mod=>{
@@ -87,6 +113,50 @@ function composer(series,target){
  '<label>Review text<textarea id="novReviewBody" rows="5" minlength="30" maxlength="2000" required placeholder="Describe what made this webnovel worth reading…"></textarea></label>'+
  '<label class="nov-community-check"><input type="checkbox" id="novReviewSpoiler"> My review contains story spoilers</label>'+
  '<button type="submit">Publish my review</button><p class="nov-community-feedback" id="novReviewStatus" role="status"></p></form></section>';
+}
+function suggestionPanel(mine){
+ return '<section class="nov-title-suggest"><span class="nov-community-eyebrow">HELP BUILD THE WEBNOVEL DATABASE</span>'+
+ '<h2>Suggest a missing novel</h2><p>Submit an original title, author and direct publisher work page. Entries are held privately for source review, not instantly published. Do not paste copyrighted chapters or publisher descriptions.</p>'+
+ '<form id="novSuggestForm"><label>Original title<input id="novSuggestTitle" maxlength="180" required placeholder="Exact title on the publisher page"></label>'+
+ '<label>Author<input id="novSuggestAuthor" maxlength="120" required placeholder="Author or pen name"></label>'+
+ '<label>Original language<select id="novSuggestLang"><option>Chinese</option><option>Korean</option><option>English</option></select></label>'+
+ '<label>Direct legitimate series URL<input id="novSuggestUrl" type="url" required maxlength="320" placeholder="https://fanqienovel.com/page/…"></label>'+
+ '<label>Source notes (optional)<textarea id="novSuggestNotes" rows="3" maxlength="500" placeholder="Aliases or identification concerns; no copied text"></textarea></label>'+
+ '<button type="submit">Submit for source review →</button><p role="status" class="nov-community-feedback" id="novSuggestFeedback"></p></form>'+
+ '<div class="nov-my-suggestions"><h3>Your recent submissions</h3>'+
+ (mine?.length?mine.map(s=>'<div class="nov-suggestion-row"><span><strong>'+esc(s.title)+'</strong> <small>'+esc(s.review_status)+'</small></span>'+
+ (s.review_status==='pending'?'<button type="button" data-suggest-remove="'+esc(s.id)+'">Withdraw</button>':'')+'</div>').join(''):
+ '<p>No submitted novels yet.</p>')+'</div></section>';
+}
+function suggestionBind(root,db,user,series,target){
+ const form=root.querySelector('#novSuggestForm');
+ if(!form)return;
+ const feedback=root.querySelector('#novSuggestFeedback');
+ form.onsubmit=async e=>{
+  e.preventDefault();
+  let data;
+  try{
+   data=prepareNovelSuggestion({
+    title:root.querySelector('#novSuggestTitle').value,
+    author:root.querySelector('#novSuggestAuthor').value,
+    original_language:root.querySelector('#novSuggestLang').value,
+    source_url:root.querySelector('#novSuggestUrl').value,
+    notes:root.querySelector('#novSuggestNotes').value
+   },series);
+  }catch(err){feedback.textContent=err.message;return}
+  if(!confirm('Submit factual metadata and a publisher link for manual review? It will not appear publicly until approved.'))return;
+  const button=form.querySelector('button[type=submit]');button.disabled=true;
+  const {error}=await db.from('novalume_title_suggestions').insert({user_id:user.id,...data});
+  if(error){feedback.textContent=error.code==='23505'?'You already suggested this source URL.':error.message.slice(0,160);button.disabled=false;}
+  else await renderCommunity(root,series,target);
+ };
+ root.querySelectorAll('[data-suggest-remove]').forEach(btn=>btn.onclick=async()=>{
+  if(!confirm('Withdraw this pending novel suggestion?'))return;
+  const {error}=await db.from('novalume_title_suggestions').delete()
+   .eq('id',btn.dataset.suggestRemove).eq('user_id',user.id).eq('review_status','pending');
+  if(error)feedback.textContent='Could not withdraw: '+error.message.slice(0,160);
+  else await renderCommunity(root,series,target);
+ });
 }
 function backupPanel(){
  return '<section class="nov-cloud-panel"><h2>Your private cloud diary</h2>'+
@@ -225,12 +295,15 @@ export async function renderCommunity(root,series,target=''){
   const auth=await db.auth.getUser(),user=auth.data?.user||null;
   const profile=user?(await db.from('novalume_profiles').select('user_id,handle,display_name,bio').eq('user_id',user.id).maybeSingle()).data:null;
   const reviews=await fetchReviews(db,series,target);
+  const submissions=profile?await db.from('novalume_title_suggestions')
+   .select('id,title,review_status,created_at').eq('user_id',user.id)
+   .order('created_at',{ascending:false}).limit(12):{data:[]};
   const members=await db.from('novalume_profiles').select('handle,display_name').order('created_at',{ascending:false}).limit(12);
   root.innerHTML=communityBanner(target,series)+'<div class="content-wrap nov-community-body">'+
    '<div class="nov-community-layout"><div class="nov-community-main">'+
     (profile?profileHeader(profile):'')+
     (user?(profile?composer(series,target):createProfilePanel(user)):authPanel())+
-    (profile?backupPanel():'')+
+    (profile?backupPanel()+suggestionPanel(submissions.data||[]):'')+
    '</div><aside class="nov-community-side"><h3>Built on real activity</h3>'+
    '<p>There are no fake reader accounts, paid reviews, borrowed ratings or simulated discussions.</p>'+
    '<strong>'+reviews.count+'</strong><small>actual published reviews</small>'+
@@ -248,6 +321,7 @@ export async function renderCommunity(root,series,target=''){
     else await renderCommunity(root,series,target);
    };
    backupBind(root,db,user,series);
+   suggestionBind(root,db,user,series,target);
   }
   reviewActionsBind(root,db,user);
  }catch(err){
