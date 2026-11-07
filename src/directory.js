@@ -161,7 +161,7 @@ export function mountSeries(root,series,id){
  '<div class="eyebrow small">'+escape(item.originalLanguage)+' WEBNOVEL · '+escape(item.workStatus)+'</div>'+
  '<h1>'+escape(item.title)+'</h1><p class="db-series-author">by '+escape(item.author)+'</p>'+
  '<p class="db-series-summary">'+escape(item.summary)+'</p><div class="db-tags">'+item.genres.map(tag).join('')+'</div>'+
- '<div class="nov-detail-tabs"><a href="#dbTrackForm">My diary</a><a href="#dbSourceRecord">Sources & provenance</a></div>'+ 
+ '<div class="nov-detail-tabs"><button type="button" data-db-scroll="dbTrackForm">My diary</button><button type="button" data-db-scroll="dbSourceRecord">Sources & provenance</button></div>'+ 
  '<div class="db-series-actions"><a class="btn primary" href="'+escape(item.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Open '+escape(item.sourcePlatform)+' ↗</a>'+
  '<a class="btn secondary" href="#tracking">My list →</a></div>'+
  '<p class="db-rights-note">External index only. The source page controls chapter access, translation availability and pricing. No novel text is hosted here.</p></div></div>'+
@@ -181,6 +181,7 @@ export function mountSeries(root,series,id){
  (item.sourceReferences?.length?'<div class="db-source-provenance"><h4>Reviewed source pages</h4>'+item.sourceReferences.map(ref=>'<a href="'+escape(ref.url)+'" rel="noopener noreferrer" target="_blank">'+escape(ref.name)+' ↗</a>').join('')+'</div>':'<p class="db-source-pending">Independent checking is still pending.</p>')+
  (item.sourceDisagreements?.length?'<p class="db-source-conflict">Sources disagree about: '+escape(item.sourceDisagreements.join(', '))+'. Treat those facts as uncertain.</p>':'')+
  '</aside></div></div>';
+ root.querySelectorAll('[data-db-scroll]').forEach(button=>button.onclick=()=>elem(root,'#'+button.dataset.dbScroll)?.scrollIntoView({behavior:'smooth',block:'start'}));
  elem(root,'#dbTrackForm').onsubmit=e=>{
   e.preventDefault();
   const raw=Number(elem(root,'#dbTrackChapter').value);
