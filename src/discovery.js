@@ -64,7 +64,7 @@ function topGenres(series){const n=new Map();for(const s of series)for(const g o
  return [...n.entries()].sort((a,b)=>b[1]-a[1]).slice(0,20).map(x=>x[0]);}
 function genreShelf(series,lang,terms){return series.filter(s=>s.originalLanguage===lang&&s.genres.some(g=>terms.some(t=>g.toLowerCase().includes(t))));}
 function heroCovers(series){
- return ['lord-of-the-mysteries','omniscient-readers-viewpoint','mother-of-learning','reverend-insanity']
+ return ['mother-of-learning','the-primal-hunter','the-beginning-after-the-end','azarinth-healer']
  .map(id=>series.find(x=>x.id===id)).filter(Boolean).map((s,i)=>'<a class="nov-floating nov-floating-'+i+'" href="#series/'+escape(s.id)+'">'+cover(s,'hero')+'</a>').join('');
 }
 function revealSection(root,id){el(root,id)?.scrollIntoView({block:'start',behavior:'smooth'});}

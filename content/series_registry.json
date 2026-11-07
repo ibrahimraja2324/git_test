@@ -849,7 +849,14 @@
       "rank": 33,
       "availabilityStatus": "Partial listing",
       "sourcePolicy": "manual-facts-and-editorial-summary",
-      "sourceAudit": "source-page-observed"
+      "sourceAudit": "source-page-observed",
+      "coverArt": {
+        "provider": "openlibrary",
+        "editionId": "OL52618166M",
+        "editionUrl": "https://openlibrary.org/books/OL52618166M/All_the_Skills",
+        "mode": "remote-display",
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "jackal-among-snakes",

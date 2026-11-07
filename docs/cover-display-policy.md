@@ -31,3 +31,6 @@ and no copyrighted cover file committed to the Git repo.
 The `?default=false` URL permits the onerror CSS fallback if unavailable.
 Do NOT imply all six actual image requests or underlying rights were verified
 in a live browser; follow up with visual QA and takedown responsiveness.
+
+## Homepage-first art selection
+Because the original hero originally used four series with only one matched Open Library cover, the Discover hero now prioritises four titles with matched book edition records. This ensures the new remote-image functionality is actually exercised on first load (subject to real image availability). An additional matched All the Skills edition (OL52618166M) brings the small pilot to seven records. The series page now offers a direct 'Did it deliver?' navigation tab into voluntary private reader feedback. Live browser rendering and actual image endpoint responses remain a separate QA gate.

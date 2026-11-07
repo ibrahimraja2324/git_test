@@ -180,7 +180,7 @@ export function mountSeries(root,series,id){
  '<div class="eyebrow small">'+escape(item.originalLanguage)+' WEBNOVEL · '+escape(item.workStatus)+'</div>'+
  '<h1>'+escape(item.title)+'</h1><p class="db-series-author">by '+escape(item.author)+'</p>'+
  '<p class="db-series-summary">'+escape(item.summary)+'</p><div class="db-tags">'+item.genres.map(tag).join('')+'</div>'+
- '<div class="nov-detail-tabs"><button type="button" data-db-scroll="dbTrackForm">My diary</button><button type="button" data-db-scroll="dbSourceRecord">Sources & provenance</button></div>'+ 
+ '<div class="nov-detail-tabs"><button type="button" data-db-scroll="novExperience">Did it deliver?</button><button type="button" data-db-scroll="dbTrackForm">My diary</button><button type="button" data-db-scroll="dbSourceRecord">Sources & provenance</button></div>'+ 
  '<div class="db-series-actions"><a class="btn primary" href="'+escape(item.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Open '+escape(item.sourcePlatform)+' ↗</a>'+
  '<a class="btn secondary" href="#tracking">My list →</a><a class="btn secondary" href="#community/'+escape(item.id)+'">Community reviews →</a></div>'+
  '<p class="db-rights-note">External index only. The source page controls chapter access, translation availability and pricing. No novel text is hosted here.</p>'+
