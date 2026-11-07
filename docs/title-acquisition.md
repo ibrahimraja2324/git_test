@@ -99,10 +99,7 @@ An upstream GitHub project, HeTaobaba123/arabic-chinese-novels-dataset,
 advertises a CC0-1.0 metadata file for 7,476 Chinese webnovels:
 https://github.com/HeTaobaba123/arabic-chinese-novels-dataset
 
-A 1,690,037-byte release asset was verified via GitHub's release API, but
-the binary could not be downloaded through this session's available
-retrieval tools. Hence NO 7,476 candidate records have been ingested or
-published by Novalume. This is not 7,476 more public works.
+The 1,690,037-byte release asset was verified and downloaded in GitHub Action 42331814423. Of 7,476 upstream records, 7,041 candidate identities were quarantined and 435 rejected. No identity has a verified original publisher URL and NO candidate has been promoted into Novalume's 54 public linked works. This is not 7,476 more public works.
 
 The converter scripts/import_cc0_webnovel_candidates.py accepts the
 downloaded local .gz or JSON. It quarantines only Chinese title, author,
