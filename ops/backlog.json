@@ -532,7 +532,7 @@
       "NV-038"
     ],
     "acceptance": "Reproducible metadata-only intake and review; 100+ distinct live source links; aliases and source timestamps; duplicate merging, stale status flags, coverage analysis; no unlicensed text or invented stats",
-    "evidence": "43 indexed series: 8 multi-source corroborated, 21 one reviewed source, 14 legacy pending review. Deterministic source-fusion, CC0 Wikidata proposal tool and CI passed. Goal 100+ not yet complete."
+    "evidence": "54 real linked series: 8 cross-source, 32 single-source reviewed, 14 earlier source checks pending; 48 factual source claims. Eleven Chinese/Korean novels confirmed individually on official publisher or reputable series directory pages 2026-11-07; no copied chapters/art/reviews. Need 100+."
   },
   {
     "id": "NV-042",
@@ -652,13 +652,13 @@
     "phase": "P1",
     "title": "Launch 1000+ real, legally sourced linked webnovel records with provenance",
     "priority": 1,
-    "status": "todo",
+    "status": "in_progress",
     "owner": "ChatGPT",
     "dependencies": [
       "NV-041"
     ],
     "acceptance": "1000+ unique actual webnovel works with validated author, original language, official or legitimate link, duplicate-safe source history, rights scope and timestamp; no mass extraction of restricted rival compilations or copied chapters; fast paginated discovery",
-    "evidence": "Site currently still has 43 indexed external titles. Pagination tested for 3,200 synthetic records, but these are NOT public entries. Need CC0, permissioned publisher author feeds and quality-checked imports."
+    "evidence": "54 genuine works, not thousands. Added tests and source-policy for streaming Open Library CC0 works dumps, Wikidata CC0 SPARQL export intake and consenting author CSV; all proposals quarantined pending identity/source review. scripts/metadata_intake.py, docs/title-acquisition.md. 1000+ remains unachieved."
   },
   {
     "id": "NV-051",
@@ -672,5 +672,46 @@
     ],
     "acceptance": "Independent sample of 100+ approved text queries, false-positive/negative controls, entity disambiguation, chapter chronology, event vs hypothetical, witnessed vs reported, public-reputation shifts, numerical progression; improve candidate precision and recall; never auto-publish as verified facts",
     "evidence": "8,835 deterministic clues and 21 editorial anchors exist; 0 independently validated gold claims; no local AI inference run yet."
+  },
+  {
+    "id": "NV-052",
+    "phase": "P1",
+    "title": "Implement editorial Letterboxd/Taste/MyAnimeList-inspired webnovel discovery and reader diary",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-038",
+      "NV-039"
+    ],
+    "acceptance": "Genuine source-linked browsing shelves, accessible mobile layout, distinct abstract jackets, bookmark and list flows, half-star ratings, private reviews, genre-taste recommendations, profile, no fake community activity",
+    "evidence": "src/discovery.js, src/discovery.test.js, src/directory.js, src/styles.css, src/app.js; CI checks passed. All ratings and reviews local browser-only, no accounts or public collaborative profiles."
+  },
+  {
+    "id": "NV-053",
+    "phase": "P1",
+    "title": "Build safe CC0/author-supplied bulk title acquisition into review quarantine",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-041"
+    ],
+    "acceptance": "Stream Open Library works dump; parse Wikidata SPARQL records and authorised author CSV; split original prose vs adaptations, duplicate alias flags, licence method and link review; reject auto publication and unapproved scraping",
+    "evidence": "scripts/metadata_intake.py, scripts/test_metadata_intake.py, docs/title-acquisition.md, docs/wikidata-webfiction.rq; CI passed."
+  },
+  {
+    "id": "NV-054",
+    "phase": "P1",
+    "title": "Move from local-only diary to authenticated community profiles, ratings, reviews and taste neighbours",
+    "priority": 1,
+    "status": "todo",
+    "owner": "Codex",
+    "dependencies": [
+      "NV-042",
+      "NV-052"
+    ],
+    "acceptance": "Real identity, per-user lists and private/public permissions, spoiler review defaults, abuse moderation, deletion/exports, rate-limited ingestion, user-weighted taste matching, real aggregate count threshold; never fake community content",
+    "evidence": "No real social backend or authenticated accounts implemented yet."
   }
 ]

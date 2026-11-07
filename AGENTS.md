@@ -23,7 +23,7 @@ Build a real reader-first Webnovel alternative, not an AI demo. We are zero-paid
 
 ## Current hard limits and priorities (updated 2026-11-06)
 
-- The real production site is deployed at https://novalume-story-search.vercel.app; it shows 43 source-only webnovel entries (8 cross-provider checked, 21 single-provider reviewed, 14 legacy review pending) and keeps the 3 rights-reviewed classical texts in a separate reader. Live mobile/browser QA remains unverified.
+- The real production site is deployed at https://novalume-story-search.vercel.app; it shows 54 source-only webnovel entries (8 cross-provider checked, 32 single-provider reviewed, 14 legacy review pending) and keeps the 3 rights-reviewed classical texts in a separate reader. Live mobile/browser QA remains unverified.
 - Current platform AI API spending: $0. Any proposal requiring platform-paid AI must be redesigned, not simply deferred to the user's bill.
 - Personal AI Desk supports prompt/JSON export and optional 127.0.0.1 Ollama/LM Studio; hosted cloud BYOK is NOT implemented and requires a separate security review.
 - Major next milestones: NV-041 100+ lawful webnovel metadata profiles; NV-042 genuine social accounts and ratings; NV-043 author-owned publishing; NV-035 validated narrative extraction.
@@ -35,7 +35,7 @@ Working user journey + tests + source provenance / licence clearance + no paid A
 
 ## 2026-11-06 product decision: database-first webnovel audience
 
-The public homepage at `#home` is a real, cited webnovel directory (43 real indexed entries in `content/series_registry.json`, with 14 legacy records still needing independent source reviews), not the old classics catalogue. `#read-here` is separate and only has rights-reviewed hosted texts. `#tracking` is a reader-owned, local-only reading list. Do not claim third-party chapters or cover art are hosted, and never fabricate ratings, member counts, latest releases, author permission or editorial trope verification. `#studio` remains private browser drafts until actual rights attestation, authentication, user storage and moderation are implemented.
+The public homepage at `#home` is a real, cited webnovel directory (54 real indexed entries in `content/series_registry.json`, with 14 legacy records still needing independent source reviews), not the old classics catalogue. `#read-here` is separate and only has rights-reviewed hosted texts. `#tracking` is a reader-owned, local-only reading list. Do not claim third-party chapters or cover art are hosted, and never fabricate ratings, member counts, latest releases, author permission or editorial trope verification. `#studio` remains private browser drafts until actual rights attestation, authentication, user storage and moderation are implemented.
 
 ## Chapter analysis scope and permission-first policy (2026-11-06)
 
@@ -48,7 +48,15 @@ The public homepage at `#home` is a real, cited webnovel directory (43 real inde
 
 ## Static extraction and scale accuracy (2026-11-07)
 
-- Three authorised hosted classics: 53 sections, 10,847 analysed sentence segments, 8,835 unverified static textual observations (GitHub CI build log 42235208056). The 43 external webnovel directory records are still metadata-only. No external chapters were downloaded, model-analysed or scraped.
+- Three authorised hosted classics: 53 sections, 10,847 analysed sentence segments, 8,835 unverified static textual observations (GitHub CI build log 42235208056). The 54 external webnovel directory records are still metadata-only. No external chapters were downloaded, model-analysed or scraped.
 - New deterministic layer: `scripts/static_story_observations.py`, `server/static_observation_service.mjs`, `api/observations.js`, and `src/app.js` search UI. Private snippets remain private and are limited by explicit reader-selected book and chapter in API outputs. Do not auto-promote deterministic labels to verified plot facts. Separate 21 editorial samples are NOT independently human reviewed.
-- Directory pagination supports thousands but is synthetic-test coverage only. Never inflate public work count from benchmarks; still 43 actual records.
+- Directory pagination supports thousands but is synthetic-test coverage only. Never inflate public work count from benchmarks; now 54 actual records.
 - Novel link metadata can be stored when lawfully sourced; public availability does NOT license programmatic text extraction for static, local-ML or remote-AI analysis. Respect provider terms and author/translator/publisher rights and revocation.
+
+## Discovery-club UI and source intake (2026-11-07)
+
+- Real catalogue expanded to **54 source-linked novels**: 17 Chinese, 13 Korean, 24 English; 8 multi-source verified, 32 with one reviewed source, 14 older source rechecks pending. Evidence source claims 48. Do not claim thousands, or inflate synthetic 3200-entry pagination fixtures.
+- `#home` has curated real titles, reader-first editorial shelves and CSS-origin jacket placeholders, not publisher covers. `#tracking` includes device-local half-star ratings and spoiler-marked private reviews; `#taste` uses transparent genre overlap on rated works, not fake community scores or trained AI.
+- `scripts/metadata_intake.py` supports Wikidata CC0 SPARQL JSON, streamed Open Library CC0 TSV dump and consenting-author CSV. Candidate outputs go to **review quarantine only**. Do not add unreviewed text/editions/adaptations to public catalogue, and do not bulk crawl providers without permitted feeds.
+- Public social functions (auth, user-generated reviews, friends, aggregate ratings, profile sync, moderation, real follow graph) are NOT present. The suggestion CTA goes to a GitHub Issue, requiring GitHub sign-in.
+- See `docs/title-acquisition.md`. Keep updates in canonical tracker and follow NV-050 and NV-054 for real breadth and community.

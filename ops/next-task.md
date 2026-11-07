@@ -1,21 +1,31 @@
-# Novalume — next high-impact implementation
+# Novalume — next substantial milestones (7 November 2026)
 
-Production corpus position (7 Nov 2026):
-- 43 real externally linked webnovels; 8 multi-source corroborated, 21 single-source reviewed, 14 pending independent recheck
-- 3 rights-approved hosted classics, 53 sections, 10,847 sentence segments, 8,835 unverified static text observations
-- 21 source-anchored editorial event examples, not independently verified human gold-standard facts
-- Directory pagination tested against 3,200 synthetic entries; this does NOT mean 3,200 real novels
+Current production candidate: 54 real indexed webnovels (17 Chinese, 13 Korean, 24 English);
+8 cross-source corroborated, 32 one-source reviewed, 14 older records needing rechecks.
+48 factual claims. Distinct editorial cover UI and device-local private reviews and taste.
 
-## NV-050: thousands of real linked titles
+## NV-050 — acquire 1,000+ real published webnovels, not fabricated stats
 
-Build scalable lawful factual-metadata ingestion from CC0 datasets, permissioned publishers, and author-contributed legitimate source URLs. Verify work identity, native aliases, author, language, current source, status and provenance; exclude adaptations and duplicates. Do not bulk copy third-party proprietary catalogues and do not host external copyrighted novel chapters.
+An actual three-source intake parser now exists at scripts/metadata_intake.py:
+- Wikidata CC0 SPARQL JSON exports, using docs/wikidata-webfiction.rq
+- Open Library monthly CC0 dump streaming (.gz/.bz2) for *works* and edition crosswalk
+- Rights-claimed author CSV / future licensed publisher feeds
 
-## NV-051: evidence-to-meaning accuracy
+All outputs remain quarantined. Need to download real permissible sources, evaluate work vs
+adaptation identity, author and native title collisions, verify official links, then gradually
+approve distinct verified serial works. Current 54 is not 1,000.
 
-Use the 8,835 high-recall observations as retrieval candidates, not truth. Build a gold question bank, test witnesses/public reactions, identity reveals, misunderstandings, character knowledge, progression measures, chronology, negation and motivations. Keep source evidence and review status with each claim; add chapter-conditional query semantics.
+## NV-054 — actual Letterboxd-style community
 
-## NV-046: authorised model processing
+Device-local reading logs, half-star ratings and reviews work now. Next is secure sign-in,
+cloud profiles, actual public review submissions, per-review spoiler handling, deletion,
+social lists and a user-taste graph. No fake social feed or invented global scores.
 
-Seek author/publisher permission to submit full manuscripts and analyse them. Local Ollama adapter exists but no live inference has been executed on connected hardware in this run. Do not misrepresent author permissions or use external platform crawling as an alternative.
+## NV-051 — novel-specific deep narrative search accuracy
 
-Reference docs/static-narrative-evidence.md and docs/narrative-intelligence.md.
+Separate original-text analysis requires explicit rights; 8,835 unverified static clues
+from three cleared classics are not 8,835 proven events. Continue evidence checking,
+factual event relation extraction, negative queries and chapter spoiler protections.
+
+Current site: https://novalume-story-search.vercel.app
+See docs/title-acquisition.md and docs/source-integration.md.
