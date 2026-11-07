@@ -31,7 +31,7 @@ def safe_text(value,limit=180):
 UNKNOWN_AUTHORS={'مؤلف صيني','مجهول','غير محدد المؤلف','unknown','anonymous','unknown author'}
 NON_NOVEL_CATEGORIES={'诗歌散文','散文','诗歌','传记','自传'}
 CHINESE=re.compile(r'[\u4e00-\u9fff]')
-BYLINE=re.compile(r'\\s+by\\s+([\\u4e00-\\u9fff][^\\n]{1,75})$',re.I)
+BYLINE=re.compile(r'\s+by\s+([\u4e00-\u9fff][^\n]{1,75})$',re.I)
 
 def convert(records):
     """Return identity proposals, never public registry records."""
