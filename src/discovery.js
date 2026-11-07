@@ -70,7 +70,7 @@ function heroCovers(series){
 }
 function revealSection(root,id){el(root,id)?.scrollIntoView({block:'start',behavior:'smooth'});}
 function mobileHeroCovers(series){
- return ['the-beginning-after-the-end','azarinth-healer','the-primal-hunter']
+ return ['the-beginning-after-the-end','azarinth-healer','the-perfect-run']
  .map(id=>series.find(x=>x.id===id)).filter(Boolean)
  .map(s=>'<a href="#series/'+escape(s.id)+'" class="nov-mobile-cover" aria-label="Explore '+escape(s.title)+'">'+cover(s)+'</a>').join('');
 }

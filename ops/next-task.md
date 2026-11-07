@@ -48,3 +48,6 @@ Research action 42425662257 SUCCESS: 26 previously uncovered English records sca
 
 ## Browser evidence for covers
 Run 42426054617 Chromium reported mobile homepage without featured covers, desktop Mother of Learning fallback and an original 178-pixel cover stretched into a 274-pixel jacket. Added mobile cover row and desktop composition update. Rerun real browser screenshots before claiming visual repair. 11/66 cover records remain the source-coverage limit.
+
+## Real QA followup: all featured mobile covers
+Live Chromium run 42426344600 attempt 2 after production confirmed 2/3 mobile covers loaded; Primal Hunter was fallback in narrow mode even though desktop version worked. Switched the third mobile slot to The Perfect Run, whose cover loaded on desktop in the same run. Rerun mobile browser test to confirm all three. Screenshot provenance attached to GitHub action artifact, not a conceptual mockup.
