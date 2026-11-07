@@ -40,6 +40,25 @@ jobs:
           assert all(not row['publicationReady'] and not row['officialSourceUrl'] for row in d['candidates'])
           assert all('description' not in row and 'chapterText' not in row and 'ratings' not in row for row in d['candidates'])
           PY
+      - name: Prove reviewed source decisions match real upstream identities
+        run: |
+          python3 scripts/promote_reviewed_novels.py \
+            --candidates /tmp/novalume-review-candidates.json \
+            --decisions content/source-review-decisions.json
+          python3 - <<'PY'
+          import sys,json
+          sys.path.insert(0,'scripts')
+          from promote_reviewed_novels import review_batch
+          def read(p):return json.load(open(p,encoding='utf8'))
+          result=review_batch(
+            read('/tmp/novalume-review-candidates.json'),
+            read('content/source-review-decisions.json'),
+            read('content/series_registry.json'),
+            read('content/series_evidence.json'))
+          assert result['added']==0, 'Approved titles must be committed to public registry after independent review'
+          assert result['alreadyPresent']==2, 'Both previously verified page decisions must match upstream candidates'
+          print('Source review decisions correspond to real candidate identities; 2 already published, 0 unapproved promoted')
+          PY
       - name: Store for manual identity and rights review (never publish automatically)
         uses: actions/upload-artifact@v4
         with:
