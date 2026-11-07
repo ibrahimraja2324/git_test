@@ -34,6 +34,7 @@ jobs:
           print('Total upstream records:', d['inputRows'])
           print('Non-public quarantine candidates:', d['acceptedCandidates'])
           print('Rejected records:', d['rejectedRows'])
+          print('Quality triage:', d['qualitySummary'])
           assert d['schema']=='novalume.cc0-webnovel-candidates.v1'
           assert d['acceptedCandidates']>=100
           assert all(not row['publicationReady'] and not row['officialSourceUrl'] for row in d['candidates'])
