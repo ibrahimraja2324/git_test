@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / 'content' / 'series_registry.json'
-ALLOWED = {'www.novelupdates.com', 'www.royalroad.com', 'www.wuxiaworld.com'}
+ALLOWED = {'www.novelupdates.com', 'www.royalroad.com', 'www.wuxiaworld.com', 'fanqienovel.com', 'www.tadu.com'}
 ALLOWED_STATUS = {'Completed', 'Ongoing', 'Discontinued', 'Unknown'}
 
 

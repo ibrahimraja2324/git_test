@@ -1,7 +1,7 @@
 {
   "schema": "novalume.external-series.v1",
-  "editorialNote": "Rights-aware bibliographic directory with 54 real titles. Short summaries independently written, source pages individually checked. Source status may describe a translated edition rather than original publication: recheck when conflicting. No copied chapters, cover art, reviews or engagement metrics.",
-  "checkedAt": "2026-11-07",
+  "editorialNote": "56 actual external novel works, with publisher source links and independently written descriptions. No hosted chapters, copied cover art, user reviews, or fabricated popularity.",
+  "checkedAt": "2026-11-08",
   "series": [
     {
       "id": "lord-of-the-mysteries",
@@ -1340,6 +1340,59 @@
       "availabilityStatus": "Check source",
       "sourcePolicy": "manual-facts-and-editorial-summary",
       "sourceAudit": "source-page-observed"
+    },
+    {
+      "id": "heavenly-secrets-pavilion-at-start",
+      "title": "玄幻：开局一座天机阁",
+      "author": "三尺青锋",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Fanqie",
+      "sourceUrl": "https://fanqienovel.com/page/6990230896360033293",
+      "workStatus": "Completed",
+      "genres": [
+        "Cultivation",
+        "Fantasy",
+        "System",
+        "Power Fantasy"
+      ],
+      "aliases": [
+        "Fantasy: Starting With a Heavenly Secrets Pavilion"
+      ],
+      "summary": "A newcomer to a cultivation world receives a pavilion that can reveal hidden information, and turns that knowledge into influence.",
+      "candidateOrigin": "pangudawn:15820",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-08",
+      "rank": 55,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "publisher-page-reviewed"
+    },
+    {
+      "id": "my-followers-are-all-goofy-players",
+      "title": "我的眷族全是沙雕玩家",
+      "author": "滑稽大师兄",
+      "originalLanguage": "Chinese",
+      "sourcePlatform": "Tadu",
+      "sourceUrl": "https://www.tadu.com/book/802975",
+      "workStatus": "Completed",
+      "genres": [
+        "Game System",
+        "Fantasy",
+        "Summoning",
+        "Progression"
+      ],
+      "aliases": [
+        "My Followers Are All Goofy Players",
+        "开局召唤沙雕玩家"
+      ],
+      "summary": "A fantasy lord summons player-like followers whose unpredictable tactics transform his growing territory.",
+      "candidateOrigin": "pangudawn:15608",
+      "kind": "external-index",
+      "verifiedAt": "2026-11-08",
+      "rank": 56,
+      "availabilityStatus": "Check source",
+      "sourcePolicy": "manual-facts-and-editorial-summary",
+      "sourceAudit": "publisher-page-reviewed"
     }
   ]
 }

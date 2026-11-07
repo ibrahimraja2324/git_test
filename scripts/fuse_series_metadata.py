@@ -15,7 +15,9 @@ ALLOWED = {
     'Novel Updates':'www.novelupdates.com',
     'Royal Road':'www.royalroad.com',
     'Wikidata':'www.wikidata.org',
-    'Open Library':'openlibrary.org'
+    'Open Library':'openlibrary.org',
+    'Fanqie':'fanqienovel.com',
+    'Tadu':'www.tadu.com'
 }
 STATUSES = {'Completed','Ongoing','Discontinued','Unknown'}
 

@@ -1,6 +1,6 @@
 {
   "schema": "novalume.source-evidence.v1",
-  "reviewDate": "2026-11-07",
+  "reviewDate": "2026-11-08",
   "policy": "Factual claims and outbound source URLs only. No transferred copyright, chapter text, description copying, cover art, rating aggregates or bulk third-party database harvesting.",
   "claims": [
     {
@@ -650,6 +650,34 @@
       "claims": {
         "title": "A Record of a Mortal's Journey to Immortality: Immortal Realm",
         "author": "Wang Yu (忘语)",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "heavenly-secrets-pavilion-at-start",
+      "provider": "Fanqie",
+      "sourceUrl": "https://fanqienovel.com/page/6990230896360033293",
+      "observedAt": "2026-11-08",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "玄幻：开局一座天机阁",
+        "author": "三尺青锋",
+        "originalLanguage": "Chinese",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "my-followers-are-all-goofy-players",
+      "provider": "Tadu",
+      "sourceUrl": "https://www.tadu.com/book/802975",
+      "observedAt": "2026-11-08",
+      "sourceKind": "licensed-publisher",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "我的眷族全是沙雕玩家",
+        "author": "滑稽大师兄",
         "originalLanguage": "Chinese",
         "workStatus": "Completed"
       }

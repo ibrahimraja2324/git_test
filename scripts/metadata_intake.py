@@ -23,7 +23,7 @@ from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parents[1]
 HOSTS={'www.royalroad.com','www.novelupdates.com','www.wuxiaworld.com',
        'www.webnovel.com','www.scribblehub.com','tapas.io','www.tapas.io',
-       'www.qidian.com','www.jjwxc.net','page.kakao.com','www.kakaopage.com',
+       'www.qidian.com','fanqienovel.com','www.tadu.com','www.jjwxc.net','page.kakao.com','www.kakaopage.com',
        'series.naver.com','www.munpia.com','www.ridibooks.com'}
 LANGS={'english':'English','chinese':'Chinese','korean':'Korean','japanese':'Japanese'}
 REJECT_MEDIA={'anime','animation','animated series','television series','tv series',
