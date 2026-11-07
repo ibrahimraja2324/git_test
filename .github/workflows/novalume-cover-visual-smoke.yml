@@ -1,0 +1,33 @@
+name: Novalume real-browser cover QA
+on:
+  push:
+    branches: [novalume-foundation]
+    paths:
+      - scripts/cover_visual_smoke.mjs
+      - .github/workflows/novalume-cover-visual-smoke.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install headless browser
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Visit real production in mobile and desktop browser
+        env:
+          NOVALUME_URL: https://novalume-story-search.vercel.app
+        run: node scripts/cover_visual_smoke.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: novalume-cover-smoke
+          path: artifacts/novalume-cover-smoke/
+          retention-days: 7
