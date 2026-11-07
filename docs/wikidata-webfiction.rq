@@ -1,0 +1,21 @@
+# Wikidata SPARQL working candidate seed, NOT a complete global novel corpus.
+# CC0 metadata; candidate outputs must undergo manual identity/rights review.
+# Q2552040 = web fiction (genre), P136 = genre, P31 = instance of.
+# Avoid claiming all written works have this genre tag. Stream larger permitted dumps
+# or use author/publisher opt-in to cover the vast missing long tail.
+
+SELECT DISTINCT ?item ?itemLabel ?authorLabel ?languageLabel ?workTypeLabel ?altLabel WHERE {
+  ?item wdt:P136 wd:Q2552040 .
+  OPTIONAL { ?item wdt:P50 ?author . }
+  OPTIONAL { ?item wdt:P407 ?language . }
+  OPTIONAL { ?item wdt:P31 ?workType . }
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en,zh,ko".
+    ?item rdfs:label ?itemLabel.
+    ?author rdfs:label ?authorLabel.
+    ?language rdfs:label ?languageLabel.
+    ?workType rdfs:label ?workTypeLabel.
+    ?item skos:altLabel ?altLabel.
+  }
+}
+LIMIT 3000
