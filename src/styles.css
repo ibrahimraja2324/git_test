@@ -680,3 +680,28 @@
 @media(prefers-reduced-data:reduce){
  .nov-external-cover{image-rendering:auto}
 }
+
+/* Mobile used to hide all featured covers: display three source-matched ones. */
+.nov-mobile-covers{display:none}
+@media(max-width:860px){
+ .nov-mobile-covers{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:11px;max-width:395px;margin:3px 0 18px;
+ }
+ .nov-mobile-cover{
+  display:block;aspect-ratio:2/3;min-width:0;max-height:170px;
+  border-radius:6px;overflow:hidden;box-shadow:0 7px 17px #0004;
+ }
+ .nov-mobile-cover .nov-cover{height:100%;min-height:0}
+ .nov-mobile-cover .nov-cover strong{font-size:clamp(11px,2vw,16px)}
+ .nov-mobile-cover .nov-cover>span{font-size:30px}
+ .nov-mobile-cover .nov-cover>div{padding:0 5px 8px}
+ .nov-mobile-cover .nov-cover small{font-size:6px}
+ .nov-hero-grid{padding-top:28px;padding-bottom:25px}
+ .nov-hero-content{padding:12px 0}
+ .nov-hero-content>p:not(.nov-true-count){margin-bottom:15px;line-height:1.65}
+}
+@media(max-width:420px){
+ .nov-mobile-covers{gap:8px;max-width:335px}
+ .nov-mobile-cover{max-height:148px}
+}

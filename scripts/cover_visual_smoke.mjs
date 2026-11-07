@@ -19,10 +19,11 @@ try{
   const metrics=await page.evaluate(()=>{
    const art=[...document.querySelectorAll('img[data-nov-cover]')];
    const hero=[...document.querySelectorAll('.nov-floating img[data-nov-cover]')];
+   const mobileHero=[...document.querySelectorAll('.nov-mobile-covers img[data-nov-cover]')];
    const heroTitle=[...document.querySelectorAll('.nov-floating a')].map(n=>n.getAttribute('href'));
    return {
     mappedImages:art.length,
-    heroImages:hero.length,
+    heroImages:hero.length,mobileHeroImages:mobileHero.length,
     heroTitle,
     coverSrcSample:art.slice(0,6).map(i=>i.src),
     loaded:art.filter(i=>i.complete&&i.naturalWidth>=100).length,

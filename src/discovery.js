@@ -65,10 +65,15 @@ function topGenres(series){const n=new Map();for(const s of series)for(const g o
  return [...n.entries()].sort((a,b)=>b[1]-a[1]).slice(0,20).map(x=>x[0]);}
 function genreShelf(series,lang,terms){return series.filter(s=>s.originalLanguage===lang&&s.genres.some(g=>terms.some(t=>g.toLowerCase().includes(t))));}
 function heroCovers(series){
- return ['mother-of-learning','the-primal-hunter','the-beginning-after-the-end','azarinth-healer']
+ return ['the-beginning-after-the-end','azarinth-healer','the-perfect-run','the-primal-hunter']
  .map(id=>series.find(x=>x.id===id)).filter(Boolean).map((s,i)=>'<a class="nov-floating nov-floating-'+i+'" href="#series/'+escape(s.id)+'">'+cover(s,'hero')+'</a>').join('');
 }
 function revealSection(root,id){el(root,id)?.scrollIntoView({block:'start',behavior:'smooth'});}
+function mobileHeroCovers(series){
+ return ['the-beginning-after-the-end','azarinth-healer','the-primal-hunter']
+ .map(id=>series.find(x=>x.id===id)).filter(Boolean)
+ .map(s=>'<a href="#series/'+escape(s.id)+'" class="nov-mobile-cover" aria-label="Explore '+escape(s.title)+'">'+cover(s)+'</a>').join('');
+}
 function bindSaves(root,series,shelf,rerender){
  root.querySelectorAll('[data-nov-save]').forEach(btn=>btn.onclick=()=>{
   const id=btn.dataset.novSave;
@@ -90,6 +95,7 @@ export function renderDiscovery(root,series){
  '<div class="nov-hero-content"><div class="nov-kicker">A DIFFERENT KIND OF STORY COMMUNITY</div>'+
  '<h1>Find your next <em>obsession.</em></h1>'+
  '<p>Every story deserves to be found. Explore Chinese, Korean and English serial fiction, rate what you love and build your own reading world.</p>'+
+ '<div class="nov-mobile-covers" aria-label="Featured novels">'+mobileHeroCovers(series)+'</div>'+
  '<form id="nov-search" class="nov-search"><span aria-hidden="true">⌕</span><label class="visually-hidden" for="nov-query">Search novels</label>'+
  '<input id="nov-query" type="search" maxlength="150" value="'+escape(state.query)+'" placeholder="Try regression, time loops, cultivation…">'+
  '<button type="submit">Explore <span aria-hidden="true">→</span></button></form>'+

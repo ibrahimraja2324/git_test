@@ -45,3 +45,6 @@ research proposals as usable images. Mobile screenshot QA still required.
 
 ## Open Library source findings
 Research action 42425662257 SUCCESS: 26 previously uncovered English records scanned, only 3 exact title+author work-cover IDs (see ops/cover-research-candidates.json), zero network errors. Now 11/66 public cover metadata records. To reach majority of 66 with authentic covers requires explicit platform/publisher-provided image permission or another licensed source, NOT invented ISBNs, random image search, generic scraped CDN URLs, or repeated Open Library crawls. Manually QA actual image loads and responsive cover aspect ratios.
+
+## Browser evidence for covers
+Run 42426054617 Chromium reported mobile homepage without featured covers, desktop Mother of Learning fallback and an original 178-pixel cover stretched into a 274-pixel jacket. Added mobile cover row and desktop composition update. Rerun real browser screenshots before claiming visual repair. 11/66 cover records remain the source-coverage limit.
