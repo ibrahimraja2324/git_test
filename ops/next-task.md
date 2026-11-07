@@ -17,3 +17,6 @@ See docs/publisher-source-review.md, docs/title-acquisition.md, docs/social-laun
 
 ## NV-050 additional batch 8 November 2026
 Added ten manually checked Royal Road links (one explicitly completed; nine status-unknown because of STUB/INACTIVE). The Git branch directory moves from 56 to 66 records, evidence claims from 50 to 60. See docs/royalroad-editorial-batch-2026-11-08.md. The 7,039 PanguDawn candidates remain in quarantine. Sync the ten records to Supabase works and verify CI/deployment separately.
+
+## 8 Nov catalogue scale correction
+Implemented a separate optional #leads route with pinned external dataset converter and quality filter; distinct research leads are NOT verified works. Trigger and verify the GitHub Actions novalume-title-leads workflow, resulting public/data/candidate_index.json count, and Vercel deployment (previously blocked by team authorization). Work towards licensed author/publisher feeds for genuinely verified 1,000+ original webnovels and cover permission coverage.

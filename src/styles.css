@@ -583,3 +583,21 @@
 .db-cover-credit{font-size:.83rem;line-height:1.5}
 .db-shelf-links{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem}
 @media(max-width:700px){.db-shelf-links{align-items:flex-start}}
+
+/* Separate research-leads UI; never show these as verified book covers. */
+.nov-leads{max-width:1080px;margin:0 auto;padding:2rem 1rem 5.5rem;line-height:1.5}
+.nov-leads h1{font-family:Newsreader,serif;font-size:clamp(2.1rem,5.5vw,4rem);margin:.8rem 0}
+.nov-leads p{max-width:800px}
+.nov-lead-warning{border:1px solid #61736e;border-radius:12px;padding:1rem;margin:1rem 0 1.5rem;max-width:850px}
+.nov-leads form{display:flex;gap:.75rem;flex-wrap:wrap;margin:1rem 0}
+.nov-leads input{flex:1 1 300px;min-width:0}
+.nov-leads input,.nov-leads select{padding:.8rem;border:1px solid #61736e;border-radius:9px;background:var(--surface,#122223);color:inherit}
+.nov-leads button{padding:.7rem 1rem;border-radius:8px}
+.nov-lead-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}
+.nov-lead-card{border:1px solid #61736e;border-radius:12px;padding:1rem;overflow-wrap:anywhere}
+.nov-lead-card h3{font-size:1.02rem;line-height:1.5}
+.nov-lead-card p{font-size:.85rem}
+.nov-lead-card small{font-size:.7rem;letter-spacing:.08em}
+.nov-lead-pager{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.5rem}
+.nov-lead-pager button:disabled{opacity:.35}
+@media(max-width:640px){.nov-leads{padding:1.3rem .8rem 5.5rem}.nov-leads form{flex-direction:column}.nov-lead-grid{grid-template-columns:1fr}}

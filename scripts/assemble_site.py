@@ -24,6 +24,15 @@ def build():
     validate_registry(directory)
     from fuse_series_metadata import build_registry
     (OUT/'data'/'series_registry.json').write_text(json.dumps(build_registry(),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    research=PUBLIC/'candidate_index.json'
+    if research.is_file():
+        leads=json.loads(research.read_text(encoding="utf8"))
+        if leads.get("schema")!="novalume.unverified-title-leads.v1" or not isinstance(leads.get("leads"),list):
+            raise ValueError("Invalid provisional research data")
+        banned={"sourceUrl","coverUrl","chapters","description","summary","ratings"}
+        if any(not isinstance(x,dict) or banned.intersection(x) for x in leads["leads"]):
+            raise ValueError("Provisional research dataset contains unsafe fields")
+        shutil.copy2(research,OUT/'data'/'candidate_index.json')
     for name in ('catalog.json','story_index.json','static_observation_stats.json'):
         shutil.copy2(PUBLIC/name, OUT/'data'/name)
     catalog=json.loads((PUBLIC/'catalog.json').read_text(encoding='utf-8'))

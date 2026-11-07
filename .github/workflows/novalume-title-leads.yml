@@ -1,0 +1,37 @@
+name: Build provisional title-lead search index
+on:
+  workflow_dispatch:
+  push:
+    branches: [novalume-foundation]
+    paths:
+      - '.github/workflows/novalume-title-leads.yml'
+permissions:
+  contents: write
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch and verify a pinned snapshot
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 3 --max-time 120 'https://github.com/HeTaobaba123/arabic-chinese-novels-dataset/releases/download/v1.0.0/novels-metadata.ar-zh.json.gz' -o /tmp/novalume-source.gz
+          echo '096a8bfd37708c09637100b300fb137953333712cb70e134dfbc50273d9bc634  /tmp/novalume-source.gz' | sha256sum -c -
+      - name: Extract separate unverified-title metadata only
+        run: |
+          python3 scripts/import_cc0_webnovel_candidates.py --snapshot /tmp/novalume-source.gz --output /tmp/novalume-candidates.json
+          python3 scripts/build_candidate_index.py --input /tmp/novalume-candidates.json --out public/data/candidate_index.json
+          npm test
+          npm run build
+      - name: Commit research dataset only
+        run: |
+          git config user.name novalume-catalog-bot
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/data/candidate_index.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data(novalume): publish separately labelled provisional title leads'
+            git push origin HEAD:novalume-foundation
+          fi

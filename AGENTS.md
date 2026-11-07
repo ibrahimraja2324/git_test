@@ -79,3 +79,6 @@ The public homepage at `#home` is a real, cited webnovel directory (54 real inde
 ## 8 November 2026 — ten-author-source editorial batch
 
 Branch source now contains **66** real linked works (19 Chinese, 13 Korean, 34 English), **60** source claims; the 7,039 unverified Chinese candidates remain quarantined. Ten Royal Road author work pages were individually checked on 8 November; metadata and independent summaries are source-link-only. Status of nine is **Unknown** (eight STUB and one INACTIVE), not asserted to be completed/ongoing. The batch is documented in `docs/royalroad-editorial-batch-2026-11-08.md`. Database reconciliation and CI/deployment verification remain separate acceptance gates. Earlier 54/56 count notes are historical, not a reason to overwrite the latest batch.
+
+## 8 November 2026 provisional title leads
+A separate #leads route is for source-dataset-derived UNVERIFIED basic title/author leads only, generated from pinned upstream data. Never include these records in the verified series count, the novalume_works database, full-text intelligence or the cover subsystem. All routes must visibly disclose uncertain source identities and absent official links. See docs/scale-research-index.md and the title-leads CI action. Check the workflow actually publishes before claiming live results.
