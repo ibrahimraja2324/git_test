@@ -1,0 +1,56 @@
+{
+  "schema": "novalume.cover-research-proposals.v1",
+  "disclaimer": "Review leads only; source work/edition image must be checked before publishing. No downloaded cover files.",
+  "existingCoverRecords": 8,
+  "totalCanonicalSeries": 66,
+  "englishUncoveredResearched": 26,
+  "proposals": [
+    {
+      "workId": "the-perfect-run",
+      "workTitle": "The Perfect Run",
+      "canonicalAuthor": "Maxime J. Durand (Void Herald)",
+      "openLibraryTitle": "The Perfect Run",
+      "openLibraryAuthors": [
+        "Maxime J. Durand"
+      ],
+      "coverId": 14811808,
+      "workUrl": "https://openlibrary.org/works/OL39374486W",
+      "editionCandidates": [
+        "OL53582651M",
+        "OL61027097M"
+      ],
+      "reviewStatus": "pending-editorial-verification"
+    },
+    {
+      "workId": "beware-of-chicken",
+      "workTitle": "Beware of Chicken",
+      "canonicalAuthor": "Casualfarmer",
+      "openLibraryTitle": "Beware of Chicken",
+      "openLibraryAuthors": [
+        "Casualfarmer"
+      ],
+      "coverId": 14718151,
+      "workUrl": "https://openlibrary.org/works/OL39173307W",
+      "editionCandidates": [
+        "OL53326719M"
+      ],
+      "reviewStatus": "pending-editorial-verification"
+    },
+    {
+      "workId": "mark-of-the-fool",
+      "workTitle": "Mark of the Fool",
+      "canonicalAuthor": "J.M. Clarke (U Juggernaut)",
+      "openLibraryTitle": "Mark of the Fool",
+      "openLibraryAuthors": [
+        "J.M. Clarke"
+      ],
+      "coverId": 14628017,
+      "workUrl": "https://openlibrary.org/works/OL29206818W",
+      "editionCandidates": [
+        "OL40172418M"
+      ],
+      "reviewStatus": "pending-editorial-verification"
+    }
+  ],
+  "errors": []
+}
