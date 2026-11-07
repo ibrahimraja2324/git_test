@@ -1,0 +1,57 @@
+{
+  "schema": "novalume.publisher-review-decisions.v1",
+  "decisions": [
+    {
+      "candidateId": "pangudawn:15820",
+      "approved": true,
+      "workType": "original-prose-serial",
+      "id": "heavenly-secrets-pavilion-at-start",
+      "reviewer": "Novalume manual page check",
+      "reviewedAt": "2026-11-08",
+      "summary": "A newcomer to a cultivation world receives a pavilion that can reveal hidden information, and turns that knowledge into influence.",
+      "status": "Completed",
+      "genres": [
+        "Cultivation",
+        "Fantasy",
+        "System",
+        "Power Fantasy"
+      ],
+      "textReuse": "none",
+      "coversReuse": "none",
+      "source": {
+        "provider": "Fanqie",
+        "url": "https://fanqienovel.com/page/6990230896360033293",
+        "confirmedTitle": "玄幻：开局一座天机阁",
+        "confirmedAuthor": "三尺青锋",
+        "pageType": "work-page",
+        "inspectionMethod": "manual-publisher-page"
+      }
+    },
+    {
+      "candidateId": "pangudawn:15608",
+      "approved": true,
+      "workType": "original-prose-serial",
+      "id": "my-followers-are-all-goofy-players",
+      "reviewer": "Novalume manual page check",
+      "reviewedAt": "2026-11-08",
+      "summary": "A fantasy lord summons player-like followers whose unpredictable tactics transform his growing territory.",
+      "status": "Completed",
+      "genres": [
+        "Game System",
+        "Fantasy",
+        "Summoning",
+        "Progression"
+      ],
+      "textReuse": "none",
+      "coversReuse": "none",
+      "source": {
+        "provider": "Tadu",
+        "url": "https://www.tadu.com/book/802975",
+        "confirmedTitle": "我的眷族全是沙雕玩家",
+        "confirmedAuthor": "滑稽大师兄",
+        "pageType": "work-page",
+        "inspectionMethod": "manual-publisher-page"
+      }
+    }
+  ]
+}
