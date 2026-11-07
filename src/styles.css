@@ -576,3 +576,10 @@
 .nov-suggestion-row small{display:inline-block;font-size:10px;color:var(--muted);text-transform:capitalize;margin-top:5px}
 .nov-suggestion-row button{background:transparent;border:1px solid var(--line);border-radius:7px;color:var(--muted);padding:8px;font-size:11px}
 .nov-suggestion-row button:hover{border-color:var(--pink);color:var(--text)}
+
+/* Third-party cover API display: preserve built-in CSS artwork as a 404 fallback. */
+.db-cover{position:relative;overflow:hidden}
+.db-cover .nov-real-cover{position:absolute;inset:0;z-index:4;width:100%;height:100%;object-fit:cover}
+.db-cover-credit{font-size:.83rem;line-height:1.5}
+.db-shelf-links{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem}
+@media(max-width:700px){.db-shelf-links{align-items:flex-start}}

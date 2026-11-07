@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {filterDirectory,validateDirectory,sanitizeShelf,shareIds,parseSharedIds,paginateDirectory,normalizeRating,LIST_STATUSES} from './directory.js';
+import {filterDirectory,validateDirectory,sanitizeShelf,shareIds,parseSharedIds,paginateDirectory,normalizeRating,LIST_STATUSES,validCoverArt} from './directory.js';
 const series=[
  {id:'a',title:'A Cultivation Tale',author:'Alpha',originalLanguage:'Chinese',sourceUrl:'https://www.novelupdates.com/series/alpha/',kind:'external-index',genres:['Cultivation','Progression'],aliases:['Old Name'],summary:'An immortal academy',workStatus:'Completed'},
  {id:'b',title:'Loop Academy',author:'Beta',originalLanguage:'English',sourceUrl:'https://www.royalroad.com/fiction/123/example',kind:'external-index',genres:['Time Loop','Academy'],aliases:[],summary:'A magical academy loop',workStatus:'Ongoing'}
@@ -64,4 +64,14 @@ test('local half stars and private reviews are valid but public lists omit them'
  assert.equal(shelf.a.rating,4.5);assert.equal(shelf.a.review,'Private twist');assert.equal(shelf.a.reviewSpoiler,true);
  assert.equal(shareIds(shelf,series).join(','),'a');
  assert.equal(normalizeRating(4.25),0);assert.equal(normalizeRating(3.5),3.5);assert.equal(normalizeRating(-1),0);
+});
+
+test('reviewed Open Library edition cover is narrowly validated',()=>{
+ const art={provider:'openlibrary',editionId:'OL31573848M',editionUrl:'https://openlibrary.org/books/OL31573848M/Mother_of_Learning',mode:'remote-display',sourceCheckedAt:'2026-11-08'};
+ assert.equal(validCoverArt(art),true);
+ assert.equal(validateDirectory({schema:'novalume.external-series.v1',series:[{...series[0],coverArt:art}]}).length,1);
+ for(const a of [{...art,editionId:'OL31573848M/evil'},{...art,editionUrl:'https://openlibrary.org.evil.com/books/OL31573848M/Mother_of_Learning'},{...art,mode:'rehost'},{...art,editionUrl:art.editionUrl+'?evil=1'}]){
+  assert.equal(validCoverArt(a),false);
+  assert.throws(()=>validateDirectory({schema:'novalume.external-series.v1',series:[{...series[0],coverArt:a}]}));
+ }
 });

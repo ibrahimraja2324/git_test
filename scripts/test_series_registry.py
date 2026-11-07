@@ -22,6 +22,12 @@ def validate_registry(data):
         assert item['sourceUrl'] not in urls
         urls.add(item['sourceUrl'])
         assert item['kind'] == 'external-index' and item['workStatus'] in ALLOWED_STATUS
+        art = item.get('coverArt')
+        if art is not None:
+            assert art.get('provider') == 'openlibrary' and art.get('mode') == 'remote-display'
+            assert __import__('re').fullmatch(r'OL[0-9]{1,12}M', art.get('editionId',''))
+            assert art.get('editionUrl','').startswith('https://openlibrary.org/books/'+art['editionId']+'/')
+            assert not art.get('localFile')
         assert item.get('sourcePolicy') in ('legacy-human-curated-source-link','manual-facts-and-editorial-summary')
         assert item['originalLanguage'] in ('Chinese', 'Korean', 'English')
         for key in ('title', 'author', 'summary', 'verifiedAt', 'sourcePlatform'):

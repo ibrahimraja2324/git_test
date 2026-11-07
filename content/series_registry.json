@@ -315,7 +315,14 @@
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
       "availabilityStatus": "Check source",
-      "statusNote": "Original work status not independently rechecked"
+      "statusNote": "Original work status not independently rechecked",
+      "coverArt": {
+        "provider": "openlibrary",
+        "editionId": "OL31573848M",
+        "editionUrl": "https://openlibrary.org/books/OL31573848M/Mother_of_Learning",
+        "mode": "remote-display",
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "the-perfect-run",
@@ -456,7 +463,14 @@
       "rank": 18,
       "availabilityStatus": "Partial listing",
       "sourcePolicy": "manual-facts-and-editorial-summary",
-      "sourceAudit": "source-page-observed"
+      "sourceAudit": "source-page-observed",
+      "coverArt": {
+        "provider": "openlibrary",
+        "editionId": "OL32614650M",
+        "editionUrl": "https://openlibrary.org/books/OL32614650M/He_Who_Fights_with_Monsters",
+        "mode": "remote-display",
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "azarinth-healer",
