@@ -658,7 +658,7 @@
       "NV-041"
     ],
     "acceptance": "1000+ unique actual webnovel works with validated author, original language, official or legitimate link, duplicate-safe source history, rights scope and timestamp; no mass extraction of restricted rival compilations or copied chapters; fast paginated discovery",
-    "evidence": "56 actual linked works (19 Chinese, 13 Korean, 24 English) and 50 factual source claims; a 7,041-candidate quarantined snapshot has only two newly approved original work URLs (Fanqie, Tadu). Publisher-review CLI and GitHub audit protect from duplicated/unverified promotions. 1,000 remains unachieved."
+    "evidence": "56 actual linked works (19 Chinese, 13 Korean, 24 English) and 50 factual source claims; a 7,041-candidate quarantined snapshot has only two newly approved original work URLs (Fanqie, Tadu). Publisher-review CLI and GitHub audit protect from duplicated/unverified promotions. 1,000 remains unachieved.\n2026-11-08: ten checked Royal Road source links and evidence claims committed; 66 public branch entries / 60 source claims. See docs/royalroad-editorial-batch-2026-11-08.md. Quarantine 7,039 unchanged; social DB/deployment verification outstanding."
   },
   {
     "id": "NV-051",

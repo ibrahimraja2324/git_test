@@ -75,3 +75,7 @@ The public homepage at `#home` is a real, cited webnovel directory (54 real inde
 - scripts/promote_reviewed_novels.py and content/source-review-decisions.json enforce explicit editor approval, original prose identity, exact matching author/title, source whitelist and no copied text. Real upstream data GitHub Action 42402778744 passed; no unverified approvals.
 - db/novalume_suggestions_v1.sql applied to connected Supabase project. It is the seventh Novalume table, strict RLS; authenticated readers can submit/withdraw missing-original-novel metadata on #community, but cannot approve anything. Initially no real user suggestions.
 - User login still needs Supabase Additional Redirect URL and end-to-end signup/mobile QA. Do not alter default Site URL in the shared project or create fake community activity.
+
+## 8 November 2026 — ten-author-source editorial batch
+
+Branch source now contains **66** real linked works (19 Chinese, 13 Korean, 34 English), **60** source claims; the 7,039 unverified Chinese candidates remain quarantined. Ten Royal Road author work pages were individually checked on 8 November; metadata and independent summaries are source-link-only. Status of nine is **Unknown** (eight STUB and one INACTIVE), not asserted to be completed/ongoing. The batch is documented in `docs/royalroad-editorial-batch-2026-11-08.md`. Database reconciliation and CI/deployment verification remain separate acceptance gates. Earlier 54/56 count notes are historical, not a reason to overwrite the latest batch.

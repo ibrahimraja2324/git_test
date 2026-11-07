@@ -681,6 +681,146 @@
         "originalLanguage": "Chinese",
         "workStatus": "Completed"
       }
+    },
+    {
+      "seriesId": "mark-of-the-fool",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/41618/mark-of-the-fool",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Mark of the Fool",
+        "author": "J.M. Clarke (U Juggernaut)",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
+    },
+    {
+      "seriesId": "the-hedge-wizard",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/43181/the-hedge-wizard",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Hedge Wizard",
+        "author": "Alex M",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
+    },
+    {
+      "seriesId": "bog-standard-isekai",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/69512/bog-standard-isekai",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Bog Standard Isekai",
+        "author": "Miles English",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
+    },
+    {
+      "seriesId": "arkendrithyst",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/26727/arkendrithyst",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Ar'Kendrithyst",
+        "author": "Arcs",
+        "originalLanguage": "English",
+        "workStatus": "Completed"
+      }
+    },
+    {
+      "seriesId": "unintended-cultivator",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/67362/unintended-cultivator-a-xianxia-inspired-cultivation",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Unintended Cultivator",
+        "author": "Edontigney",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
+    },
+    {
+      "seriesId": "elydes",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/67742/elydes",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "Elydes",
+        "author": "Drewells",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
+    },
+    {
+      "seriesId": "the-grand-game",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/42463/the-grand-game",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Grand Game",
+        "author": "Tom_Elliot",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
+    },
+    {
+      "seriesId": "the-legend-of-william-oh",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/92144/the-legend-of-william-oh",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Legend of William Oh",
+        "author": "Macronomicon",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
+    },
+    {
+      "seriesId": "the-weirkey-chronicles",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/35660/the-weirkey-chronicles",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Weirkey Chronicles",
+        "author": "SarahLin",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
+    },
+    {
+      "seriesId": "the-last-orellen",
+      "provider": "Royal Road",
+      "sourceUrl": "https://www.royalroad.com/fiction/46901/the-last-orellen",
+      "observedAt": "2026-11-08",
+      "sourceKind": "author-hosting-platform",
+      "reusePolicy": "manual-facts-and-link-only",
+      "claims": {
+        "title": "The Last Orellen",
+        "author": "sieley",
+        "originalLanguage": "English",
+        "workStatus": "Unknown"
+      }
     }
   ]
 }
