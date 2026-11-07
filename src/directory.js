@@ -74,9 +74,10 @@ function persistShelf(shelf){
  catch{return false}
 }
 function tile(item,size=''){
- const glyph=item.originalLanguage==='Chinese'?'中':item.originalLanguage==='Korean'?'한':'✦';
- const color=item.originalLanguage==='Chinese'?'#9b524e':item.originalLanguage==='Korean'?'#4e7294':'#6d598d';
- return '<div class="db-cover '+size+'" style="--db-cover:'+color+'"><span class="db-cover-symbol">'+glyph+'</span><strong>'+escape(item.title)+'</strong><small>'+escape(item.author)+'</small></div>';
+ const glyph=item.originalLanguage==='Chinese'?'墨':item.originalLanguage==='Korean'?'빛':'✦';
+ let hash=0;for(const c of item.id)hash=(hash*29+c.charCodeAt(0))>>>0;
+ return '<div class="db-cover nov-cover nov-cover-'+(hash%8)+' '+size+'"><small>'+escape(item.originalLanguage)+'</small>'+
+ '<span aria-hidden="true">'+glyph+'</span><div><strong>'+escape(item.title)+'</strong><em>'+escape(item.author)+'</em></div></div>';
 }
 function tag(item){
  return '<span class="db-tag">'+escape(item)+'</span>';
@@ -160,6 +161,7 @@ export function mountSeries(root,series,id){
  '<div class="eyebrow small">'+escape(item.originalLanguage)+' WEBNOVEL · '+escape(item.workStatus)+'</div>'+
  '<h1>'+escape(item.title)+'</h1><p class="db-series-author">by '+escape(item.author)+'</p>'+
  '<p class="db-series-summary">'+escape(item.summary)+'</p><div class="db-tags">'+item.genres.map(tag).join('')+'</div>'+
+ '<div class="nov-detail-tabs"><a href="#dbTrackForm">My diary</a><a href="#dbSourceRecord">Sources & provenance</a></div>'+ 
  '<div class="db-series-actions"><a class="btn primary" href="'+escape(item.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Open '+escape(item.sourcePlatform)+' ↗</a>'+
  '<a class="btn secondary" href="#tracking">My list →</a></div>'+
  '<p class="db-rights-note">External index only. The source page controls chapter access, translation availability and pricing. No novel text is hosted here.</p></div></div>'+
@@ -172,7 +174,7 @@ export function mountSeries(root,series,id){
  '<label class="db-check-note"><input type="checkbox" id="dbReviewSpoiler" '+(current.reviewSpoiler?'checked':'')+'> Review contains spoilers (for future sharing)</label>'+ 
  '<div class="db-form-actions"><button class="btn primary" type="submit">Save to my list</button><button class="btn secondary" type="button" id="dbRemove">Remove from my list</button></div>'+
  '<p class="db-form-feedback" id="dbTrackMessage" role="status"></p></form></section>'+
- '<aside class="db-source-info"><h3>Record provenance</h3><dl><dt>Source</dt><dd>'+escape(item.sourcePlatform)+'</dd><dt>Original language</dt><dd>'+escape(item.originalLanguage)+'</dd>'+
+ '<aside class="db-source-info" id="dbSourceRecord"><h3>Record provenance</h3><dl><dt>Source</dt><dd>'+escape(item.sourcePlatform)+'</dd><dt>Original language</dt><dd>'+escape(item.originalLanguage)+'</dd>'+
  '<dt>Original work status</dt><dd>'+escape(item.workStatus)+'</dd><dt>Record updated</dt><dd>'+escape(item.verifiedAt)+'</dd><dt>Source confidence</dt><dd>'+escape(item.sourceConfidence||'Review pending')+'</dd><dt>Cross-checked sources</dt><dd>'+escape(item.sourceCount??0)+'</dd><dt>Chapter availability</dt><dd>'+escape(item.availabilityStatus||'Check source')+'</dd></dl>'+
  '<a href="'+escape(item.sourceUrl)+'" target="_blank" rel="noopener noreferrer">View cited record ↗</a>'+
  '<p>Original completion, translation progress and chapters available here are different questions. This is not a live feed.</p>'+

@@ -481,3 +481,5 @@
  .nov-profile-tallies span{margin-right:7px;font-size:11px}
 }
 @media(prefers-reduced-motion:reduce){.nov-floating,.nov-poster>a,.nov-shortcuts a{transition:none}.nov-poster-row{scroll-snap-type:none}}
+
+.nov-detail-tabs{display:flex;flex-wrap:wrap;gap:16px;padding:17px 0 7px;border-top:1px solid var(--line);margin-top:18px}.nov-detail-tabs a{font-weight:700;font-size:12px;color:var(--pink)}#dbTrackForm,#dbSourceRecord{scroll-margin-top:98px}.db-series-art .nov-cover{box-shadow:0 16px 35px #0005}.db-series-art .nov-cover>span{font-size:75px}.db-series-art .nov-cover strong{font-size:28px}.db-series-art .nov-cover em{font-size:9px}.nov-catalog-actions{display:flex;gap:19px;flex-wrap:wrap;align-items:center}.nov-catalog-actions>a{font-size:12px;color:var(--pink);font-weight:700;white-space:nowrap}.nov-catalog-actions>a:hover{text-decoration:underline}@media(max-width:700px){.nov-catalog-actions{gap:12px}.nov-catalog-actions>a{font-size:11px}}

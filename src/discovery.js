@@ -108,7 +108,7 @@ export function renderDiscovery(root,series){
  '<div class="nov-taste-empty"><span>✧</span><strong>Your next favourite<br>starts with one rating.</strong></div>')+'</section>'+
  '<section class="nov-catalog" id="nov-catalog"><div class="nov-kicker">THE REAL-TITLE DIRECTORY</div>'+
  '<div class="nov-section-top"><div><h2>Find your kind of story.</h2><p>Search real metadata with source links and traceable provenance.</p></div>'+
- '<a href="#tracking" class="nov-browse-link">My library ↗</a></div>'+
+ '<div class="nov-catalog-actions"><a href="https://github.com/ibrahimraja2324/git_test/issues/new?title=Novalume%3A%20suggest%20a%20missing%20novel&body=Novel%20title%3A%0AAuthor%3A%0AOriginal%20language%3A%0AOfficial%20or%20legitimate%20source%20URL%3A%0AOther%20source%20references%3A%0A%0APlease%20only%20share%20basic%20factual%20metadata%2C%20not%20chapters%2C%20publisher%20synopses%2C%20cover%20art%20or%20copied%20reviews." target="_blank" rel="noopener noreferrer">+ Suggest a missing novel ↗</a><a href="#tracking" class="nov-browse-link">My library ↗</a></div></div>'+
  '<div class="nov-catalog-layout"><aside class="nov-filters"><div class="nov-filter-top"><strong>Filters</strong><button type="button" id="nov-clear">Clear all</button></div>'+
  '<label for="nov-language">Original language</label><select id="nov-language">'+['All','Chinese','Korean','English'].map(x=>'<option '+(state.language===x?'selected':'')+'>'+x+'</option>').join('')+'</select>'+
  '<label for="nov-status">Original status</label><select id="nov-status">'+['All','Completed','Ongoing','Discontinued','Unknown'].map(x=>'<option '+(state.status===x?'selected':'')+'>'+x+'</option>').join('')+'</select>'+
