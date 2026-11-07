@@ -38,7 +38,7 @@ class MetadataIntakeTests(unittest.TestCase):
     ['/type/edition','/books/OL3M','1','2026','{"key":"/books/OL3M","title":"Not a work","subjects":["Web fiction"]}']
    ]
    with gzip.open(file,'wt',encoding='utf8') as f:
-    for row in records:f.write('\\t'.join(row)+'\n')
+    for row in records:f.write('\t'.join(row)+'\n')
    rows,count=openlibrary_dump(file,EXISTING)
    self.assertEqual(count,3)
    self.assertEqual(len(rows),1)
