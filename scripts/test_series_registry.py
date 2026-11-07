@@ -25,8 +25,14 @@ def validate_registry(data):
         art = item.get('coverArt')
         if art is not None:
             assert art.get('provider') == 'openlibrary' and art.get('mode') == 'remote-display'
-            assert __import__('re').fullmatch(r'OL[0-9]{1,12}M', art.get('editionId',''))
-            assert art.get('editionUrl','').startswith('https://openlibrary.org/books/'+art['editionId']+'/')
+            assert __import__('re').fullmatch(r'20[0-9]{2}-[0-9]{2}-[0-9]{2}', art.get('sourceCheckedAt',''))
+            if 'coverId' in art:
+                assert isinstance(art['coverId'],int) and 0<art['coverId']<100000000000
+                assert __import__('re').fullmatch(r'OL[0-9]{1,12}W',art.get('workId',''))
+                assert art.get('workUrl')=='https://openlibrary.org/works/'+art['workId']
+            else:
+                assert __import__('re').fullmatch(r'OL[0-9]{1,12}M', art.get('editionId',''))
+                assert art.get('editionUrl','').startswith('https://openlibrary.org/books/'+art['editionId']+'/')
             assert not art.get('localFile')
         assert item.get('sourcePolicy') in ('legacy-human-curated-source-link','manual-facts-and-editorial-summary')
         assert item['originalLanguage'] in ('Chinese', 'Korean', 'English')

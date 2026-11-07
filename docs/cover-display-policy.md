@@ -51,3 +51,14 @@ A one-time, rate-limited book metadata search (not cover crawling) creates
 only *quarantined* coverage proposals, to be manually reviewed before
 incorporating. Cover art is not automatically licensed by the user having
 read the work; publisher platform image scraping remains disabled.
+
+## Actual one-off English index search result (8 Nov)
+26 uncovered English originals were queried once using documented Open Library
+search metadata API at about 1.2-second intervals. It produced only 3
+exact-match author/title work cover IDs (The Perfect Run, Beware of Chicken,
+Mark of the Fool), stored first as quarantined reviewed proposals and then
+promoted by matching the source URLs/author/title to the canonical registry.
+Open Library numerical `cover_i` is now a supported validated identity, and
+site uses `/b/id/{coverId}-{M|L}.jpg?default=false` for those three.
+Registered cover metadata rose from 8 to 11 of 66. Do not equate this with
+11 images verified to render in a live mobile browser.

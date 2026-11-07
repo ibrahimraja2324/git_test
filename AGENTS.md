@@ -117,3 +117,6 @@ Open Library metadata SEARCH ONLY to generate review proposals; never
 automatically publishes, scrapes publisher artwork or downloads OL cover
 files. Candidate count is not verified art count. Production CI and visual QA
 remain separate gates.
+
+## 8 Nov: Open Library cover-ID work matches
+A rate-limited one-time Open Library search found exactly three additional English novels with exact title/author and a real cover_i: The Perfect Run (14811808), Beware of Chicken (14718151), Mark of the Fool (14628017). Promoted only these to public coverArt using strict numeric ID + OL work URL validation, for 11/66 registered. No other 23 English records matched with a cover. Do not call those 55 missing records fixed. Artwork still browser-direct and imagery may be missing at runtime.

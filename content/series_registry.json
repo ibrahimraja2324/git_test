@@ -345,7 +345,15 @@
       "rank": 13,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "source-page-observed",
-      "availabilityStatus": "Original complete"
+      "availabilityStatus": "Original complete",
+      "coverArt": {
+        "provider": "openlibrary",
+        "mode": "remote-display",
+        "workId": "OL39374486W",
+        "workUrl": "https://openlibrary.org/works/OL39374486W",
+        "coverId": 14811808,
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "beware-of-chicken",
@@ -368,7 +376,15 @@
       "rank": 14,
       "sourcePolicy": "legacy-human-curated-source-link",
       "sourceAudit": "needs-independent-recheck",
-      "availabilityStatus": "Check source"
+      "availabilityStatus": "Check source",
+      "coverArt": {
+        "provider": "openlibrary",
+        "mode": "remote-display",
+        "workId": "OL39173307W",
+        "workUrl": "https://openlibrary.org/works/OL39173307W",
+        "coverId": 14718151,
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "super-supportive",
@@ -1472,7 +1488,15 @@
       "availabilityStatus": "Check source",
       "sourcePolicy": "manual-facts-and-editorial-summary",
       "sourceAudit": "source-page-observed",
-      "statusNote": "Royal Road marks this listing STUB; serial availability and completion are not inferred"
+      "statusNote": "Royal Road marks this listing STUB; serial availability and completion are not inferred",
+      "coverArt": {
+        "provider": "openlibrary",
+        "mode": "remote-display",
+        "workId": "OL29206818W",
+        "workUrl": "https://openlibrary.org/works/OL29206818W",
+        "coverId": 14628017,
+        "sourceCheckedAt": "2026-11-08"
+      }
     },
     {
       "id": "the-hedge-wizard",

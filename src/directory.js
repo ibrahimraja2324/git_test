@@ -172,7 +172,7 @@ export function mountSeries(root,series,id){
  '<div class="db-series-actions"><a class="btn primary" href="'+escape(item.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Open '+escape(item.sourcePlatform)+' ↗</a>'+
  '<a class="btn secondary" href="#tracking">My list →</a><a class="btn secondary" href="#community/'+escape(item.id)+'">Community reviews →</a></div>'+
  '<p class="db-rights-note">External index only. The source page controls chapter access, translation availability and pricing. No novel text is hosted here.</p>'+
- (validCoverArt(item.coverArt)?'<p class="db-cover-credit">Matched book edition: <a href="'+escape(item.coverArt.editionUrl)+'" rel="noopener noreferrer" target="_blank">Open Library record ↗</a>. The image is served from its cover API; Novalume does not own the artwork.</p>':'')+'</div></div>'+
+ (validCoverArt(item.coverArt)?'<p class="db-cover-credit">Matched Open Library book record: <a href="'+escape(item.coverArt.workUrl||item.coverArt.editionUrl)+'" rel="noopener noreferrer" target="_blank">Open Library record ↗</a>. The image is served from its cover API; Novalume does not own the artwork.</p>':'')+'</div></div>'+
  renderExperiencePanel(series,id)+'<div class="db-series-lower"><section><h2>Your reading progress</h2><p class="muted">Keep track manually across platforms. These private notes are stored only in this browser.</p>'+
  '<form id="dbTrackForm" class="db-track-form"><label>List status<select id="dbTrackStatus">'+LIST_STATUSES.map(st=>'<option '+(current.status===st?'selected':'')+'>'+st+'</option>').join('')+'</select></label>'+
  '<label>Last chapter read<input id="dbTrackChapter" inputmode="numeric" type="number" min="0" max="1000000" step="1" value="'+current.chapter+'"></label>'+

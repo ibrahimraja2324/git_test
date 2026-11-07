@@ -39,7 +39,7 @@ export function cover(s,extra=''){
  const mark=s.originalLanguage==='Chinese'?'墨':s.originalLanguage==='Korean'?'빛':'✦';
  return '<div class="nov-cover nov-cover-'+palette(s)+' '+extra+'"><small>'+escape(s.originalLanguage)+'</small>'+
  '<span aria-hidden="true">'+mark+'</span><div><strong>'+escape(s.title)+'</strong><em>'+escape(s.author)+'</em></div>'+
- coverImg(s,extra==='hero'?'M':'S',extra==='hero')+'</div>';
+ coverImg(s,extra==='hero'?'L':'M',extra==='hero')+'</div>';
 }
 function poster(s){
  return '<div class="nov-poster"><a href="#series/'+escape(s.id)+'">'+cover(s)+'</a><h3><a href="#series/'+escape(s.id)+'">'+escape(s.title)+'</a></h3>'+
