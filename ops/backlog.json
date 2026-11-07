@@ -705,13 +705,52 @@
     "phase": "P1",
     "title": "Move from local-only diary to authenticated community profiles, ratings, reviews and taste neighbours",
     "priority": 1,
-    "status": "todo",
+    "status": "in_progress",
     "owner": "Codex",
     "dependencies": [
       "NV-042",
       "NV-052"
     ],
     "acceptance": "Real identity, per-user lists and private/public permissions, spoiler review defaults, abuse moderation, deletion/exports, rate-limited ingestion, user-weighted taste matching, real aggregate count threshold; never fake community content",
-    "evidence": "No real social backend or authenticated accounts implemented yet."
+    "evidence": "Six secure Supabase tables seeded with 54 works; UI for sign-in, profiles, reviews, follows, reports, cloud diary backup/restore, delete review and diary. CI passed. Auth redirect allowlist and actual signup/mobile UAT not confirmed; moderation/account deletion missing."
+  },
+  {
+    "id": "NV-055",
+    "phase": "P1",
+    "title": "Build and deploy RLS-protected Novalume social database and frontend",
+    "priority": 1,
+    "status": "done",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-054"
+    ],
+    "acceptance": "Real owner-isolated diary, work FK integrity, genuine reviews, profiles/follows/reports and secure browser public key, source tests",
+    "evidence": "db/novalume_social_v1.sql applied; 54 works, 0 social rows; anon diary SELECT/POST privilege tests verified; src/community.js, src/community.test.js. No live-user auth QA yet."
+  },
+  {
+    "id": "NV-056",
+    "phase": "P1",
+    "title": "Verify Auth redirects, live signup, moderation, rate limits, full account deletion and mobile QA",
+    "priority": 1,
+    "status": "in_progress",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-055"
+    ],
+    "acceptance": "Site URL and redirect allowlist, email confirmation, 2-user review/follow/diary isolation tests, report triage, anti-abuse, account deletion and live mobile interaction",
+    "evidence": "Supabase plugin cannot update Authentication URL Configuration. Full end-to-end account signup/review not tested; browser/HTTP smoke remains pending."
+  },
+  {
+    "id": "NV-057",
+    "phase": "P1",
+    "title": "Review CC0-claimed 7476-title Chinese webnovel metadata source and establish legitimate original links",
+    "priority": 1,
+    "status": "in_progress",
+    "owner": "ChatGPT",
+    "dependencies": [
+      "NV-053"
+    ],
+    "acceptance": "Acquire actual release safely, check licence/data quality, quarantine names/aliases/authors, verify original-source links, approve distinct series after review",
+    "evidence": "GitHub release file 1.69 MB confirmed, but bytes not retrievable in session. Quarantine importer + tests passed; 0 source works imported."
   }
 ]

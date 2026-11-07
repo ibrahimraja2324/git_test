@@ -1,31 +1,13 @@
-# Novalume — next substantial milestones (7 November 2026)
+# Novalume — launch gates and acquisition work
 
-Current production candidate: 54 real indexed webnovels (17 Chinese, 13 Korean, 24 English);
-8 cross-source corroborated, 32 one-source reviewed, 14 older records needing rechecks.
-48 factual claims. Distinct editorial cover UI and device-local private reviews and taste.
+Public real-work catalogue: 54 verified/link-record entries, not 7,476 or 24,639.
+Social backend: six RLS tables created in user-owned Supabase generic project, 54 seeded works, zero initial public reviews/profiles.
+Community frontend supports auth, public reader handles, reviews, follows, reporting and explicit diary cloud backups; actual signup/email QA unverified.
 
-## NV-050 — acquire 1,000+ real published webnovels, not fabricated stats
+NV-056: In Supabase Authentication > URL Configuration for nsjczdmkifzxhiihfcrr, set Site URL and Redirect URL to https://novalume-story-search.vercel.app. Then verify email signup, user-created post, follow, cloud restore on mobile, report moderation and account deletion. The installed plugin cannot change URL settings.
 
-An actual three-source intake parser now exists at scripts/metadata_intake.py:
-- Wikidata CC0 SPARQL JSON exports, using docs/wikidata-webfiction.rq
-- Open Library monthly CC0 dump streaming (.gz/.bz2) for *works* and edition crosswalk
-- Rights-claimed author CSV / future licensed publisher feeds
+NV-050 / NV-057: Obtain the actual CC0-claimed 7,476-title Chinese release, run scripts/import_cc0_webnovel_candidates.py to produce review-only identities. No public promotion until verified author, original work and legitimate source link. Avoid copying upstream descriptions/ratings and data with unclear rights.
 
-All outputs remain quarantined. Need to download real permissible sources, evaluate work vs
-adaptation identity, author and native title collisions, verify official links, then gradually
-approve distinct verified serial works. Current 54 is not 1,000.
+NV-054: build real collaborative taste (once real reviews arrive), review moderation, report administration and account deletion. Zero fake user activity.
 
-## NV-054 — actual Letterboxd-style community
-
-Device-local reading logs, half-star ratings and reviews work now. Next is secure sign-in,
-cloud profiles, actual public review submissions, per-review spoiler handling, deletion,
-social lists and a user-taste graph. No fake social feed or invented global scores.
-
-## NV-051 — novel-specific deep narrative search accuracy
-
-Separate original-text analysis requires explicit rights; 8,835 unverified static clues
-from three cleared classics are not 8,835 proven events. Continue evidence checking,
-factual event relation extraction, negative queries and chapter spoiler protections.
-
-Current site: https://novalume-story-search.vercel.app
-See docs/title-acquisition.md and docs/source-integration.md.
+See docs/social-launch.md and docs/title-acquisition.md.

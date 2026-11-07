@@ -68,4 +68,10 @@ The `#home` page now has a distinctive editorial world of novel-cover shelves (C
 
 Source scale infrastructure: `scripts/metadata_intake.py` streams Open Library CC0 bulk-work TSV dumps (.gz or .bz2), reads Wikidata SPARQL CC0 JSON, and accepts permissioned author CSV suggestions. **Every import is a quarantined candidate requiring provenance and identity review**, never an automatically published series. `docs/title-acquisition.md` explains the missing-source problem and the 100 → 1,000 → 10,000 quality gates. A GitHub Issue suggestion link is supplied on the site; it requires GitHub sign-in and does not silently collect data.
 
-Authenticated public profiles, friends, global reviews, real popularity rankings, collaborative recommendations, active release tracking, automatic account sync and author publishing are **not implemented**; these require a secure database and rights/abuse handling.
+An early real-user community beta is now implemented in code and secured in six existing-project Supabase tables. The Community page has auth, handles, real public reviews, follows, reporting and opt-in private cloud diary backups. There were zero real user profiles/reviews at initial migration. Live email-signup redirects, real-user browser QA, rate limiting and full account deletion are still launch blockers. See docs/social-launch.md.
+
+## Real community beta and title acquisition (7 Nov 2026)
+
+The reader-facing Community page is linked from desktop/mobile. Public reviews must be explicitly written and published by authenticated users; private diary content is never silently uploaded. Cloud backup/restore and deletion are user-controlled. The backend runs on a user-owned general Supabase project with isolated tables and RLS, not a separate billable project. A production auth confirmation URL has not been configured or verified through the available connector; do not describe sign-ups as fully end-to-end tested.
+
+The catalogue still has only 54 real linked novels, not thousands. A CC0-claimed 7,476-work Chinese dataset was discovered with an advertised public release asset, but it could not be downloaded in this run. We added a quarantine-only importer with tests; no records from that dataset were published. See docs/title-acquisition.md.

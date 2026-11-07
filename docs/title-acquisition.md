@@ -91,3 +91,37 @@ https://www.webnovel.com/terms_of_service
 The quality gate measures *unique real original serial works*, source link accuracy,
 duplicate/adaptation rate, status provenance, and percentage of records with recent checks.
 No fabricated counts, copied source descriptions or unlicensed art.
+
+
+## Additional 7,476-record Chinese webnovel candidate source
+
+An upstream GitHub project, HeTaobaba123/arabic-chinese-novels-dataset,
+advertises a CC0-1.0 metadata file for 7,476 Chinese webnovels:
+https://github.com/HeTaobaba123/arabic-chinese-novels-dataset
+
+A 1,690,037-byte release asset was verified via GitHub's release API, but
+the binary could not be downloaded through this session's available
+retrieval tools. Hence NO 7,476 candidate records have been ingested or
+published by Novalume. This is not 7,476 more public works.
+
+The converter scripts/import_cc0_webnovel_candidates.py accepts the
+downloaded local .gz or JSON. It quarantines only Chinese title, author,
+optional alternate title, broad genre and source identity. It explicitly
+discards copied prose, chapters, translated excerpts, covers, community
+ratings, audience view counts and inferred source URLs.
+
+Command after obtaining the asset legitimately:
+
+python3 scripts/import_cc0_webnovel_candidates.py --snapshot novels-metadata.ar-zh.json.gz --output /tmp/novalume-review.json
+
+The uploader's CC0 assertion does not necessarily cover third-party
+descriptions or rights they do not own. A candidate is NOT an original
+webnovel record until source, author identity, original edition and
+legitimate reading link have been independently checked.
+
+Another publicly found collection, shaido987/novel-dataset, says it
+scraped 24,639 Novel Updates entries but has no confirmed reuse
+licence. Do not mirror it. An academic Qidian-Webnovel Corpus 110
+licenses some metadata CC BY 4.0 but restricts comments and reader
+responses under a separate data transfer agreement. Do not harvest
+user personal information or restricted comments.
